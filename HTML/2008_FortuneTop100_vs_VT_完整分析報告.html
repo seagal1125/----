@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2008 《财富》前 100 VS VT 回測報告</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px 36px;
+      box-shadow: 0 8px 24px rgba(33, 37, 41, 0.08);
+    }
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      color: #343a40;
+    }
+    header p {
+      margin: 0;
+      color: #6c757d;
+    }
+    h2 {
+      color: #343a40;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.6rem;
+      margin-top: 2.4rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+    }
+    h3 {
+      color: #495057;
+      margin-top: 1.6rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.25rem;
+    }
+    p {
+      margin: 0 0 1rem;
+      color: #343a40;
+    }
+    ul {
+      margin: 0 0 1rem 1.4rem;
+      color: #343a40;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .summary {
+      background-color: #e9ecef;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .stat {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+    }
+    .stat h3 {
+      margin: 0 0 0.5rem;
+      color: #495057;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .stat p {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .stat .vt-return { color: #0d6efd; }
+    .stat .win-rate { color: #198754; }
+    .stat .avg-return { color: #ffc107; }
+    .stat .median-return { color: #fd7e14; }
+    .note {
+      background: #e7f1ff;
+      border-left: 4px solid #0d6efd;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      color: #0c2f6b;
+      margin-bottom: 1.5rem;
+    }
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: #f1f3f5;
+      color: #495057;
+      font-size: 0.9rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0 0.4rem;
+      font-size: 0.95rem;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(33, 37, 41, 0.08);
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #343a40;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    tbody tr:hover {
+      background-color: #e9ecef;
+    }
+    td.number {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    table.winners-table th { background-color: #d4edda; }
+    table.losers-table th { background-color: #f8d7da; }
+    footer {
+      text-align: center;
+      color: #6c757d;
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 720px) {
+      .card { padding: 24px; }
+      .summary { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <h1>2008 《财富》前 100 VS VT 長期績效回測</h1>
+        <p>公告日 2008-10-15 至 2025-10-23，資料來源：Fortune Global 500、Yahoo Finance 還原股價</p>
+      </header>
+
+      <section class="summary">
+        <div class="stat">
+          <h3>基準 (VT) 總報酬</h3>
+          <p class="vt-return">+499.03%</p>
+        </div>
+        <div class="stat">
+          <h3>百大企業勝率</h3>
+          <p class="win-rate">27 / 100</p>
+        </div>
+        <div class="stat">
+          <h3>可計算樣本平均報酬</h3>
+          <p class="avg-return">+480.10%</p>
+        </div>
+        <div class="stat">
+          <h3>樣本報酬中位數</h3>
+          <p class="median-return">+263.13%</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>研究重點</h2>
+        <p class="note">83 檔可取得完整股價資料，佔原始百大企業的 83.0%；其餘 17 檔因退市或未公開交易而缺資料。整體而言，等權持有這批龍頭股 17 年，平均報酬較 VT 落後 +18.93 個百分點。</p>
+        <ul>
+          <li>VT 長期年化報酬達 <strong>11.09%</strong>，展現全球分散配置與定期再平衡的優勢。</li>
+          <li>僅 <strong>27 檔（27.0%）</strong> 擊敗 VT，顯示單靠 2008 年的龍頭名單難以持續超越市場。</li>
+          <li>報酬分布極端：贏家多集中在醫療供應鏈、居家零售、科技金融；落後者則以歐洲工業、通信與危機銀行居多。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>長期贏家：擊敗 VT 的 27 家企業</h2>
+        <h3>贏家族群的關鍵動能</h3>
+        <ul>
+          <li><strong>醫療供應鏈與健保壟斷地位</strong>：Cencora（COR）、McKesson、UnitedHealth 受惠於美國醫療支出與保險滲透率長期上升，創造 20 倍以上報酬。</li>
+          <li><strong>居家生活與會員經濟</strong>：Home Depot、Costco 在房市修復與會員模式擴張下，持續放大利潤與股東回饋。</li>
+          <li><strong>金融與科技的轉型成功</strong>：摩根大通、摩根士丹利、三星電子把握金融重整與科技週期，實現超過 10 倍的價值成長。</li>
+        </ul>
+        <div class="chip-group">
+          <div class="chip">平均總報酬：+1144.30%</div>
+          <div class="chip">中位數總報酬：+914.34%</div>
+          <div class="chip">樣本涵蓋：27 檔</div>
+        </div>
+        <table class="winners-table">
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>公司</th>
+              <th>Ticker</th>
+              <th>總報酬%</th>
+              <th>CAGR%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>96</td><td>AMERISOURCEBERGEN</td><td>COR</td><td class='number'>+3123.18%</td><td class='number'>+22.64%</td></tr>
+<tr><td>65</td><td>HOME DEPOT</td><td>HD</td><td class='number'>+2897.74%</td><td class='number'>+22.12%</td></tr>
+<tr><td>99</td><td>COSTCO WHOLESALE</td><td>COST</td><td class='number'>+2422.75%</td><td class='number'>+20.89%</td></tr>
+<tr><td>81</td><td>UNITEDHEALTH GROUP</td><td>UNH</td><td class='number'>+2027.14%</td><td class='number'>+19.68%</td></tr>
+<tr><td>44</td><td>MCKESSON</td><td>MCK</td><td class='number'>+2021.39%</td><td class='number'>+19.66%</td></tr>
+<tr><td>49</td><td>VALERO ENERGY</td><td>VLO</td><td class='number'>+1649.19%</td><td class='number'>+18.31%</td></tr>
+<tr><td>98</td><td>MUNICH RE GROUP</td><td>MUV2.DE</td><td class='number'>+1182.92%</td><td class='number'>+16.18%</td></tr>
+<tr><td>62</td><td>MORGAN STANLEY</td><td>MS</td><td class='number'>+1150.57%</td><td class='number'>+16.00%</td></tr>
+<tr><td>38</td><td>SAMSUNG ELECTRONICS</td><td>005930.KS</td><td class='number'>+1143.80%</td><td class='number'>+15.97%</td></tr>
+<tr><td>32</td><td>J.P. MORGAN CHASE & CO.</td><td>JPM</td><td class='number'>+1067.34%</td><td class='number'>+15.53%</td></tr>
+<tr><td>37</td><td>SIEMENS</td><td>SIE.DE</td><td class='number'>+989.55%</td><td class='number'>+15.07%</td></tr>
+<tr><td>13</td><td>FORD MOTOR</td><td>F</td><td class='number'>+938.73%</td><td class='number'>+14.74%</td></tr>
+<tr><td>48</td><td>HITACHI</td><td>6501.T</td><td class='number'>+923.43%</td><td class='number'>+14.64%</td></tr>
+<tr><td>22</td><td>ALLIANZ</td><td>ALV.DE</td><td class='number'>+914.34%</td><td class='number'>+14.58%</td></tr>
+<tr><td>1</td><td>WAL-MART STORES</td><td>WMT</td><td class='number'>+817.27%</td><td class='number'>+13.91%</td></tr>
+<tr><td>60</td><td>CARDINAL HEALTH</td><td>CAH</td><td class='number'>+801.93%</td><td class='number'>+13.80%</td></tr>
+<tr><td>86</td><td>SK HOLDINGS</td><td>034730.KS</td><td class='number'>+795.13%</td><td class='number'>+14.74%</td></tr>
+<tr><td>61</td><td>GOLDMAN SACHS GROUP</td><td>GS</td><td class='number'>+780.95%</td><td class='number'>+13.64%</td></tr>
+<tr><td>78</td><td>BMW</td><td>BMW.DE</td><td class='number'>+693.13%</td><td class='number'>+12.94%</td></tr>
+<tr><td>87</td><td>KROGER</td><td>KR</td><td class='number'>+666.61%</td><td class='number'>+12.71%</td></tr>
+<tr><td>75</td><td>SONY</td><td>SONY</td><td class='number'>+605.55%</td><td class='number'>+12.17%</td></tr>
+<tr><td>93</td><td>BOEING</td><td>BA</td><td class='number'>+587.28%</td><td class='number'>+11.99%</td></tr>
+<tr><td>54</td><td>NIPPON TELEGRAPH & TELEPHONE</td><td>9432.T</td><td class='number'>+572.38%</td><td class='number'>+11.85%</td></tr>
+<tr><td>64</td><td>DEUTSCHE TELEKOM</td><td>DTE.DE</td><td class='number'>+554.72%</td><td class='number'>+11.67%</td></tr>
+<tr><td>30</td><td>BERKSHIRE HATHAWAY</td><td>BRK-B</td><td class='number'>+547.80%</td><td class='number'>+11.60%</td></tr>
+<tr><td>11</td><td>DAIMLER</td><td>MBG.DE</td><td class='number'>+517.67%</td><td class='number'>+11.29%</td></tr>
+<tr><td>46</td><td>INTERNATIONAL BUSINESS MACHINES</td><td>IBM</td><td class='number'>+503.66%</td><td class='number'>+11.14%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>長期落後者：未能追上 VT 的 56 家企業</h2>
+        <h3>落後族群的結構性問題</h3>
+        <ul>
+          <li><strong>歐洲傳統工業與通信轉型不及</strong>：Volkswagen、Thyssenkrupp、Vodafone 面臨電動化、鋼鐵供過於求與激烈競爭而長期失速。</li>
+          <li><strong>金融危機重災戶後勁不足</strong>：蘇格蘭皇家銀行、花旗、巴克萊大量稀釋股本與受監管束縛，復甦有限。</li>
+          <li><strong>資源與能源週期波動劇烈</strong>：Repsol、YPF、ArcelorMittal 等受商品價格震盪拖累，即便度過危機仍難脫負報酬。</li>
+        </ul>
+        <div class="chip-group">
+          <div class="chip">平均總報酬：+159.86%</div>
+          <div class="chip">中位數總報酬：+153.07%</div>
+          <div class="chip">樣本涵蓋：56 檔</div>
+        </div>
+        <table class="losers-table">
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>公司</th>
+              <th>Ticker</th>
+              <th>總報酬%</th>
+              <th>CAGR%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>18</td><td>VOLKSWAGEN</td><td>VWAGY</td><td class='number'>-68.94%</td><td class='number'>-6.64%</td></tr>
+<tr><td>88</td><td>NOKIA</td><td>NOK</td><td class='number'>-35.77%</td><td class='number'>-2.57%</td></tr>
+<tr><td>89</td><td>THYSSENKRUPP</td><td>TKA.DE</td><td class='number'>-29.56%</td><td class='number'>-2.04%</td></tr>
+<tr><td>85</td><td>VODAFONE</td><td>VOD.L</td><td class='number'>-24.80%</td><td class='number'>-1.66%</td></tr>
+<tr><td>36</td><td>ROYAL BANK OF SCOTLAND</td><td>NWG.L</td><td class='number'>-21.83%</td><td class='number'>-1.44%</td></tr>
+<tr><td>92</td><td>REPSOL YPF</td><td>YPF</td><td class='number'>-19.34%</td><td class='number'>-1.25%</td></tr>
+<tr><td>17</td><td>CITIGROUP</td><td>C</td><td class='number'>-19.32%</td><td class='number'>-1.25%</td></tr>
+<tr><td>39</td><td>ARCELORMITTAL</td><td>MT</td><td class='number'>-13.25%</td><td class='number'>-0.83%</td></tr>
+<tr><td>76</td><td>TELEFONICA</td><td>TEF</td><td class='number'>-11.32%</td><td class='number'>-0.70%</td></tr>
+<tr><td>33</td><td>CARREFOUR</td><td>CA.PA</td><td class='number'>-9.64%</td><td class='number'>-0.59%</td></tr>
+<tr><td>67</td><td>LG</td><td>066570.KS</td><td class='number'>-2.11%</td><td class='number'>-0.12%</td></tr>
+<tr><td>50</td><td>NISSAN MOTOR</td><td>7201.T</td><td class='number'>+4.74%</td><td class='number'>+0.27%</td></tr>
+<tr><td>51</td><td>TESCO</td><td>TSCO.L</td><td class='number'>+6.40%</td><td class='number'>+0.37%</td></tr>
+<tr><td>77</td><td>UNICREDIT GROUP</td><td>UCG.MI</td><td class='number'>+40.52%</td><td class='number'>+2.02%</td></tr>
+<tr><td>26</td><td>DEUTSCHE BANK</td><td>DBK.DE</td><td class='number'>+45.04%</td><td class='number'>+2.21%</td></tr>
+<tr><td>52</td><td>E.ON</td><td>EOAN.DE</td><td class='number'>+56.28%</td><td class='number'>+2.66%</td></tr>
+<tr><td>72</td><td>MATSUSHITA ELECTRIC INDUSTRIAL</td><td>6752.T</td><td class='number'>+60.16%</td><td class='number'>+2.81%</td></tr>
+<tr><td>70</td><td>BARCLAYS</td><td>BARC.L</td><td class='number'>+73.39%</td><td class='number'>+3.29%</td></tr>
+<tr><td>69</td><td>AVIVA</td><td>AV.L</td><td class='number'>+73.68%</td><td class='number'>+3.30%</td></tr>
+<tr><td>63</td><td>PETROBRAS</td><td>PBR</td><td class='number'>+92.61%</td><td class='number'>+3.93%</td></tr>
+<tr><td>4</td><td>BP</td><td>BP</td><td class='number'>+108.14%</td><td class='number'>+4.40%</td></tr>
+<tr><td>43</td><td>SOCIETE GENERALE</td><td>GLE.PA</td><td class='number'>+114.57%</td><td class='number'>+4.59%</td></tr>
+<tr><td>58</td><td>SANTANDER CENTRAL HISPANO GROUP</td><td>SAN</td><td class='number'>+116.75%</td><td class='number'>+4.65%</td></tr>
+<tr><td>84</td><td>FRANCE TELECOM</td><td>ORA.PA</td><td class='number'>+118.15%</td><td class='number'>+4.69%</td></tr>
+<tr><td>40</td><td>HONDA MOTOR</td><td>HMC</td><td class='number'>+119.25%</td><td class='number'>+4.72%</td></tr>
+<tr><td>20</td><td>HSBC HOLDINGS</td><td>HSBC</td><td class='number'>+133.41%</td><td class='number'>+5.11%</td></tr>
+<tr><td>41</td><td>HEWLETT-PACKARD</td><td>HPQ</td><td class='number'>+146.96%</td><td class='number'>+5.46%</td></tr>
+<tr><td>27</td><td>ENI</td><td>E</td><td class='number'>+152.02%</td><td class='number'>+5.58%</td></tr>
+<tr><td>21</td><td>BNP PARIBAS</td><td>BNP.PA</td><td class='number'>+154.12%</td><td class='number'>+5.63%</td></tr>
+<tr><td>35</td><td>AMERICAN INTERNATIONAL GROUP</td><td>AIG</td><td class='number'>+157.07%</td><td class='number'>+5.70%</td></tr>
+<tr><td>9</td><td>GENERAL MOTORS</td><td>GM</td><td class='number'>+163.48%</td><td class='number'>+6.71%</td></tr>
+<tr><td>25</td><td>CHINA NATIONAL PETROLEUM</td><td>0857.HK</td><td class='number'>+178.10%</td><td class='number'>+6.19%</td></tr>
+<tr><td>7</td><td>ING GROUP</td><td>ING</td><td class='number'>+179.47%</td><td class='number'>+6.22%</td></tr>
+<tr><td>28</td><td>BANK OF AMERICA CORP.</td><td>BAC</td><td class='number'>+182.80%</td><td class='number'>+6.30%</td></tr>
+<tr><td>16</td><td>SINOPEC</td><td>0386.HK</td><td class='number'>+186.66%</td><td class='number'>+6.38%</td></tr>
+<tr><td>34</td><td>ASSICURAZIONI GENERALI</td><td>G.MI</td><td class='number'>+205.55%</td><td class='number'>+6.78%</td></tr>
+<tr><td>57</td><td>NESTLE</td><td>NESN.SW</td><td class='number'>+227.49%</td><td class='number'>+7.22%</td></tr>
+<tr><td>31</td><td>UBS</td><td>UBS</td><td class='number'>+229.74%</td><td class='number'>+7.26%</td></tr>
+<tr><td>2</td><td>EXXON MOBIL</td><td>XOM</td><td class='number'>+242.58%</td><td class='number'>+7.50%</td></tr>
+<tr><td>23</td><td>CREDIT AGRICOLE</td><td>ACA.PA</td><td class='number'>+244.01%</td><td class='number'>+7.53%</td></tr>
+<tr><td>8</td><td>TOTAL</td><td>TTE</td><td class='number'>+259.93%</td><td class='number'>+7.82%</td></tr>
+<tr><td>59</td><td>STATOIL HYDRO</td><td>EQNR</td><td class='number'>+263.13%</td><td class='number'>+7.87%</td></tr>
+<tr><td>73</td><td>BASF</td><td>BAS.DE</td><td class='number'>+268.92%</td><td class='number'>+7.97%</td></tr>
+<tr><td>55</td><td>DEUTSCHE POST</td><td>DHL.DE</td><td class='number'>+274.53%</td><td class='number'>+8.07%</td></tr>
+<tr><td>53</td><td>VERIZON COMMUNICATIONS</td><td>VZ</td><td class='number'>+283.94%</td><td class='number'>+8.23%</td></tr>
+<tr><td>3</td><td>ROYAL DUTCH SHELL</td><td>SHEL</td><td class='number'>+291.30%</td><td class='number'>+8.35%</td></tr>
+<tr><td>79</td><td>PROCTER & GAMBLE</td><td>PG</td><td class='number'>+317.35%</td><td class='number'>+8.76%</td></tr>
+<tr><td>94</td><td>PRUDENTIAL</td><td>PRU</td><td class='number'>+322.75%</td><td class='number'>+8.84%</td></tr>
+<tr><td>10</td><td>CONOCOPHILLIPS</td><td>COP</td><td class='number'>+325.05%</td><td class='number'>+8.87%</td></tr>
+<tr><td>80</td><td>CVS CAREMARK</td><td>CVS</td><td class='number'>+351.80%</td><td class='number'>+9.27%</td></tr>
+<tr><td>29</td><td>AT&T</td><td>T</td><td class='number'>+372.23%</td><td class='number'>+9.55%</td></tr>
+<tr><td>12</td><td>GENERAL ELECTRIC</td><td>GE</td><td class='number'>+377.15%</td><td class='number'>+9.62%</td></tr>
+<tr><td>5</td><td>TOYOTA MOTOR</td><td>TM</td><td class='number'>+384.72%</td><td class='number'>+9.72%</td></tr>
+<tr><td>6</td><td>CHEVRON</td><td>CVX</td><td class='number'>+409.65%</td><td class='number'>+10.04%</td></tr>
+<tr><td>15</td><td>AXA</td><td>CS.PA</td><td class='number'>+410.71%</td><td class='number'>+10.06%</td></tr>
+<tr><td>82</td><td>HYUNDAI MOTOR</td><td>005380.KS</td><td class='number'>+481.84%</td><td class='number'>+10.90%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>資料限制與注意事項</h2>
+        <ul>
+          <li>下列 17 家企業沒有完整交易資料：FORTIS、DEXIA GROUP、STATE GRID、PEMEX、HBOS、GAZPROM、METRO、PEUGEOT、ELECTRICITE DE FRANCE、FIAT、CREDIT SUISSE、U.S. POSTAL SERVICE、LUKOIL、TOSHIBA、PETRONAS、SUEZ、MERRILL LYNCH。</li>
+          <li>部分企業因併購或重整變更代號：例 GM 2010 年重新上市、Cencora（COR）為 AmerisourceBergen 更名。</li>
+          <li>報酬以美元計價的調整收盤價計算，未納入匯率與現金再投資假設。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>研究檔案</h2>
+        <ul>
+          <li><code>歷年全球500大公司/2008_top100_returns_latest.csv</code>：83 檔個股的完整績效。</li>
+          <li><code>歷年全球500大公司/2008_top100_missing_latest.csv</code>：無交易資料的企業名單。</li>
+          <li><code>歷年全球500大公司/2008_top100_summary_latest.json</code>：統計摘要與勝率、平均值。</li>
+        </ul>
+      </section>
+
+      <footer>
+        資料更新：2025-10-23 ｜ 本報告僅供資訊分享，非投資建議。
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10年財務計畫分析報告</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.8;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #4a90e2, #50e3c2);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            border-bottom: 5px solid #4a90e2;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 2.5rem;
+        }
+        .section {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 2rem;
+        }
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-top: 0;
+            border-left: 4px solid #50e3c2;
+            padding-left: 1rem;
+        }
+        .params-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .param-card {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        .param-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #343a40;
+            font-weight: 500;
+        }
+        .param-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+        .param-card .unit {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+            color: #6c757d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .total-row td {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .highlight-neutral { color: #6c757d; }
+        .highlight-negative { color: #e74c3c; font-weight: 700; }
+        .highlight-positive { color: #2ecc71; font-weight: 700; }
+        .summary {
+            background-color: #e9f5ff;
+            border-left: 5px solid #4a90e2;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+        .summary p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>10年財務計畫分析報告</h1>
+            <p>評估2.5%質押年利率對總體續航力的影響</p>
+        </header>
+
+        <div class="content">
+            <div class="section">
+                <h2>核心前提</h2>
+                <div class="params-grid">
+                    <div class="param-card">
+                        <h3>基本月缺口 (M₀)</h3>
+                        <p><span class="value">111,960</span><span class="unit">元</span></p>
+                    </div>
+                    <div class="param-card">
+                        <h3>年初現金 (C)</h3>
+                        <p><span class="value">750,000</span><span class="unit">元</span></p>
+                    </div>
+                    <div class="param-card">
+                        <h3>台積電現值 (V)</h3>
+                        <p><span class="value">15,215,200</span><span class="unit">元</span></p>
+                    </div>
+                    <div class="param-card">
+                        <h3>質押邊界 (LTV)</h3>
+                        <p><span class="value">20%</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>續航力分析：三階段法</h2>
+                <p>計畫將資金來源分為三階段：首先動用現金，接著使用股票質押借款，最後在保留20%核心持股的前提下賣出部分股票支應生活。</p>
+                
+                <h3>階段一：現金續航期</h3>
+                <p>此階段無貸款，僅消耗現金，續航力不受利息影響。</p>
+                
+                <h3>階段二：質押擴張期</h3>
+                <p>貸款餘額從 0 成長至 LTV 上限 (約304萬)。利息成本會隨貸款增加而上升。</p>
+
+                <h3>階段三：賣股維持期</h3>
+                <p>每月賣股以支應生活費與利息，同時償還部分本金以維持 LTV 於20%。貸款餘額將隨賣股進程緩慢下降。</p>
+            </div>
+
+            <div class="section">
+                <h2>結論：續航力比較</h2>
+                <p>下表比較了「理想情況(無利息)」與「考慮2.5%年利率」兩種情境下的財務續航力。</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>原分析 (無利息)</th>
+                            <th>加入 2.5% 利息後 (估算)</th>
+                            <th>差異</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>現金續航</td>
+                            <td>6.70 個月</td>
+                            <td>6.70 個月</td>
+                            <td class="highlight-neutral">0</td>
+                        </tr>
+                        <tr>
+                            <td>質押續航</td>
+                            <td>27.17 個月</td>
+                            <td>26.43 個月</td>
+                            <td class="highlight-negative">-0.74 個月</td>
+                        </tr>
+                        <tr>
+                            <td>賣股續航</td>
+                            <td>86.95 個月</td>
+                            <td>84.12 個月</td>
+                            <td class="highlight-negative">-2.83 個月</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>總計</strong></td>
+                            <td><strong>120.82 個月 (≈ 10.07 年)</strong></td>
+                            <td><strong>117.25 個月 (≈ 9.77 年)</strong></td>
+                            <td class="highlight-negative"><strong>-3.57 個月</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="summary">
+                    <p><strong>總結：考慮 2.5% 的質押年利率後，您的總體財務續航力從約 10.1 年縮短至約 9.8 年，總共減少了約 3.6 個月。</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

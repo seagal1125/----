@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>0050 成分股｜年初至今 (10/21) 績效分析（2025）</title>
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card: #f8fafc;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --good: #16a34a;
+      --bad: #dc2626;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b1220;
+        --card: #0f182a;
+        --ink: #e2e8f0;
+        --muted: #9aa6b2;
+        --accent: #60a5fa;
+        --good: #34d399;
+        --bad: #f87171;
+        --border: #1f2a44;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+      }
+    }
+    html, body{background:var(--bg); color:var(--ink); font: 15px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans TC, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    .wrap{max-width:1100px; margin:40px auto; padding:0 20px;}
+    header{display:grid; gap:16px; margin-bottom:22px;}
+    .title{display:flex; align-items:baseline; gap:12px;}
+    .title h1{font-size: clamp(22px, 2.8vw, 30px); margin:0; letter-spacing:.5px}
+    .title .tag{font-size:12px; color:var(--muted); background:var(--card); border:1px solid var(--border); padding:2px 8px; border-radius:999px}
+    .subtitle{color:var(--muted);}
+
+    .cards{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:var(--shadow)}
+    .card .label{font-size:12px; color:var(--muted)}
+    .card .value{font-weight:700; font-size:20px; margin-top:6px}
+
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
+
+    .panel{background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
+    .panel header{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--border); margin:0}
+    .panel h2{font-size:16px; margin:0; letter-spacing:.3px}
+    .badge{font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted); background:transparent}
+
+    table{width:100%; border-collapse:collapse}
+    th, td{padding:10px 12px; border-bottom:1px solid var(--border);}
+    th{font-weight:600; color:var(--muted); text-align:left; font-size:12px}
+    td.rank{width:56px; color:var(--muted); font-variant-numeric: tabular-nums;}
+    td.ticker{white-space:nowrap}
+    .pos{color:var(--good); font-variant-numeric: tabular-nums;}
+    .neg{color:var(--bad); font-variant-numeric: tabular-nums;}
+
+    .legend{margin-top:14px; color:var(--muted); font-size:13px}
+    footer{margin:32px 0 10px; color:var(--muted); font-size:12px}
+
+    @media (max-width: 960px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>0050 成分股｜年初至今 (10/21) 績效分析（2025）</h1>
+        <span class="tag">基準：0050 +33.53%</span>
+      </div>
+      <div class="subtitle">左列為跑贏 0050 的公司，右列為落後 0050 的公司，並附報酬率排名（依績效高→低）。</div>
+    </header>
+
+    <section class="cards" aria-label="摘要指標">
+      <div class="card"><div class="label">樣本公司數</div><div class="value">51</div></div>
+      <div class="card"><div class="label">贏過 0050</div><div class="value">12 檔</div></div>
+      <div class="card"><div class="label">輸給 0050</div><div class="value">39 檔</div></div>
+      <div class="card"><div class="label">隨機選股打敗 0050 的機率</div><div class="value">23.5%</div></div>
+    </section>
+
+    <section class="grid">
+      <!-- Left: Winners -->
+      <article class="panel" aria-labelledby="win-h2">
+        <header>
+          <h2 id="win-h2">🏆 跑贏 0050 的公司（12）</h2>
+          <span class="badge">報酬率 & 排名</span>
+        </header>
+        <table>
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>公司</th>
+              <th>YTD 報酬</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="rank">#1</td><td class="ticker">康霈*（6919.TW）</td><td class="pos">+180.72%</td></tr>
+            <tr><td class="rank">#2</td><td class="ticker">川湖（2059.TW）</td><td class="pos">+158.08%</td></tr>
+            <tr><td class="rank">#3</td><td class="ticker">台達電（2308.TW）</td><td class="pos">+145.29%</td></tr>
+            <tr><td class="rank">#4</td><td class="ticker">台光電（2383.TW）</td><td class="pos">+92.08%</td></tr>
+            <tr><td class="rank">#5</td><td class="ticker">奇鋐（3017.TW）</td><td class="pos">+90.27%</td></tr>
+            <tr><td class="rank">#6</td><td class="ticker">光寶科（2301.TW）</td><td class="pos">+71.76%</td></tr>
+            <tr><td class="rank">#7</td><td class="ticker">緯穎（6669.TW）</td><td class="pos">+61.55%</td></tr>
+            <tr><td class="rank">#8</td><td class="ticker">國巨*（2327.TW）</td><td class="pos">+58.55%</td></tr>
+            <tr><td class="rank">#9</td><td class="ticker">緯創（3231.TW）</td><td class="pos">+44.08%</td></tr>
+            <tr><td class="rank">#10</td><td class="ticker">南亞（1303.TW）</td><td class="pos">+42.48%</td></tr>
+            <tr><td class="rank">#11</td><td class="ticker">台積電（2330.TW）</td><td class="pos">+42.19%</td></tr>
+            <tr><td class="rank">#12</td><td class="ticker">鴻海（2317.TW）</td><td class="pos">+36.85%</td></tr>
+          </tbody>
+        </table>
+        <div class="legend">主題集中於 AI 伺服器供應鏈（電源、散熱、組裝）與半導體核心（台積電、被動元件），另有化工材料南亞受惠。</div>
+      </article>
+
+      <!-- Right: Losers -->
+      <article class="panel" aria-labelledby="lose-h2">
+        <header>
+          <h2 id="lose-h2">🐢 落後 0050 的公司（39）</h2>
+          <span class="badge">報酬率 & 排名</span>
+        </header>
+        <table>
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>公司</th>
+              <th>YTD 報酬</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="rank">#13</td><td class="ticker">台塑化（6505.TW）</td><td class="pos">+30.96%</td></tr>
+            <tr><td class="rank">#14</td><td class="ticker">智邦（2345.TW）</td><td class="pos">+30.20%</td></tr>
+            <tr><td class="rank">#15</td><td class="ticker">日月光投控（3711.TW）</td><td class="pos">+27.05%</td></tr>
+            <tr><td class="rank">#16</td><td class="ticker">玉山金（2884.TW）</td><td class="pos">+26.04%</td></tr>
+            <tr><td class="rank">#17</td><td class="ticker">永豐金（2890.TW）</td><td class="pos">+22.84%</td></tr>
+            <tr><td class="rank">#18</td><td class="ticker">華碩（2357.TW）</td><td class="pos">+20.05%</td></tr>
+            <tr><td class="rank">#19</td><td class="ticker">華南金（2880.TW）</td><td class="pos">+19.13%</td></tr>
+            <tr><td class="rank">#20</td><td class="ticker">台新新光金（2887.TW）</td><td class="pos">+18.40%</td></tr>
+            <tr><td class="rank">#21</td><td class="ticker">中信金（2891.TW）</td><td class="pos">+16.44%</td></tr>
+            <tr><td class="rank">#22</td><td class="ticker">兆豐金（2886.TW）</td><td class="pos">+13.81%</td></tr>
+            <tr><td class="rank">#23</td><td class="ticker">第一金（2892.TW）</td><td class="pos">+12.64%</td></tr>
+            <tr><td class="rank">#24</td><td class="ticker">台塑（1301.TW）</td><td class="pos">+12.32%</td></tr>
+            <tr><td class="rank">#25</td><td class="ticker">中華電（2412.TW）</td><td class="pos">+12.30%</td></tr>
+            <tr><td class="rank">#26</td><td class="ticker">聯電（2303.TW）</td><td class="pos">+11.57%</td></tr>
+            <tr><td class="rank">#27</td><td class="ticker">廣達（2382.TW）</td><td class="pos">+10.01%</td></tr>
+            <tr><td class="rank">#28</td><td class="ticker">遠傳（4904.TW）</td><td class="pos">+8.93%</td></tr>
+            <tr><td class="rank">#29</td><td class="ticker">富邦金（2881.TW）</td><td class="pos">+8.58%</td></tr>
+            <tr><td class="rank">#30</td><td class="ticker">世芯-KY（3661.TW）</td><td class="pos">+8.11%</td></tr>
+            <tr><td class="rank">#31</td><td class="ticker">元大金（2885.TW）</td><td class="pos">+7.43%</td></tr>
+            <tr><td class="rank">#32</td><td class="ticker">上海商銀（5876.TW）</td><td class="pos">+5.20%</td></tr>
+            <tr><td class="rank">#33</td><td class="ticker">合庫金（5880.TW）</td><td class="pos">+5.07%</td></tr>
+            <tr><td class="rank">#34</td><td class="ticker">瑞昱（2379.TW）</td><td class="pos">+3.42%</td></tr>
+            <tr><td class="rank">#35</td><td class="ticker">台灣大（3045.TW）</td><td class="pos">+3.22%</td></tr>
+            <tr><td class="rank">#36</td><td class="ticker">國泰金（2882.TW）</td><td class="pos">+2.95%</td></tr>
+            <tr><td class="rank">#37</td><td class="ticker">統一（1216.TW）</td><td class="pos">+2.86%</td></tr>
+            <tr><td class="rank">#38</td><td class="ticker">聯發科（2454.TW）</td><td class="pos">+1.97%</td></tr>
+            <tr><td class="rank">#39</td><td class="ticker">凱基金（2883.TW）</td><td class="pos">+0.62%</td></tr>
+            <tr><td class="rank">#40</td><td class="ticker">中鋼（2002.TW）</td><td class="neg">-0.17%</td></tr>
+            <tr><td class="rank">#41</td><td class="ticker">萬海（2615.TW）</td><td class="neg">-2.47%</td></tr>
+            <tr><td class="rank">#42</td><td class="ticker">和泰車（2207.TW）</td><td class="neg">-2.74%</td></tr>
+            <tr><td class="rank">#43</td><td class="ticker">統一超（2912.TW）</td><td class="neg">-3.54%</td></tr>
+            <tr><td class="rank">#44</td><td class="ticker">藥華藥（6446.TW）</td><td class="neg">-3.75%</td></tr>
+            <tr><td class="rank">#45</td><td class="ticker">研華（2395.TW）</td><td class="neg">-4.31%</td></tr>
+            <tr><td class="rank">#46</td><td class="ticker">長榮（2603.TW）</td><td class="neg">-6.38%</td></tr>
+            <tr><td class="rank">#47</td><td class="ticker">中租-KY（5871.TW）</td><td class="neg">-6.97%</td></tr>
+            <tr><td class="rank">#48</td><td class="ticker">和碩（4938.TW）</td><td class="neg">-11.10%</td></tr>
+            <tr><td class="rank">#49</td><td class="ticker">大立光（3008.TW）</td><td class="neg">-11.29%</td></tr>
+            <tr><td class="rank">#50</td><td class="ticker">聯詠（3034.TW）</td><td class="neg">-12.75%</td></tr>
+            <tr><td class="rank">#51</td><td class="ticker">陽明（2609.TW）</td><td class="neg">-21.32%</td></tr>
+          </tbody>
+        </table>
+        <div class="legend">落後族群以金融、航運、傳產占多；部分電子龍頭今年動能相對不足。</div>
+      </article>
+    </section>
+
+    <!-- 0050 概況 -->
+    <section class="panel" style="margin-top:18px" aria-labelledby="profile-h2">
+      <header>
+        <h2 id="profile-h2">🎯 0050 概況</h2>
+        <span class="badge">指數結構</span>
+      </header>
+      <div style="padding:14px 16px; display:grid; gap:10px">
+        <div><strong>ETF 名稱：</strong>元大台灣50（0050.TW）</div>
+        <div><strong>追蹤標的：</strong>台灣50指數</div>
+        <div><strong>主要持股：</strong>台積電、鴻海、聯發科、台達電、廣達、中信金、富邦金、國泰金、日月光投控、聯電</div>
+        <div><strong>產業比重（概估）：</strong>半導體與電子 ≈ 65% ｜ 金融 ≈ 15% ｜ 傳產與通訊 ≈ 10%</div>
+        <div class="legend">指數整體報酬受 <strong>台積電與 AI 族群</strong> 影響最深。</div>
+      </div>
+    </section>
+
+    <!-- 統計結果 -->
+    <section class="panel" style="margin-top:16px" aria-labelledby="stat-h2">
+      <header>
+        <h2 id="stat-h2">📊 統計結果</h2>
+        <span class="badge">摘要</span>
+      </header>
+      <div style="padding:6px 16px 14px">
+        <table>
+          <thead>
+            <tr><th style="width:40%">指標</th><th>數值</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>總公司數</td><td>51</td></tr>
+            <tr><td>贏過 0050</td><td>12</td></tr>
+            <tr><td>輸給 0050</td><td>39</td></tr>
+            <tr><td><strong>勝率（打敗 0050 的機率）</strong></td><td><strong>23.5%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 投資洞察摘要 -->
+    <section class="grid" style="margin-top:16px">
+      <article class="panel" aria-labelledby="insight-win-h2">
+        <header>
+          <h2 id="insight-win-h2">💡 贏家族群特徵</h2>
+          <span class="badge">主題 & 驅動力</span>
+        </header>
+        <div style="padding:12px 16px;">
+          <ul style="margin:0 0 8px 18px">
+            <li><strong>AI 伺服器鏈與電子高階製造：</strong>緯穎、奇鋐、川湖、光寶科、台達電、緯創</li>
+            <li><strong>半導體與材料：</strong>台積電、國巨、南亞</li>
+          </ul>
+          <div class="legend">主題集中於 <strong>AI 硬體建設與電源散熱</strong>，是 2025 年度最大贏家。</div>
+        </div>
+      </article>
+
+      <article class="panel" aria-labelledby="insight-lose-h2">
+        <header>
+          <h2 id="insight-lose-h2">📉 輸家族群特徵</h2>
+          <span class="badge">相對劣勢</span>
+        </header>
+        <div style="padding:12px 16px;">
+          <ul style="margin:0 0 8px 18px">
+            <li><strong>金融股：</strong>富邦金、兆豐金、合庫金 等，報酬普遍低於 10%。</li>
+            <li><strong>航運與傳產：</strong>陽明、長榮、中鋼 等表現疲弱。</li>
+            <li><strong>高階電子品牌股：</strong>聯發科、大立光、研華 等成長動能不足。</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- 投資結論 -->
+    <section class="panel" style="margin-top:16px" aria-labelledby="concl-h2">
+      <header>
+        <h2 id="concl-h2">🎯 投資結論</h2>
+        <span class="badge">重點整理</span>
+      </header>
+      <div style="padding:12px 16px;">
+        <table>
+          <thead>
+            <tr><th style="width:40%">重點</th><th>分析</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>主動選股勝率</strong></td><td>只有 <strong>約 23.5%</strong> 能打敗 0050。</td></tr>
+            <tr><td><strong>0050 的結構優勢</strong></td><td>高度集中於台積電與 AI 供應鏈，間接吸收漲幅紅利。</td></tr>
+            <tr><td><strong>產業集中風險</strong></td><td>若 AI 題材反轉，0050 波動將顯著上升。</td></tr>
+            <tr><td><strong>策略建議</strong></td><td>以「<strong>0050 + 台積電 + AI 伺服器族群</strong>」為核心配置，可兼顧穩定與成長。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <div>說明：本頁面依你提供之 YTD 資料整理，排名以報酬率由高到低（#1 → #51）。</div>
+    </footer>
+  </div>
+</body>
+</html>

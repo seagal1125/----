@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>股市報酬分配分析：為何指數化投資(不擇股)+長期持有(不擇時)是優勢策略？</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI','Microsoft JhengHei','Helvetica Neue',sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background: #f9f9f9
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px
+        }
+
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+            margin-bottom: 25px
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd
+        }
+
+        th {
+            background: #3498db;
+            color: #fff
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2
+        }
+
+        .chart {
+            width: 100%;
+            height: 450px
+        }
+
+        .summary-box {
+            background: #eaf5ff;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.05em
+        }
+
+        .note {
+            font-size: .95em;
+            color: #555
+        }
+
+        strong {
+            color: #c0392b
+        }
+
+        blockquote {
+            margin: 12px 0;
+            padding: 10px 14px;
+            background: #fffbe6;
+            border-left: 5px solid #f1c40f
+        }
+
+        .tag-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 8px 0 0
+        }
+
+        .tag {
+            background: #eef7ff;
+            border: 1px solid #b5dafd;
+            color: #2463a7;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 12px
+        }
+
+        .highlight-box {
+            background-color: #fff9e6;
+            border-left: 5px solid #f1c40f;
+            padding: 15px 18px;
+            margin: 20px 0;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            font-size: 1.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>股市報酬分配分析：為何指數化投資(不擇股)+長期持有(不擇時)是優勢策略？</h1>
+
+<div class="container">
+  <h2>結論先行：不擇股 × 不擇時 才是勝率最高的組合</h2>
+  <p>股市長期呈現<strong>贏家通吃</strong>與<strong>關鍵報酬時間高度集中</strong>兩大特性。因此，想靠「挑對公司」或「抓到進出點」長期打敗市場，勝率都偏低。</p>
+  <ul>
+    <li><strong>不擇股（指數化）</strong>：少數<strong>超級贏家</strong>（如台積電）拉高整體平均，多數公司落後於市場，跨公司報酬分布<strong>正偏態／長尾</strong>，選股難度高。</li>
+    <li><strong>不擇時（長期持有）</strong>：長期報酬<strong>集中在少數上漲日</strong>且難以事前預測；一旦離場極易錯過黃金時刻，加上人性偏誤（追高殺低）使擇時更不利。</li>
+  </ul>
+  <p>對多數投資人而言，與其冒高機率錯失贏家或錯過關鍵上漲日，<strong>直接買市場（如 0050 等指數型 ETF）並長期持有</strong>，以最低複雜度與行為風險，取得接近市場平均的成果。</p>
+  <div class="tag-row">
+    <div class="tag">不擇股 = 指數化</div>
+    <div class="tag">不擇時 = 長期持有</div>
+    <div class="tag">行為風險最小化</div>
+  </div>
+</div>
+<div class="highlight-box">
+  <strong>重點：</strong>少數公司貢獻大多報酬 ⇒ 不擇股更合理；少數交易日貢獻大多漲幅 ⇒ 不擇時更合理。<br>
+  合體策略＝<strong>指數化投資 × 長期持有</strong>。
+</div>
+    <!-- 不擇股面向 -->
+    <div class="container">
+        <h2>一、【不擇股】長期觀點（2003–2025）：以「年化報酬」驗證選股的殘酷真相</h2>
+        <div class="summary-box">
+            <table>
+                <tr><th>項目</th><th>數據</th></tr>
+                <tr>
+                    <td>權威基準｜台灣50報酬指數 年化報酬（2002 迄今）</td>
+                    <td><strong>12.76%</strong></td>
+                </tr>
+                <tr>
+                    <td>比較樣本（2003 年 50 強延伸至 55 檔）</td>
+                    <td>55 檔</td>
+                </tr>
+                <tr>
+                    <td>年化報酬 &gt; 12.76% 的股票數</td>
+                    <td>10 檔</td>
+                </tr>
+                <tr>
+                    <td>跑贏大盤（年化）的機率</td>
+                    <td><strong>18.18%</strong></td>
+                </tr>
+                <tr>
+                    <td>年化報酬率中位數</td>
+                    <td><strong>6.36%</strong></td>
+                </tr>
+                <tr>
+                    <td>最強個股（台積電）年化報酬</td>
+                    <td><strong>21.76%</strong></td>
+                </tr>
+            </table>
+        </div>
+        <p>這意味著：即使您在 2003 年就選中了當時最強的公司之一，您仍有高達 <strong>81.82%</strong> 的機率，<strong>長期年化報酬率會輸給大盤</strong>。</p>
+        <p>此外，<strong>一半公司</strong>的年化報酬連 <strong>6.36%</strong> 都不到，遠遠落後於大盤 <strong>12.76%</strong>；而像台積電這樣的極端贏家，以其強勁的表現，將市場的平均值向上拉高，掩蓋了大多數股票表現平庸的事實。</p>
+
+        <div class="highlight-box">
+            <strong>💡 一眼看懂：</strong>
+            <p>
+                若從 2002 年開始持有 <strong>台灣50報酬指數（0050）</strong> 至今（約 <strong>23 年</strong>），
+                在年化報酬率 <strong>12.76%</strong> 的複利效應下，
+                資產將從 <strong>1 元成長為約 15.8 元</strong> —— 也就是翻了<strong>超過 16 倍！</strong>
+            </p>
+            <p>
+                以「72 法則」估算：<code>72 ÷ 12.76 ≈ 5.6</code>，
+                代表平均 <strong>5.6 年翻倍一次</strong>，約 <strong>4 次翻倍</strong>（<code>2⁴ ≈ 16</code>），
+                與實際複利結果幾乎一致。
+                這正是<strong>長期持有指數型 ETF 的威力</strong>。
+            </p>
+        </div>
+        <p>下圖顯示<strong>年化報酬率分布</strong>；紅色標記點為 <strong>12.76%</strong>（台灣50報酬指數年化基準）。</p>
+        <div id="chart_2003" class="chart"></div>
+    </div>
+
+    <div class="container">
+        <h2>二、【不擇股】短期觀察（2025 年初至今）：歷史不斷重演</h2>
+        <div class="summary-box">
+            <table>
+                <tr><th>項目</th><th>數據</th></tr>
+                <tr>
+                    <td>0050 年初至今報酬（比較基準）</td>
+                    <td><strong>26.38%</strong></td>
+                </tr>
+                <tr>
+                    <td>比較樣本（今年的 0050 成分股）</td>
+                    <td>50 檔</td>
+                </tr>
+                <tr>
+                    <td>跑贏大盤的股票數</td>
+                    <td>14 檔</td>
+                </tr>
+                <tr>
+                    <td>跑贏大盤的機率</td>
+                    <td><strong>28.00%</strong></td>
+                </tr>
+            </table>
+        </div>
+        <p>即使在多頭市場，<strong>超過 70%</strong> 的成分股仍落後大盤；市場由少數「贏家」主導的特性，在短期依舊明顯存在。</p>
+        <p>下圖為今年以來的<strong>報酬率分布</strong>；紅色標記點為 <strong>26.38%</strong>（今年的 0050 基準）。</p>
+        <div id="chart_ytd" class="chart"></div>
+    </div>
+
+    <!-- 不擇時面向 -->
+    <div class="container">
+        <h2>三、【不擇時】擇時同樣不可行（Market Timing 的結構性難題）</h2>
+        <p class="note">前兩節從「不擇股」出發：想靠挑選個股打敗大盤，長期勝率極低。至於「擇時」（抓市場高低點進出），關鍵難題不在於報酬分佈，而在於
+<strong>關鍵報酬出現的時間無法預測</strong>，並受<strong>人性行為偏誤</strong>影響。</p>
+
+        <h3>核心論點一：錯過關鍵上漲日，代價極大</h3>
+        <p>市場的長期報酬常<strong>集中於極少數上漲日</strong>。一旦為避險離場，極易錯過這些「黃金時刻」，總報酬顯著受損。</p>
+        <ul>
+            <li>美國銀行（1930–2020）研究：<span class="note">長期持有可獲龐大報酬；但若每個十年都錯過「最佳的 10 天」，報酬幾乎歸零。</span></li>
+        </ul>
+        <table>
+            <tr><th>投資情境（2001–2020，Fidelity 示意）</th><th>最終資產（初始 1 萬美元）</th></tr>
+            <tr><td>持續留在市場</td><td>$42,240</td></tr>
+            <tr><td>錯過表現最好的 5 天</td><td>$27,399</td></tr>
+            <tr><td>錯過表現最好的 10 天</td><td>$20,344</td></tr>
+            <tr><td>錯過表現最好的 30 天</td><td>$7,794</td></tr>
+            <tr><td>錯過表現最好的 50 天</td><td>$3,584</td></tr>
+        </table>
+        <p><strong>重點：</strong>最猛烈的上漲常發生在最難預測之時，且常在恐慌後反彈的初期；只要錯過幾天，長期成果就會大打折扣。</p>
+
+        <h3>核心論點二：DALBAR 行為研究（QAIB）</h3>
+        <p>DALBAR 長年比較投資人實際報酬與市場指數，結論一致：散戶平均顯著落後，主因包含失敗的擇時行為。</p>
+        <ul>
+            <li>恐慌性賣出（跌勢中賣在低點）</li>
+            <li>追高性買入（利多氛圍買在高點）</li>
+        </ul>
+
+        <h3>核心論點三：擇時需連續做對「兩次」</h3>
+        <ul>
+            <li><strong>賣出點</strong>要踩在高檔轉折前</li>
+            <li><strong>買入點</strong>要踩在低檔反彈前</li>
+        </ul>
+        <p>任何一環失誤（太早賣、太晚買），通常不如單純的 <em>Buy & Hold</em>。能長期、穩定兩次都做對的專業經理人非常少見。</p>
+
+        <div class="summary-box">
+            <strong>小結：</strong>不擇股因「贏家極少」而勝率高於主動選股；不擇時因「關鍵報酬高度集中＋人性偏誤」而勝率高於主動擇時。兩者合一，即為<span style="font-weight:bold;">指數化投資＋長期持有</span>。
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>四、最終結論（不擇股 × 不擇時）</h2>
+        <blockquote>
+            無論長期投資還是短期操作，想靠挑選個股或成功擇時來戰勝市場，<strong>勝率極低</strong>。<br>
+            金融學界與投資界的共識：<em>Time in the market is more important than timing the market.</em><br>
+            對絕大多數投資者而言，最理性的策略：<strong>不擇股（指數化）＋不擇時（長期持有）</strong>，<br>
+            以最低複雜度與最低行為風險，穩健參與整體市場增長。
+        </blockquote>
+    </div>
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawCharts);
+
+        // 用紅色「標記點＋註解」標示基準（在類別軸上最穩定，不會被柱子遮住）
+        function putMarker(dataTable, binEdges, benchmarkValue, insertAtColIndex, label) {
+            // 新增：marker數值欄、annotation註解欄、tooltip欄
+            dataTable.addColumn('number', label);
+            dataTable.addColumn({ type: 'string', role: 'annotation' });
+            dataTable.addColumn({ type: 'string', role: 'tooltip' });
+
+            // 找出基準落在哪個 bin
+            let idx = -1;
+            for (let i = 0; i < binEdges.length - 1; i++) {
+                if (benchmarkValue >= binEdges[i] && benchmarkValue < binEdges[i + 1]) { idx = i; break; }
+            }
+
+            // 取得最大柱高，讓標記點浮在上方
+            let maxVal = 0;
+            for (let r = 0; r < dataTable.getNumberOfRows(); r++) {
+                maxVal = Math.max(maxVal, dataTable.getValue(r, 1) || 0);
+            }
+            const markerHeight = maxVal * 1.15;
+
+            // 清空所有列的 marker（只保留一個點）
+            for (let r = 0; r < dataTable.getNumberOfRows(); r++) {
+                dataTable.setValue(r, insertAtColIndex, null);
+                dataTable.setValue(r, insertAtColIndex + 1, null);
+                dataTable.setValue(r, insertAtColIndex + 2, null);
+            }
+
+            if (idx !== -1) {
+                dataTable.setValue(idx, insertAtColIndex, markerHeight);
+                dataTable.setValue(idx, insertAtColIndex + 1, label); // annotation
+                dataTable.setValue(idx, insertAtColIndex + 2,
+                    `${label}（位於 ${binEdges[idx].toFixed(2)}% ~ ${binEdges[idx + 1].toFixed(2)}%）`); // tooltip
+            }
+        }
+
+        function drawCharts() {
+            // --- 2003–2025 年化報酬率分布 ---
+            var data2003 = google.visualization.arrayToDataTable([
+                ['報酬率區間', '公司數量'],
+                ['-8.4% ~ -6.4%', 2], ['-6.4% ~ -4.3%', 0], ['-4.3% ~ -2.3%', 1],
+                ['-2.3% ~ -0.3%', 1], ['-0.3% ~ 1.8%', 1], ['1.8% ~ 3.8%', 5],
+                ['3.8% ~ 5.8%', 4], ['5.8% ~ 7.8%', 5], ['7.8% ~ 9.9%', 9],
+                ['9.9% ~ 11.9%', 4], ['11.9% ~ 13.9%', 6], ['13.9% ~ 16.0%', 9],
+                ['16.0% ~ 18.0%', 0], ['18.0% ~ 20.0%', 0], ['20.0% ~ 22.1%', 2]
+            ]);
+
+            // 基準：台灣50報酬指數 年化 12.76%
+            const benchmarkAnnualized = 12.76;
+            const binEdges2003 = [-8.4, -6.384, -4.368, -2.352, -0.336, 1.68, 3.70, 5.71, 7.73, 9.75, 11.76, 13.78, 15.80, 17.81, 19.83, 21.85];
+
+            // 在索引 2 起新增三欄：marker/annotation/tooltip
+            putMarker(data2003, binEdges2003, benchmarkAnnualized, 2, '基準：12.76%');
+
+            var options2003 = {
+                title: '2003–2025 成分股「年化」報酬率分佈',
+                titleTextStyle: { fontSize: 18, bold: true },
+                legend: { position: 'none' },
+                hAxis: { title: '年化報酬率 (%)' },
+                vAxis: { title: '公司數量', viewWindow: { min: 0 } },
+                seriesType: 'bars',
+                // series 0 = 柱；series 1 = 紅色標記點（第二個數值序列）
+                series: {
+                    0: { type: 'bars' },
+                    1: { type: 'line', color: '#c0392b', lineWidth: 0, pointSize: 8 }
+                },
+                annotations: {
+                    textStyle: { color: '#c0392b', bold: true },
+                    stem: { color: '#c0392b' },
+                    alwaysOutside: true
+                },
+                tooltip: { isHtml: false }
+            };
+
+            var chart2003 = new google.visualization.ComboChart(document.getElementById('chart_2003'));
+            chart2003.draw(data2003, options2003);
+
+            // --- 2025 年初至今 報酬率分布 ---
+            var dataYTD = google.visualization.arrayToDataTable([
+                ['報酬率區間', '公司數量'],
+                ['-24.2% ~ -9.0%', 5], ['-9.0% ~ 6.3%', 11], ['6.3% ~ 21.5%', 12],
+                ['21.5% ~ 36.8%', 6], ['36.8% ~ 52.1%', 2], ['52.1% ~ 67.3%', 1],
+                ['67.3% ~ 82.6%', 1], ['82.6% ~ 97.8%', 1], ['97.8% ~ 113.1%', 0],
+                ['113.1% ~ 128.3%', 1], ['128.3% ~ 143.6%', 2], ['143.6% ~ 158.8%', 0],
+                ['158.8% ~ 174.1%', 0], ['174.1% ~ 189.4%', 0], ['189.4% ~ 204.6%', 1]
+            ]);
+
+            const ytdBenchmark = 26.38;
+            const binEdgesYTD = [-24.23, -8.97, 6.28, 21.54, 36.79, 52.05, 67.31, 82.56, 97.82, 113.07, 128.33, 143.58, 158.84, 174.10, 189.35, 204.61];
+
+            putMarker(dataYTD, binEdgesYTD, ytdBenchmark, 2, '基準：26.38%');
+
+            var optionsYTD = {
+                title: '2025 年初至今 成分股報酬率分佈',
+                titleTextStyle: { fontSize: 18, bold: true },
+                legend: { position: 'none' },
+                hAxis: { title: '年初至今報酬率 (%)' },
+                vAxis: { title: '公司數量', viewWindow: { min: 0 } },
+                seriesType: 'bars',
+                series: {
+                    0: { type: 'bars' },
+                    1: { type: 'line', color: '#c0392b', lineWidth: 0, pointSize: 8 }
+                },
+                annotations: {
+                    textStyle: { color: '#c0392b', bold: true },
+                    stem: { color: '#c0392b' },
+                    alwaysOutside: true
+                },
+                tooltip: { isHtml: false }
+            };
+
+            var chartYTD = new google.visualization.ComboChart(document.getElementById('chart_ytd'));
+            chartYTD.draw(dataYTD, optionsYTD);
+        }
+    </script>
+</body>
+</html>

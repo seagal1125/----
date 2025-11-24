@@ -1,0 +1,13 @@
+使用 stock_analyzer.py 的 `analyze_twse_today_by_sector` 指令，依照 data/上市公司基本資料.csv 的上市公司基本資料與 data/industry_codes.csv 的產業代碼映射，計算台股各產業今日（日線）漲幅並生成 Markdown 報告。必要時先更新 stock_analyzer.py：
+1. 讀取 industry_codes.csv，將產業代碼對應到中文名稱並在輸出中顯示（如「24-半導體業」）。
+2. CLI 需新增 `--industry_codes` 參數，報告內文也要註明資料來源包含產業代碼表。
+
+執行範例：
+```
+python stock_analyzer.py analyze_twse_today_by_sector \
+  --listed_csv data/上市公司基本資料.csv \
+  --industry_codes data/industry_codes.csv \
+  --output_md 分析報告/台股族群漲幅分析_YYYYMMDD.md
+```
+
+其中 `YYYYMMDD` 為今日日期（例如 20251110）。報告需放在 `分析報告` 目錄下，檔名格式為 `台股族群漲幅分析_當日日期.md`。

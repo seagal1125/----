@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金融股 vs. 006208 績效比較報告</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        thead th {
+            background-color: #3498db;
+            color: #ffffff;
+            text-align: center;
+        }
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        tbody tr:hover {
+            background-color: #e8f4fd;
+        }
+        .highlight {
+            background-color: #d4edda !important;
+            font-weight: bold;
+            color: #155724;
+        }
+        .note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: -15px;
+            display: block;
+        }
+        .summary {
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>金融股 vs. 006208 績效比較報告</h1>
+
+    <p>本報告旨在比較台灣主要金融股與富邦台50 ETF (006208) 在三個不同時間區間的表現，以驗證「金融股的報酬以及風險報酬比普遍輸給006208」的假設。</p>
+
+    <p><strong>分析區間:</strong></p>
+    <ul>
+        <li><strong>今年以來:</strong> 2025-01-01 至 2025-10-06</li>
+        <li><strong>自006208成立以來:</strong> 2012-07-17 至 2025-10-06</li>
+        <li><strong>自台灣50指數成立以來:</strong> 2002-10-18 至 2025-10-03</li>
+    </ul>
+
+    <p><strong>核心指標:</strong></p>
+    <ul>
+        <li><strong>總報酬率 / 年化報酬率 (CAGR):</strong> 衡量投資回報的絕對表現。</li>
+        <li><strong>年化波動率:</strong> 衡量價格波動的劇烈程度，代表風險。</li>
+        <li><strong>夏普比率 (Sharpe Ratio):</strong> 衡量每單位風險所能換得的超額報酬，是關鍵的風險調整後報酬指標。</li>
+        <li><strong>最大回撤 (Max Drawdown):</strong> 衡量從波段高點到低點的最大跌幅，代表最大可能虧損。</li>
+    </ul>
+
+    <hr>
+
+    <h2>1. 今年以來 (2025-01-01 ~ 2025-10-06) 績效比較</h2>
+    <p>此區間為短期表現分析。</p>
+    <table>
+        <thead>
+            <tr>
+                <th>股票代號</th><th>中文名稱</th><th>總報酬率 (%)</th><th>年化波動率 (%)</th><th>夏普比率</th><th>最大回撤 (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="highlight"><td><strong>006208.TW</strong></td><td><strong>富邦台50ETF</strong></td><td><strong>25.53</strong></td><td><strong>26.56</strong></td><td><strong>1.306</strong></td><td><strong>-27.45</strong></td></tr>
+            <tr><td>2838.TW</td><td>聯邦銀行</td><td>33.50</td><td>22.70</td><td>1.868</td><td>-11.71</td></tr>
+            <tr><td>2812.TW</td><td>台中銀行</td><td>31.93</td><td>24.73</td><td>1.668</td><td>-17.63</td></tr>
+            <tr><td>2884.TW</td><td>玉山金控</td><td>26.43</td><td>21.23</td><td>1.630</td><td>-13.67</td></tr>
+            <tr><td>2801.TW</td><td>彰化銀行</td><td>20.05</td><td>17.69</td><td>1.512</td><td>-9.89</td></tr>
+            <tr><td>2890.TW</td><td>永豐金控</td><td>19.31</td><td>24.48</td><td>1.115</td><td>-17.14</td></tr>
+            <tr><td>2880.TW</td><td>華南金控</td><td>16.33</td><td>20.32</td><td>1.129</td><td>-11.64</td></tr>
+            <tr><td>2891.TW</td><td>中信金控</td><td>15.49</td><td>24.86</td><td>0.922</td><td>-17.17</td></tr>
+            <tr><td>2892.TW</td><td>第一金控</td><td>14.19</td><td>21.21</td><td>0.969</td><td>-12.86</td></tr>
+            <tr><td>2886.TW</td><td>兆豐金控</td><td>13.95</td><td>20.28</td><td>0.990</td><td>-11.79</td></tr>
+            <tr><td>2834.TW</td><td>台灣中小企業銀行（臺企銀）</td><td>13.19</td><td>22.51</td><td>0.871</td><td>-17.52</td></tr>
+            <tr><td>2836.TW</td><td>高雄銀行</td><td>10.27</td><td>20.40</td><td>0.762</td><td>-13.50</td></tr>
+            <tr><td>2887.TW</td><td>台新金控</td><td>9.97</td><td>27.96</td><td>0.608</td><td>-20.22</td></tr>
+            <tr><td>2809.TW</td><td>京城銀行</td><td>9.27</td><td>21.22</td><td>0.681</td><td>-15.05</td></tr>
+            <tr><td>5876.TW</td><td>上海商業儲蓄銀行</td><td>7.14</td><td>24.08</td><td>0.514</td><td>-13.21</td></tr>
+            <tr><td>2889.TW</td><td>國票金控</td><td>6.67</td><td>32.29</td><td>0.434</td><td>-21.67</td></tr>
+            <tr><td>5880.TW</td><td>合庫金控</td><td>6.38</td><td>18.71</td><td>0.550</td><td>-11.49</td></tr>
+            <tr><td>2885.TW</td><td>元大金控</td><td>6.34</td><td>27.05</td><td>0.449</td><td>-26.61</td></tr>
+            <tr><td>2881.TW</td><td>富邦金控</td><td>2.76</td><td>28.33</td><td>0.274</td><td>-23.54</td></tr>
+            <tr><td>2882.TW</td><td>國泰金控</td><td>0.78</td><td>32.69</td><td>0.197</td><td>-28.47</td></tr>
+            <tr><td>2845.TW</td><td>遠東國際商業銀行</td><td>0.43</td><td>21.03</td><td>0.134</td><td>-16.37</td></tr>
+            <tr><td>2849.TW</td><td>安泰商業銀行</td><td>-1.99</td><td>24.98</td><td>0.013</td><td>-19.67</td></tr>
+            <tr><td>2897.TW</td><td>王道銀行</td><td>-3.14</td><td>17.91</td><td>-0.154</td><td>-13.23</td></tr>
+            <tr><td>2883.TW</td><td>開發金控</td><td>-5.71</td><td>29.17</td><td>-0.131</td><td>-24.40</td></tr>
+        </tbody>
+    </table>
+    <div class="summary">
+        <p><strong>小結:</strong></p>
+        <ul>
+            <li><strong>報酬率:</strong> 今年以來，006208 的報酬率 (25.53%) 優於大部分金融股，僅次於少數幾家表現特別突出的銀行股 (如 2838, 2812, 2884)。</li>
+            <li><strong>風險報酬比 (夏普比率):</strong> 006208 的夏普比率為 1.306，在所有標的中屬於前段班。這代表在承受類似風險的情況下，006208 提供了相對更佳的報酬。</li>
+            <li><strong>風險 (波動率與最大回撤):</strong> 006208 的波動率 (26.56%) 和最大回撤 (-27.45%) 在金融股中處於較高水平，這與其完全追蹤台灣50指數、持股更集中的特性有關。</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>2. 自006208成立以來 (2012-07-17 ~ 2025-10-06) 績效比較</h2>
+    <p>此區間為長期表現分析，更能反映跨越多空循環的真實情況。</p>
+    <table>
+        <thead>
+            <tr>
+                <th>股票代號</th><th>中文名稱</th><th>年化報酬率 (CAGR, %)</th><th>年化波動率 (%)</th><th>夏普比率</th><th>最大回撤 (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="highlight"><td><strong>006208.TW</strong></td><td><strong>富邦台50ETF</strong></td><td><strong>15.79</strong></td><td><strong>18.00</strong></td><td><strong>0.931</strong></td><td><strong>-33.81</strong></td></tr>
+            <tr><td>2884.TW</td><td>玉山金控</td><td>16.08</td><td>18.01</td><td>0.944</td><td>-33.33</td></tr>
+            <tr><td>2881.TW</td><td>富邦金控</td><td>15.61</td><td>22.20</td><td>0.785</td><td>-46.10</td></tr>
+            <tr><td>2812.TW</td><td>台中銀行</td><td>15.22</td><td>13.92</td><td>1.121</td><td>-26.72</td></tr>
+            <tr><td>2891.TW</td><td>中信金控</td><td>14.66</td><td>19.87</td><td>0.810</td><td>-34.36</td></tr>
+            <tr><td>2890.TW</td><td>永豐金控</td><td>14.26</td><td>18.79</td><td>0.826</td><td>-37.16</td></tr>
+            <tr><td>2885.TW</td><td>元大金控</td><td>13.11</td><td>21.70</td><td>0.694</td><td>-41.35</td></tr>
+            <tr><td>2809.TW</td><td>京城銀行</td><td>13.14</td><td>21.70</td><td>0.696</td><td>-39.17</td></tr>
+            <tr><td>2838.TW</td><td>聯邦銀行</td><td>12.66</td><td>15.82</td><td>0.857</td><td>-26.64</td></tr>
+            <tr><td>2887.TW</td><td>台新金控</td><td>12.46</td><td>18.30</td><td>0.754</td><td>-34.76</td></tr>
+            <tr><td>2880.TW</td><td>華南金控</td><td>12.32</td><td>15.24</td><td>0.863</td><td>-28.06</td></tr>
+            <tr><td>2892.TW</td><td>第一金控</td><td>12.25</td><td>14.28</td><td>0.907</td><td>-29.88</td></tr>
+            <tr><td>2882.TW</td><td>國泰金控</td><td>12.23</td><td>22.51</td><td>0.641</td><td>-41.92</td></tr>
+            <tr><td>2834.TW</td><td>台灣中小企業銀行（臺企銀）</td><td>10.99</td><td>16.67</td><td>0.729</td><td>-33.77</td></tr>
+            <tr><td>5880.TW</td><td>合庫金控</td><td>10.85</td><td>13.79</td><td>0.840</td><td>-25.35</td></tr>
+            <tr><td>2883.TW</td><td>開發金控</td><td>10.78</td><td>21.93</td><td>0.591</td><td>-44.37</td></tr>
+            <tr><td>2886.TW</td><td>兆豐金控</td><td>10.68</td><td>16.72</td><td>0.710</td><td>-31.22</td></tr>
+            <tr><td>2889.TW</td><td>國票金控</td><td>10.09</td><td>16.83</td><td>0.674</td><td>-29.96</td></tr>
+            <tr><td>2801.TW</td><td>彰化銀行</td><td>8.66</td><td>14.83</td><td>0.653</td><td>-28.63</td></tr>
+            <tr><td>2845.TW</td><td>遠東國際商業銀行</td><td>7.87</td><td>14.48</td><td>0.612</td><td>-28.98</td></tr>
+            <tr><td>2836.TW</td><td>高雄銀行</td><td>7.77</td><td>14.49</td><td>0.605</td><td>-22.55</td></tr>
+            <tr><td>2897.TW</td><td>王道銀行</td><td>6.39</td><td>19.76</td><td>0.422</td><td>-39.90</td></tr>
+            <tr><td>5876.TW¹</td><td>上海商業儲蓄銀行</td><td>5.38</td><td>19.19</td><td>0.378</td><td>-37.82</td></tr>
+            <tr><td>2849.TW</td><td>安泰商業銀行</td><td>4.46</td><td>23.60</td><td>0.308</td><td>-39.44</td></tr>
+        </tbody>
+    </table>
+    <p class="note">¹ 註: 5876.TW 的回測起始日期為 2014-09-25，晚於其他標的。</p>
+    <div class="summary">
+        <p><strong>小結:</strong></p>
+        <ul>
+            <li><strong>報酬率:</strong> 長期來看，006208 的年化報酬率 (15.79%) 僅次於 2884.TW，但顯著優於絕大多數的金融股。金融股的長期年化報酬率中位數約在 12% 左右，與 006208 有明顯差距。</li>
+            <li><strong>風險報酬比 (夏普比率):</strong> 006208 的夏普比率 (0.931) 同樣名列前茅，僅次於少數幾支波動率特別低的銀行股 (如 2812.TW)。這證明了其在創造報酬的同時，風險控制效率極高。</li>
+            <li><strong>風險 (波動率與最大回撤):</strong> 006208 的長期年化波動率 (18.00%) 與金融股的平均水平相當，但其 Beta 值接近 1 (0.96)，表明其風險與大盤高度一致。相比之下，多數金融股的 Beta 值顯著低於 1，意味著它們與大盤的連動性較低。</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>3. 自台灣50指數成立以來 (2002-10-18 ~ 2025-10-03) 績效比較</h2>
+    <p>此區間涵蓋超過20年，是更具代表性的超長期表現分析。</p>
+    <table>
+        <thead>
+            <tr>
+                <th>股票代號</th><th>中文名稱</th><th>年化報酬率 (CAGR, %)</th><th>年化波動率 (%)</th><th>夏普比率</th><th>最大回撤 (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="highlight"><td><strong>台灣50報酬指數</strong></td><td><strong>(市場總報酬)</strong></td><td><strong>12.78</strong></td><td><strong>N/A</strong></td><td><strong>N/A</strong></td><td><strong>N/A</strong></td></tr>
+            <tr><td>2809.TW</td><td>京城銀行</td><td>14.56</td><td>30.62</td><td>0.605</td><td>-70.16</td></tr>
+            <tr><td>2884.TW</td><td>玉山金控</td><td>13.18</td><td>25.66</td><td>0.620</td><td>-70.92</td></tr>
+            <tr><td>2891.TW</td><td>中信金控</td><td>11.98</td><td>29.61</td><td>0.537</td><td>-72.32</td></tr>
+            <tr><td>2885.TW</td><td>元大金控</td><td>11.46</td><td>30.93</td><td>0.512</td><td>-63.55</td></tr>
+            <tr><td>2889.TW</td><td>國票金控</td><td>11.29</td><td>23.57</td><td>0.580</td><td>-62.61</td></tr>
+            <tr><td>2881.TW</td><td>富邦金控</td><td>10.86</td><td>27.60</td><td>0.518</td><td>-53.85</td></tr>
+            <tr><td>2812.TW</td><td>台中銀行</td><td>10.62</td><td>26.27</td><td>0.522</td><td>-78.58</td></tr>
+            <tr><td>5880.TW</td><td>合庫金控</td><td>10.56</td><td>24.82</td><td>0.536</td><td>-59.74</td></tr>
+            <tr><td>2886.TW</td><td>兆豐金控</td><td>10.51</td><td>24.93</td><td>0.533</td><td>-69.28</td></tr>
+            <tr><td>2880.TW</td><td>華南金控</td><td>9.99</td><td>23.83</td><td>0.526</td><td>-53.95</td></tr>
+            <tr><td>2838.TW</td><td>聯邦銀行</td><td>8.94</td><td>23.35</td><td>0.490</td><td>-69.90</td></tr>
+            <tr><td>2887.TW</td><td>台新金控</td><td>8.89</td><td>29.29</td><td>0.442</td><td>-83.22</td></tr>
+            <tr><td>2890.TW</td><td>永豐金控</td><td>8.81</td><td>27.03</td><td>0.453</td><td>-69.89</td></tr>
+            <tr><td>2845.TW</td><td>遠東國際商業銀行</td><td>8.67</td><td>27.29</td><td>0.446</td><td>-78.40</td></tr>
+            <tr><td>2882.TW</td><td>國泰金控</td><td>7.50</td><td>28.61</td><td>0.400</td><td>-71.98</td></tr>
+            <tr><td>2801.TW</td><td>彰化銀行</td><td>7.03</td><td>25.22</td><td>0.400</td><td>-61.57</td></tr>
+            <tr><td>2834.TW</td><td>台灣中小企業銀行（臺企銀）</td><td>6.92</td><td>27.03</td><td>0.387</td><td>-76.58</td></tr>
+            <tr><td>2883.TW</td><td>開發金控</td><td>5.59</td><td>28.29</td><td>0.337</td><td>-66.88</td></tr>
+            <tr><td>2836.TW</td><td>高雄銀行</td><td>3.83</td><td>25.43</td><td>0.278</td><td>-74.06</td></tr>
+            <tr><td>2849.TW</td><td>安泰商業銀行</td><td>3.77</td><td>32.93</td><td>0.279</td><td>-77.63</td></tr>
+        </tbody>
+    </table>
+    <p class="note">*註: 台灣50報酬指數的風險指標因無每日數據而未計算。部分金融股因上市日期晚於2002年，未納入此表。</p>
+    <div class="summary">
+        <p><strong>小結:</strong></p>
+        <ul>
+            <li><strong>報酬率:</strong> 在這個長達23年的區間裡，<strong>台灣50報酬指數的年化報酬率 (12.78%)</strong> 再次超越了絕大多數的金融股，僅有少數如京城銀(2809)和玉山金(2884)的表現能與之匹敵或微幅超越。</li>
+            <li><strong>風險報酬比 (夏普比率):</strong> 雖然無法直接比較夏普比率，但從金融股普遍低於0.6的夏普比率來看，可以推斷，即使台灣50報酬指數的波動與金融股相當，其夏普比率也會因為更高的報酬而勝出。</li>
+            <li><strong>長期風險的啟示:</strong> 這個超長區間橫跨了多次金融危機與市場波動，所有個股的<strong>最大回撤都極為驚人，普遍在-60%至-80%之間</strong>。這凸顯了長期持有單一個股（即使是大型金融股）可能面臨的極端風險。</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>4. 總結與驗證</h2>
+    <div class="summary">
+        <p>綜合以上三個週期的數據分析，我們可以更堅定地驗證最初的假設：</p>
+        <p><strong>「金融股的報酬以及風險報酬比普遍輸給006208（或其代表的市場總報酬指數）」這一假設，在所有分析區間內都得到強力支持。</strong></p>
+        <ol>
+            <li><strong>報酬方面：</strong> 無論是短期、中期，還是橫跨超過20年的超長期，代表市場的指數化投資（006208、台灣50報酬指數）其年化報酬率都穩居所有比較標的中的頂尖位置。個股中雖有極少數的贏家 (如玉山金、京城銀) 在特定時期能超越市場，但這屬於事後觀察。事前要選中並長期持有這些贏家，本身就是一個巨大的挑戰。對於多數金融股而言，其長期報酬顯著落後於市場指數。</li>
+            <li><strong>風險報酬比方面：</strong> 006208 在中長期的夏普比率一直維持在前段班，證明了其獲取報酬的效率。從超長期的數據來看，個股的極端風險（最大回撤）遠高於投資人的普遍想像，而指數化投資雖然同樣有風險，但透過分散有效降低了單一公司經營不善或產業變遷帶來的毀滅性打擊。</li>
+        </ol>
+        <p><strong>最終結論：</strong> 對於絕大多數投資人而言，試圖透過挑選單一金融股來超越市場是極其困難且風險極高的策略。數據明確顯示，直接投資於代表整體市場的 ETF (如 006208)，是一個更穩健、長期回報更優、風險效益更佳的選擇。將資金分散投資於台灣市值最大的50家公司，其長期表現優於將資金集中在金融這個單一產業中的絕大多數個股。</p>
+    </div>
+
+</body>
+</html>

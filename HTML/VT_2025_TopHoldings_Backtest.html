@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VT 年初持股績效回測分析報告（2025-01-01 至 2025-10-22）</title>
+  <meta name="description" content="回測截至 2024 年底 VT 前 100 大持股在 2025 年的表現，檢驗期初龍頭股在下一年度的績效；避免未來函數與倖存者偏差。" />
+  <style>
+    :root {
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --brand: #2563eb;
+      --ok: #059669;
+      --warn: #ef4444;
+      --border: #e5e7eb;
+      --chip: #eef2ff;
+      --chip-text: #3730a3;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 16px 64px; }
+    header.hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f7f9fb 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .title h1 { margin: 0; font-size: clamp(20px, 3vw, 28px); }
+    .badge {
+      font-size: 12px; background: var(--chip); color: var(--chip-text);
+      padding: 6px 10px; border-radius: 999px; border: 1px solid #e0e7ff;
+    }
+    .sub { color: var(--muted); margin-top: 6px; }
+    .kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 20px; }
+    .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .kpi h3 { margin: 0; font-size: 13px; color: var(--muted); font-weight: 600; }
+    .kpi .v { font-size: 22px; font-weight: 800; margin-top: 6px; }
+    .v.ok { color: var(--ok); }
+    .v.warn { color: var(--warn); }
+
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+    @media (min-width: 960px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+    section.card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    section.card h2 { margin: 0 0 8px; font-size: 18px; }
+    section.card p.lead { margin: 4px 0 16px; color: var(--muted); font-size: 14px; }
+
+    .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .input {
+      border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; background: #fff;
+      min-width: 200px; outline: none; font-size: 14px;
+    }
+    .pill { border: 1px solid var(--border); border-radius: 999px; padding: 8px 12px; background: #fff; font-size: 13px; cursor: pointer; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead th { position: sticky; top: 0; background: #fbfdff; color: #374151; text-align: left; border-bottom: 1px solid var(--border); padding: 10px 8px; cursor: pointer; }
+    tbody td { border-bottom: 1px solid var(--border); padding: 10px 8px; }
+    tbody tr:hover { background: #fafafa; }
+    .ret { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" on; }
+    .pos { color: var(--ok); font-weight: 700; }
+    .neg { color: var(--warn); font-weight: 700; }
+
+    .legend { display: flex; gap: 8px; align-items: center; margin: 10px 0 0; color: var(--muted); font-size: 12px; }
+    .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+    .dot.ok { background: #d1fae5; border: 1px solid #10b981; }
+    .dot.warn { background: #fee2e2; border: 1px solid #ef4444; }
+
+    footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+    .top { position: fixed; right: 16px; bottom: 16px; background: var(--brand); color: white; border: none; padding: 10px 12px; border-radius: 999px; cursor: pointer; box-shadow: 0 8px 24px rgba(37,99,235,.25); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero" id="top">
+      <div class="title">
+        <h1>VT 年初持股績效回測分析報告</h1>
+        <span class="badge">避免未來函數 & 倖存者偏差</span>
+      </div>
+      <p class="sub">方法論：回測 <strong>截至 2024 年底 VT 前 100 大持股</strong> 在 <strong>2025-01-01 ～ 2025-10-22</strong> 的表現，評估期初龍頭股於下一年度的績效。</p>
+      <div class="kpis">
+        <div class="kpi"><h3>統計區間</h3><div class="v">2025-01-01 → 2025-10-22</div></div>
+        <div class="kpi"><h3>VT 基準報酬</h3><div class="v ok">+20.01%</div></div>
+        <div class="kpi"><h3>樣本規模</h3><div class="v">100 檔（完成 100/100）</div></div>
+        <div class="kpi"><h3>超越 / 落後 VT</h3><div class="v">38 / 62</div></div>
+      </div>
+    </header>
+
+    <section class="card" id="summary" style="margin-top:16px">
+      <h2>重點結論（Key Takeaways）</h2>
+      <p class="lead">以截至 2024 年底的 VT 前 100 大持股為期初籃子，觀察其在 2025 年（01-01 ～ 10-22）的真實表現。</p>
+      <ul>
+        <li><strong>整體勝率 38%</strong>：100 檔中有 38 檔跑贏 VT（+20.01%）。<br/>解讀：在「龍頭成分」樣本中，單一持股要長期穩定跑贏「全球分散」並不容易，說明 <em>分散化的威力</em> 與 <em>市值權重</em> 的效率。</li>
+        <li><strong>AI 半導體鏈是超額報酬主引擎</strong>：設計（NVDA、AMD）、設備（ASML、AMAT）、應用（ORCL）、AI 軟體（PLTR）構成表現核心。<br/>這呼應 2025 年全球企業 <em>AI CapEx 週期</em> 的擴張與落地。</li>
+        <li><strong>金融股溫和復甦</strong>：降息預期 + 信貸風險溫和，推動 GS、JPM、MS、HSBC 等大型金融機構估值修復。</li>
+        <li><strong>醫療保健兩極化</strong>：大型藥廠面臨估值/成長催化鈍化與監管不確定性，NVO、UNH、PFE、MRK 等落後；惟個別品項（如 AZN）仍有韌性。</li>
+        <li><strong>雲端/企業軟體估值回調</strong>：CRM、ADBE、NOW 在高基期後修正，反映 AI 原生 vs. 既有授權模式的再評價。</li>
+      </ul>
+    </section>
+
+    <section class="card" id="methodology" style="margin-top:16px">
+      <h2>方法論與口徑</h2>
+      <ul>
+        <li><strong>期初樣本鎖定：</strong>以 <em>2024 年底 VT 前 100 大持股</em> 為固定樣本，避免當年中途調整造成的 <em>未來函數</em> 與 <em>倖存者偏差</em>。</li>
+        <li><strong>報酬計算：</strong>採 <em>2025-01-01 收盤</em> 至 <em>2025-10-22</em> 之 <em>還原股價報酬</em>（跨幣別以各自標的本位貨幣計）。</li>
+        <li><strong>比較基準：</strong>同區間 VT 報酬 +20.01%。</li>
+        <li><strong>限制說明：</strong>未統一匯率可能低估或高估個別公司 <em>總報酬</em>；但對「相對名次」之判讀影響有限。</li>
+      </ul>
+    </section>
+
+    <section class="card" id="drivers" style="margin-top:16px">
+      <h2>今年驅動因子（我的觀察）</h2>
+      <ol>
+        <li><strong>AI 資本支出擴張週期</strong>：雲端/大型企業將 AI 能力內嵌到既有工作流程，硬體（GPU、記憶體、伺服器）與上游設備廠優先反映獲利動能。</li>
+        <li><strong>利率路徑的再定價</strong>：降息節奏雖較市場年初預期慢，但「高位回落」的路徑有助金融板塊重估。</li>
+        <li><strong>權重集中與均衡回補並存</strong>：超大型權值股雖仍具影響力，但今年 <em>非超級權值</em> 的「次龍頭」獲資金青睞，使「平均持有」的勝率提升有限但亮點集中。</li>
+        <li><strong>產業內分化加劇</strong>：企業軟體因 AI 原生商業模式與授權模式的估值差異，出現明顯分化；醫療保健亦因研發管線與監管風險呈兩極。</li>
+      </ol>
+    </section>
+
+    <section class="card" id="insights" style="margin-top:16px">
+      <h2>投資啟示</h2>
+      <ul>
+        <li><strong>分散仍是基礎功</strong>：在 100 檔龍頭籃子中，跑贏指數者僅 38 檔；對多數投資人，<em>核心用指數</em>、<em>衛星押產業</em> 更貼近風險調整後效率。</li>
+        <li><strong>若想參與 AI 週期</strong>：相對於單點押注，更可考慮 <em>產業鏈全段</em>（設計→設備→零組件→應用）配置，以降低供需循環的單點風險。</li>
+        <li><strong>金融作為波動緩衝</strong>：在利率下行趨勢但實體經濟尚具韌性的情境下，大型金控的 <em>估值修復 + 股利</em> 可提供組合的波動緩衝。</li>
+        <li><strong>醫療保健需精選</strong>：大型藥廠非同步，應重視 <em>產品組合生命周期</em> 與 <em>監管可見度</em>；可搭配 <em>醫療器材</em> 與 <em>生技 ETF</em> 做風險分散。</li>
+      </ul>
+    </section>
+
+    <section class="card" id="why38" style="margin-top:16px">
+      <h2>為什麼只有 38 檔跑贏 VT？</h2>
+      <ul>
+        <li><strong>指數的「廣泛勝利」：</strong>VT 持有近萬檔全球股票，受惠於多區域多產業齊升；單一公司想跑贏「全球平均」需同時滿足 <em>成長、估值、情緒</em> 三重條件。</li>
+        <li><strong>高基期壓力：</strong>多檔 2023–2024 高績效科技股在 2025 年進入 <em>消化期</em>，即便基本面不差，股價也可能在評價面修正。</li>
+        <li><strong>政策與匯率影響：</strong>醫療定價、數位稅、跨國監管與主要貨幣波動，對跨國企業的 <em>以股價計之本位報酬</em> 形成拉扯。</li>
+      </ul>
+    </section>
+
+    <section class="card" id="notes" style="margin-top:16px">
+      <h2>附註與風險揭露</h2>
+      <ul>
+        <li>跨市場標的以各自本位貨幣衡量；如需統一幣別，可改以 <em>USD 基準</em> 重算並揭露匯率假設。</li>
+        <li>個別公司事件（監管、法務、資本支出遞延）會造成短期偏離；長期仍應以 <em>資金成本</em> 與 <em>自由現金流</em> 構面檢視。</li>
+      </ul>
+    </section>
+
+
+    <div class="grid">
+      <!-- 領先群 -->
+      <section class="card" id="leaders">
+        <h2>績效領先群（超越 VT +20.01%）</h2>
+        <p class="lead">以 AI 與半導體為核心動能，金融股穩健推進；部分大型科技股（如 TSMC、Netflix）亦提供顯著貢獻。</p>
+        <div class="tools">
+          <input id="filterLead" class="input" placeholder="快速篩選（輸入代號或公司名稱）" />
+          <button class="pill" data-export="lead">匯出 CSV</button>
+        </div>
+        <div class="legend"><span class="dot ok"></span> 報酬為正且超越基準</div>
+        <div class="table-wrap">
+          <table id="tblLead" aria-label="領先群績效列表">
+            <thead>
+              <tr>
+                <th data-key="rank">排名</th>
+                <th data-key="ticker">代號</th>
+                <th data-key="name">公司名稱</th>
+                <th data-key="ret" class="ret">年初至今報酬率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>PLTR</td><td>Palantir Technologies Inc</td><td class="ret pos">+141.40%</td></tr>
+              <tr><td>2</td><td>9988.HK</td><td>Alibaba Group Holding Ltd</td><td class="ret pos">+103.50%</td></tr>
+              <tr><td>3</td><td>AMD</td><td>Advanced Micro Devices Inc</td><td class="ret pos">+97.32%</td></tr>
+              <tr><td>4</td><td>005930.KS</td><td>Samsung Electronics Co Ltd</td><td class="ret pos">+84.80%</td></tr>
+              <tr><td>5</td><td>GE</td><td>General Electric Co</td><td class="ret pos">+82.71%</td></tr>
+              <tr><td>6</td><td>ORCL</td><td>Oracle Corp</td><td class="ret pos">+67.37%</td></tr>
+              <tr><td>7</td><td>0700.HK</td><td>Tencent Holdings Ltd</td><td class="ret pos">+52.89%</td></tr>
+              <tr><td>8</td><td>RTX</td><td>RTX Corp</td><td class="ret pos">+51.34%</td></tr>
+              <tr><td>9</td><td>AVGO</td><td>Broadcom Inc</td><td class="ret pos">+48.76%</td></tr>
+              <tr><td>10</td><td>CAT</td><td>Caterpillar Inc</td><td class="ret pos">+48.03%</td></tr>
+              <tr><td>11</td><td>ASML</td><td>ASML Holding NV</td><td class="ret pos">+47.48%</td></tr>
+              <tr><td>12</td><td>SHOP.TO</td><td>Shopify Inc</td><td class="ret pos">+47.16%</td></tr>
+              <tr><td>13</td><td>C</td><td>Citigroup Inc</td><td class="ret pos">+43.52%</td></tr>
+              <tr><td>14</td><td>2330.TW</td><td>Taiwan Semiconductor Manufacturing Co Ltd</td><td class="ret pos">+40.77%</td></tr>
+              <tr><td>15</td><td>NFLX</td><td>Netflix Inc</td><td class="ret pos">+39.99%</td></tr>
+              <tr><td>16</td><td>AMAT</td><td>Applied Materials Inc</td><td class="ret pos">+39.02%</td></tr>
+              <tr><td>17</td><td>JNJ</td><td>Johnson & Johnson</td><td class="ret pos">+36.44%</td></tr>
+              <tr><td>18</td><td>6758.T</td><td>Sony Group Corp</td><td class="ret pos">+34.58%</td></tr>
+              <tr><td>19</td><td>GS</td><td>Goldman Sachs Group Inc/The</td><td class="ret pos">+34.03%</td></tr>
+              <tr><td>20</td><td>ABBV</td><td>AbbVie Inc</td><td class="ret pos">+33.46%</td></tr>
+              <tr><td>21</td><td>GOOGL</td><td>Alphabet Inc</td><td class="ret pos">+32.65%</td></tr>
+              <tr><td>22</td><td>GOOG</td><td>Alphabet Inc</td><td class="ret pos">+32.27%</td></tr>
+              <tr><td>23</td><td>NVDA</td><td>NVIDIA Corp</td><td class="ret pos">+31.01%</td></tr>
+              <tr><td>24</td><td>SIE.DE</td><td>Siemens AG</td><td class="ret pos">+30.90%</td></tr>
+              <tr><td>25</td><td>IBM</td><td>International Business Machines Corp</td><td class="ret pos">+30.83%</td></tr>
+              <tr><td>26</td><td>MS</td><td>Morgan Stanley</td><td class="ret pos">+30.39%</td></tr>
+              <tr><td>27</td><td>AZN</td><td>AstraZeneca PLC</td><td class="ret pos">+29.02%</td></tr>
+              <tr><td>28</td><td>PM</td><td>Philip Morris International Inc</td><td class="ret pos">+28.78%</td></tr>
+              <tr><td>29</td><td>8306.T</td><td>Mitsubishi UFJ Financial Group Inc</td><td class="ret pos">+28.37%</td></tr>
+              <tr><td>30</td><td>BA</td><td>Boeing Co/The</td><td class="ret pos">+26.41%</td></tr>
+              <tr><td>31</td><td>JPM</td><td>JPMorgan Chase & Co</td><td class="ret pos">+26.41%</td></tr>
+              <tr><td>32</td><td>HSBA.L</td><td>HSBC Holdings PLC</td><td class="ret pos">+25.79%</td></tr>
+              <tr><td>33</td><td>MSFT</td><td>Microsoft Corp</td><td class="ret pos">+24.35%</td></tr>
+              <tr><td>34</td><td>CSCO</td><td>Cisco Systems Inc</td><td class="ret pos">+22.75%</td></tr>
+              <tr><td>35</td><td>WFC</td><td>Wells Fargo & Co</td><td class="ret pos">+22.74%</td></tr>
+              <tr><td>36</td><td>META</td><td>Meta Platforms Inc</td><td class="ret pos">+22.65%</td></tr>
+              <tr><td>37</td><td>RY.TO</td><td>Royal Bank of Canada</td><td class="ret pos">+22.40%</td></tr>
+              <tr><td>38</td><td>NOVN.SW</td><td>Novartis AG</td><td class="ret pos">+21.66%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 落後群 -->
+      <section class="card" id="laggards">
+        <h2>績效落後群（低於 VT +20.01%）</h2>
+        <p class="lead">大型藥廠與醫療保健走弱，企業軟體估值修正，消費與通訊服務多處於盤整。</p>
+        <div class="tools">
+          <input id="filterLag" class="input" placeholder="快速篩選（輸入代號或公司名稱）" />
+          <button class="pill" data-export="lag">匯出 CSV</button>
+        </div>
+        <div class="legend"><span class="dot warn"></span> 低於基準或為負報酬</div>
+        <div class="table-wrap">
+          <table id="tblLag" aria-label="落後群績效列表">
+            <thead>
+              <tr>
+                <th data-key="rank">排名</th>
+                <th data-key="ticker">代號</th>
+                <th data-key="name">公司名稱</th>
+                <th data-key="ret" class="ret">年初至今報酬率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>39</td><td>AXP</td><td>American Express Co</td><td class="ret">+20.31%</td></tr>
+              <tr><td>40</td><td>NEE</td><td>NextEra Energy Inc</td><td class="ret">+20.13%</td></tr>
+              <tr><td>41</td><td>TJX</td><td>TJX Cos Inc/The</td><td class="ret">+19.91%</td></tr>
+              <tr><td>42</td><td>T</td><td>AT&T Inc</td><td class="ret">+19.22%</td></tr>
+              <tr><td>43</td><td>AMGN</td><td>Amgen Inc</td><td class="ret">+19.08%</td></tr>
+              <tr><td>44</td><td>WMT</td><td>Walmart Inc</td><td class="ret">+18.91%</td></tr>
+              <tr><td>45</td><td>SHEL</td><td>Shell PLC</td><td class="ret">+18.82%</td></tr>
+              <tr><td>46</td><td>BAC</td><td>Bank of America Corp</td><td class="ret">+18.40%</td></tr>
+              <tr><td>47</td><td>KO</td><td>Coca-Cola Co/The</td><td class="ret">+17.74%</td></tr>
+              <tr><td>48</td><td>TSLA</td><td>Tesla Inc</td><td class="ret">+16.69%</td></tr>
+              <tr><td>49</td><td>CBA.AX</td><td>Commonwealth Bank of Australia</td><td class="ret">+16.37%</td></tr>
+              <tr><td>50</td><td>ABT</td><td>Abbott Laboratories</td><td class="ret">+14.56%</td></tr>
+              <tr><td>51</td><td>NESN.SW</td><td>Nestle SA</td><td class="ret">+14.51%</td></tr>
+              <tr><td>52</td><td>ETN</td><td>Eaton Corp PLC</td><td class="ret">+13.64%</td></tr>
+              <tr><td>53</td><td>ROG.SW</td><td>Roche Holding AG</td><td class="ret">+13.05%</td></tr>
+              <tr><td>54</td><td>BLK</td><td>Blackrock Inc</td><td class="ret">+12.80%</td></tr>
+              <tr><td>55</td><td>QCOM</td><td>QUALCOMM Inc</td><td class="ret">+11.78%</td></tr>
+              <tr><td>56</td><td>BSX</td><td>Boston Scientific Corp</td><td class="ret">+11.77%</td></tr>
+              <tr><td>57</td><td>V</td><td>Visa Inc</td><td class="ret">+11.00%</td></tr>
+              <tr><td>58</td><td>MA</td><td>Mastercard Inc</td><td class="ret">+10.13%</td></tr>
+              <tr><td>59</td><td>LIN</td><td>Linde PLC</td><td class="ret">+9.73%</td></tr>
+              <tr><td>60</td><td>INTU</td><td>Intuit Inc</td><td class="ret">+9.11%</td></tr>
+              <tr><td>61</td><td>BRK-B</td><td>Berkshire Hathaway Inc</td><td class="ret">+8.91%</td></tr>
+              <tr><td>62</td><td>CVX</td><td>Chevron Corp</td><td class="ret">+8.47%</td></tr>
+              <tr><td>63</td><td>AAPL</td><td>Apple Inc</td><td class="ret">+8.14%</td></tr>
+              <tr><td>64</td><td>XOM</td><td>Exxon Mobil Corp</td><td class="ret">+7.94%</td></tr>
+              <tr><td>65</td><td>BKNG</td><td>Booking Holdings Inc</td><td class="ret">+7.91%</td></tr>
+              <tr><td>66</td><td>VZ</td><td>Verizon Communications Inc</td><td class="ret">+7.12%</td></tr>
+              <tr><td>67</td><td>TMO</td><td>Thermo Fisher Scientific Inc</td><td class="ret">+7.08%</td></tr>
+              <tr><td>68</td><td>MCD</td><td>McDonald's Corp</td><td class="ret">+6.93%</td></tr>
+              <tr><td>69</td><td>SYK</td><td>Stryker Corp</td><td class="ret">+6.58%</td></tr>
+              <tr><td>70</td><td>SU.PA</td><td>Schneider Electric SE</td><td class="ret">+5.23%</td></tr>
+              <tr><td>71</td><td>PEP</td><td>PepsiCo Inc</td><td class="ret">+5.03%</td></tr>
+              <tr><td>72</td><td>DIS</td><td>Walt Disney Co/The</td><td class="ret">+3.58%</td></tr>
+              <tr><td>73</td><td>COST</td><td>Costco Wholesale Corp</td><td class="ret">+3.43%</td></tr>
+              <tr><td>74</td><td>LLY</td><td>Eli Lilly & Co</td><td class="ret">+3.38%</td></tr>
+              <tr><td>75</td><td>7203.T</td><td>Toyota Motor Corp</td><td class="ret">+3.16%</td></tr>
+              <tr><td>76</td><td>HD</td><td>Home Depot Inc/The</td><td class="ret">+2.47%</td></tr>
+              <tr><td>77</td><td>SAP.DE</td><td>SAP SE</td><td class="ret">+1.69%</td></tr>
+              <tr><td>78</td><td>ULVR.L</td><td>Unilever PLC</td><td class="ret">+1.03%</td></tr>
+              <tr><td>79</td><td>AMZN</td><td>Amazon.com Inc</td><td class="ret">+0.82%</td></tr>
+              <tr><td>80</td><td>LOW</td><td>Lowe's Cos Inc</td><td class="ret">+0.80%</td></tr>
+              <tr><td>81</td><td>UNP</td><td>Union Pacific Corp</td><td class="ret">+0.64%</td></tr>
+              <tr><td>82</td><td>TXN</td><td>Texas Instruments Inc</td><td class="ret neg">-1.01%</td></tr>
+              <tr><td>83</td><td>MC.PA</td><td>LVMH Moet Hennessy Louis Vuitton SE</td><td class="ret neg">-1.45%</td></tr>
+              <tr><td>84</td><td>PFE</td><td>Pfizer Inc</td><td class="ret neg">-1.59%</td></tr>
+              <tr><td>85</td><td>SPGI</td><td>S&amp;P Global Inc</td><td class="ret neg">-1.83%</td></tr>
+              <tr><td>86</td><td>DHR</td><td>Danaher Corp</td><td class="ret neg">-3.46%</td></tr>
+              <tr><td>87</td><td>BX</td><td>Blackstone Inc</td><td class="ret neg">-5.06%</td></tr>
+              <tr><td>88</td><td>HON</td><td>Honeywell International Inc</td><td class="ret neg">-5.83%</td></tr>
+              <tr><td>89</td><td>PGR</td><td>Progressive Corp/The</td><td class="ret neg">-6.04%</td></tr>
+              <tr><td>90</td><td>PG</td><td>Procter &amp; Gamble Co/The</td><td class="ret neg">-6.89%</td></tr>
+              <tr><td>91</td><td>MRK</td><td>Merck &amp; Co Inc</td><td class="ret neg">-9.10%</td></tr>
+              <tr><td>92</td><td>NOW</td><td>ServiceNow Inc</td><td class="ret neg">-10.70%</td></tr>
+              <tr><td>93</td><td>COP</td><td>ConocoPhillips</td><td class="ret neg">-11.49%</td></tr>
+              <tr><td>94</td><td>ISRG</td><td>Intuitive Surgical Inc</td><td class="ret neg">-11.70%</td></tr>
+              <tr><td>95</td><td>CMCSA</td><td>Comcast Corp</td><td class="ret neg">-16.88%</td></tr>
+              <tr><td>96</td><td>ADBE</td><td>Adobe Inc</td><td class="ret neg">-18.92%</td></tr>
+              <tr><td>97</td><td>CRM</td><td>Salesforce Inc</td><td class="ret neg">-19.95%</td></tr>
+              <tr><td>98</td><td>UNH</td><td>UnitedHealth Group Inc</td><td class="ret neg">-26.29%</td></tr>
+              <tr><td>99</td><td>ACN</td><td>Accenture PLC</td><td class="ret neg">-27.16%</td></tr>
+              <tr><td>100</td><td>NVO</td><td>Novo Nordisk A/S</td><td class="ret neg">-36.40%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" id="group-analysis" style="margin-top:16px">
+      <h2>群組特性分析補充</h2>
+      <h3>績效領先群（超越 VT）</h3>
+      <ul>
+        <li><strong>AI 與半導體產業的絕對統治：</strong> Palantir (PLTR) 以驚人的 +141.40% 報酬率高居榜首。整個半導體產業鏈均表現極為出色。</li>
+        <li><strong>金融業的穩健成長：</strong> 全球性的銀行股表現穩健，超越了市場平均水準。</li>
+        <li><strong>特定科技股的強勢：</strong> 阿里巴巴、Netflix 和台積電也貢獻了非常可觀的報酬。</li>
+      </ul>
+
+      <h3>績效落後群（落後 VT）</h3>
+      <ul>
+        <li><strong>大型製藥與醫療保健股的困境：</strong> 諾和諾德 (NVO) 年度績效大幅下跌 -36.40%，成為最大的意外之一。</li>
+        <li><strong>企業軟體與雲端服務的退燒：</strong> Salesforce 和 Adobe 今年均出現了超過 18% 的跌幅。</li>
+        <li><strong>消費與零售股的平淡：</strong> 蘋果與亞馬遜雖然仍是巨頭，但年度報酬率僅為個位數。</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>＊免責聲明：本頁面僅為資訊分享，不構成任何投資建議。</p>
+      <p>最後更新：2025-10-22</p>
+    </footer>
+  </div>
+
+  <button class="top" aria-label="Back to top" title="回到頂部" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    // 簡易排序與篩選
+    function setupTable(tableId, filterId) {
+      const table = document.getElementById(tableId);
+      const filter = document.getElementById(filterId);
+      const tbody = table.querySelector('tbody');
+      const getCell = (tr, idx) => tr.children[idx].textContent.trim();
+
+      // 排序
+      table.querySelectorAll('thead th').forEach((th, idx) => {
+        th.addEventListener('click', () => {
+          const rows = Array.from(tbody.querySelectorAll('tr'));
+          const key = th.dataset.key || 'rank';
+          const dir = th.dataset.dir === 'asc' ? 'desc' : 'asc';
+          th.dataset.dir = dir;
+
+          const parseVal = (txt) => {
+            if (key === 'ret') return parseFloat(txt.replace('%','').replace('+',''));
+            if (key === 'rank') return parseInt(txt, 10);
+            return txt.toUpperCase();
+          };
+
+          rows.sort((a, b) => {
+            const va = parseVal(getCell(a, idx));
+            const vb = parseVal(getCell(b, idx));
+            if (va < vb) return dir === 'asc' ? -1 : 1;
+            if (va > vb) return dir === 'asc' ? 1 : -1;
+            return 0;
+          });
+          rows.forEach(r => tbody.appendChild(r));
+        });
+      });
+
+      // 篩選
+      filter.addEventListener('input', () => {
+        const q = filter.value.trim().toLowerCase();
+        tbody.querySelectorAll('tr').forEach(tr => {
+          const text = tr.textContent.toLowerCase();
+          tr.style.display = text.includes(q) ? '' : 'none';
+        });
+      });
+    }
+
+    setupTable('tblLead', 'filterLead');
+    setupTable('tblLag', 'filterLag');
+
+    // 匯出 CSV
+    function toCSV(tableId) {
+      const table = document.getElementById(tableId);
+      const rows = Array.from(table.querySelectorAll('tr'));
+      const csv = rows.map(tr => Array.from(tr.children).map(td => '"' + td.innerText.replace(/"/g, '""') + '"').join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = (tableId === 'tblLead' ? 'leaders' : 'laggards') + '.csv';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    document.querySelector('[data-export="lead"]').addEventListener('click', () => toCSV('tblLead'));
+    document.querySelector('[data-export="lag"]').addEventListener('click', () => toCSV('tblLag'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>指數化投資＋長期持有｜為何是優勢策略</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#111218; --muted:#9aa3b2; --text:#e8eef7; --accent:#5ae0b5; --accent2:#7aa2ff;
+      --border:#222431; --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:linear-gradient(180deg,#0b0c10 0%, #0e1116 100%); color:var(--text); font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;}
+    a{color:var(--accent2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px; margin:auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:9; backdrop-filter:saturate(160%) blur(12px);
+      background:rgba(11,12,16,.6); border-bottom:1px solid var(--border)
+    }
+    .nav{display:flex; align-items:center; gap:16px; padding:12px 24px}
+    .brand{font-weight:800; letter-spacing:.3px}
+    .tag{font-size:12px; color:var(--muted); border:1px solid var(--border); padding:2px 8px; border-radius:999px}
+    .grid{display:grid; gap:18px}
+    .card{
+      background:linear-gradient(180deg,#12131a 0%, #0f1016 100%); border:1px solid var(--border);
+      border-radius:16px; box-shadow:var(--shadow); padding:20px
+    }
+    h1,h2,h3{line-height:1.25; margin:.2em 0 .4em}
+    h1{font-size: clamp(28px, 3.6vw, 40px);}
+    h2{font-size: clamp(20px, 2.6vw, 26px);}
+    h3{font-size: clamp(18px, 2.2vw, 22px); color:#dbe6ff}
+    .lead{font-size:18px; color:#d6f8ea}
+    .muted{color:var(--muted)}
+    .bullets{margin:.4em 0 0 1.2em}
+    .bullets li{margin:.3em 0}
+    .callout{
+      border-left:4px solid var(--accent); background:rgba(90,224,181,.08); padding:14px 16px; border-radius:12px
+    }
+    .pill{display:inline-block; padding:4px 10px; border-radius:999px; background:rgba(122,162,255,.12); color:#e7ecff; border:1px solid rgba(122,162,255,.35); font-size:12px}
+    .footer{margin:28px 0 12px; color:var(--muted); font-size:14px}
+    .links{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:10px
+    }
+    .linkcard{
+      display:block; background:linear-gradient(180deg,#11131b 0%, #0e1017 100%);
+      border:1px solid var(--border); border-radius:12px; padding:14px 14px; transition:.15s ease; height:100%
+    }
+    .linkcard:hover{transform:translateY(-2px); border-color:#2b2f42}
+    .linktitle{font-weight:700; display:block; margin-bottom:4px}
+    .toc{display:flex; flex-wrap:wrap; gap:8px; margin:.25rem 0 0}
+    .section{scroll-margin-top:90px}
+    .hr{height:1px; background:var(--border); margin:8px 0 18px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; background:#0a0b10; border:1px solid #1d2130; padding:2px 6px; border-radius:6px; color:#cfe3ff}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">指數化投資＋長期持有</div>
+      <span class="tag">簡報版摘要</span>
+      <div class="toc">
+        <a class="pill" href="#exec">執行摘要</a>
+        <a class="pill" href="#no-pick">不擇股：贏家通吃</a>
+        <a class="pill" href="#no-time">不擇時：關鍵日效應</a>
+        <a class="pill" href="#conclusion">總結</a>
+        <a class="pill" href="#more">延伸閱讀</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <!-- Title -->
+    <section class="card section" id="top">
+      <h1>股市報酬分配分析報告：為何「指數化投資 × 長期持有」是優勢策略</h1>
+      <p class="lead">核心結論：<b>不擇股</b>（買整體市場）＋ <b>不擇時</b>（長期持有）能以最低複雜度與行為風險，最穩健地取得市場平均報酬。</p>
+      <div class="callout">
+        <b>兩個結構性事實：</b>
+        <ul class="bullets">
+          <li><b>贏家通吃（正偏態）</b>：少數超級贏家（如台積電）拉高整體平均，多數個股長期落後。</li>
+          <li><b>報酬高度集中</b>：少數「關鍵上漲日」決定長期績效，難以事前預測。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Exec Summary -->
+    <section class="card section" id="exec">
+      <h2>一、執行摘要 (Executive Summary)</h2>
+      <p>嘗試挑對公司或抓對進出點，長期勝率都偏低；<span class="kbd">0050 / VT</span> 等指數型 ETF 搭配長期持有，才是多數投資人的高勝率解。</p>
+    </section>
+
+    <!-- No Stock Picking -->
+    <section class="card section" id="no-pick">
+      <h2>二、實證（一）【不擇股】的殘酷真相——贏家通吃的市場</h2>
+
+      <h3>1) 台灣（長期：2003–2025）</h3>
+      <ul class="bullets">
+        <li><b>基準：</b>台灣50報酬指數（年化 <b>12.76%</b>）。樣本：2003 年 55 檔。</li>
+        <li><b>低勝率：</b>僅 <b>10 檔（18.18%）</b>年化跑贏大盤；<b>中位數 6.36%</b> 明顯落後。</li>
+        <li><b>贏家效應：</b>台積電（年化 <b>21.76%</b>）等超級贏家拉高平均。</li>
+        <li><b>啟示：</b>持有 0050 報酬指數 23 年（年化 12.76%），資產約可翻近 <b>16 倍</b>。</li>
+      </ul>
+
+      <h3>2) 台灣（短期：2025 年初至今）</h3>
+      <ul class="bullets">
+        <li><b>基準：</b>0050（YTD <b>+33.53%</b>）。樣本：當前 51 檔。</li>
+        <li><b>低勝率：</b><b>12 檔（23.5%）</b>贏指數；落後者多為金融/傳產。</li>
+        <li><b>贏家集中：</b>AI 供應鏈與台積電是主火車頭。</li>
+      </ul>
+
+      <h3>3) 台灣（中期：2024/05–2025/10）</h3>
+      <ul class="bullets">
+        <li><b>基準：</b>0050（區間 <b>+58.35%</b>）。樣本：50 檔。</li>
+        <li><b>低勝率：</b><b>9 檔（18%）</b>跑贏大盤；台積電、台達電貢獻關鍵動能。</li>
+      </ul>
+
+      <h3>4) 全球（長期：2013–2025）</h3>
+      <ul class="bullets">
+        <li><b>基準：</b>VT（總報酬 <b>+265.14%</b>）。樣本：2012 世界 100 強（可比 88 家）。</li>
+        <li><b>低勝率：</b><b>23 家（26.1%）</b>跑贏 VT；贏家集中在美股科技巨頭（如 AAPL <b>+1477%</b>、COST <b>+1068%</b>）。</li>
+      </ul>
+
+      <div class="callout">
+        <b>小結：</b>不同市場與期間，主動選股的長期勝率大致落在 <b>18%～28%</b>。<br/>
+        <b>指數化的優勢</b>＝不必「賭中贏家」，而是<b>保證持有所有贏家</b>。
+      </div>
+    </section>
+
+    <!-- No Market Timing -->
+    <section class="card section" id="no-time">
+      <h2>三、實證（二）【不擇時】的結構性難題</h2>
+
+      <h3>1) 錯過關鍵上漲日，代價巨大</h3>
+      <ul class="bullets">
+        <li><b>Fidelity (2001–2020)：</b>1 萬美元持續在場 → <b>$42,240</b>；錯過最佳 5 天 → <b>$27,399</b>；錯過最佳 10 天 → <b>$20,344</b>（幾近腰斬）。</li>
+        <li><b>美銀 (1930–2020)：</b>每十年錯過「最佳 10 天」，長期總報酬幾乎歸零。</li>
+      </ul>
+
+      <h3>2) 擇時要連續做對「兩次」</h3>
+      <p>必須同時抓到<b>賣出點</b>與<b>買回點</b>，稍有遲疑便跑輸單純的 Buy &amp; Hold。</p>
+
+      <h3>3) DALBAR（QAIB）：行為偏誤造成報酬折損</h3>
+      <ul class="bullets">
+        <li><b>恐慌性賣出：</b>下跌時殺在低點。</li>
+        <li><b>追高性買入：</b>狂熱時買在高點。</li>
+      </ul>
+
+      <div class="callout">
+        <b>小結：</b>離場就可能錯過關鍵日，且人性使擇時更不利。<br/>
+        <b>長期持有</b>可避免錯過大漲日，並將行為風險降至最低。
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="card section" id="conclusion">
+      <h2>四、總結：指數化 × 長期持有 = 最佳策略組合</h2>
+      <ul class="bullets">
+        <li><b>不擇股（指數化）：</b>對應「贏家通吃」分配，避免個股集中風險。</li>
+        <li><b>不擇時（長期持有）：</b>對應「關鍵日集中」＋「人性偏誤」。</li>
+      </ul>
+      <div class="hr"></div>
+      <p class="lead"><b>Time in the market &gt; Timing the market.</b><br/>多數投資者最理性的路徑：<span class="kbd">指數型 ETF</span>＋<span class="kbd">長期持有</span>，耐心享受複利。</p>
+    </section>
+
+    <!-- More Reading Links -->
+    <section class="card section" id="more">
+      <h2>延伸閱讀與互動報表</h2>
+      <p class="muted">以下是相關互動報告與延伸分析，建議依序瀏覽：</p>
+      <div class="links">
+        <a class="linkcard" href="https://chatgpt.com/canvas/shared/68f87bb90b148191aa63c0cc2ccc83e4" target="_blank" rel="noopener">
+          <span class="linktitle">VT 年初持股績效回測分析（2025）</span>
+          <span class="muted">年初持股的後續表現觀察</span>
+        </a>
+        <a class="linkcard" href="https://chatgpt.com/canvas/shared/68f8929637a48191b9c5b1a9f53ee101" target="_blank" rel="noopener">
+          <span class="linktitle">VT 2024 年 4 月持股績效回測報告</span>
+          <span class="muted">觀察 2024/04 成分的後續績效</span>
+        </a>
+        <a class="linkcard" href="https://chatgpt.com/canvas/shared/68f8c7272dc88191a3e799a8999067cf" target="_blank" rel="noopener">
+          <span class="linktitle">0050 vs. VT｜全球龍頭台幣視角比較（2024–2025）</span>
+          <span class="muted">匯率因素下的相對表現</span>
+        </a>
+        <a class="linkcard" href="https://chatgpt.com/canvas/shared/68f703ce43a48191b616a73f4bed1c33" target="_blank" rel="noopener">
+          <span class="linktitle">0050 成分股｜年初至今 (10/21) 績效分析（2025）</span>
+          <span class="muted">贏家與落後族的結構</span>
+        </a>
+        <a class="linkcard" href="https://chatgpt.com/canvas/shared/68f8bfd385b48191a31b226840c1e8b7" target="_blank" rel="noopener">
+          <span class="linktitle">0050 成分股績效分析｜指數化的長尾效應</span>
+          <span class="muted">長尾與正偏態現象</span>
+        </a>
+        <a class="linkcard" href="https://chatgpt.com/canvas/shared/68f7524b30b481919cf7c337b63d3e5e" target="_blank" rel="noopener">
+          <span class="linktitle">2012 世界百強 vs. VT 長期績效分析（2013–2025）</span>
+          <span class="muted">全球視角的贏家通吃</span>
+        </a>
+      </div>
+      <p class="footer">提示：上方導覽的「<b>延伸閱讀</b>」按鈕可快速回到此區塊。</p>
+    </section>
+
+    <section class="footer muted">
+      本頁為依您提供之內容整理的精簡版 HTML。您可自由轉寄或嵌入內網使用。
+    </section>
+  </main>
+</body>
+</html>

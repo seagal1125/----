@@ -1,0 +1,818 @@
+{
+  "VT": {
+    "ticker": "VT",
+    "shortName": "Vanguard Total World Stock Inde",
+    "exchange": "PCX",
+    "currency": "USD",
+    "quoteType": "ETF",
+    "marketCap": null
+  },
+  "MSFT": {
+    "ticker": "MSFT",
+    "shortName": "Microsoft Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 3842762342400
+  },
+  "AAPL": {
+    "ticker": "AAPL",
+    "shortName": "Apple Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 3990206545920
+  },
+  "NVDA": {
+    "ticker": "NVDA",
+    "shortName": "NVIDIA Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 4837505761280
+  },
+  "AMZN": {
+    "ticker": "AMZN",
+    "shortName": "Amazon.com, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 2665284632576
+  },
+  "GOOGL": {
+    "ticker": "GOOGL",
+    "shortName": "Alphabet Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 3351886954496
+  },
+  "META": {
+    "ticker": "META",
+    "shortName": "Meta Platforms, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 1581177372672
+  },
+  "GOOG": {
+    "ticker": "GOOG",
+    "shortName": "Alphabet Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 3351886954496
+  },
+  "LLY": {
+    "ticker": "LLY",
+    "shortName": "Eli Lilly and Company",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 811656675328
+  },
+  "BRK-B": {
+    "ticker": "BRK-B",
+    "shortName": "Berkshire Hathaway Inc. New",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 1051851292672
+  },
+  "2330.TW": {
+    "ticker": "2330.TW",
+    "shortName": "TAIWAN SEMICONDUCTOR MANUFACTUR",
+    "exchange": "TAI",
+    "currency": "TWD",
+    "quoteType": "EQUITY",
+    "marketCap": 37861617303552
+  },
+  "AVGO": {
+    "ticker": "AVGO",
+    "shortName": "Broadcom Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 1661989158912
+  },
+  "JPM": {
+    "ticker": "JPM",
+    "shortName": "JP Morgan Chase & Co.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 841840394240
+  },
+  "TSLA": {
+    "ticker": "TSLA",
+    "shortName": "Tesla, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 1477528387584
+  },
+  "XOM": {
+    "ticker": "XOM",
+    "shortName": "Exxon Mobil Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 481328365568
+  },
+  "UNH": {
+    "ticker": "UNH",
+    "shortName": "UnitedHealth Group Incorporated",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 299678564352
+  },
+  "V": {
+    "ticker": "V",
+    "shortName": "Visa Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 657888116736
+  },
+  "NVO": {
+    "ticker": "NVO",
+    "shortName": "Novo Nordisk A/S",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 216207769600
+  },
+  "PG": {
+    "ticker": "PG",
+    "shortName": "Procter & Gamble Company (The)",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 343897047040
+  },
+  "MA": {
+    "ticker": "MA",
+    "shortName": "Mastercard Incorporated",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 496367206400
+  },
+  "JNJ": {
+    "ticker": "JNJ",
+    "shortName": "Johnson & Johnson",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 450200895488
+  },
+  "ASML": {
+    "ticker": "ASML",
+    "shortName": "ASML Holding N.V. - New York Re",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 414527094784
+  },
+  "HD": {
+    "ticker": "HD",
+    "shortName": "Home Depot, Inc. (The)",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 381312696320
+  },
+  "MRK": {
+    "ticker": "MRK",
+    "shortName": "Merck & Company, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 209464115200
+  },
+  "COST": {
+    "ticker": "COST",
+    "shortName": "Costco Wholesale Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 416916373504
+  },
+  "ABBV": {
+    "ticker": "ABBV",
+    "shortName": "AbbVie Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 381382262784
+  },
+  "CVX": {
+    "ticker": "CVX",
+    "shortName": "Chevron Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 306626625536
+  },
+  "7203.T": {
+    "ticker": "7203.T",
+    "shortName": "TOYOTA MOTOR CORP",
+    "exchange": "JPX",
+    "currency": "JPY",
+    "quoteType": "EQUITY",
+    "marketCap": 39623166263296
+  },
+  "0700.HK": {
+    "ticker": "0700.HK",
+    "shortName": "TENCENT",
+    "exchange": "HKG",
+    "currency": "HKD",
+    "quoteType": "EQUITY",
+    "marketCap": 5698343141376
+  },
+  "NESN.SW": {
+    "ticker": "NESN.SW",
+    "shortName": "NESTLE N",
+    "exchange": "EBS",
+    "currency": "CHF",
+    "quoteType": "EQUITY",
+    "marketCap": 202987225088
+  },
+  "005930.KS": {
+    "ticker": "005930.KS",
+    "shortName": "SamsungElec",
+    "exchange": "KSC",
+    "currency": "KRW",
+    "quoteType": "EQUITY",
+    "marketCap": 653543967031296
+  },
+  "BAC": {
+    "ticker": "BAC",
+    "shortName": "Bank of America Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 390975619072
+  },
+  "WMT": {
+    "ticker": "WMT",
+    "shortName": "Walmart Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 815383445504
+  },
+  "AMD": {
+    "ticker": "AMD",
+    "shortName": "Advanced Micro Devices, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 405792063488
+  },
+  "CRM": {
+    "ticker": "CRM",
+    "shortName": "Salesforce, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 242226888704
+  },
+  "PEP": {
+    "ticker": "PEP",
+    "shortName": "Pepsico, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 195392897024
+  },
+  "KO": {
+    "ticker": "KO",
+    "shortName": "Coca-Cola Company (The)",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 295348502528
+  },
+  "NFLX": {
+    "ticker": "NFLX",
+    "shortName": "Netflix, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 463122464768
+  },
+  "SHEL.L": {
+    "ticker": "SHEL.L",
+    "shortName": "SHELL PLC ORD EUR0.07",
+    "exchange": "LSE",
+    "currency": "GBp",
+    "quoteType": "EQUITY",
+    "marketCap": 163754131456
+  },
+  "AZN.L": {
+    "ticker": "AZN.L",
+    "shortName": "ASTRAZENECA PLC ORD SHS $0.25",
+    "exchange": "LSE",
+    "currency": "GBp",
+    "quoteType": "EQUITY",
+    "marketCap": 194217902080
+  },
+  "TMO": {
+    "ticker": "TMO",
+    "shortName": "Thermo Fisher Scientific Inc",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 212365230080
+  },
+  "WFC": {
+    "ticker": "WFC",
+    "shortName": "Wells Fargo & Company",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 273508433920
+  },
+  "LIN": {
+    "ticker": "LIN",
+    "shortName": "Linde plc",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 195156639744
+  },
+  "ADBE": {
+    "ticker": "ADBE",
+    "shortName": "Adobe Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 140377505792
+  },
+  "MC.PA": {
+    "ticker": "MC.PA",
+    "shortName": "LVMH",
+    "exchange": "PAR",
+    "currency": "EUR",
+    "quoteType": "EQUITY",
+    "marketCap": 303486697472
+  },
+  "DIS": {
+    "ticker": "DIS",
+    "shortName": "Walt Disney Company (The)",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 200415690752
+  },
+  "NOVN.SW": {
+    "ticker": "NOVN.SW",
+    "shortName": "NOVARTIS N",
+    "exchange": "EBS",
+    "currency": "CHF",
+    "quoteType": "EQUITY",
+    "marketCap": 194719023104
+  },
+  "MCD": {
+    "ticker": "MCD",
+    "shortName": "McDonald's Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 213517565952
+  },
+  "SAP.DE": {
+    "ticker": "SAP.DE",
+    "shortName": "SAP SE                        I",
+    "exchange": "GER",
+    "currency": "EUR",
+    "quoteType": "EQUITY",
+    "marketCap": 263258800128
+  },
+  "ACN": {
+    "ticker": "ACN",
+    "shortName": "Accenture plc",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 150631727104
+  },
+  "CSCO": {
+    "ticker": "CSCO",
+    "shortName": "Cisco Systems, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 284993224704
+  },
+  "QCOM": {
+    "ticker": "QCOM",
+    "shortName": "QUALCOMM Incorporated",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 186494369792
+  },
+  "ABT": {
+    "ticker": "ABT",
+    "shortName": "Abbott Laboratories",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 218750091264
+  },
+  "GE": {
+    "ticker": "GE",
+    "shortName": "GE Aerospace",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 320874381312
+  },
+  "ORCL": {
+    "ticker": "ORCL",
+    "shortName": "Oracle Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 707481239552
+  },
+  "INTU": {
+    "ticker": "INTU",
+    "shortName": "Intuit Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 184128389120
+  },
+  "CAT": {
+    "ticker": "CAT",
+    "shortName": "Caterpillar, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 256529694720
+  },
+  "AMAT": {
+    "ticker": "AMAT",
+    "shortName": "Applied Materials, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 183379116032
+  },
+  "VZ": {
+    "ticker": "VZ",
+    "shortName": "Verizon Communications Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 165789843456
+  },
+  "HSBA.L": {
+    "ticker": "HSBA.L",
+    "shortName": "HSBC HOLDINGS PLC ORD $0.50 (UK",
+    "exchange": "LSE",
+    "currency": "GBp",
+    "quoteType": "EQUITY",
+    "marketCap": 184821153792
+  },
+  "DHR": {
+    "ticker": "DHR",
+    "shortName": "Danaher Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 151038722048
+  },
+  "TXN": {
+    "ticker": "TXN",
+    "shortName": "Texas Instruments Incorporated",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 144798171136
+  },
+  "9988.HK": {
+    "ticker": "9988.HK",
+    "shortName": "BABA-W",
+    "exchange": "HKG",
+    "currency": "HKD",
+    "quoteType": "EQUITY",
+    "marketCap": 3023534292992
+  },
+  "IBM": {
+    "ticker": "IBM",
+    "shortName": "International Business Machines",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 281215107072
+  },
+  "COP": {
+    "ticker": "COP",
+    "shortName": "ConocoPhillips",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 109794525184
+  },
+  "CMCSA": {
+    "ticker": "CMCSA",
+    "shortName": "Comcast Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 99988471808
+  },
+  "TTE.PA": {
+    "ticker": "TTE.PA",
+    "shortName": "TOTALENERGIES",
+    "exchange": "PAR",
+    "currency": "EUR",
+    "quoteType": "EQUITY",
+    "marketCap": 116145668096
+  },
+  "PM": {
+    "ticker": "PM",
+    "shortName": "Philip Morris International Inc",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 229853282304
+  },
+  "AMGN": {
+    "ticker": "AMGN",
+    "shortName": "Amgen Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 159731974144
+  },
+  "RTX": {
+    "ticker": "RTX",
+    "shortName": "RTX Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 235452973056
+  },
+  "PFE": {
+    "ticker": "PFE",
+    "shortName": "Pfizer, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 190789992448
+  },
+  "UNP": {
+    "ticker": "UNP",
+    "shortName": "Union Pacific Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 131035176960
+  },
+  "ROG.SW": {
+    "ticker": "ROG.SW",
+    "shortName": "ROCHE GS",
+    "exchange": "EBS",
+    "currency": "CHF",
+    "quoteType": "EQUITY",
+    "marketCap": 207542829056
+  },
+  "NOW": {
+    "ticker": "NOW",
+    "shortName": "ServiceNow, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 184748589056
+  },
+  "SIE.DE": {
+    "ticker": "SIE.DE",
+    "shortName": "SIEMENS AG                    N",
+    "exchange": "GER",
+    "currency": "EUR",
+    "quoteType": "EQUITY",
+    "marketCap": 189985079296
+  },
+  "BHP.AX": {
+    "ticker": "BHP.AX",
+    "shortName": "BHP GROUP FPO [BHP]",
+    "exchange": "ASX",
+    "currency": "AUD",
+    "quoteType": "EQUITY",
+    "marketCap": 215011475456
+  },
+  "NEE": {
+    "ticker": "NEE",
+    "shortName": "NextEra Energy, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 170128392192
+  },
+  "AXP": {
+    "ticker": "AXP",
+    "shortName": "American Express Company",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 248324128768
+  },
+  "RY.TO": {
+    "ticker": "RY.TO",
+    "shortName": "ROYAL BANK OF CANADA",
+    "exchange": "TOR",
+    "currency": "CAD",
+    "quoteType": "EQUITY",
+    "marketCap": 289676951552
+  },
+  "GS": {
+    "ticker": "GS",
+    "shortName": "Goldman Sachs Group, Inc. (The)",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 237192462336
+  },
+  "SPGI": {
+    "ticker": "SPGI",
+    "shortName": "S&P Global Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 151160782848
+  },
+  "LOW": {
+    "ticker": "LOW",
+    "shortName": "Lowe's Companies, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 133341724672
+  },
+  "UBER": {
+    "ticker": "UBER",
+    "shortName": "Uber Technologies, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 197426577408
+  },
+  "ISRG": {
+    "ticker": "ISRG",
+    "shortName": "Intuitive Surgical, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 191009570816
+  },
+  "INTC": {
+    "ticker": "INTC",
+    "shortName": "Intel Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 188256993280
+  },
+  "ULVR.L": {
+    "ticker": "ULVR.L",
+    "shortName": "UNILEVER PLC ORD 3 1/9P",
+    "exchange": "LSE",
+    "currency": "GBp",
+    "quoteType": "EQUITY",
+    "marketCap": 113571414016
+  },
+  "HON": {
+    "ticker": "HON",
+    "shortName": "Honeywell International Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 124729950208
+  },
+  "ETN": {
+    "ticker": "ETN",
+    "shortName": "Eaton Corporation, PLC",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 147046400000
+  },
+  "ELV": {
+    "ticker": "ELV",
+    "shortName": "Elevance Health, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 70365241344
+  },
+  "MU": {
+    "ticker": "MU",
+    "shortName": "Micron Technology, Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 244731265024
+  },
+  "CBA.AX": {
+    "ticker": "CBA.AX",
+    "shortName": "CWLTH BANK FPO [CBA]",
+    "exchange": "ASX",
+    "currency": "AUD",
+    "quoteType": "EQUITY",
+    "marketCap": 294829391872
+  },
+  "SU.PA": {
+    "ticker": "SU.PA",
+    "shortName": "SCHNEIDER ELECTRIC SE",
+    "exchange": "PAR",
+    "currency": "EUR",
+    "quoteType": "EQUITY",
+    "marketCap": 135670104064
+  },
+  "PGR": {
+    "ticker": "PGR",
+    "shortName": "Progressive Corporation (The)",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 122903576576
+  },
+  "T": {
+    "ticker": "T",
+    "shortName": "AT&T Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 173266141184
+  },
+  "BKNG": {
+    "ticker": "BKNG",
+    "shortName": "Booking Holdings Inc. Common St",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 160903462912
+  },
+  "SYK": {
+    "ticker": "SYK",
+    "shortName": "Stryker Corporation",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 138670637056
+  },
+  "LRCX": {
+    "ticker": "LRCX",
+    "shortName": "Lam Research Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 195664347136
+  },
+  "C": {
+    "ticker": "C",
+    "shortName": "Citigroup, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 180737196032
+  },
+  "BRK-A": {
+    "ticker": "BRK-A",
+    "shortName": "Berkshire Hathaway Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 1052779216896
+  },
+  "BLK": {
+    "ticker": "BLK",
+    "shortName": "BlackRock, Inc.",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 164392042496
+  },
+  "8306.T": {
+    "ticker": "8306.T",
+    "shortName": "MITSUBISHI UFJ FINANCIAL GROUP ",
+    "exchange": "JPX",
+    "currency": "JPY",
+    "quoteType": "EQUITY",
+    "marketCap": 26106449100800
+  },
+  "TSM": {
+    "ticker": "TSM",
+    "shortName": "Taiwan Semiconductor Manufactur",
+    "exchange": "NYQ",
+    "currency": "USD",
+    "quoteType": "EQUITY",
+    "marketCap": 1525097037824
+  }
+}

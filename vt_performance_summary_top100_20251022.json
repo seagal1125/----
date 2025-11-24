@@ -1,0 +1,11 @@
+{
+  "vt_us_return_pct": 33.87798095633694,
+  "vt_twd_return_pct": 26.626847067177838,
+  "usd_twd_start": 32.433998107910156,
+  "usd_twd_end": 30.67729949951172,
+  "usd_twd_change_pct": -5.416225907622552,
+  "conversion_factor": 0.9458377409237745,
+  "count_total": 102,
+  "count_beat_vt_us": 43,
+  "count_beat_vt_twd": 43
+}

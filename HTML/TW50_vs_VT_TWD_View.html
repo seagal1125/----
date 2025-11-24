@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>0050 與 VT 全球龍頭（台幣視角）比較｜含 TSM ADR 對照（2024-05-01～2025-10-22）</title>
+  <meta name="description" content="期間 2024-05-01～2025-10-22：0050 與 VT（台幣視角）、VT 百大持股台幣換算表、TSM ADR 對照、可排序可搜尋表格。" />
+  <style>
+    :root{
+      --bg:#0b0d10; --panel:#12151a; --ink:#e7ecf3; --muted:#a5afbd; --accent:#6aa1ff; --accent-2:#42d392; --danger:#ff6a6a; --ok:#3ad19f; --warn:#ffcc66;
+      --table-stripe:#0e1116; --chip:#1b2030;
+    }
+    html,body{height:100%}
+    body{margin:0; font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; background:linear-gradient(180deg,#0a0c10, #0b0d10 20%, #0a0c11 100%); color:var(--ink)}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 16px 80px}
+    h1{font-size:clamp(22px,3.2vw,34px); line-height:1.25; margin:0 0 10px}
+    h2{font-size:clamp(18px,2.4vw,24px); margin:28px 0 12px}
+    h3{font-size:clamp(16px,2vw,20px); margin:24px 0 10px}
+    p,li{color:var(--muted)}
+    .card{background:linear-gradient(180deg,#0f1320,#0c1018); border:1px solid #1b2030; border-radius:16px; padding:18px; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .grid{display:grid; gap:14px}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .stat{display:flex; flex-direction:column; gap:4px; padding:12px 14px; border-radius:14px; background:var(--panel); border:1px solid #1a1f2b}
+    .stat .k{font-size:13px; color:var(--muted)}
+    .stat .v{font-size:20px}
+    .chip{display:inline-block; padding:4px 10px; border-radius:999px; background:var(--chip); color:var(--ink); border:1px solid #242a3a; font-size:12px}
+    .note{font-size:13px; color:var(--muted)}
+
+    .toolbar{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin:10px 0 8px}
+    .search{flex:1; min-width:200px}
+    input[type="search"]{width:100%; padding:10px 12px; border-radius:12px; border:1px solid #2a3245; background:#0e1220; color:var(--ink)}
+
+    table{width:100%; border-collapse:separate; border-spacing:0 8px}
+    th, td{padding:12px 12px; text-align:left}
+    thead th{font-weight:600; color:#c9d4e5; font-size:14px}
+    tbody tr{background:var(--panel); border:1px solid #1a1f2b}
+    tbody tr:hover{outline:1px solid #2a3245}
+    tbody td{font-size:14px; color:var(--ink)}
+    tbody tr + tr{margin-top:8px}
+    tbody tr td:first-child{border-radius:12px 0 0 12px}
+    tbody tr td:last-child{border-radius:0 12px 12px 0}
+    .num{text-align:right; font-variant-numeric:tabular-nums}
+
+    .pct-pos{color:var(--ok); font-weight:600}
+    .pct-neg{color:var(--danger); font-weight:600}
+    .pill{padding:4px 8px; border-radius:8px; font-size:12px; border:1px solid #25304a; background:#121a2a; color:#d6e2ff}
+
+    .foot{margin-top:26px; font-size:12px; color:#96a0b1}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; background:#0d1322; border:1px solid #27324a; padding:2px 6px; border-radius:6px}
+    .btn{appearance:none; border:1px solid #2a3245; background:#0e1320; color:#cfe0ff; padding:10px 12px; border-radius:10px; cursor:pointer}
+    .btn:hover{border-color:#39435a}
+    .tag{font-size:12px; background:#0e1a2a; border:1px solid #24324a; padding:4px 8px; border-radius:999px}
+    .flex{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>0050 與 VT 全球龍頭台幣視角比較（2024-05-01～2025-10-22）</h1>
+      <div class="flex" role="group" aria-label="tags">
+        <span class="chip">台幣視角</span>
+        <span class="chip">含匯率折算</span>
+        <span class="chip">含 TSM ADR 對照</span>
+        <span class="chip">可排序/搜尋</span>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="fx">
+      <h2 id="fx">匯率調整概要</h2>
+      <div class="grid cols-3">
+        <div class="stat">
+          <div class="k">USD/TWD（起 → 迄）</div>
+          <div class="v">32.5293 → 30.698</div>
+          <span class="note">美元貶值 <b class="pct-neg">-5.63%</b>（台幣升值 +5.97%）</span>
+        </div>
+        <div class="stat">
+          <div class="k">折算係數（美元 → 台幣）</div>
+          <div class="v kbd">0.9437</div>
+          <span class="note">台幣升值，美元資產名目漲幅平均被稀釋 ≈ 5.6 個百分點</span>
+        </div>
+        <div class="stat">
+          <div class="k">基準報酬（台幣版 VT）</div>
+          <div class="v"><span class="pct-pos">+26.89%</span></div>
+          <span class="note">VT（美元）+34.46% × 0.9437 ≈ 26.89%</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="vt100">
+      <h2 id="vt100">VT 前 100 大持股（台幣視角）要點</h2>
+      <ul>
+        <li>台幣換算後仍有 <b>41 檔</b> 擊敗台幣版 VT（<span class="pct-pos">+26.89%</span>），其中 <b>18 檔</b> 超越 <b>0050</b> 的 <b class="pct-pos">+58.35%</b> 報酬。</li>
+        <li>台幣計價前五名仍由 <b>AI 與雲端供應鏈</b> 主導：</li>
+      </ul>
+      <div class="grid cols-3">
+        <div class="stat"><div class="k">#1</div><div class="v">AVGO（Broadcom）</div><span class="note pct-pos">+164.44%</span></div>
+        <div class="stat"><div class="k">#2</div><div class="v">TSLA（Tesla）</div><span class="note pct-pos">+132.06%</span></div>
+        <div class="stat"><div class="k">#3</div><div class="v">ORCL（Oracle）</div><span class="note pct-pos">+129.93%</span></div>
+        <div class="stat"><div class="k">#4</div><div class="v">NFLX（Netflix）</div><span class="note pct-pos">+112.33%</span></div>
+        <div class="stat"><div class="k">#5</div><div class="v">NVDA（NVIDIA）</div><span class="note pct-pos">+105.97%</span></div>
+      </div>
+      <p class="note">* 上述排序僅針對 <b>VT 百大內的原始持股</b>。下方另提供 <b>TSM ADR</b> 的對照表（非 VT 額外樣本），不納入上述前五名與 18 檔統計，以維持組合口徑一致。</p>
+
+      <h3>超越 0050 的 VT 百大持股（台幣視角，<span class="pill">18 檔</span>）</h3>
+      <div class="toolbar">
+        <div class="search"><input id="q1" type="search" placeholder="🔎 搜尋公司 / 代號…（可模糊比對）」 aria-label="搜尋表一" /></div>
+        <div class="flex">
+          <button class="btn" data-sort="#t1" data-col="0">依台幣排名排序</button>
+          <button class="btn" data-sort="#t1" data-col="4">依台幣報酬排序</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="t1" aria-describedby="vtTop18">
+          <thead>
+            <tr>
+              <th>台幣排名</th>
+              <th>Ticker</th>
+              <th>公司</th>
+              <th class="num">美元報酬率%</th>
+              <th class="num">台幣報酬率%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>AVGO</td><td>Broadcom Inc</td><td class="num pct-pos">+180.21%</td><td class="num pct-pos">+164.44%</td></tr>
+            <tr><td>2</td><td>TSLA</td><td>Tesla Inc</td><td class="num pct-pos">+145.90%</td><td class="num pct-pos">+132.06%</td></tr>
+            <tr><td>3</td><td>ORCL</td><td>Oracle Corp</td><td class="num pct-pos">+143.65%</td><td class="num pct-pos">+129.93%</td></tr>
+            <tr><td>4</td><td>NFLX</td><td>Netflix Inc</td><td class="num pct-pos">+125.00%</td><td class="num pct-pos">+112.33%</td></tr>
+            <tr><td>5</td><td>NVDA</td><td>NVIDIA Corp</td><td class="num pct-pos">+118.26%</td><td class="num pct-pos">+105.97%</td></tr>
+            <tr><td>6</td><td>9988.HK</td><td>Alibaba Group Holding Ltd</td><td class="num pct-pos">+118.00%</td><td class="num pct-pos">+105.73%</td></tr>
+            <tr><td>7</td><td>2330.TW</td><td>Taiwan Semiconductor Manufacturing Co Ltd</td><td class="num pct-pos">+96.57%</td><td class="num pct-pos">+85.50%</td></tr>
+            <tr><td>8</td><td>GE</td><td>General Electric Co</td><td class="num pct-pos">+93.81%</td><td class="num pct-pos">+82.90%</td></tr>
+            <tr><td>9</td><td>MU</td><td>Micron Technology Inc</td><td class="num pct-pos">+85.54%</td><td class="num pct-pos">+75.09%</td></tr>
+            <tr><td>10</td><td>GS</td><td>Goldman Sachs Group Inc/The</td><td class="num pct-pos">+83.57%</td><td class="num pct-pos">+73.24%</td></tr>
+            <tr><td>11</td><td>WMT</td><td>Walmart Inc</td><td class="num pct-pos">+83.40%</td><td class="num pct-pos">+73.08%</td></tr>
+            <tr><td>12</td><td>IBM</td><td>International Business Machines Corp</td><td class="num pct-pos">+79.69%</td><td class="num pct-pos">+69.57%</td></tr>
+            <tr><td>13</td><td>0700.HK</td><td>Tencent Holdings Ltd</td><td class="num pct-pos">+78.00%</td><td class="num pct-pos">+67.98%</td></tr>
+            <tr><td>14</td><td>RTX</td><td>RTX Corp</td><td class="num pct-pos">+76.37%</td><td class="num pct-pos">+66.44%</td></tr>
+            <tr><td>15</td><td>LRCX</td><td>Lam Research Corp</td><td class="num pct-pos">+69.68%</td><td class="num pct-pos">+60.13%</td></tr>
+            <tr><td>16</td><td>PM</td><td>Philip Morris International Inc</td><td class="num pct-pos">+68.17%</td><td class="num pct-pos">+58.70%</td></tr>
+            <tr><td>17</td><td>C</td><td>Citigroup Inc</td><td class="num pct-pos">+68.10%</td><td class="num pct-pos">+58.64%</td></tr>
+            <tr><td>18</td><td>META</td><td>Meta Platforms Inc</td><td class="num pct-pos">+67.81%</td><td class="num pct-pos">+58.36%</td></tr>
+          </tbody>
+        </table>
+        <div id="vtTop18" class="foot">排名依台幣報酬率由高至低；門檻：0050 台幣報酬 <span class="pct-pos">+58.35%</span>。</div>
+      </div>
+
+      <h3 id="tsmadr">TSM（ADR）對照（額外參考，不納入 VT 統計）</h3>
+      <p class="note">你要求加入 <b>TSM ADR</b> 以便與 2330.TW 與指數做 <b>台幣視角</b> 對照。以下表格僅做比較用途，<u>不計入</u> 上述「18 檔」統計與「前五名」排序。</p>
+      <div class="toolbar">
+        <div class="search"><input id="q2" type="search" placeholder="🔎 搜尋對照表…" aria-label="搜尋表二" /></div>
+        <div class="flex">
+          <button class="btn" data-sort="#t2" data-col="0">依標的排序</button>
+          <button class="btn" data-sort="#t2" data-col="3">依台幣報酬排序</button>
+        </div>
+      </div>
+      <table id="t2">
+        <thead>
+          <tr>
+            <th>標的</th>
+            <th>代號</th>
+            <th class="num">美元報酬率%</th>
+            <th class="num">台幣報酬率%</th>
+            <th>說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>台積電 ADR</td>
+            <td>TSM</td>
+            <td class="num pct-pos">+122.12%</td>
+            <td class="num pct-pos">+109.62%</td>
+            <td>以 USD 計價之 ADR；台幣折算 ×0.9437</td>
+          </tr>
+          <tr>
+            <td>台積電本尊</td>
+            <td>2330.TW</td>
+            <td class="num pct-pos">+96.57%</td>
+            <td class="num pct-pos">+85.50%</td>
+            <td>TW 計價，亦列於 VT 百大（以本尊權重計）</td>
+          </tr>
+          <tr>
+            <td>0050 指數</td>
+            <td>0050.TW</td>
+            <td class="num pct-pos">—</td>
+            <td class="num pct-pos">+58.35%</td>
+            <td>台幣基準（台股市值加權）</td>
+          </tr>
+          <tr>
+            <td>VT（台幣版）</td>
+            <td>VT</td>
+            <td class="num pct-pos">+34.46%</td>
+            <td class="num pct-pos">+26.89%</td>
+            <td>全球股市（美元 ×0.9437 台幣折算）</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="foot">* ADR 與本尊在交易時段、流動性與溢折價上可能存在細微差異；此處僅依名目報酬比對。</div>
+    </section>
+
+    <section class="card" aria-labelledby="tw50">
+      <h2 id="tw50">0050 成分股相對全球龍頭（台幣視角）</h2>
+      <ul>
+        <li>0050 僅 <b>9 檔</b> 成分股擊敗指數本身，但放入全球榜仍名列前茅。</li>
+        <li>臺達電 <b class="pct-pos">+241.67%</b> 奪總榜首；智邦、台積電、緯穎同處全球前列。</li>
+      </ul>
+      <div class="toolbar">
+        <div class="search"><input id="q3" type="search" placeholder="🔎 搜尋公司 / 代號…（台股）」 aria-label="搜尋表三" /></div>
+        <div class="flex">
+          <button class="btn" data-sort="#t3" data-col="0">依全球排名</button>
+          <button class="btn" data-sort="#t3" data-col="3">依台幣報酬排序</button>
+        </div>
+      </div>
+      <table id="t3">
+        <thead>
+          <tr>
+            <th>全球排名</th>
+            <th>Ticker</th>
+            <th>公司</th>
+            <th class="num">台幣報酬率%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>2308.TW</td><td>臺達電子</td><td class="num pct-pos">+241.67%</td></tr>
+          <tr><td>6</td><td>2345.TW</td><td>智邦科技</td><td class="num pct-pos">+111.51%</td></tr>
+          <tr><td>9</td><td>2330.TW</td><td>臺灣積體電路製造</td><td class="num pct-pos">+96.57%</td></tr>
+          <tr><td>10</td><td>6669.TW</td><td>緯穎科技</td><td class="num pct-pos">+87.01%</td></tr>
+          <tr><td>13</td><td>2301.TW</td><td>光寶科技</td><td class="num pct-pos">+76.94%</td></tr>
+          <tr><td>14</td><td>2357.TW</td><td>華碩</td><td class="num pct-pos">+76.00%</td></tr>
+          <tr><td>20</td><td>2327.TW</td><td>國巨</td><td class="num pct-pos">+67.87%</td></tr>
+          <tr><td>22</td><td>2317.TW</td><td>鴻海精密</td><td class="num pct-pos">+64.95%</td></tr>
+          <tr><td>26</td><td>2408.TW</td><td>南亞科</td><td class="num pct-pos">+58.41%</td></tr>
+        </tbody>
+      </table>
+      <div class="foot">指數化投資仍具勝率；但 AI/電源供應鏈龍頭放眼全球仍有競爭力。</div>
+    </section>
+
+    <section class="foot">
+      <p><b>口徑與假設</b>：海外個股預設以美元計價並以 0.9437 對台幣折算；其他貨幣（港幣/歐元等）未額外調整，解讀時請留意可能誤差。資料為你提供之報酬數值彙整與視覺化，僅供研究分享，非投資建議。</p>
+      <p>快捷鍵：<span class="kbd">/</span> 聚焦搜尋；點擊表頭或使用上方按鈕可排序。</p>
+    </section>
+  </div>
+
+  <script>
+    // 簡易搜尋/排序
+    function setupFilter(inputSel, tableSel){
+      const ip = document.querySelector(inputSel); const tb = document.querySelector(tableSel);
+      if(!ip || !tb) return;
+      ip.addEventListener('input', () => {
+        const kw = ip.value.trim().toLowerCase();
+        const rows = tb.tBodies[0].rows;
+        for(const r of rows){
+          const text = r.innerText.toLowerCase();
+          r.style.display = text.includes(kw) ? '' : 'none';
+        }
+      });
+      // 快捷鍵 '/'
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === '/' && document.activeElement !== ip){ e.preventDefault(); ip.focus(); }
+      });
+    }
+    function parsePct(t){
+      // 將 "+123.45%" 或 "—" 轉為可比較數值
+      if(!t) return -Infinity;
+      const s = t.replace(/[,\s]/g,'');
+      if(s === '—') return -Infinity;
+      const m = s.match(/([+\-]?\d+(?:\.\d+)?)%/);
+      return m ? parseFloat(m[1]) : -Infinity;
+    }
+    function setupSort(buttonSel){
+      document.querySelectorAll(buttonSel).forEach(btn => {
+        btn.addEventListener('click', () => {
+          const table = document.querySelector(btn.dataset.sort);
+          const col = parseInt(btn.dataset.col,10);
+          const tbody = table.tBodies[0];
+          const rows = Array.from(tbody.rows);
+          const isNum = col >= 3; // 我們的數字欄位在右側
+          let asc = btn.dataset.asc === 'true' ? false : true;
+          btn.dataset.asc = asc;
+          rows.sort((a,b)=>{
+            const ax = a.cells[col].innerText.trim();
+            const bx = b.cells[col].innerText.trim();
+            if(isNum){
+              const av = parsePct(ax);
+              const bv = parsePct(bx);
+              return asc ? av - bv : bv - av;
+            } else {
+              return asc ? ax.localeCompare(bx) : bx.localeCompare(ax);
+            }
+          });
+          rows.forEach(r => tbody.appendChild(r));
+        });
+      });
+    }
+    setupFilter('#q1','#t1');
+    setupFilter('#q2','#t2');
+    setupFilter('#q3','#t3');
+    setupSort('button[data-sort]');
+  </script>
+</body>
+</html>

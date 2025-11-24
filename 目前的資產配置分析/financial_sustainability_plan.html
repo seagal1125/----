@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財務續航計畫報告</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --secondary-color: #6a7f9e;
+            --background-color: #f5f7fa;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --heading-color: #1d2d44;
+            --border-color: #e6e9ed;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+        .card {
+            background: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--primary-color);
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        .phase-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .phase {
+            background: #fdfdff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .phase-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+        .phase-content h3 {
+            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+        }
+        .phase-content p {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        .phase-duration {
+            margin-left: auto;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .phase-duration .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        .phase-duration .unit {
+            display: block;
+            font-size: 1rem;
+            color: var(--secondary-color);
+        }
+        .flow-list {
+            list-style: none;
+            padding: 0;
+        }
+        .flow-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0.8rem;
+        }
+        .flow-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+        .summary-item h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        .summary-item .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>財務續航力計畫</h1>
+            <p>在 2.5% 質押利率下，透過三階段資產運用，支應未來生活開銷</p>
+        </header>
+
+        <div class="card">
+            <h2>計畫緣起：每月現金缺口</h2>
+            <p>本計畫旨在解決因家庭開銷（房貸、信貸、生活費）高於薪資收入所產生的每月固定資金缺口。</p>
+            <div class="summary-grid" style="margin-top: 1.5rem;">
+                <div class="summary-item">
+                    <h3>每月總支出</h3>
+                    <p class="value">203,960 元</p>
+                </div>
+                <div class="summary-item">
+                    <h3>每月總收入</h3>
+                    <p class="value">92,000 元</p>
+                </div>
+                <div class="summary-item">
+                    <h3><span style="color: #e74c3c; font-weight: bold;">每月資金缺口</span></h3>
+                    <p class="value" style="color: #e74c3c;">111,960 元</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>策略：三階段續航計畫</h2>
+            <div class="phase-container">
+                <!-- Phase 1 -->
+                <div class="phase">
+                    <div class="phase-icon">💰</div>
+                    <div class="phase-content">
+                        <h3>第一階段：現金緩衝期</h3>
+                        <p>動用 <span class="highlight">75 萬</span>的銀行存款，支應初期的資金缺口。</p>
+                    </div>
+                    <div class="phase-duration">
+                        <span class="value">6.7</span>
+                        <span class="unit">個月</span>
+                    </div>
+                </div>
+                <!-- Phase 2 -->
+                <div class="phase">
+                    <div class="phase-icon">📈</div>
+                    <div class="phase-content">
+                        <h3>第二階段：質押擴張期</h3>
+                        <p>以台積電股票向銀行質押借款，每月借出 <span class="highlight">~11.5 萬</span> (含利息) 來填補缺口，直到 LTV 達 20%。</p>
+                    </div>
+                    <div class="phase-duration">
+                        <span class="value">26.4</span>
+                        <span class="unit">個月</span>
+                    </div>
+                </div>
+                <!-- Phase 3 -->
+                <div class="phase">
+                    <div class="phase-icon">💸</div>
+                    <div class="phase-content">
+                        <h3>第三階段：賣股維持期</h3>
+                        <p>每月賣股求現，賣出款項 <span class="highlight">80%</span> 用於生活，<span class="highlight">20%</span> 用於還款以維持 LTV 20%。</p>
+                    </div>
+                    <div class="phase-duration">
+                        <span class="value">84.1</span>
+                        <span class="unit">個月</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>計畫總覽與期末資產</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>總續航時間</h3>
+                    <p class="value">約 9.8 年</p>
+                </div>
+                <div class="summary-item">
+                    <h3>期末股票資產</h3>
+                    <p class="value">約 2,215 萬</p>
+                </div>
+                <div class="summary-item">
+                    <h3>期末質押負債</h3>
+                    <p class="value">約 61 萬</p>
+                </div>
+            </div>
+            <ul class="flow-list" style="margin-top: 2rem;">
+                <li>整個計畫期間，年初約 1,911 萬的 VT+IEF 投資組合將完全不動用。</li>
+                <li>計畫結束時，仍保留約 304 萬的台積電核心持股。</li>
+                <li>最終淨資產約為 <span class="highlight">2,154 萬元</span> (未計入資產價格波動)。</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

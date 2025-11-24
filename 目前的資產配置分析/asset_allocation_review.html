@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資產配置總體檢報告</title>
+    <style>
+        /* --- 基本樣式重置與設定 --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            line-height: 1.7;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- 容器樣式 --- */
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        /* --- 標題樣式 --- */
+        h1 {
+            color: #1a237e; /* 深藍色 */
+            border-bottom: 3px solid #3f51b5; /* 稍亮的藍色底線 */
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #283593; /* 中藍色 */
+            border-left: 5px solid #5c6bc0;
+            padding-left: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.75rem; /* 28px */
+            font-weight: 600;
+        }
+
+        /* --- 內容樣式 --- */
+        p, li {
+            font-size: 1rem; /* 16px */
+            color: #343a40;
+            margin-bottom: 15px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #dee2e6;
+            margin: 40px 0;
+        }
+
+        /* --- 表格樣式 --- */
+        .table-wrapper {
+            overflow-x: auto; /* 確保表格在小螢幕上可以滾動 */
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem; /* 輕微縮小字體以容納更多內容 */
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: middle; /* 垂直置中 */
+        }
+
+        /* 表頭 */
+        thead th {
+            background-color: #f1f3f5;
+            color: #495057;
+            font-weight: 600;
+            white-space: nowrap; /* 保持表頭不換行 */
+        }
+        
+        /* 表格內容 */
+        tbody tr:hover {
+            background-color: #fdfdfd;
+        }
+
+        tbody td {
+            color: #333;
+        }
+
+        /* 第一欄（投資組合名稱）加粗 */
+        tbody td:first-child {
+            font-weight: 600;
+            color: #0d47a1; /* 深藍色以示強調 */
+            white-space: nowrap;
+        }
+
+        /* 數值靠右對齊 */
+        th:nth-child(3), td:nth-child(3),
+        th:nth-child(4), td:nth-child(4),
+        th:nth-child(5), td:nth-child(5),
+        th:nth-child(6), td:nth-child(6) {
+            text-align: right;
+        }
+
+        /* 日期欄位樣式 */
+        td:last-child {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        
+        /* 主要配置欄位，保持換行 */
+        td:nth-child(2) {
+            line-height: 1.5;
+            font-size: 0.85rem;
+        }
+
+        /* --- 強調樣式 (來自 Markdown 的 **Bold**) --- */
+        strong, b {
+            color: #c62828; /* 使用紅色來強調關鍵數字或結論 */
+            font-weight: 700;
+        }
+        
+        /* 表格內的特殊強調（最高/最低值） */
+        table strong {
+            color: #1e88e5; /* 表格內的最佳值使用藍色 */
+            font-weight: 700;
+        }
+        
+        /* 最大回撤的強調使用不同顏色 */
+        table td:nth-child(6) strong {
+             color: #43a047; /* 綠色，表示回撤較小 (較好) */
+        }
+        /* 報酬率的強調 */
+        table td:nth-child(3) strong {
+             color: #d32f2f; /* 紅色，表示報酬率高 (較好) */
+        }
+        /* 夏普比率的強調 */
+        table td:nth-child(5) strong {
+             color: #d32f2f; /* 紅色，表示報酬率高 (較好) */
+        }
+
+        /* --- 分析列表 --- */
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        li::marker {
+            font-weight: 700;
+            color: #3f51b5;
+        }
+        
+        /* 總結樣式 */
+        .summary {
+            background-color: #e8eaf6; /* 淡藍色背景 */
+            border-left: 5px solid #3f51b5;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .summary p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: #1a237e;
+        }
+        
+        .summary p strong {
+            color: #1a237e; /* 總結的粗體使用一致顏色 */
+            font-weight: 800;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>資產配置總體檢報告</h1>
+        <p>本報告根據您提供的 <code>全部資產配置.md</code> 文件，對其中羅列的近 20 種投資組合進行了全面的歷史數據回測與分析。旨在提供一個清晰的橫向比較，以觀察不同投資策略下的長期績效與風險特徵。</p>
+
+        <hr>
+
+        <h2>績效總覽對比總表</h2>
+        <p>下表將所有成功計算的投資組合，按照「年化報酬率 (CAGR)」由高至低排序。回測起始日期因每個投資組合包含的 ETF 最晚上市時間而異。</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>投資組合名稱</th>
+                        <th>主要配置</th>
+                        <th>年化報酬率 (CAGR)</th>
+                        <th>年化波動率</th>
+                        <th>夏普比率</th>
+                        <th>最大回撤</th>
+                        <th>回測起始日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>台積重壓版</td>
+                        <td>45% 2330<br>35% VT<br>20% IEF</td>
+                        <td><strong>15.10%</strong></td>
+                        <td>15.47%</td>
+                        <td><strong>1.04</strong></td>
+                        <td>-33.43%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>台美核心版</td>
+                        <td>25% 0050<br>20% VTI<br>15% IVV<br>10% VEU<br>10% BND<br>5% EEM<br>5% GOVT<br>5% BTC<br>5% NTSX</td>
+                        <td><strong>14.92%</strong></td>
+                        <td>14.65%</td>
+                        <td><strong>1.09</strong></td>
+                        <td><strong>-27.03%</strong></td>
+                        <td>2018-08-02</td>
+                    </tr>
+                    <tr>
+                        <td>亞洲加密版</td>
+                        <td>25% 0050<br>20% VTI<br>15% IVV<br>10% VEU<br>5% AAXJ<br>10% BND<br>5% BSV<br>2.5% BTC<br>2.5% ETH</td>
+                        <td>14.41%</td>
+                        <td>14.66%</td>
+                        <td><strong>1.06</strong></td>
+                        <td>-26.87%</td>
+                        <td>2017-11-09</td>
+                    </tr>
+                    <tr>
+                        <td>台積核心版</td>
+                        <td>40% 2330<br>40% VT<br>20% IEF</td>
+                        <td>14.36%</td>
+                        <td>14.95%</td>
+                        <td><strong>1.03</strong></td>
+                        <td>-33.77%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>台積平衡版</td>
+                        <td>30% 2330<br>50% VT<br>20% IEF</td>
+                        <td>12.83%</td>
+                        <td><strong>14.39%</strong></td>
+                        <td>0.96</td>
+                        <td>-34.53%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>全球均衡版</td>
+                        <td>40% VT<br>16% VTI<br>12% VXUS<br>6% VWRD.L<br>6% VWRA.L<br>7% VGIT<br>7% BNDW<br>3% VNQ<br>3% BTC</td>
+                        <td>12.29%</td>
+                        <td>16.28%</td>
+                        <td>0.81</td>
+                        <td>-29.95%</td>
+                        <td>2019-07-23</td>
+                    </tr>
+                    <tr>
+                        <td>全球主導版</td>
+                        <td>20% 2330<br>60% VT<br>20% IEF</td>
+                        <td>11.20%</td>
+                        <td>14.52%</td>
+                        <td>0.85</td>
+                        <td>-35.38%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>成長型投資組合</td>
+                        <td>50% VTI<br>20% VEA<br>20% VWO<br>5% 2330<br>5% VGIT</td>
+                        <td>10.85%</td>
+                        <td>16.53%</td>
+                        <td>0.75</td>
+                        <td>-31.65%</td>
+                        <td>2009-11-23</td>
+                    </tr>
+                    <tr>
+                        <td>李柏鋒</td>
+                        <td>80% VTI<br>20% AGG</td>
+                        <td>9.81%</td>
+                        <td>15.18%</td>
+                        <td>0.69</td>
+                        <td>-45.96%</td>
+                        <td>2003-09-29</td>
+                    </tr>
+                    <tr>
+                        <td>竹軒</td>
+                        <td>90% VT<br>5% VNQI<br>5% BNDX</td>
+                        <td>9.71%</td>
+                        <td>15.63%</td>
+                        <td>0.67</td>
+                        <td>-33.03%</td>
+                        <td>2013-06-04</td>
+                    </tr>
+                    <tr>
+                        <td>約翰．柏格</td>
+                        <td>50% VTI<br>30% VXUS<br>20% AGG</td>
+                        <td>9.26%</td>
+                        <td>13.77%</td>
+                        <td>0.71</td>
+                        <td>-28.48%</td>
+                        <td>2011-01-28</td>
+                    </tr>
+                    <tr>
+                        <td>魯爸 (100% VT)</td>
+                        <td>100% VT</td>
+                        <td>8.38%</td>
+                        <td>20.75%</td>
+                        <td>0.49</td>
+                        <td>-50.22%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>威廉．伯恩斯坦</td>
+                        <td>25% AGG<br>25% VTI<br>25% VXUS<br>25% IWM</td>
+                        <td>8.27%</td>
+                        <td>13.82%</td>
+                        <td>0.65</td>
+                        <td>-28.63%</td>
+                        <td>2011-01-28</td>
+                    </tr>
+                    <tr>
+                        <td>清流君</td>
+                        <td>50% VBR<br>25% VTI<br>25% VEU</td>
+                        <td>8.18%</td>
+                        <td>21.74%</td>
+                        <td>0.47</td>
+                        <td>-58.98%</td>
+                        <td>2007-03-08</td>
+                    </tr>
+                    <tr>
+                        <td>咖啡屋投資組合</td>
+                        <td>40% VTI<br>20% VB<br>20% VEU<br>10% VNQ<br>10% BND</td>
+                        <td>8.14%</td>
+                        <td>19.09%</td>
+                        <td>0.51</td>
+                        <td>-53.71%</td>
+                        <td>2007-04-10</td>
+                    </tr>
+                    <tr>
+                        <td>理查．菲力</td>
+                        <td>35% VTI<br>26% AGG<br>17% VXUS<br>13% TIP<br>9% VNQ</td>
+                        <td>7.81%</td>
+                        <td><strong>10.61%</strong></td>
+                        <td>0.76</td>
+                        <td><strong>-23.21%</strong></td>
+                        <td>2011-01-28</td>
+                    </tr>
+                    <tr>
+                        <td>小販</td>
+                        <td>40% VEA<br>30% VTI<br>10% IEF<br>10% BNDX<br>10% TIP</td>
+                        <td>7.85%</td>
+                        <td>11.63%</td>
+                        <td>0.71</td>
+                        <td>-25.09%</td>
+                        <td>2013-06-04</td>
+                    </tr>
+                    <tr>
+                        <td>指數化投資(簡單粗暴)</td>
+                        <td>80% VT<br>20% IEF</td>
+                        <td>7.76%</td>
+                        <td>16.26%</td>
+                        <td>0.54</td>
+                        <td>-40.46%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>小資YP</td>
+                        <td>80% VT<br>20% BND</td>
+                        <td>7.67%</td>
+                        <td>16.66%</td>
+                        <td>0.53</td>
+                        <td>-41.49%</td>
+                        <td>2008-06-26</td>
+                    </tr>
+                    <tr>
+                        <td>大衛．史雲森</td>
+                        <td>30% VTI<br>20% VNQ<br>15% VEA<br>15% TLT<br>15% TIP<br>5% VWO</td>
+                        <td>7.45%</td>
+                        <td>14.92%</td>
+                        <td>0.56</td>
+                        <td>-42.79%</td>
+                        <td>2007-07-26</td>
+                    </tr>
+                    <tr>
+                        <td>Ffaarr (核心資產)</td>
+                        <td>40% VT<br>27.1% BNDX<br>11.8% VNQ<br>8.2% DBC<br>7.1% EWT<br>5.9% HYG</td>
+                        <td>7.18%</td>
+                        <td>10.78%</td>
+                        <td>0.70</td>
+                        <td>-25.36%</td>
+                        <td>2013-06-04</td>
+                    </tr>
+                    <tr>
+                        <td>PG</td>
+                        <td>28% VTI<br>23% VEA<br>19% SCZ<br>13.5% VNQ<br>10% BND<br>6.5% RWX</td>
+                        <td>6.69%</td>
+                        <td>18.48%</td>
+                        <td>0.44</td>
+                        <td>-53.79%</td>
+                        <td>2007-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>Ffaarr (新增資產)</td>
+                        <td>33% BKLN<br>33% ICVT<br>34% PFF</td>
+                        <td>6.30%</td>
+                        <td>9.87%</td>
+                        <td>0.67</td>
+                        <td>-28.64%</td>
+                        <td>2015-06-04</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>綜合分析與結論</h2>
+        <ol>
+            <li>
+                <strong>台積電的超額報酬</strong>: 表格頂端的組合都有一個共同點：<strong>高度配置台積電 (2330.TW)</strong> 或含有台積電的 <strong>0050</strong>。這清晰地表明，在過去十幾年，重押台積電是獲取超額報酬的最關鍵因素。
+            </li>
+            <li>
+                <strong>夏普比率的王者</strong>: 「台積重壓版」、「台美核心版」、「亞洲加密版」和「台積核心版」的夏普比率都超過了 1.0，這在長期投資中是極為優異的表現，代表它們在承受風險與獲取報酬之間的效率最高。
+            </li>
+            <li>
+                <strong>風險的代價</strong>: 報酬率墊底的組合（如 PG, 咖啡屋, 清流君）大多有較高的波動率和驚人的最大回撤（超過 -50%）。這通常是因為它們的資產過於分散在不同類型的股票上，或是在 2008 年金融海嘯前回測起始點較早，承受了完整的市場衝擊。
+            </li>
+            <li>
+                <strong>債券的價值</strong>: 「理查．菲力」、「小販」和「Ffaarr」的兩個拆分組合雖然報酬率不出彩，但它們的波動率和最大回撤都非常低。這些組合的共通點是都配置了 <strong>30% 以上的債券</strong>（AGG, TIP, IEF, BNDX），完美展現了債券在投資組合中作為「穩定器」的價值。
+            </li>
+        </ol>
+
+        <div class="summary">
+            <p><strong>總結</strong>: 這份總體檢報告清晰地描繪出了一幅風險與報酬的光譜。光譜的一端是透過高度集中持股（如台積電）來追求極致報酬的策略；另一端則是透過大量配置債券來追求極致穩定的策略。大多數的投資組合，則是在這兩者之間，試圖透過不同資產的搭配，找到最適合自己的平衡點。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

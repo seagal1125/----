@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VT 2024年4月持股績效回測分析報告（2024-05-01 ~ 2025-10-22）</title>
+  <meta name="description" content="回測截至 2024/4/30 的 VT 前100大持股，在 2024-05-01 至 2025-10-22 期間的表現；完整保留使用者提供之分析內容與清單，並提供可排序、可搜尋的互動表格與可分享的單頁HTML。">
+  <style>
+    :root{
+      --bg:#0b0c10; --panel:#111318; --text:#e6e8ee; --muted:#a8b0bf; --brand:#5eead4; --accent:#8ab4f8; --danger:#f87171; --ok:#34d399; --border:#232734;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f8fa; --panel:#ffffff; --text:#12141a; --muted:#5b6374; --brand:#0ea5e9; --accent:#7c3aed; --danger:#dc2626; --ok:#059669; --border:#e6e8ee }
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent);backdrop-filter:blur(8px);z-index:10}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:10px 24px;border-bottom:1px solid var(--border)}
+    .nav a{color:var(--text);text-decoration:none;padding:.45rem .7rem;border:1px solid var(--border);border-radius:999px}
+    .nav a:hover{background:var(--panel)}
+    h1{font-size:clamp(24px,3.6vw,40px);line-height:1.15;margin:22px 0}
+    h2{font-size:clamp(20px,2.4vw,28px);margin:22px 0 10px}
+    h3{margin:18px 0 8px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;margin:14px 0}
+    .grid{display:grid;gap:14px}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .kpi{display:flex;flex-direction:column;gap:4px;border-left:3px solid var(--brand);padding:8px 12px;background:linear-gradient(180deg,rgba(94,234,212,.08),transparent)}
+    .kpi .label{color:var(--muted);font-size:13px}
+    .kpi .value{font-size:22px;font-weight:700}
+    .muted{color:var(--muted)}
+    .btn{cursor:pointer;border:1px solid var(--border);background:var(--panel);color:var(--text);padding:.55rem .9rem;border-radius:10px}
+    .btn:hover{filter:brightness(1.08)}
+
+
+
+    table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--border);border-radius:14px}
+    thead th{position:sticky;top:58px;background:var(--panel);border-bottom:1px solid var(--border);text-align:left;padding:10px;font-weight:700}
+    tbody td{padding:10px;border-bottom:1px solid var(--border)}
+    thead th { position: sticky; top: 60px; z-index: 3; }
+table { overflow: visible; }
+
+    tbody tr:last-child td{border-bottom:none}
+    th.sortable{cursor:pointer}
+    th.sortable:after{content:"▲▼";font-size:11px;margin-left:6px;color:var(--muted)}
+    .win{color:var(--ok);font-weight:700}
+    .lose{color:var(--danger);font-weight:700}
+    .search{display:flex;gap:8px;margin:10px 0}
+    .search input{flex:1;padding:.6rem .8rem;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--text)}
+    .foot{margin:32px 0 60px;color:var(--muted);font-size:14px}
+    .tag{display:inline-block;padding:.25rem .55rem;border:1px solid var(--border);border-radius:999px;margin-right:6px;color:var(--muted);font-size:12px}
+    .callout{border-left:3px solid var(--accent);padding:10px 12px;background:linear-gradient(180deg,rgba(138,180,248,.08),transparent);border-radius:10px}
+    .hl{color:var(--brand);font-weight:700}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+    .anchor{scroll-margin-top:70px}
+    .list{margin:0 0 0 1.2em}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <strong>VT回測報告</strong>
+      <a href="#intro">介紹</a>
+      <a href="#market">整體市場表現</a>
+      <a href="#leaders">績效領先群</a>
+      <a href="#laggards">績效落後群</a>
+      <a href="#disclaimer">免責聲明</a>
+      <button class="btn" id="copyLink">複製分享連結</button>
+      <button class="btn" id="downloadBtn">下載此頁（HTML）</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <section id="intro" class="anchor">
+      <h1># VT 2024年4月持股績效回測分析報告</h1>
+      <div class="card">
+        <p><strong>方法論</strong>: 本報告旨在回測 <strong>截至2024年4月30日VT前100大持股</strong> 在之後約一年半期間的表現，以評估期初的龍頭股在下一年度的績效。此方法可避免「未來函數」或「倖存者偏差」，提供一個更公平的績效視角。</p>
+        <p><strong>統計區間</strong>: <span class="mono">2024-05-01 至 2025-10-22</span></p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="kpi"><div class="label">VT 期間總報酬率</div><div class="value">+34.46%</div><div class="muted">作為本次回測之基準</div></div>
+        <div class="kpi"><div class="label">成功計算標的數</div><div class="value">100 檔</div><div class="muted">涵蓋 2024/4 月底 VT 前百大持股</div></div>
+        <div class="kpi"><div class="label">贏過 VT 的比例</div><div class="value">40%</div><div class="muted">40 檔領先、60 檔落後</div></div>
+      </div>
+    </section>
+
+    <section id="market" class="anchor">
+      <h2>整體市場表現</h2>
+      <div class="card">
+        <p>在此統計區間內，Vanguard 全世界股票ETF (VT) 的整體績效為 <strong class="hl">+34.46%</strong>。這成為我們衡量這批期初龍頭股表現的基準。</p>
+        <p>在2024年4月底的前100大持股中，本次成功計算了全部100支股票的報酬率。</p>
+      </div>
+    </section>
+
+    <section id="leaders" class="anchor">
+      <h2>績效領先群 (超越 VT)</h2>
+      <div class="card">
+        <p>在100支期初成分股中，共有 <strong class="hl">40</strong> 支股票的年度報酬率超越了 VT 本身的 +34.46%。</p>
+        <h3>群組特性分析</h3>
+        <ol class="list">
+          <li><strong>AI 與半導體產業的絕對統治</strong>: <strong>Broadcom (AVGO)</strong> 以驚人的 <strong>+180.21%</strong> 報酬率高居榜首，<strong>NVIDIA (NVDA)</strong> 和 <strong>台積電ADR (TSM)</strong> 也分別有 <strong>+118.26%</strong> 和 <strong>+122.12%</strong> 的亮眼表現。整個半導體產業鏈，從設計、設備到應用均表現極為出色。</li>
+          <li><strong>特定科技股的強勢</strong>: 除了AI概念股，<strong>特斯拉 (TSLA)</strong>、<strong>Netflix (NFLX)</strong>、<strong>阿里巴巴 (9988.HK)</strong> 和 <strong>甲骨文 (ORCL)</strong> 也貢獻了非常可觀的報酬。</li>
+          <li><strong>金融業的穩健成長</strong>: 全球性的銀行股，如 <strong>高盛(GS)</strong>、<strong>花旗(C)</strong>、<strong>匯豐(HSBA.L)</strong> 等，表現穩健，超越了市場平均水準。</li>
+        </ol>
+
+        <div class="search">
+          <input id="searchLeaders" placeholder="在表格中搜尋（Ticker、公司名、報酬…）" />
+        </div>
+        <div class="tag">共 40 檔</div>
+        <table id="tblLeaders">
+          <thead>
+            <tr>
+              <th class="sortable">排名</th>
+              <th class="sortable">代號 (Ticker)</th>
+              <th class="sortable">公司名稱</th>
+              <th class="sortable">報酬率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>AVGO</td><td>Broadcom Inc</td><td class="win">+180.21%</td></tr>
+            <tr><td>2</td><td>TSLA</td><td>Tesla Inc</td><td class="win">+145.90%</td></tr>
+            <tr><td>3</td><td>ORCL</td><td>Oracle Corp</td><td class="win">+143.65%</td></tr>
+            <tr><td>4</td><td>TSM</td><td>Taiwan Semiconductor Manufacturing Co Ltd (ADR)</td><td class="win">+122.12%</td></tr>
+            <tr><td>5</td><td>NFLX</td><td>Netflix Inc</td><td class="win">+125.00%</td></tr>
+            <tr><td>6</td><td>NVDA</td><td>NVIDIA Corp</td><td class="win">+118.26%</td></tr>
+            <tr><td>7</td><td>9988.HK</td><td>Alibaba Group Holding Ltd</td><td class="win">+118.00%</td></tr>
+            <tr><td>8</td><td>GE</td><td>General Electric Co</td><td class="win">+93.81%</td></tr>
+            <tr><td>9</td><td>MU</td><td>Micron Technology Inc</td><td class="win">+85.54%</td></tr>
+            <tr><td>10</td><td>GS</td><td>Goldman Sachs Group Inc/The</td><td class="win">+83.57%</td></tr>
+            <tr><td>11</td><td>WMT</td><td>Walmart Inc</td><td class="win">+83.40%</td></tr>
+            <tr><td>12</td><td>IBM</td><td>International Business Machines Corp</td><td class="win">+79.69%</td></tr>
+            <tr><td>13</td><td>0700.HK</td><td>Tencent Holdings Ltd</td><td class="win">+78.00%</td></tr>
+            <tr><td>14</td><td>RTX</td><td>RTX Corp</td><td class="win">+76.37%</td></tr>
+            <tr><td>15</td><td>LRCX</td><td>Lam Research Corp</td><td class="win">+69.68%</td></tr>
+            <tr><td>16</td><td>PM</td><td>Philip Morris International Inc</td><td class="win">+68.17%</td></tr>
+            <tr><td>17</td><td>C</td><td>Citigroup Inc</td><td class="win">+68.10%</td></tr>
+            <tr><td>18</td><td>META</td><td>Meta Platforms Inc</td><td class="win">+67.81%</td></tr>
+            <tr><td>19</td><td>T</td><td>AT&amp;T Inc</td><td class="win">+65.37%</td></tr>
+            <tr><td>20</td><td>AMD</td><td>Advanced Micro Devices Inc</td><td class="win">+64.99%</td></tr>
+            <tr><td>21</td><td>CAT</td><td>Caterpillar Inc</td><td class="win">+62.10%</td></tr>
+            <tr><td>22</td><td>RY.TO</td><td>Royal Bank of Canada</td><td class="win">+60.18%</td></tr>
+            <tr><td>23</td><td>CBA.AX</td><td>Commonwealth Bank of Australia</td><td class="win">+59.74%</td></tr>
+            <tr><td>24</td><td>JPM</td><td>JPMorgan Chase &amp; Co</td><td class="win">+59.98%</td></tr>
+            <tr><td>25</td><td>CSCO</td><td>Cisco Systems Inc</td><td class="win">+57.40%</td></tr>
+            <tr><td>26</td><td>BKNG</td><td>Booking Holdings Inc</td><td class="win">+56.59%</td></tr>
+            <tr><td>27</td><td>AAPL</td><td>Apple Inc</td><td class="win">+56.32%</td></tr>
+            <tr><td>28</td><td>AXP</td><td>American Express Co</td><td class="win">+55.99%</td></tr>
+            <tr><td>29</td><td>BLK</td><td>BlackRock Inc</td><td class="win">+55.37%</td></tr>
+            <tr><td>30</td><td>8306.T</td><td>Mitsubishi UFJ Financial Group Inc</td><td class="win">+55.12%</td></tr>
+            <tr><td>31</td><td>GOOGL</td><td>Alphabet Inc. Class A</td><td class="win">+53.90%</td></tr>
+            <tr><td>32</td><td>GOOG</td><td>Alphabet Inc. Class C</td><td class="win">+52.84%</td></tr>
+            <tr><td>33</td><td>ABBV</td><td>AbbVie Inc</td><td class="win">+50.64%</td></tr>
+            <tr><td>34</td><td>WFC</td><td>Wells Fargo &amp; Co</td><td class="win">+47.53%</td></tr>
+            <tr><td>35</td><td>SAP.DE</td><td>SAP SE</td><td class="win">+45.75%</td></tr>
+            <tr><td>36</td><td>BAC</td><td>Bank of America Corp</td><td class="win">+44.52%</td></tr>
+            <tr><td>37</td><td>HSBA.L</td><td>HSBC Holdings PLC</td><td class="win">+41.36%</td></tr>
+            <tr><td>38</td><td>SIE.DE</td><td>Siemens AG</td><td class="win">+41.30%</td></tr>
+            <tr><td>39</td><td>UBER</td><td>Uber Technologies Inc</td><td class="win">+37.23%</td></tr>
+            <tr><td>40</td><td>NOW</td><td>ServiceNow Inc</td><td class="win">+37.32%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="laggards" class="anchor">
+      <h2>績效落後群 (落後 VT)</h2>
+      <div class="card">
+        <p>在其餘的 <strong class="hl">60</strong> 支成分股中，它們的表現不及 VT 的 +34.46%。</p>
+        <h3>群組特性分析</h3>
+        <ol class="list">
+          <li><strong>大型製藥與醫療保健股的困境</strong>: <strong>諾和諾德(NVO)</strong> 年度績效大幅下跌 <strong>-56.76%</strong>，成為最大的意外之一。同樣地，<strong>聯合健康(UNH)</strong>、<strong>輝瑞(PFE)</strong>、<strong>默克(MRK)</strong> 等也表現不佳，顯示此行業今年面臨嚴峻挑戰。</li>
+          <li><strong>企業軟體與雲端服務的退燒</strong>: <strong>Salesforce(CRM)</strong> 和 <strong>Adobe(ADBE)</strong>，今年均出現了顯著的跌幅。</li>
+          <li><strong>消費與零售股的平淡</strong>: <strong>寶僑(PG)</strong>、<strong>可口可樂(KO)</strong>、<strong>迪士尼(DIS)</strong> 等公司的表現也遠遠落後於指數。</li>
+        </ol>
+
+        <div class="search">
+          <input id="searchLaggards" placeholder="在表格中搜尋（Ticker、公司名、報酬…）" />
+        </div>
+        <div class="tag">共 60 檔</div>
+        <table id="tblLaggards">
+          <thead>
+            <tr>
+              <th class="sortable">排名</th>
+              <th class="sortable">代號 (Ticker)</th>
+              <th class="sortable">公司名稱</th>
+              <th class="sortable">報酬率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>41</td><td>ROG.SW</td><td>Roche Holding AG</td><td>+35.49%</td></tr>
+            <tr><td>42</td><td>JNJ</td><td>Johnson &amp; Johnson</td><td>+33.09%</td></tr>
+            <tr><td>43</td><td>MSFT</td><td>Microsoft Corp</td><td>+32.53%</td></tr>
+            <tr><td>44</td><td>V</td><td>Visa Inc</td><td>+31.30%</td></tr>
+            <tr><td>45</td><td>COST</td><td>Costco Wholesale Corp</td><td>+30.66%</td></tr>
+            <tr><td>46</td><td>MA</td><td>Mastercard Inc</td><td>+30.51%</td></tr>
+            <tr><td>47</td><td>005930.KS</td><td>Samsung Electronics Co Ltd</td><td>+28.66%</td></tr>
+            <tr><td>48</td><td>NEE</td><td>NextEra Energy Inc</td><td>+27.87%</td></tr>
+            <tr><td>49</td><td>INTC</td><td>Intel Corp</td><td>+26.83%</td></tr>
+            <tr><td>50</td><td>ISRG</td><td>Intuitive Surgical Inc</td><td>+24.49%</td></tr>
+            <tr><td>51</td><td>AMZN</td><td>Amazon.com Inc</td><td>+24.04%</td></tr>
+            <tr><td>52</td><td>BRK-B</td><td>Berkshire Hathaway Inc</td><td>+23.26%</td></tr>
+            <tr><td>53</td><td>ABT</td><td>Abbott Laboratories</td><td>+23.49%</td></tr>
+            <tr><td>54</td><td>BRK-A</td><td>Berkshire Hathaway Inc</td><td>+22.34%</td></tr>
+            <tr><td>55</td><td>HD</td><td>Home Depot Inc/The</td><td>+22.12%</td></tr>
+            <tr><td>56</td><td>ETN</td><td>Eaton Corp PLC</td><td>+22.01%</td></tr>
+            <tr><td>57</td><td>ASML</td><td>ASML Holding NV</td><td>+21.63%</td></tr>
+            <tr><td>58</td><td>NOVN.SW</td><td>Novartis AG</td><td>+21.86%</td></tr>
+            <tr><td>59</td><td>SU.PA</td><td>Schneider Electric SE</td><td>+20.86%</td></tr>
+            <tr><td>60</td><td>KO</td><td>Coca-Cola Co/The</td><td>+20.20%</td></tr>
+            <tr><td>61</td><td>AMAT</td><td>Applied Materials Inc</td><td>+18.15%</td></tr>
+            <tr><td>62</td><td>SPGI</td><td>S&amp;P Global Inc</td><td>+17.53%</td></tr>
+            <tr><td>63</td><td>SYK</td><td>Stryker Corp</td><td>+17.32%</td></tr>
+            <tr><td>64</td><td>MCD</td><td>McDonald's Corp</td><td>+16.07%</td></tr>
+            <tr><td>65</td><td>AMGN</td><td>Amgen Inc</td><td>+13.78%</td></tr>
+            <tr><td>66</td><td>VZ</td><td>Verizon Communications Inc</td><td>+13.43%</td></tr>
+            <tr><td>67</td><td>ULVR.L</td><td>Unilever PLC</td><td>+12.04%</td></tr>
+            <tr><td>68</td><td>BHP.AX</td><td>BHP Group Ltd</td><td>+11.93%</td></tr>
+            <tr><td>69</td><td>AZN</td><td>AstraZeneca PLC</td><td>+11.92%</td></tr>
+            <tr><td>70</td><td>INTU</td><td>Intuit Inc</td><td>+10.79%</td></tr>
+            <tr><td>71</td><td>LOW</td><td>Lowe's Cos Inc</td><td>+10.42%</td></tr>
+            <tr><td>72</td><td>HON</td><td>Honeywell International Inc</td><td>+10.46%</td></tr>
+            <tr><td>73</td><td>SHEL</td><td>Shell PLC</td><td>+8.83%</td></tr>
+            <tr><td>74</td><td>TXN</td><td>Texas Instruments Inc</td><td>+7.79%</td></tr>
+            <tr><td>75</td><td>PGR</td><td>Progressive Corp/The</td><td>+6.86%</td></tr>
+            <tr><td>76</td><td>QCOM</td><td>QUALCOMM Inc</td><td>+6.17%</td></tr>
+            <tr><td>77</td><td>DIS</td><td>Walt Disney Co/The</td><td>+4.84%</td></tr>
+            <tr><td>78</td><td>LLY</td><td>Eli Lilly &amp; Co</td><td>+4.05%</td></tr>
+            <tr><td>79</td><td>LIN</td><td>Linde PLC</td><td>+3.62%</td></tr>
+            <tr><td>80</td><td>CVX</td><td>Chevron Corp</td><td>+2.87%</td></tr>
+            <tr><td>81</td><td>XOM</td><td>Exxon Mobil Corp</td><td>+2.29%</td></tr>
+            <tr><td>82</td><td>PFE</td><td>Pfizer Inc</td><td>+0.72%</td></tr>
+            <tr><td>83</td><td>UNP</td><td>Union Pacific Corp</td><td>-0.20%</td></tr>
+            <tr><td>84</td><td>CRM</td><td>Salesforce Inc</td><td>-1.06%</td></tr>
+            <tr><td>85</td><td>TMO</td><td>Thermo Fisher Scientific Inc</td><td>-2.49%</td></tr>
+            <tr><td>86</td><td>PG</td><td>Procter &amp; Gamble Co/The</td><td>-4.29%</td></tr>
+            <tr><td>87</td><td>NESN.SW</td><td>Nestle SA</td><td>-6.84%</td></tr>
+            <tr><td>88</td><td>PEP</td><td>PepsiCo Inc</td><td>-7.75%</td></tr>
+            <tr><td>89</td><td>DHR</td><td>Danaher Corp</td><td>-9.85%</td></tr>
+            <tr><td>90</td><td>7203.T</td><td>Toyota Motor Corp</td><td>-12.55%</td></tr>
+            <tr><td>91</td><td>TTE.PA</td><td>TotalEnergies SE</td><td>-14.18%</td></tr>
+            <tr><td>92</td><td>ACN</td><td>Accenture PLC</td><td>-14.20%</td></tr>
+            <tr><td>93</td><td>CMCSA</td><td>Comcast Corp</td><td>-17.30%</td></tr>
+            <tr><td>94</td><td>MC.PA</td><td>LVMH Moet Hennessy Louis Vuitton SE</td><td>-17.59%</td></tr>
+            <tr><td>95</td><td>UNH</td><td>UnitedHealth Group Inc</td><td>-22.29%</td></tr>
+            <tr><td>96</td><td>ADBE</td><td>Adobe Inc</td><td>-23.83%</td></tr>
+            <tr><td>97</td><td>COP</td><td>ConocoPhillips</td><td>-27.29%</td></tr>
+            <tr><td>98</td><td>MRK</td><td>Merck &amp; Co Inc</td><td>-28.56%</td></tr>
+            <tr><td>99</td><td>ELV</td><td>Elevance Health Inc</td><td>-31.73%</td></tr>
+            <tr><td>100</td><td>NVO</td><td>Novo Nordisk A/S</td><td class="lose">-56.76%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="disclaimer" class="anchor">
+      <h2>免責聲明</h2>
+      <div class="card callout">
+        <p><em>本報告僅為資訊分享，不構成任何投資建議。</em></p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span class="muted">最後更新：2025-10-22（台北時間）｜單頁HTML，可直接分享連結或下載離線查看。</span>
+    </footer>
+  </main>
+
+  <script>
+    // 解析表格值（不使用正則）
+    function cellVal(td){
+      const t = td.textContent.trim().toLowerCase();
+      // 百分比或數字：去掉逗號與百分比與加號
+      let n = t.replaceAll('%','').replaceAll(',','').replaceAll('+','');
+      if(!isNaN(Number(n))) return Number(n);
+      return t;
+    }
+    function makeSortable(table){
+      const ths = table.querySelectorAll('th');
+      ths.forEach((th,i)=>{
+        if(!th.classList.contains('sortable')) return;
+        let asc = true;
+        th.addEventListener('click',()=>{
+          const rows = Array.from(table.tBodies[0].rows);
+          rows.sort((a,b)=>{
+            const av = cellVal(a.cells[i]);
+            const bv = cellVal(b.cells[i]);
+            if(av < bv) return asc? -1: 1;
+            if(av > bv) return asc? 1: -1;
+            return 0;
+          });
+          rows.forEach(r=>table.tBodies[0].appendChild(r));
+          asc = !asc;
+        });
+      });
+    }
+    makeSortable(document.getElementById('tblLeaders'));
+    makeSortable(document.getElementById('tblLaggards'));
+
+    function makeFilter(input, table){
+      input.addEventListener('input',()=>{
+        const q = input.value.trim().toLowerCase();
+        Array.from(table.tBodies[0].rows).forEach(tr=>{
+          const hit = Array.from(tr.cells).some(td=>td.textContent.toLowerCase().includes(q));
+          tr.style.display = hit ? '' : 'none';
+        });
+      });
+    }
+    makeFilter(document.getElementById('searchLeaders'), document.getElementById('tblLeaders'));
+    makeFilter(document.getElementById('searchLaggards'), document.getElementById('tblLaggards'));
+
+    document.getElementById('copyLink').addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(location.href);
+        alert('已複製分享連結！');
+      }catch(e){ alert('無法複製，請手動複製網址'); }
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click',()=>{
+      const blob = new Blob([document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'VT_回測報告_2024-05-01_至_2025-10-22.html';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+    });
+  </script>
+</body>
+</html>

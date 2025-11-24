@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財務續航計畫報告 (詳細版)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --secondary-color: #6a7f9e;
+            --background-color: #f5f7fa;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --heading-color: #1d2d44;
+            --border-color: #e6e9ed;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+        .card {
+            background: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--primary-color);
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .phase-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .phase {
+            background: #fdfdff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .phase-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+        .phase-content h4 {
+            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+        }
+        .phase-content p {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        .phase-duration {
+            margin-left: auto;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .phase-duration .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        .phase-duration .unit {
+            display: block;
+            font-size: 1rem;
+            color: var(--secondary-color);
+        }
+        .flow-list, .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+        .flow-list li, .detail-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0.8rem;
+        }
+        .flow-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .detail-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+        .summary-item h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        .summary-item .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .text-danger {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>財務續航計畫</h1>
+            <p>在 2.5% 質押利率下，透過三階段資產運用，支應未來生活開銷</p>
+        </header>
+
+        <div class="card">
+            <h2>計畫總覽：三階段續航計畫</h2>
+            <div class="phase-container">
+                <!-- Phase 1 -->
+                <div class="phase">
+                    <div class="phase-icon">💰</div>
+                    <div class="phase-content">
+                        <h4>第一階段：現金緩衝期</h4>
+                        <p>動用 <span class="highlight">75 萬</span>的銀行存款，支應初期的資金缺口。</p>
+                    </div>
+                    <div class="phase-duration">
+                        <span class="value">6.7</span>
+                        <span class="unit">個月</span>
+                    </div>
+                </div>
+                <!-- Phase 2 -->
+                <div class="phase">
+                    <div class="phase-icon">📈</div>
+                    <div class="phase-content">
+                        <h4>第二階段：質押擴張期</h4>
+                        <p>以台積電股票向銀行質押借款，每月借出 <span class="highlight">~11.5 萬</span> (含利息) 來填補缺口。</p>
+                    </div>
+                    <div class="phase-duration">
+                        <span class="value">26.4</span>
+                        <span class="unit">個月</span>
+                    </div>
+                </div>
+                <!-- Phase 3 -->
+                <div class="phase">
+                    <div class="phase-icon">💸</div>
+                    <div class="phase-content">
+                        <h4>第三階段：賣股維持期</h4>
+                        <p>每月賣股求現，賣出款項 <span class="highlight">80%</span> 用於生活，<span class="highlight">20%</span> 用於還款以維持 LTV。</p>
+                    </div>
+                    <div class="phase-duration">
+                        <span class="value">84.1</span>
+                        <span class="unit">個月</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>計畫執行細節</h2>
+            <h3>核心挑戰：每月 <span class="text-danger">11.2 萬</span> 的資金缺口從何而來？</h3>
+            <p>這個缺口主要來自於家庭的固定支出遠大於薪資收入，其中又以「信貸」佔最大宗。計算方式如下：</p>
+            <ul class="detail-list">
+                <li>房貸月付：20,758 元</li>
+                <li>信貸本息月付：103,202 元</li>
+                <li>預估月生活費：80,000 元</li>
+                <li><strong>每月總支出：<span class="text-danger">203,960 元</span></strong></li>
+                <li>每月薪資收入：92,000 元</li>
+                <li><strong>每月資金缺口 = 203,960 - 92,000 = <span class="text-danger">111,960 元</span></strong></li>
+            </ul>
+
+            <h3>應對策略：三階段資金如何接力？</h3>
+            <p>為了彌補這個缺口，我們將依序啟動三種不同的資金來源，如同一個資金的接力賽。</p>
+            <ul class="detail-list">
+                <li><strong>第一階段 (現金)：</strong>首先，我們動用最容易取得的 <span class="highlight">75 萬</span>現金存款。這筆錢是我們的第一道防線，足以支應 <span class="highlight">6.7 個月</span>，為我們提供初期的緩衝時間。</li>
+                <li><strong>第二階段 (質押)：</strong>現金用盡後，啟動股票質押，<span class="highlight">只借錢、不賣股</span>。每月向銀行借錢來支付約 <span class="highlight">11.5 萬</span> 的生活開銷與利息。這個階段持續 <span class="highlight">26.4 個月</span>，直到總貸款額達到台積電股票市值的 20% 上限為止。</li>
+                <li><strong>第三階段 (賣股)：</strong>這是計畫最長的核心階段，持續 <span class="highlight">84.1 個月</span>。此時我們不再增加總貸款，而是轉為每月賣出部分台積電股票來變現。這個階段的現金流最為特殊：
+                    <ul>
+                        <li style="padding-left: 20px; margin-top: 0.5rem;"><strong>80/20 法則：</strong>為了維持貸款水位在 20%，每當賣出 <span class="highlight">100 元</span> 的股票時，必須先拿出 <span class="highlight">20 元</span> 償還銀行貸款，剩下的 <span class="highlight">80 元</span> 才能作為當月的生活費。</li>
+                        <li style="padding-left: 20px;"><strong>每月賣多少？</strong>此階段的每月平均開銷（含利息）約 <span class="highlight">11.6 萬</span>。為了湊到這筆錢，每月需賣出的股票市值為：115,764 ÷ 0.8 = <span class="highlight">約 14.5 萬元</span>。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>計畫終點：<span class="highlight">~9.8 年</span> 後剩下什麼？</h3>
+            <p>在計畫執行完畢後，我們的財務狀況如下：</p>
+            <ul class="detail-list">
+                <li><strong>保留的資產：</strong>
+                    <ul>
+                        <li style="padding-left: 20px; margin-top: 0.5rem;">台積電核心持股：保留 20% 的原始部位，市值約 <span class="highlight">304 萬元</span>。</li>
+                        <li style="padding-left: 20px;">全球股債組合 (VT+IEF)：完全未動用，市值約 <span class="highlight">1,911 萬元</span>。</li>
+                        <li style="padding-left: 20px;"><strong>總資產合計：約 <span class="highlight">2,215 萬元</span></strong>。</li>
+                    </ul>
+                </li>
+                <li><strong>剩餘的負債：</strong>
+                    <ul>
+                        <li style="padding-left: 20px; margin-top: 0.5rem;">質押貸款餘額：由於仍有股票質押，貸款並未歸零，餘額約為 <span class="highlight">61 萬元</span> (304萬 × 20%)。</li>
+                    </ul>
+                </li>
+                <li><strong>最終淨值 = 2,215 萬 (資產) - 61 萬 (負債) = <span class="highlight">約 2,154 萬元</span></strong> (此估算未計入計畫期間的資產價格波動)。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>計畫總結</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h4>總續航時間</h4>
+                    <p class="value">約 9.8 年</p>
+                </div>
+                <div class="summary-item">
+                    <h4>期末總資產</h4>
+                    <p class="value">約 2,215 萬</p>
+                </div>
+                <div class="summary-item">
+                    <h4>期末淨資產</h4>
+                    <p class="value">約 2,154 萬</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

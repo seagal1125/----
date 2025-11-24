@@ -1,0 +1,14 @@
+{
+  "count_total": 100,
+  "count_with_data": 83,
+  "count_missing": 17,
+  "vt_total_return": 4.990345966452778,
+  "vt_total_return_pct": 499.03459664527776,
+  "vt_cagr": 0.11092004685424595,
+  "vt_cagr_pct": 11.092004685424595,
+  "mean_total_return": 4.801016502770064,
+  "mean_total_return_pct": 480.10165027700646,
+  "median_total_return": 2.631254075511908,
+  "median_total_return_pct": 263.1254075511908,
+  "num_beat_vt": 27
+}

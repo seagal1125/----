@@ -1,0 +1,11 @@
+{
+  "ticker": "USDTWD=X",
+  "start_date": "2025-01-02",
+  "end_date": "2025-11-05",
+  "start_price": 32.800999,
+  "end_price": 30.913,
+  "total_return": -0.057559179795280246,
+  "cagr": -0.06810050920042798,
+  "total_return_pct": -5.7559,
+  "cagr_pct": -6.8101
+}

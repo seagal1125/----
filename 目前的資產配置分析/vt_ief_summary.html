@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VT/IEF 投資摘要（USD→TWD）</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:#f5f7fb; padding:20px; }
+    .wrap { max-width: 900px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+    h1 { margin: 0 0 10px; font-size: 1.4rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; align-items: end; }
+    .grid .head { font-weight: 600; color:#555; }
+    input { width: 100%; padding: 8px; border: 1px solid #d9dfe7; border-radius: 6px; font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { padding: 10px; border-bottom: 1px solid #edf0f5; text-align: right; font-variant-numeric: tabular-nums; }
+    th:first-child, td:first-child { text-align: left; }
+    th { background:#f8fafc; }
+    tfoot td { font-weight: 700; }
+    .meta { color:#667; font-size: 12px; margin-top: 8px; }
+    .row { display:flex; gap:12px; align-items:center; margin-top:10px; }
+    .row label { color:#445; font-size: 14px; }
+    .btn { padding:8px 12px; border:1px solid #ccd; border-radius:6px; background:#fff; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>VT/IEF 投資摘要（USD→TWD）</h1>
+
+    <div class="row">
+      <label for="rate">匯率 (TWD / 1 USD):</label>
+      <input id="rate" type="number" step="0.0001" value="29.26" />
+      <button class="btn" onclick="recalc()">重新計算</button>
+    </div>
+
+    <div class="grid" style="margin-top:12px;">
+      <div class="head">ETF</div>
+      <div class="head">成本 (USD)</div>
+      <div class="head">現值 (USD)</div>
+      <div class="head">操作</div>
+
+      <div>VT</div>
+      <div><input id="vtCost"  type="number" step="0.01" value="174357.2" /></div>
+      <div><input id="vtValue" type="number" step="0.01" value="191288.3" /></div>
+      <div></div>
+
+      <div>IEF</div>
+      <div><input id="iefCost"  type="number" step="0.01" value="81931.1" /></div>
+      <div><input id="iefValue" type="number" step="0.01" value="84224.1" /></div>
+      <div></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ETF</th>
+          <th>成本 USD</th>
+          <th>現值 USD</th>
+          <th>損益 USD</th>
+          <th>報酬率</th>
+          <th>成本 TWD</th>
+          <th>現值 TWD</th>
+          <th>損益 TWD</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+      <tfoot id="total"></tfoot>
+    </table>
+
+    <div class="meta" id="meta"></div>
+  </div>
+
+  <script>
+    function fmt(n, digits=2) {
+      return Number(n).toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+    }
+
+    function recalc() {
+      const rate = parseFloat(document.getElementById('rate').value || '0');
+      const vtCost = parseFloat(document.getElementById('vtCost').value || '0');
+      const vtValue = parseFloat(document.getElementById('vtValue').value || '0');
+      const iefCost = parseFloat(document.getElementById('iefCost').value || '0');
+      const iefValue = parseFloat(document.getElementById('iefValue').value || '0');
+
+      const assets = [
+        { sym: 'VT',  cost: vtCost,  val: vtValue },
+        { sym: 'IEF', cost: iefCost, val: iefValue },
+      ];
+
+      const tbody = document.getElementById('rows');
+      tbody.innerHTML = '';
+
+      let sumCostUSD = 0, sumValUSD = 0;
+
+      for (const a of assets) {
+        const profitUSD = a.val - a.cost;
+        const roi = a.cost ? (profitUSD / a.cost) : 0;
+        const costTWD = a.cost * rate;
+        const valTWD = a.val * rate;
+        const profitTWD = profitUSD * rate;
+
+        sumCostUSD += a.cost; sumValUSD += a.val;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="text-align:left;">${a.sym}</td>
+          <td>${fmt(a.cost)}</td>
+          <td>${fmt(a.val)}</td>
+          <td>${fmt(profitUSD)}</td>
+          <td>${fmt(roi*100)}%</td>
+          <td>${fmt(costTWD,0)}</td>
+          <td>${fmt(valTWD,0)}</td>
+          <td>${fmt(profitTWD,0)}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+
+      const sumProfitUSD = sumValUSD - sumCostUSD;
+      const sumROI = sumCostUSD ? (sumProfitUSD / sumCostUSD) : 0;
+
+      const tfoot = document.getElementById('total');
+      tfoot.innerHTML = `
+        <tr>
+          <td style="text-align:left; font-weight:700;">合計</td>
+          <td style="font-weight:700;">${fmt(sumCostUSD)}</td>
+          <td style="font-weight:700;">${fmt(sumValUSD)}</td>
+          <td style="font-weight:700;">${fmt(sumProfitUSD)}</td>
+          <td style="font-weight:700;">${fmt(sumROI*100)}%</td>
+          <td style="font-weight:700;">${fmt(sumCostUSD*rate,0)}</td>
+          <td style="font-weight:700;">${fmt(sumValUSD*rate,0)}</td>
+          <td style="font-weight:700;">${fmt(sumProfitUSD*rate,0)}</td>
+        </tr>`;
+
+      const meta = document.getElementById('meta');
+      meta.textContent = `匯率：${rate.toFixed(4)} TWD/USD ｜ 投入：${fmt(sumCostUSD*rate,0)} TWD ｜ 現值：${fmt(sumValUSD*rate,0)} TWD ｜ 獲利：${fmt(sumProfitUSD*rate,0)} TWD (${fmt(sumROI*100)}%)`;
+    }
+
+    recalc();
+  </script>
+</body>
+<!-- Values initialized to: VT cost 174,357.2 → 191,288.3; IEF cost 81,931.1 → 84,224.1; rate 29.26 -->
+</html>
+

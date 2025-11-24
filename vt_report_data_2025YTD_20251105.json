@@ -1,0 +1,908 @@
+{
+  "summary": {
+    "positive": 80,
+    "negative": 21,
+    "beat_vt": 37,
+    "vt_usd_return_pct": 19.9245,
+    "vt_cagr_pct": 24.2186,
+    "vt_twd_return_pct": 13.021702898877784,
+    "fx_start": 32.800999,
+    "fx_end": 30.913,
+    "fx_change_pct": -5.7559,
+    "top20_avg_usd": 68.15871,
+    "top20_avg_twd": 58.47962302784122,
+    "bottom20_avg_usd": -14.36239,
+    "bottom20_avg_twd": -19.29161628315445,
+    "vt_start_date": "2025-01-02",
+    "vt_end_date": "2025-11-04",
+    "holding_count": 101
+  },
+  "leaders": [
+    {
+      "rank": 1,
+      "ticker": "MU",
+      "name": "Micron Technology, Inc.",
+      "usd_pct": 150.3793,
+      "twd_pct": 135.96763428184263
+    },
+    {
+      "rank": 2,
+      "ticker": "LRCX",
+      "name": "Lam Research Corporation",
+      "usd_pct": 116.6597,
+      "twd_pct": 104.18890156837408
+    },
+    {
+      "rank": 3,
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "usd_pct": 107.2868,
+      "twd_pct": 95.35549388730125
+    },
+    {
+      "rank": 4,
+      "ticker": "9988.HK",
+      "name": "Alibaba Group Holding Ltd.",
+      "usd_pct": 95.8611,
+      "twd_pct": 84.58750582795165
+    },
+    {
+      "rank": 5,
+      "ticker": "005930.KS",
+      "name": "Samsung Electronics Co., Ltd.",
+      "usd_pct": 91.5219,
+      "twd_pct": 80.49804490777255
+    },
+    {
+      "rank": 6,
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "usd_pct": 83.1355,
+      "twd_pct": 72.59437761644412
+    },
+    {
+      "rank": 7,
+      "ticker": "GE",
+      "name": "GE Aerospace",
+      "usd_pct": 81.2587,
+      "twd_pct": 70.82558274519026
+    },
+    {
+      "rank": 8,
+      "ticker": "CAT",
+      "name": "Caterpillar, Inc.",
+      "usd_pct": 54.5012,
+      "twd_pct": 45.608274001021584
+    },
+    {
+      "rank": 9,
+      "ticker": "RTX",
+      "name": "RTX Corporation",
+      "usd_pct": 53.5901,
+      "twd_pct": 44.74953579048777
+    },
+    {
+      "rank": 10,
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "usd_pct": 52.7899,
+      "twd_pct": 43.99546494880968
+    },
+    {
+      "rank": 11,
+      "ticker": "0700.HK",
+      "name": "Tencent Holdings Ltd.",
+      "usd_pct": 52.4006,
+      "twd_pct": 43.62851909499115
+    },
+    {
+      "rank": 12,
+      "ticker": "ORCL",
+      "name": "Oracle Corporation",
+      "usd_pct": 50.9597,
+      "twd_pct": 42.27058176364946
+    },
+    {
+      "rank": 13,
+      "ticker": "UBER",
+      "name": "Uber Technologies, Inc.",
+      "usd_pct": 49.8654,
+      "twd_pct": 41.23931003902817
+    },
+    {
+      "rank": 14,
+      "ticker": "ASML",
+      "name": "ASML Holding N.V. - New York Re",
+      "usd_pct": 48.48,
+      "twd_pct": 39.933638628096915
+    },
+    {
+      "rank": 15,
+      "ticker": "C",
+      "name": "Citigroup, Inc.",
+      "usd_pct": 48.4306,
+      "twd_pct": 39.8870490540828
+    }
+  ],
+  "laggards": [
+    {
+      "rank": 101,
+      "ticker": "NVO",
+      "name": "Novo Nordisk A/S",
+      "usd_pct": -43.9814,
+      "twd_pct": -47.20575068528213
+    },
+    {
+      "rank": 100,
+      "ticker": "UNH",
+      "name": "UnitedHealth Group Incorporated",
+      "usd_pct": -33.2593,
+      "twd_pct": -37.10087275370743
+    },
+    {
+      "rank": 99,
+      "ticker": "ACN",
+      "name": "Accenture plc",
+      "usd_pct": -29.371,
+      "twd_pct": -33.43639187726828
+    },
+    {
+      "rank": 98,
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "usd_pct": -23.9569,
+      "twd_pct": -28.333893263682853
+    },
+    {
+      "rank": 97,
+      "ticker": "CMCSA",
+      "name": "Comcast Corporation",
+      "usd_pct": -23.8998,
+      "twd_pct": -28.280102772400472
+    },
+    {
+      "rank": 96,
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "usd_pct": -22.6733,
+      "twd_pct": -27.124189962416523
+    },
+    {
+      "rank": 95,
+      "ticker": "NOW",
+      "name": "ServiceNow, Inc.",
+      "usd_pct": -15.8175,
+      "twd_pct": -20.662952941594003
+    },
+    {
+      "rank": 94,
+      "ticker": "MRK",
+      "name": "Merck & Company, Inc.",
+      "usd_pct": -13.0027,
+      "twd_pct": -18.0101635482804
+    },
+    {
+      "rank": 93,
+      "ticker": "ELV",
+      "name": "Elevance Health, Inc.",
+      "usd_pct": -12.2292,
+      "twd_pct": -17.281192047310036
+    },
+    {
+      "rank": 92,
+      "ticker": "TXN",
+      "name": "Texas Instruments Incorporated",
+      "usd_pct": -11.9904,
+      "twd_pct": -17.056166241612114
+    }
+  ],
+  "full_rows": [
+    {
+      "rank": 1,
+      "ticker": "MU",
+      "name": "Micron Technology, Inc.",
+      "usd_pct": 150.3793,
+      "twd_pct": 135.96763428184263
+    },
+    {
+      "rank": 2,
+      "ticker": "LRCX",
+      "name": "Lam Research Corporation",
+      "usd_pct": 116.6597,
+      "twd_pct": 104.18890156837408
+    },
+    {
+      "rank": 3,
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "usd_pct": 107.2868,
+      "twd_pct": 95.35549388730125
+    },
+    {
+      "rank": 4,
+      "ticker": "9988.HK",
+      "name": "Alibaba Group Holding Ltd.",
+      "usd_pct": 95.8611,
+      "twd_pct": 84.58750582795165
+    },
+    {
+      "rank": 5,
+      "ticker": "005930.KS",
+      "name": "Samsung Electronics Co., Ltd.",
+      "usd_pct": 91.5219,
+      "twd_pct": 80.49804490777255
+    },
+    {
+      "rank": 6,
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "usd_pct": 83.1355,
+      "twd_pct": 72.59437761644412
+    },
+    {
+      "rank": 7,
+      "ticker": "GE",
+      "name": "GE Aerospace",
+      "usd_pct": 81.2587,
+      "twd_pct": 70.82558274519026
+    },
+    {
+      "rank": 8,
+      "ticker": "CAT",
+      "name": "Caterpillar, Inc.",
+      "usd_pct": 54.5012,
+      "twd_pct": 45.608274001021584
+    },
+    {
+      "rank": 9,
+      "ticker": "RTX",
+      "name": "RTX Corporation",
+      "usd_pct": 53.5901,
+      "twd_pct": 44.74953579048777
+    },
+    {
+      "rank": 10,
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "usd_pct": 52.7899,
+      "twd_pct": 43.99546494880968
+    },
+    {
+      "rank": 11,
+      "ticker": "0700.HK",
+      "name": "Tencent Holdings Ltd.",
+      "usd_pct": 52.4006,
+      "twd_pct": 43.62851909499115
+    },
+    {
+      "rank": 12,
+      "ticker": "ORCL",
+      "name": "Oracle Corporation",
+      "usd_pct": 50.9597,
+      "twd_pct": 42.27058176364946
+    },
+    {
+      "rank": 13,
+      "ticker": "UBER",
+      "name": "Uber Technologies, Inc.",
+      "usd_pct": 49.8654,
+      "twd_pct": 41.23931003902817
+    },
+    {
+      "rank": 14,
+      "ticker": "ASML",
+      "name": "ASML Holding N.V. - New York Re",
+      "usd_pct": 48.48,
+      "twd_pct": 39.933638628096915
+    },
+    {
+      "rank": 15,
+      "ticker": "C",
+      "name": "Citigroup, Inc.",
+      "usd_pct": 48.4306,
+      "twd_pct": 39.8870490540828
+    },
+    {
+      "rank": 16,
+      "ticker": "TSM",
+      "name": "Taiwan Semiconductor Manufacturing Co. ADR",
+      "usd_pct": 47.4401,
+      "twd_pct": 38.95355315746143
+    },
+    {
+      "rank": 17,
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "usd_pct": 46.9909,
+      "twd_pct": 38.53020608744438
+    },
+    {
+      "rank": 18,
+      "ticker": "GOOG",
+      "name": "Alphabet Inc.",
+      "usd_pct": 46.3361,
+      "twd_pct": 37.91310931228633
+    },
+    {
+      "rank": 19,
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "usd_pct": 43.6869,
+      "twd_pct": 35.4163533366727
+    },
+    {
+      "rank": 20,
+      "ticker": "AMAT",
+      "name": "Applied Materials, Inc.",
+      "usd_pct": 41.5997,
+      "twd_pct": 33.449324507915556
+    },
+    {
+      "rank": 21,
+      "ticker": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "usd_pct": 39.6575,
+      "twd_pct": 31.618911052763575
+    },
+    {
+      "rank": 22,
+      "ticker": "IBM",
+      "name": "International Business Machines",
+      "usd_pct": 39.5521,
+      "twd_pct": 31.51960711465145
+    },
+    {
+      "rank": 23,
+      "ticker": "2330.TW",
+      "name": "Taiwan Semiconductor Manufacturing Co. Ltd.",
+      "usd_pct": 38.8658,
+      "twd_pct": 30.872815019989485
+    },
+    {
+      "rank": 24,
+      "ticker": "HSBA.L",
+      "name": "HSBC Holdings plc",
+      "usd_pct": 37.2853,
+      "twd_pct": 29.383294515254853
+    },
+    {
+      "rank": 25,
+      "ticker": "JNJ",
+      "name": "Johnson & Johnson",
+      "usd_pct": 32.8738,
+      "twd_pct": 25.22572881284766
+    },
+    {
+      "rank": 26,
+      "ticker": "SIE.DE",
+      "name": "Siemens AG",
+      "usd_pct": 32.1455,
+      "twd_pct": 24.539316237391297
+    },
+    {
+      "rank": 27,
+      "ticker": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "usd_pct": 31.5819,
+      "twd_pct": 24.008131589282367
+    },
+    {
+      "rank": 28,
+      "ticker": "8306.T",
+      "name": "Mitsubishi UFJ Financial Group, Inc.",
+      "usd_pct": 27.6159,
+      "twd_pct": 20.27041451952185
+    },
+    {
+      "rank": 29,
+      "ticker": "WFC",
+      "name": "Wells Fargo & Company",
+      "usd_pct": 26.1686,
+      "twd_pct": 18.906432192175426
+    },
+    {
+      "rank": 30,
+      "ticker": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "usd_pct": 25.5245,
+      "twd_pct": 18.29942723228315
+    },
+    {
+      "rank": 31,
+      "ticker": "PM",
+      "name": "Philip Morris International Inc",
+      "usd_pct": 25.0993,
+      "twd_pct": 17.898658321758386
+    },
+    {
+      "rank": 32,
+      "ticker": "ABBV",
+      "name": "AbbVie Inc.",
+      "usd_pct": 24.52,
+      "twd_pct": 17.352755688974074
+    },
+    {
+      "rank": 33,
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "usd_pct": 23.5501,
+      "twd_pct": 16.438702133821394
+    },
+    {
+      "rank": 34,
+      "ticker": "RY.TO",
+      "name": "ROYAL BANK OF CANADA",
+      "usd_pct": 23.292,
+      "twd_pct": 16.19539683474114
+    },
+    {
+      "rank": 35,
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "usd_pct": 23.2574,
+      "twd_pct": 16.162765594945782
+    },
+    {
+      "rank": 36,
+      "ticker": "BAC",
+      "name": "Bank of America Corporation",
+      "usd_pct": 23.0454,
+      "twd_pct": 15.963040436603727
+    },
+    {
+      "rank": 37,
+      "ticker": "AXP",
+      "name": "American Express Company",
+      "usd_pct": 22.0968,
+      "twd_pct": 15.068973708037237
+    },
+    {
+      "rank": 38,
+      "ticker": "CBA.AX",
+      "name": "Commonwealth Bank of Australia",
+      "usd_pct": 18.2423,
+      "twd_pct": 11.436331081600738
+    },
+    {
+      "rank": 39,
+      "ticker": "NOVN.SW",
+      "name": "Novartis AG",
+      "usd_pct": 18.0732,
+      "twd_pct": 11.27697363508715
+    },
+    {
+      "rank": 40,
+      "ticker": "AZN.L",
+      "name": "AstraZeneca plc",
+      "usd_pct": 17.8802,
+      "twd_pct": 11.095128754484707
+    },
+    {
+      "rank": 41,
+      "ticker": "AMGN",
+      "name": "Amgen Inc.",
+      "usd_pct": 17.3203,
+      "twd_pct": 10.567447248979555
+    },
+    {
+      "rank": 42,
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "usd_pct": 17.2496,
+      "twd_pct": 10.500854359286095
+    },
+    {
+      "rank": 43,
+      "ticker": "TSLA",
+      "name": "Tesla, Inc.",
+      "usd_pct": 17.1325,
+      "twd_pct": 10.390414443881003
+    },
+    {
+      "rank": 44,
+      "ticker": "NEE",
+      "name": "NextEra Energy, Inc.",
+      "usd_pct": 16.8435,
+      "twd_pct": 10.118059163237136
+    },
+    {
+      "rank": 45,
+      "ticker": "ETN",
+      "name": "Eaton Corporation, PLC",
+      "usd_pct": 14.933,
+      "twd_pct": 8.317508945731555
+    },
+    {
+      "rank": 46,
+      "ticker": "WMT",
+      "name": "Walmart Inc.",
+      "usd_pct": 14.4877,
+      "twd_pct": 7.897845071498244
+    },
+    {
+      "rank": 47,
+      "ticker": "QCOM",
+      "name": "QUALCOMM Incorporated",
+      "usd_pct": 14.4303,
+      "twd_pct": 7.8437464055209905
+    },
+    {
+      "rank": 48,
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "usd_pct": 13.5069,
+      "twd_pct": 6.973558980722827
+    },
+    {
+      "rank": 49,
+      "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "usd_pct": 13.2141,
+      "twd_pct": 6.697551468945107
+    },
+    {
+      "rank": 50,
+      "ticker": "ABT",
+      "name": "Abbott Laboratories",
+      "usd_pct": 12.9969,
+      "twd_pct": 6.492904728515891
+    },
+    {
+      "rank": 51,
+      "ticker": "SHEL.L",
+      "name": "Shell plc",
+      "usd_pct": 12.3416,
+      "twd_pct": 5.87534738556843
+    },
+    {
+      "rank": 52,
+      "ticker": "T",
+      "name": "AT&T Inc.",
+      "usd_pct": 11.8477,
+      "twd_pct": 5.409808272642191
+    },
+    {
+      "rank": 53,
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "usd_pct": 11.1333,
+      "twd_pct": 4.73658790348892
+    },
+    {
+      "rank": 54,
+      "ticker": "BHP.AX",
+      "name": "BHP Group Ltd.",
+      "usd_pct": 10.5211,
+      "twd_pct": 4.15964081503557
+    },
+    {
+      "rank": 55,
+      "ticker": "NESN.SW",
+      "name": "Nestle SA",
+      "usd_pct": 9.4156,
+      "twd_pct": 3.1177299436423
+    },
+    {
+      "rank": 56,
+      "ticker": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "usd_pct": 9.3124,
+      "twd_pct": 3.0204257374889076
+    },
+    {
+      "rank": 57,
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "usd_pct": 8.7912,
+      "twd_pct": 2.529256021486992
+    },
+    {
+      "rank": 58,
+      "ticker": "TMO",
+      "name": "Thermo Fisher Scientific Inc",
+      "usd_pct": 8.4664,
+      "twd_pct": 2.223118150226311
+    },
+    {
+      "rank": 59,
+      "ticker": "BRK-A",
+      "name": "Berkshire Hathaway Inc.",
+      "usd_pct": 8.2336,
+      "twd_pct": 2.003765898777754
+    },
+    {
+      "rank": 60,
+      "ticker": "CVX",
+      "name": "Chevron Corporation",
+      "usd_pct": 8.1916,
+      "twd_pct": 1.9641974572853327
+    },
+    {
+      "rank": 61,
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "usd_pct": 8.1046,
+      "twd_pct": 1.882217169319067
+    },
+    {
+      "rank": 62,
+      "ticker": "INTU",
+      "name": "Intuit Inc.",
+      "usd_pct": 6.7428,
+      "twd_pct": 0.5988082427324182
+    },
+    {
+      "rank": 63,
+      "ticker": "MA",
+      "name": "Mastercard Incorporated",
+      "usd_pct": 6.4177,
+      "twd_pct": 0.2923373570159482
+    },
+    {
+      "rank": 64,
+      "ticker": "ROG.SW",
+      "name": "ROCHE GS",
+      "usd_pct": 6.2864,
+      "twd_pct": 0.1686699444512163
+    },
+    {
+      "rank": 65,
+      "ticker": "BLK",
+      "name": "BlackRock, Inc.",
+      "usd_pct": 5.7989,
+      "twd_pct": -0.29082894741104814
+    },
+    {
+      "rank": 66,
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "usd_pct": 4.9305,
+      "twd_pct": -1.1092420059514385
+    },
+    {
+      "rank": 67,
+      "ticker": "VZ",
+      "name": "Verizon Communications Inc.",
+      "usd_pct": 4.5191,
+      "twd_pct": -1.496907186518659
+    },
+    {
+      "rank": 68,
+      "ticker": "TTE.PA",
+      "name": "TotalEnergies SE",
+      "usd_pct": 4.4184,
+      "twd_pct": -1.591816086854514
+    },
+    {
+      "rank": 69,
+      "ticker": "7203.T",
+      "name": "Toyota Motor Corp.",
+      "usd_pct": 4.3615,
+      "twd_pct": -1.645465132942936
+    },
+    {
+      "rank": 70,
+      "ticker": "MCD",
+      "name": "McDonald's Corporation",
+      "usd_pct": 4.052,
+      "twd_pct": -1.937149114429626
+    },
+    {
+      "rank": 71,
+      "ticker": "COST",
+      "name": "Costco Wholesale Corporation",
+      "usd_pct": 3.9392,
+      "twd_pct": -2.043487387395926
+    },
+    {
+      "rank": 72,
+      "ticker": "ISRG",
+      "name": "Intuitive Surgical, Inc.",
+      "usd_pct": 2.8224,
+      "twd_pct": -3.096018421319058
+    },
+    {
+      "rank": 73,
+      "ticker": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "usd_pct": 1.9076,
+      "twd_pct": -3.9580886633985735
+    },
+    {
+      "rank": 74,
+      "ticker": "LIN",
+      "name": "Linde plc",
+      "usd_pct": 1.8937,
+      "twd_pct": -3.971179059942165
+    },
+    {
+      "rank": 75,
+      "ticker": "SYK",
+      "name": "Stryker Corporation",
+      "usd_pct": 1.7657,
+      "twd_pct": -4.0918216578736955
+    },
+    {
+      "rank": 76,
+      "ticker": "SPGI",
+      "name": "S&P Global Inc.",
+      "usd_pct": 1.2945,
+      "twd_pct": -4.535903716168832
+    },
+    {
+      "rank": 77,
+      "ticker": "DIS",
+      "name": "Walt Disney Company (The)",
+      "usd_pct": 1.0155,
+      "twd_pct": -4.798890608641237
+    },
+    {
+      "rank": 78,
+      "ticker": "ULVR.L",
+      "name": "Unilever plc",
+      "usd_pct": 0.9409,
+      "twd_pct": -4.869176090541705
+    },
+    {
+      "rank": 79,
+      "ticker": "SU.PA",
+      "name": "Schneider Electric SE",
+      "usd_pct": 0.8058,
+      "twd_pct": -4.996459854629287
+    },
+    {
+      "rank": 80,
+      "ticker": "HD",
+      "name": "Home Depot, Inc. (The)",
+      "usd_pct": 0.4241,
+      "twd_pct": -5.356210784194659
+    },
+    {
+      "rank": 81,
+      "ticker": "LOW",
+      "name": "Lowe's Companies, Inc.",
+      "usd_pct": -1.8049,
+      "twd_pct": -7.456907561956838
+    },
+    {
+      "rank": 82,
+      "ticker": "UNP",
+      "name": "Union Pacific Corporation",
+      "usd_pct": -1.8567,
+      "twd_pct": -7.505735647554523
+    },
+    {
+      "rank": 83,
+      "ticker": "PEP",
+      "name": "Pepsico, Inc.",
+      "usd_pct": -2.0232,
+      "twd_pct": -7.662634614664487
+    },
+    {
+      "rank": 84,
+      "ticker": "MC.PA",
+      "name": "LVMH Moet Hennessy Louis Vuitton SE",
+      "usd_pct": -2.3447,
+      "twd_pct": -7.96563882037572
+    },
+    {
+      "rank": 85,
+      "ticker": "PFE",
+      "name": "Pfizer, Inc.",
+      "usd_pct": -3.768,
+      "twd_pct": -9.307041482430078
+    },
+    {
+      "rank": 86,
+      "ticker": "SAP.DE",
+      "name": "SAP SE",
+      "usd_pct": -4.3835,
+      "twd_pct": -9.887115417718595
+    },
+    {
+      "rank": 87,
+      "ticker": "HON",
+      "name": "Honeywell International Inc.",
+      "usd_pct": -6.1162,
+      "twd_pct": -11.520035165723453
+    },
+    {
+      "rank": 88,
+      "ticker": "DHR",
+      "name": "Danaher Corporation",
+      "usd_pct": -6.4985,
+      "twd_pct": -11.880368013007503
+    },
+    {
+      "rank": 89,
+      "ticker": "PG",
+      "name": "Procter & Gamble Company (The)",
+      "usd_pct": -8.9901,
+      "twd_pct": -14.228543856747834
+    },
+    {
+      "rank": 90,
+      "ticker": "COP",
+      "name": "ConocoPhillips",
+      "usd_pct": -9.9571,
+      "twd_pct": -15.139880316652887
+    },
+    {
+      "rank": 91,
+      "ticker": "PGR",
+      "name": "Progressive Corporation (The)",
+      "usd_pct": -11.1283,
+      "twd_pct": -16.24365623465971
+    },
+    {
+      "rank": 92,
+      "ticker": "TXN",
+      "name": "Texas Instruments Incorporated",
+      "usd_pct": -11.9904,
+      "twd_pct": -17.056166241612114
+    },
+    {
+      "rank": 93,
+      "ticker": "ELV",
+      "name": "Elevance Health, Inc.",
+      "usd_pct": -12.2292,
+      "twd_pct": -17.281192047310036
+    },
+    {
+      "rank": 94,
+      "ticker": "MRK",
+      "name": "Merck & Company, Inc.",
+      "usd_pct": -13.0027,
+      "twd_pct": -18.0101635482804
+    },
+    {
+      "rank": 95,
+      "ticker": "NOW",
+      "name": "ServiceNow, Inc.",
+      "usd_pct": -15.8175,
+      "twd_pct": -20.662952941594003
+    },
+    {
+      "rank": 96,
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "usd_pct": -22.6733,
+      "twd_pct": -27.124189962416523
+    },
+    {
+      "rank": 97,
+      "ticker": "CMCSA",
+      "name": "Comcast Corporation",
+      "usd_pct": -23.8998,
+      "twd_pct": -28.280102772400472
+    },
+    {
+      "rank": 98,
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "usd_pct": -23.9569,
+      "twd_pct": -28.333893263682853
+    },
+    {
+      "rank": 99,
+      "ticker": "ACN",
+      "name": "Accenture plc",
+      "usd_pct": -29.371,
+      "twd_pct": -33.43639187726828
+    },
+    {
+      "rank": 100,
+      "ticker": "UNH",
+      "name": "UnitedHealth Group Incorporated",
+      "usd_pct": -33.2593,
+      "twd_pct": -37.10087275370743
+    },
+    {
+      "rank": 101,
+      "ticker": "NVO",
+      "name": "Novo Nordisk A/S",
+      "usd_pct": -43.9814,
+      "twd_pct": -47.20575068528213
+    }
+  ]
+}

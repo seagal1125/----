@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <link rel="stylesheet" href="fortune_report_style.css" />
+  $for(header-includes)$
+  $header-includes$
+  $endfor$
+</head>
+<body>
+  <div class="page">
+  $body$
+    <footer>
+      <p>資料來源：Fortune Global 500 (2008) 與 Yahoo Finance（yfinance 還原股價）。</p>
+      <p>最後更新：2025-10-23</p>
+    </footer>
+  </div>
+</body>
+</html>

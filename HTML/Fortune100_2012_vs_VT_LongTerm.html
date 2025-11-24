@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2012年世界100強公司 vs. VT｜長期績效分析（2013–2025）</title>
+  <style>
+    :root{
+      --bg:#0b0c10;           /* 背景 */
+      --card:#111317;         /* 卡片底 */
+      --muted:#98a2b3;        /* 次要文字 */
+      --fg:#e6e8ec;           /* 主要文字 */
+      --brand:#4f46e5;        /* 主色 */
+      --accent:#22c55e;       /* 正報酬 */
+      --danger:#ef4444;       /* 負報酬 */
+      --border:rgba(255,255,255,.08);
+      --chip:#1b1e25;
+      --tableRow:rgba(255,255,255,.02);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f7fb;--card:#ffffff;--muted:#667085;--fg:#101828;--brand:#4f46e5;--accent:#16a34a;--danger:#dc2626;--border:#e6e8ef;--chip:#f2f4f7;--tableRow:#fafafa;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+    a{color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:28px 20px 88px}
+    header{display:grid;gap:10px;margin:6px 0 18px}
+    .title{font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:.3px}
+    .subtitle{color:var(--muted)}
+    .bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .chip{background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .grid{display:grid;gap:16px}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+    .card h3{margin:0 0 6px;font-size:15px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+    .stat{display:flex;align-items:baseline;gap:10px}
+    .stat .big{font-weight:800;font-size:clamp(22px,4vw,36px)}
+    .badge{font-weight:700;font-size:13px;padding:4px 8px;border-radius:8px}
+    .bg-green{background:color-mix(in oklab, var(--accent) 16%, transparent);color:var(--accent);border:1px solid color-mix(in oklab, var(--accent) 35%, transparent)}
+    .bg-blue{background:color-mix(in oklab, var(--brand) 16%, transparent);color:var(--brand);border:1px solid color-mix(in oklab, var(--brand) 35%, transparent)}
+    .bg-red{background:color-mix(in oklab, var(--danger) 16%, transparent);color:var(--danger);border:1px solid color-mix(in oklab, var(--danger) 35%, transparent)}
+
+    section{margin-top:24px}
+    section h2{margin:0 0 10px;font-weight:900;letter-spacing:.2px}
+    section p{margin:0 0 12px;color:var(--muted)}
+
+    .callout{border-left:4px solid var(--brand);padding:12px 14px;background:var(--card);border:1px solid var(--border);border-left-color:var(--brand);border-radius:10px;margin:10px 0}
+
+    table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    thead th{position:sticky;top:0;background:linear-gradient(180deg, color-mix(in oklab,var(--card) 80%, transparent), var(--card));font-size:13px;color:var(--muted);text-align:left;padding:12px;border-bottom:1px solid var(--border)}
+    tbody td{padding:10px 12px;border-bottom:1px solid var(--border)}
+    tbody tr:nth-child(odd){background:var(--tableRow)}
+    .num{font-variant-numeric:tabular-nums}
+    .pct{font-variant-numeric:tabular-nums;font-weight:700}
+    .pos{color:var(--accent)}
+    .neg{color:var(--danger)}
+
+    .note{font-size:13px;color:var(--muted)}
+
+    .toolbar{position:sticky;bottom:14px;display:flex;gap:10px;justify-content:flex-end;margin-top:22px}
+    .btn{background:var(--brand);color:white;border:none;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--brand);border:1px solid color-mix(in oklab, var(--brand) 45%, transparent)}
+    .btn:active{transform:translateY(1px)}
+    @media (max-width:680px){ .subtitle{font-size:14px} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title">2012年世界100強公司 vs. VT 長期績效分析（2013–2025）</div>
+      <div class="subtitle">統計區間：<strong>2013-01-01</strong> 至 <strong>2025-10-20</strong></div>
+      <div class="bar">
+        <span class="chip">基準：VT 總報酬 <strong class="num">+265.14%</strong></span>
+        <span class="chip">可比樣本：<strong>88</strong> 家</span>
+        <span class="chip">領先：<strong>23</strong> 家｜落後：<strong>58</strong> 家</span>
+      </div>
+    </header>
+
+    <!-- Summary Cards -->
+    <div class="grid cards">
+      <div class="card">
+        <h3>整體市場表現</h3>
+        <div class="stat"><div class="big">VT <span class="pos">+265.14%</span></div><span class="badge bg-blue">全球股票ETF</span></div>
+        <p class="note">約 12 年期的全球市場平均表現；作為本報告的比較基準。</p>
+      </div>
+      <div class="card">
+        <h3>領先公司數</h3>
+        <div class="stat"><div class="big">23 家</div><span class="badge bg-green">超越基準</span></div>
+        <p class="note">以科技、消費電子、美股龍頭與印度龍頭為主。</p>
+      </div>
+      <div class="card">
+        <h3>落後公司數</h3>
+        <div class="stat"><div class="big">58 家</div><span class="badge bg-red">低於基準</span></div>
+        <p class="note">能源、部分歐日製造、跨國銀行與電信等為主。</p>
+      </div>
+    </div>
+
+    <!-- Insights -->
+    <section>
+      <h2>重點洞察</h2>
+      <div class="callout">
+        <ol>
+          <li><strong>科技與消費性電子巨頭的勝利：</strong>蘋果（AAPL）<span class="pos pct">+1477.07%</span> 居冠；索尼（SONY）<span class="pos pct">+1278.59%</span>、三星（005930.KS）<span class="pos pct">+311.06%</span> 亦強勁。</li>
+          <li><strong>美國本土強者多點開花：</strong>好市多（COST）<span class="pos pct">+1068.61%</span>、摩根大通（JPM）<span class="pos pct">+855.52%</span>、聯合健康（UNH）<span class="pos pct">+717.75%</span>、瓦萊羅能源（VLO）<span class="pos pct">+684.03%</span>。</li>
+          <li><strong>事件後極端回報：</strong>兩房房利美（FNMA）<span class="pos pct">+4148.15%</span>、房地美（FMCC）<span class="pos pct">+3714.29%</span> 屬金融危機後反彈的特殊情形。</li>
+          <li><strong>印度的崛起：</strong>信實工業（RELIANCE.NS）<span class="pos pct">+733.32%</span>、印度石油（IOC.NS）<span class="pos pct">+590.24%</span> 展現新興市場動能。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Leaders Table -->
+    <section>
+      <h2>績效領先群（超越 VT）<span class="note">（前30名）</span></h2>
+      <p>在成功取得數據的 88 家公司中，有 <strong>23</strong> 家的長期報酬率超過 VT 的 <span class="pos pct">+265.14%</span>。下表列出前 30 名（含部分接近者）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:72px">排名</th>
+              <th>代號</th>
+              <th>公司名稱</th>
+              <th style="width:140px">長期報酬率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">1</td><td>FNMA</td><td>房利美</td><td class="pct pos">+4148.15%</td></tr>
+            <tr><td class="num">2</td><td>FMCC</td><td>房地美</td><td class="pct pos">+3714.29%</td></tr>
+            <tr><td class="num">3</td><td>AAPL</td><td>蘋果</td><td class="pct pos">+1477.07%</td></tr>
+            <tr><td class="num">4</td><td>SONY</td><td>索尼</td><td class="pct pos">+1278.59%</td></tr>
+            <tr><td class="num">5</td><td>COST</td><td>好市多</td><td class="pct pos">+1068.61%</td></tr>
+            <tr><td class="num">6</td><td>6501.T</td><td>日立</td><td class="pct pos">+1000.03%</td></tr>
+            <tr><td class="num">7</td><td>JPM</td><td>摩根大通</td><td class="pct pos">+855.52%</td></tr>
+            <tr><td class="num">8</td><td>MCK</td><td>麥克森</td><td class="pct pos">+786.82%</td></tr>
+            <tr><td class="num">9</td><td>RELIANCE.NS</td><td>信實工業</td><td class="pct pos">+733.32%</td></tr>
+            <tr><td class="num">10</td><td>UNH</td><td>聯合健康</td><td class="pct pos">+717.75%</td></tr>
+            <tr><td class="num">11</td><td>VLO</td><td>瓦萊羅能源</td><td class="pct pos">+684.03%</td></tr>
+            <tr><td class="num">12</td><td>IOC.NS</td><td>印度石油</td><td class="pct pos">+590.24%</td></tr>
+            <tr><td class="num">13</td><td>KR</td><td>克羅格</td><td class="pct pos">+566.02%</td></tr>
+            <tr><td class="num">14</td><td>STLA</td><td>標致</td><td class="pct pos">+563.22%</td></tr>
+            <tr><td class="num">15</td><td>HPQ</td><td>惠普</td><td class="pct pos">+497.34%</td></tr>
+            <tr><td class="num">16</td><td>WMT</td><td>沃爾瑪</td><td class="pct pos">+499.48%</td></tr>
+            <tr><td class="num">17</td><td>MURGY</td><td>慕尼黑再保</td><td class="pct pos">+473.88%</td></tr>
+            <tr><td class="num">18</td><td>BAC</td><td>美國銀行</td><td class="pct pos">+447.92%</td></tr>
+            <tr><td class="num">19</td><td>CAH</td><td>康德樂</td><td class="pct pos">+430.56%</td></tr>
+            <tr><td class="num">20</td><td>BRK-B</td><td>伯克希爾哈撒韋</td><td class="pct pos">+430.13%</td></tr>
+            <tr><td class="num">21</td><td>ALIZY</td><td>安聯保險</td><td class="pct pos">+429.47%</td></tr>
+            <tr><td class="num">22</td><td>DTEGY</td><td>德國電信</td><td class="pct pos">+409.45%</td></tr>
+            <tr><td class="num">23</td><td>2317.TW</td><td>鴻海（富士康）</td><td class="pct pos">+395.57%</td></tr>
+            <tr><td class="num">24</td><td>AXAHY</td><td>安盛</td><td class="pct pos">+396.39%</td></tr>
+            <tr><td class="num">25</td><td>CRARY</td><td>法國農業信貸</td><td class="pct pos">+354.32%</td></tr>
+            <tr><td class="num">26</td><td>ING</td><td>荷蘭國際集團</td><td class="pct pos">+346.09%</td></tr>
+            <tr><td class="num">27</td><td>ENLAY</td><td>義大利國家電力</td><td class="pct pos">+339.10%</td></tr>
+            <tr><td class="num">28</td><td>SIEGY</td><td>西門子</td><td class="pct pos">+333.76%</td></tr>
+            <tr><td class="num">29</td><td>005930.KS</td><td>三星電子</td><td class="pct pos">+311.06%</td></tr>
+            <tr><td class="num">30</td><td>GE</td><td>通用電氣</td><td class="pct pos">+269.92%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Laggards Table -->
+    <section>
+      <h2>績效落後群（落後 VT）<span class="note">（節錄）</span></h2>
+      <p>其餘 <strong>58</strong> 家公司的長期報酬率低於 VT 的 <span class="pct">+265.14%</span>。下表為節錄，含代表性與邊界個案。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:72px">排名</th>
+              <th>代號</th>
+              <th>公司名稱</th>
+              <th style="width:140px">長期報酬率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">31</td><td>WFC</td><td>富國銀行</td><td class="pct">+251.79%</td></tr>
+            <tr><td class="num">32</td><td>1288.HK</td><td>中國農業銀行</td><td class="pct">+235.64%</td></tr>
+            <tr><td class="num">33</td><td>601668.SS</td><td>中國建築工程</td><td class="pct">+222.64%</td></tr>
+            <tr><td class="num">34</td><td>C</td><td>花旗</td><td class="pct">+221.83%</td></tr>
+            <tr><td class="num">35</td><td>PG</td><td>寶潔</td><td class="pct">+214.51%</td></tr>
+            <tr><td class="num">36</td><td>ADM</td><td>ADM 公司</td><td class="pct">+214.91%</td></tr>
+            <tr><td class="num">37</td><td>5020.T</td><td>JX 控股</td><td class="pct">+204.60%</td></tr>
+            <tr><td class="num">38</td><td>3988.HK</td><td>中國銀行</td><td class="pct">+186.89%</td></tr>
+            <tr><td class="num">39</td><td>G</td><td>義大利忠利保險</td><td class="pct">+184.31%</td></tr>
+            <tr><td class="num">40</td><td>034730.KS</td><td>SK 集團</td><td class="pct">+183.46%</td></tr>
+            <tr><td class="num">41</td><td>0939.HK</td><td>中國建設銀行</td><td class="pct">+169.70%</td></tr>
+            <tr><td class="num">42</td><td>SCGLY</td><td>法國興業銀行</td><td class="pct">+169.20%</td></tr>
+            <tr><td class="num">43</td><td>GM</td><td>通用汽車</td><td class="pct">+166.47%</td></tr>
+            <tr><td class="num">44</td><td>NTTYY</td><td>日本電報電話</td><td class="pct">+155.66%</td></tr>
+            <tr><td class="num">45</td><td>BNPQY</td><td>法國巴黎銀行</td><td class="pct">+154.69%</td></tr>
+            <tr><td class="num">46</td><td>HSBC</td><td>匯豐</td><td class="pct">+148.58%</td></tr>
+            <tr><td class="num">47</td><td>T</td><td>AT&amp;T</td><td class="pct">+148.36%</td></tr>
+            <tr><td class="num">48</td><td>IBM</td><td>IBM</td><td class="pct">+147.76%</td></tr>
+            <tr><td class="num">49</td><td>TTE</td><td>道達爾</td><td class="pct">+141.36%</td></tr>
+            <tr><td class="num">50</td><td>CVX</td><td>雪佛龍</td><td class="pct">+137.39%</td></tr>
+            <tr><td class="num">51</td><td>CVS</td><td>CVS Caremark</td><td class="pct">+131.97%</td></tr>
+            <tr><td class="num">52</td><td>EOAN.DE</td><td>意昂集團</td><td class="pct">+131.84%</td></tr>
+            <tr><td class="num">53</td><td>1398.HK</td><td>中國工商銀行</td><td class="pct">+129.99%</td></tr>
+            <tr><td class="num">54</td><td>NSRGY</td><td>雀巢</td><td class="pct">+126.25%</td></tr>
+            <tr><td class="num">55</td><td>COP</td><td>康菲石油</td><td class="pct">+125.22%</td></tr>
+            <tr><td class="num">56</td><td>SAN</td><td>西班牙國家銀行</td><td class="pct">+119.84%</td></tr>
+            <tr><td class="num">57</td><td>XOM</td><td>埃克森美孚</td><td class="pct">+113.25%</td></tr>
+            <tr><td class="num">58</td><td>PBR</td><td>巴西國家石油</td><td class="pct">+111.29%</td></tr>
+            <tr><td class="num">59</td><td>SHEL</td><td>荷蘭皇家殼牌石油公司</td><td class="pct">+102.45%</td></tr>
+            <tr><td class="num">60</td><td>BMW.DE</td><td>BMW</td><td class="pct">+97.80%</td></tr>
+            <tr><td class="num">61</td><td>0941.HK</td><td>中國移動</td><td class="pct">+90.55%</td></tr>
+            <tr><td class="num">62</td><td>EQNR</td><td>挪威國家石油</td><td class="pct">+82.32%</td></tr>
+            <tr><td class="num">63</td><td>VZ</td><td>威瑞森</td><td class="pct">+77.69%</td></tr>
+            <tr><td class="num">64</td><td>REPYY</td><td>雷普索爾</td><td class="pct">+76.99%</td></tr>
+            <tr><td class="num">65</td><td>F</td><td>福特</td><td class="pct">+71.38%</td></tr>
+            <tr><td class="num">66</td><td>PTT.BK</td><td>泰國國家石油</td><td class="pct">+65.00%</td></tr>
+            <tr><td class="num">67</td><td>BP</td><td>英國石油</td><td class="pct">+63.09%</td></tr>
+            <tr><td class="num">68</td><td>BDORY</td><td>巴西銀行</td><td class="pct">+50.29%</td></tr>
+            <tr><td class="num">69</td><td>0386.HK</td><td>中國石油化工（中石化）</td><td class="pct">+47.17%</td></tr>
+            <tr><td class="num">70</td><td>E</td><td>埃尼石油</td><td class="pct">+45.92%</td></tr>
+            <tr><td class="num">71</td><td>6178.T</td><td>日本郵政控股</td><td class="pct">+23.51%</td></tr>
+            <tr><td class="num">72</td><td>TSCDY</td><td>樂購 Tesco</td><td class="pct">+23.42%</td></tr>
+            <tr><td class="num">73</td><td>HMC</td><td>本田</td><td class="pct">+12.27%</td></tr>
+            <tr><td class="num">74</td><td>MT</td><td>安賽樂米塔爾</td><td class="pct">+8.17%</td></tr>
+            <tr><td class="num">75</td><td>CA.PA</td><td>家樂福</td><td class="pct">+3.22%</td></tr>
+            <tr><td class="num">76</td><td>BASFY</td><td>巴斯夫</td><td class="pct neg">-0.86%</td></tr>
+            <tr><td class="num">77</td><td>VOW3.DE</td><td>大眾</td><td class="pct neg">-5.37%</td></tr>
+            <tr><td class="num">78</td><td>GLEN.L</td><td>嘉能可</td><td class="pct neg">-6.68%</td></tr>
+            <tr><td class="num">79</td><td>TEF</td><td>西班牙電話</td><td class="pct neg">-10.82%</td></tr>
+            <tr><td class="num">80</td><td>NSANY</td><td>日產</td><td class="pct neg">-74.71%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Missing / Not Analyzed -->
+    <section>
+      <h2>無法分析的標的</h2>
+      <p class="note">以下標的因指定區間內無資料或其他錯誤而未能完成分析：</p>
+      <div class="card">
+        <ul style="margin:0;padding-left:18px">
+          <li><strong>PTR</strong>（中國石油天然氣 / 中石油）：No data found</li>
+          <li><strong>OGZPY</strong>（俄羅斯天然氣工業）：No data found</li>
+          <li><strong>ENGIE.PA</strong>（法國燃氣蘇伊士）：No data found</li>
+          <li><strong>EXO.MI</strong>（EXOR 集團）：No data found</li>
+          <li><strong>LUKOY</strong>（盧克石油）：No data found</li>
+          <li><strong>PCRFY</strong>（松下）：No data found</li>
+          <li><strong>PETRONAS.CS</strong>（馬來西亞國家石油）：No data found</li>
+          <li><strong>B4B.DE</strong>（麥德龍）：No data found</li>
+          <li><strong>ECIFY</strong>（法國電力）：No data found</li>
+          <li><strong>ABC</strong>（美源伯根）：No data found</li>
+          <li><strong>TOSYY</strong>（東芝）：No data found</li>
+          <li><strong>DPSGY</strong>（德國郵政）：No data found</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <button class="btn secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">回到頂部</button>
+      <button class="btn" onclick="window.print()">列印 / 匯出 PDF</button>
+    </div>
+  </div>
+</body>
+</html>

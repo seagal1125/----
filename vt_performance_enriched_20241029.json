@@ -1,0 +1,920 @@
+[
+  {
+    "ticker": "VT",
+    "company_name": "Vanguard Total World Stock Inde",
+    "total_return_pct": 13.112445502851777,
+    "cagr_pct": 28.227627204639873,
+    "twd_return_pct": 11.647024640943492,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AAPL",
+    "company_name": "Apple Inc.",
+    "total_return_pct": 38.36844425304844,
+    "cagr_pct": 92.57794556293398,
+    "twd_return_pct": 36.57582095738201,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NVDA",
+    "company_name": "NVIDIA Corporation",
+    "total_return_pct": 70.12523847813723,
+    "cagr_pct": 192.20061907033025,
+    "twd_return_pct": 67.9211921197133,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "MSFT",
+    "company_name": "Microsoft Corporation",
+    "total_return_pct": 9.765818011801763,
+    "cagr_pct": 20.68710120012771,
+    "twd_return_pct": 8.343754162648498,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AMZN",
+    "company_name": "Amazon.com, Inc.",
+    "total_return_pct": 6.6089395704216125,
+    "cagr_pct": 13.78533795273107,
+    "twd_return_pct": 5.2277744526673775,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "META",
+    "company_name": "Meta Platforms, Inc.",
+    "total_return_pct": 35.34817034805406,
+    "cagr_pct": 84.18960289389076,
+    "twd_return_pct": 33.59467601268356,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "TSLA",
+    "company_name": "Tesla, Inc.",
+    "total_return_pct": 44.18577759503892,
+    "cagr_pct": 109.26588155898939,
+    "twd_return_pct": 42.31778821916681,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "GOOGL",
+    "company_name": "Alphabet Inc.",
+    "total_return_pct": 3.8082280920041622,
+    "cagr_pct": 7.833825087593027,
+    "twd_return_pct": 2.46334740794254,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AVGO",
+    "company_name": "Broadcom Inc.",
+    "total_return_pct": 45.149520095999506,
+    "cagr_pct": 112.09808011398627,
+    "twd_return_pct": 43.269045017425654,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "GOOG",
+    "company_name": "Alphabet Inc.",
+    "total_return_pct": 3.617976912966392,
+    "cagr_pct": 7.4353905850358615,
+    "twd_return_pct": 2.275561015564853,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "2330.TW",
+    "company_name": "TAIWAN SEMICONDUCTOR MANUFACTUR",
+    "total_return_pct": 35.83876759372539,
+    "cagr_pct": 86.17755577054422,
+    "twd_return_pct": 34.07891735794617,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BRK-B",
+    "company_name": "Berkshire Hathaway Inc. New",
+    "total_return_pct": 14.059915307554306,
+    "cagr_pct": 30.40431408760089,
+    "twd_return_pct": 12.582219562792352,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "JPM",
+    "company_name": "JP Morgan Chase & Co.",
+    "total_return_pct": 17.538104791133556,
+    "cagr_pct": 38.55349396340411,
+    "twd_return_pct": 16.015347590859363,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "LLY",
+    "company_name": "Eli Lilly and Company",
+    "total_return_pct": 16.689382018527475,
+    "cagr_pct": 36.542006666052764,
+    "twd_return_pct": 15.177620390415347,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "V",
+    "company_name": "Visa Inc.",
+    "total_return_pct": 5.853656735115509,
+    "cagr_pct": 12.164479259998352,
+    "twd_return_pct": 4.482276634549942,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "XOM",
+    "company_name": "Exxon Mobil Corporation",
+    "total_return_pct": 2.7186643705677582,
+    "cagr_pct": 5.562070789959983,
+    "twd_return_pct": 1.3878994577696258,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "UNH",
+    "company_name": "UnitedHealth Group Incorporated",
+    "total_return_pct": 17.022262096071206,
+    "cagr_pct": 37.329169403974724,
+    "twd_return_pct": 15.506187861967934,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "MA",
+    "company_name": "Mastercard Incorporated",
+    "total_return_pct": 14.846986596714595,
+    "cagr_pct": 32.22656155971995,
+    "twd_return_pct": 13.359094001536963,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "COST",
+    "company_name": "Costco Wholesale Corporation",
+    "total_return_pct": 22.989235351491555,
+    "cagr_pct": 51.82659024078049,
+    "twd_return_pct": 21.395856387108015,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "PG",
+    "company_name": "Procter & Gamble Company (The)",
+    "total_return_pct": 3.527668845823051,
+    "cagr_pct": 7.246522854806647,
+    "twd_return_pct": 2.186422928656695,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "WMT",
+    "company_name": "Walmart Inc.",
+    "total_return_pct": 39.70514338904299,
+    "cagr_pct": 96.3505832711681,
+    "twd_return_pct": 37.895202575474144,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "HD",
+    "company_name": "Home Depot, Inc. (The)",
+    "total_return_pct": 20.56289784505836,
+    "cagr_pct": 45.84300795240992,
+    "twd_return_pct": 19.00095313695096,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NFLX",
+    "company_name": "Netflix, Inc.",
+    "total_return_pct": 37.65202229352387,
+    "cagr_pct": 90.57114572574673,
+    "twd_return_pct": 35.868680555521124,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "JNJ",
+    "company_name": "Johnson & Johnson",
+    "total_return_pct": 7.5598742190549295,
+    "cagr_pct": 15.842755036192791,
+    "twd_return_pct": 6.166389329888933,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "0700.HK",
+    "company_name": "TENCENT",
+    "total_return_pct": 17.096069620691566,
+    "cagr_pct": 37.747519506141145,
+    "twd_return_pct": 15.579039178048525,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ABBV",
+    "company_name": "AbbVie Inc.",
+    "total_return_pct": 19.167146626529497,
+    "cagr_pct": 42.45593019501155,
+    "twd_return_pct": 17.623284481703028,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "CRM",
+    "company_name": "Salesforce, Inc.",
+    "total_return_pct": 11.587790923257412,
+    "cagr_pct": 24.763731595627636,
+    "twd_return_pct": 10.142122623661853,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BAC",
+    "company_name": "Bank of America Corporation",
+    "total_return_pct": 16.55654444648229,
+    "cagr_pct": 36.228522353342754,
+    "twd_return_pct": 15.046503786814025,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ASML",
+    "company_name": "ASML Holding N.V. - New York Re",
+    "total_return_pct": -15.79569797309267,
+    "cagr_pct": -29.31489982272667,
+    "twd_return_pct": -16.886601280010794,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SAP.DE",
+    "company_name": "SAP SE                        I",
+    "total_return_pct": 34.587525847050586,
+    "cagr_pct": 82.71418253097214,
+    "twd_return_pct": 32.843885991576705,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NVO",
+    "company_name": "Novo Nordisk A/S",
+    "total_return_pct": -13.010503289233588,
+    "cagr_pct": -24.51742371435056,
+    "twd_return_pct": -14.137490003031106,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ORCL",
+    "company_name": "Oracle Corporation",
+    "total_return_pct": 52.0638042552835,
+    "cagr_pct": 132.9807947847014,
+    "twd_return_pct": 50.09375162220508,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "MRK",
+    "company_name": "Merck & Company, Inc.",
+    "total_return_pct": -18.440444380106324,
+    "cagr_pct": -33.723409038483396,
+    "twd_return_pct": -19.497083848575326,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "CVX",
+    "company_name": "Chevron Corporation",
+    "total_return_pct": -4.968499905132795,
+    "cagr_pct": -9.772740984957107,
+    "twd_return_pct": -6.199674265817512,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "KO",
+    "company_name": "Coca-Cola Company (The)",
+    "total_return_pct": 7.4142469730183125,
+    "cagr_pct": 15.526473747987302,
+    "twd_return_pct": 6.022648748077963,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "CSCO",
+    "company_name": "Cisco Systems, Inc.",
+    "total_return_pct": 20.807407089815342,
+    "cagr_pct": 46.44049285914649,
+    "twd_return_pct": 19.242294658239455,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "WFC",
+    "company_name": "Wells Fargo & Company",
+    "total_return_pct": 11.184703652285677,
+    "cagr_pct": 23.855946164184626,
+    "twd_return_pct": 9.744257523366628,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "7203.T",
+    "company_name": "TOYOTA MOTOR CORP",
+    "total_return_pct": -24.002944371596126,
+    "cagr_pct": -42.5284190916971,
+    "twd_return_pct": -24.987519236602118,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ACN",
+    "company_name": "Accenture plc",
+    "total_return_pct": 22.58632727333538,
+    "cagr_pct": 50.824576603101136,
+    "twd_return_pct": 20.99816815810758,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NOW",
+    "company_name": "ServiceNow, Inc.",
+    "total_return_pct": 39.01198020054066,
+    "cagr_pct": 94.38962279842951,
+    "twd_return_pct": 37.21101961715447,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NESN.SW",
+    "company_name": "NESTLE N",
+    "total_return_pct": -9.540410058244175,
+    "cagr_pct": -18.409582443451665,
+    "twd_return_pct": -10.712353337085023,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "MCD",
+    "company_name": "McDonald's Corporation",
+    "total_return_pct": 8.823047586746524,
+    "cagr_pct": 18.604487486552546,
+    "twd_return_pct": 7.413197737942423,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "PEP",
+    "company_name": "Pepsico, Inc.",
+    "total_return_pct": -2.879667681453446,
+    "cagr_pct": -5.725885186948931,
+    "twd_return_pct": -4.137903770880724,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "DIS",
+    "company_name": "Walt Disney Company (The)",
+    "total_return_pct": -12.58736208440575,
+    "cagr_pct": -23.77465979756497,
+    "twd_return_pct": -13.719830776303299,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "IBM",
+    "company_name": "International Business Machines",
+    "total_return_pct": 30.376238540038504,
+    "cagr_pct": 70.79115466935662,
+    "twd_return_pct": 28.68715774080066,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "LIN",
+    "company_name": "Linde plc",
+    "total_return_pct": 7.8994164056062965,
+    "cagr_pct": 16.581885715470523,
+    "twd_return_pct": 6.501532599933313,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ADBE",
+    "company_name": "Adobe Inc.",
+    "total_return_pct": 3.408679243418433,
+    "cagr_pct": 6.997927324324826,
+    "twd_return_pct": 2.0689748882343872,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "TMO",
+    "company_name": "Thermo Fisher Scientific Inc",
+    "total_return_pct": -4.60849292423422,
+    "cagr_pct": -9.081659350262072,
+    "twd_return_pct": -5.844331331725594,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AZN",
+    "company_name": "Astrazeneca PLC",
+    "total_return_pct": -0.9523320926629442,
+    "cagr_pct": -1.912449505445013,
+    "twd_return_pct": -2.235537651781694,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ABT",
+    "company_name": "Abbott Laboratories",
+    "total_return_pct": 7.7607408644107645,
+    "cagr_pct": 16.27972408647922,
+    "twd_return_pct": 6.364653660607722,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NOVN.SW",
+    "company_name": "NOVARTIS N",
+    "total_return_pct": 7.730389530709192,
+    "cagr_pct": 16.310697117706074,
+    "twd_return_pct": 6.334695541617363,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AMD",
+    "company_name": "Advanced Micro Devices, Inc.",
+    "total_return_pct": 15.235319246285428,
+    "cagr_pct": 33.13033891031232,
+    "twd_return_pct": 13.742395632960203,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SHEL",
+    "company_name": "Shell PLC",
+    "total_return_pct": -6.238153688725245,
+    "cagr_pct": -12.188780521653708,
+    "twd_return_pct": -7.452879133169088,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "PM",
+    "company_name": "Philip Morris International Inc",
+    "total_return_pct": 40.3199344451425,
+    "cagr_pct": 98.09813754380237,
+    "twd_return_pct": 38.50202874640725,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ISRG",
+    "company_name": "Intuitive Surgical, Inc.",
+    "total_return_pct": 38.9050257203158,
+    "cagr_pct": 94.08793247888599,
+    "twd_return_pct": 37.10545077867662,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "9988.HK",
+    "company_name": "BABA-W",
+    "total_return_pct": 28.535480324929896,
+    "cagr_pct": 66.42780595246983,
+    "twd_return_pct": 26.870247347902577,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "GE",
+    "company_name": "GE Aerospace",
+    "total_return_pct": 9.331766713258283,
+    "cagr_pct": 19.72599474259853,
+    "twd_return_pct": 7.915326187207938,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "HSBA.L",
+    "company_name": "HSBC HOLDINGS PLC ORD $0.50 (UK",
+    "total_return_pct": 2.3691036944601507,
+    "cagr_pct": 4.838401936850789,
+    "twd_return_pct": 1.042867492052757,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "CAT",
+    "company_name": "Caterpillar, Inc.",
+    "total_return_pct": 17.94668565274986,
+    "cagr_pct": 39.52712900611901,
+    "twd_return_pct": 16.418635109946234,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "GS",
+    "company_name": "Goldman Sachs Group, Inc. (The)",
+    "total_return_pct": 24.270572369169365,
+    "cagr_pct": 55.03546481166448,
+    "twd_return_pct": 22.660593127172746,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "QCOM",
+    "company_name": "QUALCOMM Incorporated",
+    "total_return_pct": 8.241133586705129,
+    "cagr_pct": 17.32814534394096,
+    "twd_return_pct": 6.838822686526069,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "INTU",
+    "company_name": "Intuit Inc.",
+    "total_return_pct": 1.6922998787801236,
+    "cagr_pct": 3.4444040787962704,
+    "twd_return_pct": 0.3748319637747688,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "TXN",
+    "company_name": "Texas Instruments Incorporated",
+    "total_return_pct": 22.29401299345961,
+    "cagr_pct": 50.09969954946472,
+    "twd_return_pct": 20.709640936694363,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ROG.SW",
+    "company_name": "ROCHE GS",
+    "total_return_pct": 29.05183177855104,
+    "cagr_pct": 67.78725476368925,
+    "twd_return_pct": 27.37990924416467,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "005930.KS",
+    "company_name": "SamsungElec",
+    "total_return_pct": -22.81830328285458,
+    "cagr_pct": -40.87817781157157,
+    "twd_return_pct": -23.818225687714367,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "RY.TO",
+    "company_name": "ROYAL BANK OF CANADA",
+    "total_return_pct": 30.735081961357302,
+    "cagr_pct": 71.74108455469958,
+    "twd_return_pct": 29.04135218973254,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "VZ",
+    "company_name": "Verizon Communications Inc.",
+    "total_return_pct": 8.831928286287095,
+    "cagr_pct": 18.62401995368439,
+    "twd_return_pct": 7.421963384163122,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AXP",
+    "company_name": "American Express Company",
+    "total_return_pct": 17.490810275766112,
+    "cagr_pct": 38.44101474886399,
+    "twd_return_pct": 15.968665796480884,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BKNG",
+    "company_name": "Booking Holdings Inc. Common St",
+    "total_return_pct": 30.225174126726586,
+    "cagr_pct": 70.39205207600516,
+    "twd_return_pct": 28.538050432578068,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "T",
+    "company_name": "AT&T Inc.",
+    "total_return_pct": 34.76337568082468,
+    "cagr_pct": 82.58720014692784,
+    "twd_return_pct": 33.017457614373846,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "MC.PA",
+    "company_name": "LVMH",
+    "total_return_pct": -17.744454157302634,
+    "cagr_pct": -32.7246402720191,
+    "twd_return_pct": -18.81011048141158,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "CBA.AX",
+    "company_name": "CWLTH BANK FPO [CBA]",
+    "total_return_pct": 28.86141940822169,
+    "cagr_pct": 66.81041647434105,
+    "twd_return_pct": 27.1919637487986,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SPGI",
+    "company_name": "S&P Global Inc.",
+    "total_return_pct": 17.41126898842127,
+    "cagr_pct": 38.251947864809765,
+    "twd_return_pct": 15.890155001062368,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "RTX",
+    "company_name": "RTX Corporation",
+    "total_return_pct": 22.692902654788803,
+    "cagr_pct": 51.08929904527013,
+    "twd_return_pct": 21.10336280920322,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "PLTR",
+    "company_name": "Palantir Technologies Inc.",
+    "total_return_pct": 103.11934267870893,
+    "cagr_pct": 317.85777333570246,
+    "twd_return_pct": 100.48784336936922,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BLK",
+    "company_name": "BlackRock, Inc.",
+    "total_return_pct": 32.455561516744716,
+    "cagr_pct": 76.3324591886128,
+    "twd_return_pct": 30.739542185189173,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "PFE",
+    "company_name": "Pfizer, Inc.",
+    "total_return_pct": 7.788484299463683,
+    "cagr_pct": 16.34014290265753,
+    "twd_return_pct": 6.392037667409145,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "DHR",
+    "company_name": "Danaher Corporation",
+    "total_return_pct": -1.4995894633964446,
+    "cagr_pct": -3.0030103503336236,
+    "twd_return_pct": -2.775705065575973,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "NEE",
+    "company_name": "NextEra Energy, Inc.",
+    "total_return_pct": 17.466820774980828,
+    "cagr_pct": 38.38397880941069,
+    "twd_return_pct": 15.944987090098127,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "HON",
+    "company_name": "Honeywell International Inc.",
+    "total_return_pct": 6.6070712275479115,
+    "cagr_pct": 13.781313961404429,
+    "twd_return_pct": 5.225930314987104,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "MS",
+    "company_name": "Morgan Stanley",
+    "total_return_pct": 31.497837111474247,
+    "cagr_pct": 73.76907849438668,
+    "twd_return_pct": 29.794225515576823,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SIE.DE",
+    "company_name": "SIEMENS AG                    N",
+    "total_return_pct": 3.3447495655963833,
+    "cagr_pct": 6.903907556147759,
+    "twd_return_pct": 2.005873447156392,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "CMCSA",
+    "company_name": "Comcast Corporation",
+    "total_return_pct": 11.864478145933631,
+    "cagr_pct": 25.388789406755464,
+    "twd_return_pct": 10.415225243189141,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "LOW",
+    "company_name": "Lowe's Companies, Inc.",
+    "total_return_pct": 16.634227203629017,
+    "cagr_pct": 36.411802305324436,
+    "twd_return_pct": 15.123180130100389,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "PGR",
+    "company_name": "Progressive Corporation (The)",
+    "total_return_pct": 14.206600838159389,
+    "cagr_pct": 30.742957025854967,
+    "twd_return_pct": 12.727004718635548,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AMGN",
+    "company_name": "Amgen Inc.",
+    "total_return_pct": 15.535316594679527,
+    "cagr_pct": 33.8306573828322,
+    "twd_return_pct": 14.038506385401938,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ULVR.L",
+    "company_name": "UNILEVER PLC ORD 3 1/9P",
+    "total_return_pct": 15.477617445839286,
+    "cagr_pct": 33.695819630932135,
+    "twd_return_pct": 13.981554754096571,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "UNP",
+    "company_name": "Union Pacific Corporation",
+    "total_return_pct": -0.17261783323244684,
+    "cagr_pct": -0.34802911849856066,
+    "twd_return_pct": -1.4659249292512055,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "TJX",
+    "company_name": "TJX Companies, Inc. (The)",
+    "total_return_pct": 22.50994409938094,
+    "cagr_pct": 50.63499260534321,
+    "twd_return_pct": 20.922774561348767,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "AMAT",
+    "company_name": "Applied Materials, Inc.",
+    "total_return_pct": -1.628113460263625,
+    "cagr_pct": -3.2582379121606553,
+    "twd_return_pct": -2.902563978239303,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "C",
+    "company_name": "Citigroup, Inc.",
+    "total_return_pct": 7.383579637144466,
+    "cagr_pct": 15.459924337256691,
+    "twd_return_pct": 5.992378720860736,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "8306.T",
+    "company_name": "MITSUBISHI UFJ FINANCIAL GROUP ",
+    "total_return_pct": 4.676540070842727,
+    "cagr_pct": 9.661739263663026,
+    "twd_return_pct": 3.320410027943743,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SU.PA",
+    "company_name": "SCHNEIDER ELECTRIC SE",
+    "total_return_pct": 14.49655621162307,
+    "cagr_pct": 31.613254281959225,
+    "twd_return_pct": 13.01320359429381,
+    "start_date": "2024-05-02",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "ETN",
+    "company_name": "Eaton Corporation, PLC",
+    "total_return_pct": 11.447523898816026,
+    "cagr_pct": 24.447459435180964,
+    "twd_return_pct": 10.003672819447118,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BSX",
+    "company_name": "Boston Scientific Corporation",
+    "total_return_pct": 17.102892439693605,
+    "cagr_pct": 37.52017968492392,
+    "twd_return_pct": 15.585773604466912,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SYK",
+    "company_name": "Stryker Corporation",
+    "total_return_pct": 9.915963423398955,
+    "cagr_pct": 21.020465978279756,
+    "twd_return_pct": 8.491954375222765,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "COP",
+    "company_name": "ConocoPhillips",
+    "total_return_pct": -16.586960278933194,
+    "cagr_pct": -30.64886256983017,
+    "twd_return_pct": -17.667612438994173,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "SHOP.TO",
+    "company_name": "SHOPIFY INC",
+    "total_return_pct": 15.694377715140861,
+    "cagr_pct": 34.20272404393483,
+    "twd_return_pct": 14.195506799959468,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "6758.T",
+    "company_name": "SONY GROUP CORPORATION",
+    "total_return_pct": 3.9719354836586396,
+    "cagr_pct": 8.177265683257428,
+    "twd_return_pct": 2.624933899231796,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BA",
+    "company_name": "Boeing Company (The)",
+    "total_return_pct": -10.778030014408902,
+    "cagr_pct": -20.557244801431462,
+    "twd_return_pct": -11.9339393891571,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "BX",
+    "company_name": "Blackstone Inc.",
+    "total_return_pct": 46.12116230092962,
+    "cagr_pct": 114.97293811798342,
+    "twd_return_pct": 44.22809917555788,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  },
+  {
+    "ticker": "TSM",
+    "company_name": "Taiwan Semiconductor Manufactur",
+    "total_return_pct": 46.94716064866278,
+    "cagr_pct": 117.4322255359681,
+    "twd_return_pct": 45.04339635592356,
+    "start_date": "2024-05-01",
+    "end_date": "2024-10-29"
+  }
+]
