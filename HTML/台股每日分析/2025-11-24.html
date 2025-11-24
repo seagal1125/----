@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台股無人島日報 2025-11-24</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+        :root {
+            --bg-color: #F0F8EC;
+            --card-bg: #FFFFFF;
+            --text-color: #5B4636;
+            --accent-green: #78B159;
+            --accent-blue: #55ACEE;
+            --accent-yellow: #F4D03F;
+            --accent-red: #FF6B6B;
+            --border-color: #E0D5B5;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#D6E8D0 15%, transparent 16%), radial-gradient(#D6E8D0 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            font-family: 'Varela Round', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--text-color);
+            background: #FFF;
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 4px solid var(--accent-green);
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+        }
+
+        .date-tag {
+            background: var(--accent-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.2em;
+            position: absolute;
+            top: -10px;
+            right: 10%;
+            transform: rotate(5deg);
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0px var(--border-color);
+            border: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            color: var(--text-color);
+            border-bottom: 3px dashed var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title::before {
+            content: '🍃';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .market-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .stat-box {
+            background: #FFF8E1;
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid var(--accent-yellow);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--accent-green);
+        }
+
+        .section-header {
+            background: var(--accent-green);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .section-header.bad {
+            background: var(--accent-red);
+        }
+
+        .list-group {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-item {
+            background: #F9F9F9;
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .list-item:nth-child(odd) {
+            background: #F0F8EC;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        th {
+            background: var(--accent-green);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #EEE;
+            background: #FFF;
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .bubble {
+            background: #FFF;
+            border: 3px solid var(--text-color);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .bubble::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            border-width: 0 20px 20px;
+            border-style: solid;
+            border-color: var(--text-color) transparent;
+            display: block;
+            width: 0;
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: 43px;
+            border-width: 0 17px 17px;
+            border-style: solid;
+            border-color: #FFF transparent;
+            display: block;
+            width: 0;
+        }
+
+        .nook-speech {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background: #DDD;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: 3px solid var(--text-color);
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .details-summary {
+            cursor: pointer;
+            color: var(--accent-blue);
+            font-weight: bold;
+            padding: 10px;
+            border: 2px dashed var(--accent-blue);
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        details[open] .details-summary {
+            margin-bottom: 10px;
+            background: #E1F5FE;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>台股無人島日報</h1>
+            <div class="date-tag">2025-11-24</div>
+        </header>
+
+        <!-- Market Overview -->
+        <div class="card">
+            <div class="card-title">今日大盤氣象</div>
+            <div class="market-stats">
+                <div class="stat-box">
+                    <div>等權日漲幅</div>
+                    <div class="stat-value">0.78%</div>
+                </div>
+                <div class="stat-box">
+                    <div>市值加權日漲幅</div>
+                    <div class="stat-value">0.26%</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="section-header">🏆 今日撐盤族群</div>
+                    <ul class="list-group">
+                        <li class="list-item">17-金融保險業 (貢獻 0.19%)</li>
+                        <li class="list-item">27-通信網路業 (貢獻 0.05%)</li>
+                        <li class="list-item">22-生技醫療業 (貢獻 0.04%)</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="section-header bad">📉 今日拖累族群</div>
+                    <ul class="list-group">
+                        <li class="list-item">24-半導體業 (貢獻 -0.20%)</li>
+                        <li class="list-item">31-其他電子業 (貢獻 -0.07%)</li>
+                        <li class="list-item">18-貿易百貨業 (貢獻 -0.00%)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="section-header">💪 權值股貢獻 Top 5</div>
+                    <ul class="list-group">
+                        <li class="list-item">富邦金 (2881) +0.05%</li>
+                        <li class="list-item">國泰金 (2882) +0.03%</li>
+                        <li class="list-item">台塑化 (6505) +0.03%</li>
+                        <li class="list-item">智邦 (2345) +0.02%</li>
+                        <li class="list-item">聯電 (2303) +0.02%</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="section-header bad">🥀 權值股拖累 Bottom 5</div>
+                    <ul class="list-group">
+                        <li class="list-item">台積電 (2330) -0.30%</li>
+                        <li class="list-item">鴻海 (2317) -0.08%</li>
+                        <li class="list-item">緯穎 (6669) -0.01%</li>
+                        <li class="list-item">貿聯-KY (3665) -0.01%</li>
+                        <li class="list-item">台達電 (2308) -0.01%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <details>
+                <summary class="details-summary">查看完整族群排名 (前10 / 後10)</summary>
+                <div class="grid-2">
+                    <div>
+                        <h4>前 10 名 (市值加權貢獻)</h4>
+                        <ul class="list-group">
+                            <li class="list-item">17-金融保險業</li>
+                            <li class="list-item">27-通信網路業</li>
+                            <li class="list-item">22-生技醫療業</li>
+                            <li class="list-item">23-油電燃氣業</li>
+                            <li class="list-item">03-塑膠工業</li>
+                            <li class="list-item">25-電腦及週邊設備業</li>
+                            <li class="list-item">05-電機機械</li>
+                            <li class="list-item">37-運動休閒</li>
+                            <li class="list-item">10-鋼鐵工業</li>
+                            <li class="list-item">15-航運業</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>後 10 名 (市值加權貢獻)</h4>
+                        <ul class="list-group">
+                            <li class="list-item">16-觀光餐旅</li>
+                            <li class="list-item">08-玻璃陶瓷</li>
+                            <li class="list-item">36-數位雲端</li>
+                            <li class="list-item">30-資訊服務業</li>
+                            <li class="list-item">11-橡膠工業</li>
+                            <li class="list-item">91-其他</li>
+                            <li class="list-item">12-汽車工業</li>
+                            <li class="list-item">18-貿易百貨業</li>
+                            <li class="list-item">31-其他電子業</li>
+                            <li class="list-item">24-半導體業</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Sector Details -->
+        <div class="card">
+            <div class="card-title">族群深度探索</div>
+
+            <!-- Finance -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: var(--accent-blue);">17-金融保險業</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公司代號</th>
+                            <th>公司名稱</th>
+                            <th>日報酬</th>
+                            <th>市值權重</th>
+                            <th>指數貢獻</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2881</td>
+                            <td>富邦金融控股股份有限公司</td>
+                            <td>3.72%</td>
+                            <td>1.45%</td>
+                            <td>0.05%</td>
+                        </tr>
+                        <tr>
+                            <td>2882</td>
+                            <td>國泰金融控股股份有限公司</td>
+                            <td>2.99%</td>
+                            <td>1.09%</td>
+                            <td>0.03%</td>
+                        </tr>
+                        <tr>
+                            <td>2891</td>
+                            <td>中國信託金融控股股份有限公司</td>
+                            <td>1.61%</td>
+                            <td>1.00%</td>
+                            <td>0.02%</td>
+                        </tr>
+                        <tr>
+                            <td>2886</td>
+                            <td>兆豐金融控股股份有限公司</td>
+                            <td>2.15%</td>
+                            <td>0.69%</td>
+                            <td>0.01%</td>
+                        </tr>
+                        <tr>
+                            <td>2884</td>
+                            <td>玉山金融控股股份有限公司</td>
+                            <td>2.50%</td>
+                            <td>0.57%</td>
+                            <td>0.01%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="nook-speech">
+                    <div class="avatar">🦉</div>
+                    <div class="bubble">
+                        <strong>傅達 (Blathers) 的解讀：</strong><br>
+                        債券殖利率回落與利差收益穩定。 主要由 富邦金融控股股份有限公司(3.72%), 國泰金融控股股份有限公司(2.99%), 中國信託金融控股股份有限公司(1.61%) 帶動，放大指數貢獻。
+                    </div>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 2px dashed #E0D5B5; margin: 30px 0;">
+
+            <!-- Telecom -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: var(--accent-blue);">27-通信網路業</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公司代號</th>
+                            <th>公司名稱</th>
+                            <th>日報酬</th>
+                            <th>市值權重</th>
+                            <th>指數貢獻</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2345</td>
+                            <td>智邦科技股份有限公司</td>
+                            <td>4.08%</td>
+                            <td>0.60%</td>
+                            <td>0.02%</td>
+                        </tr>
+                        <tr>
+                            <td>6442</td>
+                            <td>光紅建聖股份有限公司</td>
+                            <td>9.82%</td>
+                            <td>0.10%</td>
+                            <td>0.01%</td>
+                        </tr>
+                        <tr>
+                            <td>4904</td>
+                            <td>遠傳電信股份有限公司</td>
+                            <td>1.42%</td>
+                            <td>0.39%</td>
+                            <td>0.01%</td>
+                        </tr>
+                        <tr>
+                            <td>2412</td>
+                            <td>中華電信股份有限公司</td>
+                            <td>0.38%</td>
+                            <td>1.19%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>3045</td>
+                            <td>台灣大哥大股份有限公司</td>
+                            <td>0.93%</td>
+                            <td>0.47%</td>
+                            <td>0.00%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="nook-speech">
+                    <div class="avatar">🦉</div>
+                    <div class="bubble">
+                        <strong>傅達 (Blathers) 的解讀：</strong><br>
+                        資金集中在龍頭股，族群內主要權值股同步上漲。 主要由 智邦科技股份有限公司(4.08%), 光紅建聖股份有限公司(9.82%), 遠傳電信股份有限公司(1.42%) 帶動，放大指數貢獻。
+                    </div>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 2px dashed #E0D5B5; margin: 30px 0;">
+
+            <!-- Bio -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: var(--accent-blue);">22-生技醫療業</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公司代號</th>
+                            <th>公司名稱</th>
+                            <th>日報酬</th>
+                            <th>市值權重</th>
+                            <th>指數貢獻</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>6919</td>
+                            <td>康霈生技股份有限公司</td>
+                            <td>10.00%</td>
+                            <td>0.23%</td>
+                            <td>0.02%</td>
+                        </tr>
+                        <tr>
+                            <td>6446</td>
+                            <td>藥華醫藥股份有限公司</td>
+                            <td>4.28%</td>
+                            <td>0.21%</td>
+                            <td>0.01%</td>
+                        </tr>
+                        <tr>
+                            <td>1795</td>
+                            <td>美時化學製藥股份有限公司</td>
+                            <td>4.46%</td>
+                            <td>0.09%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>6472</td>
+                            <td>保瑞藥業股份有限公司</td>
+                            <td>2.69%</td>
+                            <td>0.08%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>7799</td>
+                            <td>禾榮科技股份有限公司</td>
+                            <td>1.31%</td>
+                            <td>0.10%</td>
+                            <td>0.00%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="nook-speech">
+                    <div class="avatar">🦉</div>
+                    <div class="bubble">
+                        <strong>傅達 (Blathers) 的解讀：</strong><br>
+                        資金集中在龍頭股，族群內主要權值股同步上漲。 主要由 康霈生技股份有限公司(10.00%), 藥華醫藥股份有限公司(4.28%), 美時化學製藥股份有限公司(4.46%) 帶動，放大指數貢獻。
+                    </div>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 2px dashed #E0D5B5; margin: 30px 0;">
+
+            <!-- Oil -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: var(--accent-blue);">23-油電燃氣業</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公司代號</th>
+                            <th>公司名稱</th>
+                            <th>日報酬</th>
+                            <th>市值權重</th>
+                            <th>指數貢獻</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>6505</td>
+                            <td>台塑石化股份有限公司</td>
+                            <td>4.72%</td>
+                            <td>0.59%</td>
+                            <td>0.03%</td>
+                        </tr>
+                        <tr>
+                            <td>8926</td>
+                            <td>台灣汽電共生股份有限公司</td>
+                            <td>0.24%</td>
+                            <td>0.04%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>9937</td>
+                            <td>全國加油站股份有限公司</td>
+                            <td>0.18%</td>
+                            <td>0.02%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>9931</td>
+                            <td>欣高石油氣股份有限公司</td>
+                            <td>0.15%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>2616</td>
+                            <td>山隆通運股份有限公司</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="nook-speech">
+                    <div class="avatar">🦉</div>
+                    <div class="bubble">
+                        <strong>傅達 (Blathers) 的解讀：</strong><br>
+                        油價企穩推動煉油與石化利差改善。 主要由 台塑石化股份有限公司(4.72%), 台灣汽電共生股份有限公司(0.24%), 全國加油站股份有限公司(0.18%) 帶動，放大指數貢獻。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Winners -->
+        <div class="card">
+            <div class="card-title">快樂家協會 (HHA) S級評價榜</div>
+            <p>這些個股今天的表現贏過大盤，獲得了高分評價！</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>公司代號</th>
+                        <th>公司名稱</th>
+                        <th>產業</th>
+                        <th>日報酬</th>
+                        <th>指數貢獻</th>
+                        <th>獲獎理由</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2881</td>
+                        <td>富邦金融控股股份有限公司</td>
+                        <td>金融保險業</td>
+                        <td>3.72%</td>
+                        <td>0.05%</td>
+                        <td>債券殖利率回落與利差收益穩定。</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2882</td>
+                        <td>國泰金融控股股份有限公司</td>
+                        <td>金融保險業</td>
+                        <td>2.99%</td>
+                        <td>0.03%</td>
+                        <td>債券殖利率回落與利差收益穩定。</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>6505</td>
+                        <td>台塑石化股份有限公司</td>
+                        <td>油電燃氣業</td>
+                        <td>4.72%</td>
+                        <td>0.03%</td>
+                        <td>油價企穩推動煉油與石化利差改善。</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2345</td>
+                        <td>智邦科技股份有限公司</td>
+                        <td>通信網路業</td>
+                        <td>4.08%</td>
+                        <td>0.02%</td>
+                        <td>資金集中在龍頭股，族群內主要權值股同步上漲。</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>2303</td>
+                        <td>聯華電子股份有限公司</td>
+                        <td>半導體業</td>
+                        <td>3.44%</td>
+                        <td>0.02%</td>
+                        <td>AI 晶片、HBM 與高階製程需求持續升溫。</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>6919</td>
+                        <td>康霈生技股份有限公司</td>
+                        <td>生技醫療業</td>
+                        <td>10.00%</td>
+                        <td>0.02%</td>
+                        <td>資金集中在龍頭股，族群內主要權值股同步上漲。</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>1303</td>
+                        <td>南亞塑膠工業股份有限公司</td>
+                        <td>塑膠工業</td>
+                        <td>4.38%</td>
+                        <td>0.02%</td>
+                        <td>資金集中在龍頭股，族群內主要權值股同步上漲。</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>3443</td>
+                        <td>創意電子股份有限公司</td>
+                        <td>半導體業</td>
+                        <td>7.03%</td>
+                        <td>0.02%</td>
+                        <td>AI 晶片、HBM 與高階製程需求持續升溫。</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>2360</td>
+                        <td>致茂電子股份有限公司</td>
+                        <td>其他電子業</td>
+                        <td>4.65%</td>
+                        <td>0.02%</td>
+                        <td>車用/伺服器線束與網通設備訂單穩定成長。</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>2891</td>
+                        <td>中國信託金融控股股份有限公司</td>
+                        <td>金融保險業</td>
+                        <td>1.61%</td>
+                        <td>0.02%</td>
+                        <td>債券殖利率回落與利差收益穩定。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Observations -->
+        <div class="card">
+            <div class="card-title">公佈欄公告</div>
+            <ul class="list-group">
+                <li class="list-item">📌 AI 伺服器與半導體鏈仍占多數，市場集中度高，需留意美股科技股回檔風險。</li>
+                <li class="list-item">📌 傳產與能源股若受原物料價格支撐，可能成為下一波補漲族群，可作為防守配置。</li>
+            </ul>
+            <div class="nook-speech" style="margin-top: 20px;">
+                <div class="avatar">🦝</div>
+                <div class="bubble">
+                    <strong>狸克 (Tom Nook) 的提醒：</strong><br>
+                    投資就像種大頭菜，有賺有賠，記得要分散風險喔，yes yes！
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
