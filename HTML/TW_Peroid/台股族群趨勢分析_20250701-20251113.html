@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台股族群趨勢分析 2025/07/01–2025/11/13</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Varela Round', "PingFang TC", "Microsoft JhengHei", sans-serif;
+            color: #5d4037;
+            background-image: 
+                radial-gradient(#b2ebf2 15%, transparent 16%), 
+                radial-gradient(#b2ebf2 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff9c4; /* Creamy yellow */
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow: 
+                0 10px 0 #fbc02d,
+                0 20px 20px rgba(0,0,0,0.1);
+            border: 8px solid #fff;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff7043;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 0 #fff;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 30px;
+            display: block;
+            box-shadow: 0 6px 0 #ffccbc;
+        }
+
+        h2 {
+            color: #fff;
+            background-color: #66bb6a; /* Leaf green */
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 0 #388e3c;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: #0288d1;
+            margin-top: 30px;
+            font-size: 1.3em;
+            border-bottom: 3px dashed #b3e5fc;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p, li {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        ul, ol {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 0 #e0e0e0;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        li::before {
+            content: '🍃';
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+        
+        /* Numbered list styling override */
+        ol li {
+            counter-increment: list-item;
+        }
+        ol li::before {
+            content: counter(list-item);
+            background-color: #ffab91;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            left: 10px;
+            top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 0 #cfd8dc;
+        }
+
+        th {
+            background-color: #4dd0e1; /* Cyan */
+            color: white;
+            padding: 20px;
+            font-size: 1.1em;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px 20px;
+            border-bottom: 2px solid #f5f5f5;
+            color: #455a64;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        blockquote {
+            background-color: #e1bee7; /* Light purple */
+            border: 5px solid #fff;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 6px 0 #ba68c8;
+            font-style: italic;
+            color: #4a148c;
+            position: relative;
+        }
+        
+        blockquote::before {
+            content: '❝';
+            font-size: 4em;
+            color: rgba(255,255,255,0.5);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+        }
+
+        strong {
+            color: #d84315;
+            background-color: #ffccbc;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .decoration {
+            position: absolute;
+            font-size: 4em;
+            opacity: 1;
+            filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.1));
+        }
+        .d1 { top: -40px; right: -30px; transform: rotate(20deg); }
+        .d2 { bottom: -30px; left: -30px; transform: rotate(-15deg); }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="decoration d1">🎈</div>
+    <div class="decoration d2">🏝️</div>
+
+    <h1>2025/07/01–2025/11/13 台股族群趨勢量化報告</h1>
+
+    <h2>1. 核心結論（數據總覽）</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>名稱</th>
+                <th>總報酬(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>^TWII</td>
+                <td>加權指數</td>
+                <td>23.91</td>
+            </tr>
+            <tr>
+                <td>2330.TW</td>
+                <td>台積電</td>
+                <td>36.49</td>
+            </tr>
+            <tr>
+                <td>6669.TW</td>
+                <td>緯穎</td>
+                <td>86.12</td>
+            </tr>
+            <tr>
+                <td>3231.TW</td>
+                <td>緯創</td>
+                <td>15.83</td>
+            </tr>
+            <tr>
+                <td>2382.TW</td>
+                <td>廣達</td>
+                <td>2.49</td>
+            </tr>
+            <tr>
+                <td>1303.TW</td>
+                <td>南亞塑膠</td>
+                <td>84.78</td>
+            </tr>
+            <tr>
+                <td>2881.TW</td>
+                <td>富邦金</td>
+                <td>12.97</td>
+            </tr>
+            <tr>
+                <td>2308.TW</td>
+                <td>台達電</td>
+                <td>125.93</td>
+            </tr>
+            <tr>
+                <td>2408.TW</td>
+                <td>南亞科</td>
+                <td>229.29</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>加權指數約 <strong>+23.9%</strong>，但核心 AI 供應鏈呈倍數成長：台達電 +125.9%、緯穎 +86.1%、南亞科 +229.3%。</li>
+        <li>這段期間 95 個交易日中，<strong>大型權值漲幅（市值加權）有 53.7% 的時間優於等權</strong>；有 11 天出現「等權為負、加權仍上漲」，顯示漲勢高度集中。</li>
+    </ul>
+
+    <h2>2. 族群結構量化</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>族群代碼</th>
+                <th>族群</th>
+                <th>平均貢獻(%)</th>
+                <th>上漲日</th>
+                <th>下跌日</th>
+                <th>總天數</th>
+                <th>上漲占比(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>24</td>
+                <td>半導體業</td>
+                <td>0.166</td>
+                <td>59</td>
+                <td>35</td>
+                <td>95</td>
+                <td>62.1</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>電子零組件業</td>
+                <td>0.044</td>
+                <td>62</td>
+                <td>26</td>
+                <td>92</td>
+                <td>67.4</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>電腦及週邊設備業</td>
+                <td>0.016</td>
+                <td>52</td>
+                <td>36</td>
+                <td>91</td>
+                <td>57.1</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>金融保險業</td>
+                <td>0.009</td>
+                <td>50</td>
+                <td>41</td>
+                <td>93</td>
+                <td>53.8</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>塑膠工業</td>
+                <td>0.006</td>
+                <td>39</td>
+                <td>35</td>
+                <td>83</td>
+                <td>47.0</td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>水泥工業</td>
+                <td>-0.001</td>
+                <td>5</td>
+                <td>9</td>
+                <td>38</td>
+                <td>13.2</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>鋼鐵工業</td>
+                <td>-0.001</td>
+                <td>11</td>
+                <td>18</td>
+                <td>45</td>
+                <td>24.4</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>航運業</td>
+                <td>-0.002</td>
+                <td>34</td>
+                <td>41</td>
+                <td>88</td>
+                <td>38.6</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li><strong>前四大權值族群（半導體、電子零組件、電腦及週邊設備、金控）累積平均貢獻 0.234%，占所有族群淨貢獻的 86%。</strong></li>
+        <li>半導體雖有 62% 的上漲日，但一旦回檔，單日貢獻常超過 -0.3%，例如 11/13 台積電 -0.43%。</li>
+        <li>非電族群中只有塑膠產業呈現正平均貢獻，傳產其它族群長期為負：航運 -0.002%、鋼鐵 -0.001%、水泥 -0.001%。</li>
+    </ul>
+
+    <h2>3. 市場結構洞察</h2>
+    <ol>
+        <li>
+            <strong>AI 供應鏈主導上漲</strong>：
+            <ul>
+                <li>半導體 + 電子零組件平均貢獻佔比 77%，且緯穎、台達電、南亞科等關鍵供應鏈個股從 7 月起累積 80–230% 報酬，遠高於大盤 +23.9%。</li>
+                <li>等權指數多次落後市值指數（spread 平均 +0.20%、最大 +2.32%），顯示資金聚焦少數巨型權值。</li>
+            </ul>
+        </li>
+        <li>
+            <strong>漲勢集中與廣度不足</strong>：
+            <ul>
+                <li>在 95 個交易日裡，僅 44 天等權超越市值；且有 11 天出現「加權上漲、等權下跌」，多發生在半導體與 AI 伺服器強勢的日子（例：8/7、10/2、10/3）。</li>
+                <li>台積電一檔股票在多數下跌日貢獻超過 -0.3%，例如 8/14、11/13，凸顯指數對單一權值的依賴度。</li>
+            </ul>
+        </li>
+        <li>
+            <strong>傳產與金控扮演波段避風港</strong>：
+            <ul>
+                <li>塑膠工業（南亞塑膠 +84.8%）在油價下跌、市場尋求高殖利情況下提供正貢獻，多半集中在 8 月與 11 月。</li>
+                <li>金控族群（富邦金 +13.0%）在美債殖利率回落時補漲，尤其 9/23、11/13 等日，金控對指數貢獻 >0.05%。</li>
+                <li>然而這些族群上漲占比不到 55%，顯示避險角色滑順但缺乏趨勢延續性。</li>
+            </ul>
+        </li>
+        <li>
+            <strong>景氣循環族群持續拖累</strong>：
+            <ul>
+                <li>航運、鋼鐵、水泥的平均貢獻皆為負，且上漲日比率 <40%。航運在 8/15 與 10 月多數交易日對指數為負貢獻，佐證運價與量能仍疲弱。</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>4. 數據細節</h2>
+    <ul>
+        <li><strong>大盤廣度</strong>：95 日中有 51 日市值加權 > 等權，平均 spread +0.20%。</li>
+        <li><strong>重大分歧日</strong>：8/7、9/23、10/2、10/3、9/11 為 spread 最大的幾天，等權落後 >1.4%，意即漲勢完全由權值股主導。</li>
+        <li><strong>防禦性輪動</strong>：8 月下旬與 11 月上旬，塑膠與金控平均貢獻 >0.05%，對應南亞塑膠與富邦金的波段轉強，也說明資金在電子震盪時轉向高殖利資產。</li>
+    </ul>
+
+    <h2>5. 結論與建議</h2>
+    <ul>
+        <li><strong>趨勢定調</strong>：2025 下半年台股仍是 AI 驅動的集中行情。半導體 + 電子零組件 + 電腦設備提供 90% 以上的淨正貢獻，台積電與少數供應鏈個股左右指數。</li>
+        <li><strong>風險重心</strong>：等權指數多次落後、市值受單一權值拖累，一旦國際科技股或 AI 伺服器訂單有負面訊號，指數可能迅速回測。</li>
+        <li><strong>配置建議（量化角度）</strong>：短線可留意塑膠、金控作為震盪期的避險，但趨勢仍須依賴 AI 權值；相對地，航運與鋼鐵族群在觀察期間幾乎沒有提供正面貢獻，需保守以待基本面翻轉。</li>
+    </ul>
+
+</div>
+
+</body>
+</html>

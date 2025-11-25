@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年上半年台股市場趨勢量化分析報告</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Varela Round', "PingFang TC", "Microsoft JhengHei", sans-serif;
+            color: #5d4037;
+            background-image:
+                radial-gradient(#b2ebf2 15%, transparent 16%),
+                radial-gradient(#b2ebf2 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff9c4;
+            /* Creamy yellow */
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow:
+                0 10px 0 #fbc02d,
+                0 20px 20px rgba(0, 0, 0, 0.1);
+            border: 8px solid #fff;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff7043;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 0 #fff;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 30px;
+            display: block;
+            box-shadow: 0 6px 0 #ffccbc;
+        }
+
+        h2 {
+            color: #fff;
+            background-color: #66bb6a;
+            /* Leaf green */
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 0 #388e3c;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: #0288d1;
+            margin-top: 30px;
+            font-size: 1.3em;
+            border-bottom: 3px dashed #b3e5fc;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p,
+        li {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        ul,
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 0 #e0e0e0;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        li::before {
+            content: '🍃';
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 0 #cfd8dc;
+        }
+
+        th {
+            background-color: #4dd0e1;
+            /* Cyan */
+            color: white;
+            padding: 20px;
+            font-size: 1.1em;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px 20px;
+            border-bottom: 2px solid #f5f5f5;
+            color: #455a64;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        blockquote {
+            background-color: #e1bee7;
+            /* Light purple */
+            border: 5px solid #fff;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 6px 0 #ba68c8;
+            font-style: italic;
+            color: #4a148c;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '❝';
+            font-size: 4em;
+            color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+        }
+
+        strong {
+            color: #d84315;
+            background-color: #ffccbc;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .decoration {
+            position: absolute;
+            font-size: 4em;
+            opacity: 1;
+            filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.1));
+        }
+
+        .d1 {
+            top: -40px;
+            right: -30px;
+            transform: rotate(20deg);
+        }
+
+        .d2 {
+            bottom: -30px;
+            left: -30px;
+            transform: rotate(-15deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="decoration d1">🎁</div>
+        <div class="decoration d2">💰</div>
+
+        <h1>2025年上半年台股市場趨勢量化分析報告</h1>
+
+        <h2>一、總體量化指標：大盤與關鍵個股報酬率總覽</h2>
+        <p>(2025/01/01 - 2025/06/30)</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>股票代號</th>
+                    <th>公司名稱</th>
+                    <th>H1 總報酬率 (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2308.TW</td>
+                    <td>台達電</td>
+                    <td>+3.49%</td>
+                </tr>
+                <tr>
+                    <td>2330.TW</td>
+                    <td>台積電</td>
+                    <td>+2.31%</td>
+                </tr>
+                <tr>
+                    <td>6669.TW</td>
+                    <td>緯穎</td>
+                    <td>+2.18%</td>
+                </tr>
+                <tr>
+                    <td>2382.TW</td>
+                    <td>廣達</td>
+                    <td>+1.96%</td>
+                </tr>
+                <tr>
+                    <td>^TWII</td>
+                    <td>台股加權指數</td>
+                    <td>-1.10%</td>
+                </tr>
+                <tr>
+                    <td>3661.TW</td>
+                    <td>世芯電子</td>
+                    <td>-3.23%</td>
+                </tr>
+                <tr>
+                    <td>2454.TW</td>
+                    <td>聯發科</td>
+                    <td>-4.81%</td>
+                </tr>
+                <tr>
+                    <td>2881.TW</td>
+                    <td>富邦金</td>
+                    <td>-5.07%</td>
+                </tr>
+                <tr>
+                    <td>2317.TW</td>
+                    <td>鴻海</td>
+                    <td>-9.59%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>二、數據驅動的市場結構分析</h2>
+        <p>綜合每日數據模式與上半年總報酬率，可得出以下三個核心結論：</p>
+
+        <h3>1️⃣ 結論一：指數停滯下的高度集中行情</h3>
+        <ul>
+            <li>數據顯示，2025 上半年台股大盤 (^TWII) 整體報酬率為
+                <strong>-1.10%</strong>，呈現近乎持平的停滯狀態。然而，這份平淡的總體數據掩蓋了市場內部的巨大分歧。市場的微弱動能完全由少數 AI 相關電子權值股支撐。</li>
+            <li><strong>數據證據：</strong><br>
+                在指數近乎零成長的背景下，台達電 (+3.49%)、台積電 (+2.31%)、緯穎 (+2.18%)、廣達 (+1.96%) 等核心 AI 供應鏈個股全數錄得正報酬。<br>
+                這清晰地表明市場並非普遍上漲，而是一個由極少數贏家驅動的極端集中市場。</li>
+        </ul>
+
+        <h3>2️⃣ 結論二：「一個人的武林」——台積電撐起的指數幻象</h3>
+        <ul>
+            <li>每日報告中反覆出現的「市值加權漲幅」與「等權漲幅」背離現象，在長達半年的總報酬數據中得到最終驗證。市場的上漲廣度嚴重不足，指數的穩定幾乎完全依賴台積電。</li>
+            <li><strong>數據證據：</strong><br>
+                台積電 (2330.TW) 作為權重近 40% 的巨無霸，其 <strong>+2.31%</strong> 的報酬不僅遠超大盤的
+                <strong>-1.10%</strong>，更是掩蓋了其他權值股的普遍疲軟。<br>
+                若剔除台積電的貢獻，由聯發科 (-4.81%)、富邦金 (-5.07%)、鴻海 (-9.59%) 組成的權值股陣營實則表現慘淡。<br>
+                這證實了上半年台股是典型的「拉積盤」——依靠拉抬台積電來維持指數穩定，但大多數股票並未受益。</li>
+        </ul>
+
+        <h3>3️⃣ 結論三：電子內部與傳產的普遍弱勢</h3>
+        <ul>
+            <li>市場不僅廣度不足，且弱勢範圍橫跨電子與傳產。即使在被視為主流的電子股內部，分歧也極為嚴重，而傳產與金融則未能扮演有效的資金避風港或輪動角色。</li>
+            <li><strong>數據證據：</strong><br>
+                IC 設計龍頭聯發科 (2454.TW) 與 AI ASIC 概念股世芯 (3661.TW) 分別錄得 <strong>-4.81%</strong> 與 <strong>-3.23%</strong>
+                的負報酬，顯示並非所有科技股都處於上升趨勢。<br>
+                同時，傳產龍頭鴻海 (2317.TW) 和金融龍頭富邦金 (2881.TW) 報酬率分別為 <strong>-9.59%</strong> 和
+                <strong>-5.07%</strong>，進一步凸顯市場整體疲態。<br>
+                每日數據中，非電族群雖偶有單日領漲，但半年維度下貢獻度與持續性均顯不足。</li>
+        </ul>
+
+        <h2>三、總結</h2>
+        <blockquote>
+            <p>基於純數據分析，<strong>2025 年上半年台股市場</strong>可被精準定義為：</p>
+            <p>一場由台積電獨力支撐、少數 AI 概念股跟隨的「偽裝牛市」。</p>
+            <p>大盤指數的持平背後，是絕大多數股票的下跌與市場廣度的嚴重萎縮。<br>
+                資金高度集中於特定大型電子股，導致指數與個股表現嚴重脫鉤。<br>
+                對投資者而言，這是一個「選對天堂、選錯地獄」的極端分化行情，<br>
+                而非一個普遍繁榮的牛市。</p>
+        </blockquote>
+
+    </div>
+
+</body>
+
+</html>
