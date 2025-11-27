@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台股無人島日記 - 2025-11-27</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #F0F8E8;
+            --card-bg: #FFFAF0;
+            --text-color: #5D5D5D;
+            --accent-green: #78C08B;
+            --accent-brown: #8B5A2B;
+            --accent-blue: #6BB5D8;
+            --accent-yellow: #F4D03F;
+        }
+
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Microsoft JhengHei', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#D6EBC8 15%, transparent 16%), radial-gradient(#D6EBC8 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 8px solid white;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-brown);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #FFF;
+            background-color: var(--accent-yellow);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            transform: rotate(-2deg);
+            border: 4px solid white;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .date-tag {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1.05em;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 2px dashed #E0D8C0;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            border: 3px solid white;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,8,17,8,17,8Z'/%3E%3C/svg%3E");
+            background-size: 25px;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--accent-green);
+            border-bottom: 3px dotted var(--accent-green);
+            padding-bottom: 10px;
+            margin-top: 0;
+            padding-left: 40px;
+        }
+
+        h3 {
+            color: var(--accent-brown);
+            background-color: #E8F4F8;
+            padding: 8px 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: '🍃';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        th {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F9FDF9;
+        }
+
+        .highlight-positive {
+            color: #E74C3C;
+            font-weight: bold;
+        }
+
+        .highlight-negative {
+            color: #27AE60;
+            font-weight: bold;
+        }
+
+        .villager-comment {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+        }
+
+        .villager-avatar {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-yellow);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: 3px solid white;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .villager-text {
+            background-color: white;
+            padding: 15px;
+            border-radius: 20px;
+            border-top-left-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header-container">
+            <h1>台股無人島日記</h1>
+            <br>
+            <div class="date-tag">📅 2025-11-27 (週四) | 盤中分析（尚未 13:30 收盤）</div>
+        </div>
+
+        <!-- Section 1: Overview -->
+        <div class="section">
+            <h2>今日島嶼概況</h2>
+            <div class="villager-comment">
+                <div class="villager-avatar">🦊</div>
+                <div class="villager-text">
+                    <strong>狸克報告：</strong><br>
+                    等權 <span class="highlight-positive">0.16%</span>，市值 <span class="highlight-positive">0.67%</span>，權值小紅、廣度偏弱。<br>
+                    節奏：半導體續撐，電子零組件補漲，塑化因油價反彈小強；金融、航運偏弱。
+                </div>
+            </div>
+
+            <h3>📈 漲幅貢獻 (前 10 名)</h3>
+            <ul>
+                <li>24-半導體業：市值 0.98%、貢獻 0.49%、樣本 92</li>
+                <li>28-電子零組件業：市值 1.11%、貢獻 0.09%、樣本 102</li>
+                <li>03-塑膠工業：市值 3.35%、貢獻 0.04%、樣本 21</li>
+                <li>31-其他電子業：市值 0.66%、貢獻 0.04%、樣本 45</li>
+                <li>25-電腦及週邊設備業：市值 0.43%、貢獻 0.03%、樣本 62</li>
+                <li>27-通信網路業：市值 0.68%、貢獻 0.02%、樣本 45</li>
+                <li>05-電機機械：市值 1.20%、貢獻 0.02%、樣本 49</li>
+                <li>23-油電燃氣業：市值 0.98%、貢獻 0.01%、樣本 8</li>
+                <li>29-電子通路業：市值 0.39%、貢獻 0.00%、樣本 20</li>
+                <li>22-生技醫療業：市值 0.23%、貢獻 0.00%、樣本 55</li>
+            </ul>
+
+            <h3>📉 表現較弱 (後 10 名)</h3>
+            <ul>
+                <li>38-居家生活：市值 -0.83%、貢獻 -0.00%、樣本 11</li>
+                <li>10-鋼鐵工業：市值 -0.20%、貢獻 -0.00%、樣本 31</li>
+                <li>20-其他業：市值 -0.25%、貢獻 -0.00%、樣本 51</li>
+                <li>12-汽車工業：市值 -0.24%、貢獻 -0.00%、樣本 42</li>
+                <li>11-橡膠工業：市值 -0.95%、貢獻 -0.00%、樣本 11</li>
+                <li>26-光電業：市值 -0.20%、貢獻 -0.00%、樣本 69</li>
+                <li>04-紡織纖維：市值 -0.42%、貢獻 -0.00%、樣本 42</li>
+                <li>37-運動休閒：市值 -0.87%、貢獻 -0.01%、樣本 18</li>
+                <li>15-航運業：市值 -1.12%、貢獻 -0.02%、樣本 27</li>
+                <li>17-金融保險業：市值 -0.32%、貢獻 -0.03%、樣本 32</li>
+            </ul>
+
+            <h3>🏝️ 撐盤 vs 拖累</h3>
+            <ul>
+                <li>撐盤 Top 3：半導體(0.49%)、電子零組件(0.09%)、塑膠(0.04%)</li>
+                <li>拖累 Bottom 3：金融(-0.03%)、航運(-0.02%)、運動休閒(-0.01%)</li>
+            </ul>
+
+            <h3>🧭 權值股貢獻</h3>
+            <ul>
+                <li>Top 5：台積電 0.29%、聯發科 0.07%、日月光投控 0.06%、智邦 0.03%、南亞塑膠 0.03%</li>
+                <li>Bottom 5：國泰金 -0.01%、富邦金 -0.01%、萬海 -0.01%、中華電 -0.00%、聯詠 -0.00%</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: 族群概覽 -->
+        <div class="section">
+            <h2>族群概覽</h2>
+            <ul>
+                <li>半導體：等權 0.79%、市值 0.98%、貢獻 0.49%，權值小紅撐盤。</li>
+                <li>電子零組件：等權 0.71%、市值 1.11%、貢獻 0.09%，電源、PCB、散熱分散推升。</li>
+                <li>塑膠：等權 1.09%、市值 3.35%、貢獻 0.04%，油價反彈帶動龍頭。</li>
+                <li>其他電子：等權 0.51%、市值 0.66%、貢獻 0.04%，鴻海平盤偏紅，配線/工程股補漲。</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: 族群個股解讀 -->
+        <div class="section">
+            <h2>族群個股解讀</h2>
+
+            <h3>🌱 半導體 (24)</h3>
+            <table>
+                <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+                <tr><td>2330</td><td>台灣積體電路製造股份有限公司</td><td>0.69%</td><td>42.16%</td><td>0.29%</td></tr>
+                <tr><td>2454</td><td>聯發科技股份有限公司</td><td>3.08%</td><td>2.35%</td><td>0.07%</td></tr>
+                <tr><td>3711</td><td>日月光投資控股股份有限公司</td><td>5.75%</td><td>1.09%</td><td>0.06%</td></tr>
+                <tr><td>2408</td><td>南亞科技股份有限公司</td><td>4.40%</td><td>0.48%</td><td>0.02%</td></tr>
+                <tr><td>3661</td><td>世芯電子股份有限公司</td><td>4.66%</td><td>0.28%</td><td>0.01%</td></tr>
+            </table>
+            <div class="villager-comment">
+                <div class="villager-avatar">🐱</div>
+                <div class="villager-text">
+                    台積電小紅撐盤，聯發科與封測強彈，AI/HBM 熱度延續；但台積電漲幅不到 1%，續航仍需美股科技背書。
+                </div>
+            </div>
+
+            <h3>🔌 電子零組件 (28)</h3>
+            <table>
+                <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+                <tr><td>2308</td><td>台達電子工業股份有限公司</td><td>0.53%</td><td>2.77%</td><td>0.01%</td></tr>
+                <tr><td>2368</td><td>金像電子(股)公司</td><td>3.28%</td><td>0.34%</td><td>0.01%</td></tr>
+                <tr><td>2383</td><td>台光電子材料股份有限公司</td><td>1.36%</td><td>0.58%</td><td>0.01%</td></tr>
+                <tr><td>2327</td><td>國巨股份有限公司</td><td>1.29%</td><td>0.54%</td><td>0.01%</td></tr>
+                <tr><td>6805</td><td>富世達股份有限公司</td><td>5.54%</td><td>0.11%</td><td>0.01%</td></tr>
+            </table>
+            <div class="villager-comment">
+                <div class="villager-avatar">🦝</div>
+                <div class="villager-text">
+                    電源穩、PCB與散熱分散推升，缺乏大權值領漲，續航仍看半導體情緒與量能。
+                </div>
+            </div>
+
+            <h3>🧴 塑膠 (03)</h3>
+            <table>
+                <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+                <tr><td>1303</td><td>南亞塑膠工業股份有限公司</td><td>5.68%</td><td>0.46%</td><td>0.03%</td></tr>
+                <tr><td>1301</td><td>台灣塑膠工業股份有限公司</td><td>1.77%</td><td>0.28%</td><td>0.01%</td></tr>
+                <tr><td>1326</td><td>台灣化學纖維股份有限公司</td><td>2.22%</td><td>0.21%</td><td>0.00%</td></tr>
+                <tr><td>1314</td><td>中國石油化學工業開發(股)公司</td><td>1.11%</td><td>0.03%</td><td>0.00%</td></tr>
+                <tr><td>1308</td><td>亞洲聚合股份有限公司</td><td>2.82%</td><td>0.01%</td><td>0.00%</td></tr>
+            </table>
+            <div class="villager-comment">
+                <div class="villager-avatar">🐸</div>
+                <div class="villager-text">
+                    油價反彈推升塑化龍頭，但市值占比低，對指數助力有限；若油價回落，漲幅可能快速收斂。
+                </div>
+            </div>
+
+            <h3>📡 其他電子 (31)</h3>
+            <table>
+                <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+                <tr><td>3665</td><td>貿聯控股(BizLink Holding Inc.)</td><td>7.00%</td><td>0.33%</td><td>0.02%</td></tr>
+                <tr><td>2317</td><td>鴻海精密工業股份有限公司</td><td>0.22%</td><td>3.58%</td><td>0.01%</td></tr>
+                <tr><td>2360</td><td>致茂電子股份有限公司</td><td>0.75%</td><td>0.38%</td><td>0.00%</td></tr>
+                <tr><td>6409</td><td>旭隼科技股份有限公司</td><td>1.30%</td><td>0.11%</td><td>0.00%</td></tr>
+                <tr><td>6196</td><td>帆宣系統科技股份有限公司</td><td>2.35%</td><td>0.06%</td><td>0.00%</td></tr>
+            </table>
+            <div class="villager-comment">
+                <div class="villager-avatar">🦌</div>
+                <div class="villager-text">
+                    鴻海平盤偏紅，配線與工程股補漲，貢獻度有限；若鴻海午後轉弱，族群容易回到盤整。
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: 贏過大盤 -->
+        <div class="section">
+            <h2>贏過大盤的住民</h2>
+            <table>
+                <tr><th>排名</th><th>公司代號</th><th>公司名稱</th><th>產業</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th><th>為何能贏過大盤</th></tr>
+                <tr><td>1</td><td>2330</td><td>台灣積體電路製造股份有限公司</td><td>半導體業</td><td>0.69%</td><td>42.16%</td><td>0.29%</td><td>台積電小紅即帶來 0.29% 貢獻，指數仍受權值牽動。</td></tr>
+                <tr><td>2</td><td>2454</td><td>聯發科技股份有限公司</td><td>半導體業</td><td>3.08%</td><td>2.35%</td><td>0.07%</td><td>AI/高階晶片需求支撐，價量健康，續成半導體情緒指標。</td></tr>
+                <tr><td>3</td><td>3711</td><td>日月光投資控股股份有限公司</td><td>半導體業</td><td>5.75%</td><td>1.09%</td><td>0.06%</td><td>HBM/先進封裝訂單延續，補漲封測權值。</td></tr>
+                <tr><td>4</td><td>2345</td><td>智邦科技股份有限公司</td><td>通信網路業</td><td>4.60%</td><td>0.63%</td><td>0.03%</td><td>雲端交換器與 AI 網通需求回溫，權重雖小仍帶來穩定貢獻。</td></tr>
+                <tr><td>5</td><td>1303</td><td>南亞塑膠工業股份有限公司</td><td>塑膠工業</td><td>5.68%</td><td>0.46%</td><td>0.03%</td><td>油價反彈推升塑化龍頭，題材性強、續航視油價而定。</td></tr>
+                <tr><td>6</td><td>3665</td><td>貿聯控股(BizLink Holding Inc.)</td><td>其他電子業</td><td>7.00%</td><td>0.33%</td><td>0.02%</td><td>車用/伺服器線束接單續強，屬中型股補漲。</td></tr>
+                <tr><td>7</td><td>2408</td><td>南亞科技股份有限公司</td><td>半導體業</td><td>4.40%</td><td>0.48%</td><td>0.02%</td><td>記憶體價格觸底回升預期，DRAM 族群跟漲。</td></tr>
+                <tr><td>8</td><td>3661</td><td>世芯電子股份有限公司</td><td>半導體業</td><td>4.66%</td><td>0.28%</td><td>0.01%</td><td>ASIC/HPC 訂單能見度佳，AI 加速器需求支撐。</td></tr>
+                <tr><td>9</td><td>1519</td><td>華城電機股份有限公司</td><td>電機機械</td><td>5.18%</td><td>0.25%</td><td>0.01%</td><td>電網升級與儲能題材延續，族群內續強指標。</td></tr>
+                <tr><td>10</td><td>2344</td><td>華邦電子股份有限公司</td><td>半導體業</td><td>4.10%</td><td>0.27%</td><td>0.01%</td><td>記憶體報價回升預期推升，屬補漲性質，需留意隔日震盪。</td></tr>
+            </table>
+        </div>
+
+        <!-- Section 5: 觀察與風險 -->
+        <div class="section">
+            <h2>觀察與風險</h2>
+            <h3>🪧 觀察重點</h3>
+            <ul>
+                <li>前十檔有七檔半導體/AI 供應鏈，集中度高；美股科技若轉弱，隔日易同步回檔。</li>
+                <li>台積電小紅即貢獻 0.29%，指數高度倚賴權值，需防權值反轉。</li>
+                <li>塑化、電機為題材性補漲，續航看油價與電網標案，追價需控制風險。</li>
+                <li>市值漲幅高於等權，量縮時一旦權值轉弱，指數恐快速收斂。</li>
+            </ul>
+
+            <h3>📌 後續觀察</h3>
+            <ul>
+                <li>Nasdaq/費半與記憶體報價仍是風向，決定半導體與 DRAM 能否續強。</li>
+                <li>金融、航運偏弱拖累等權，若美元或美債殖利率上行，壓力恐擴大。</li>
+                <li>油價走勢影響塑化續航，若回落，今日漲幅可能回吐。</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            本頁面為 2025-11-27 盤中 LLM 重整分析，尚未 13:30 收盤，實際收盤數據可能變動。
+        </div>
+    </div>
+
+</body>
+
+</html>
