@@ -346,12 +346,15 @@ python daily_sector_report.py --top-n 4 --date 2025-11-05
 
 > 注意：這3個md檔案的「族群概覽」「解讀」「後續觀察」「觀察重點」「為何能贏過大盤」文字為程式硬編碼範本，請再用 LLM（Codex CLI or Gemini CLI）重新分析，少的部分也要補齊分析，分析結果回寫md檔案。
 
-YYYY-MM-DD為今日 2025-11-26
+YYYY-MM-DD為今日 2025-12-12
 
 整理成 動物森友會 風格的html 不要省略內容 格式易理解 
 你直接用LLM的功能整理出HTML
 不要用寫程式的方式轉檔 不然每天的格式不統一 會出錯
 存到HTML目錄下的 TW_DAY目錄 按照日期建立html檔案 現在還沒有13:30收盤 要註明是盤中的分析 盤中要再將html存入mid目錄 如果html已經存在 你就要依序再存成v2 v3 v4 ...
+
+
+更新 @HTML/TW_DAY/index.html 中的 @HTML/TW_DAY/2025-12-12.html  連結及敘述
 
 ### 3. 指令式 Prompt（Codex CLI）
 
