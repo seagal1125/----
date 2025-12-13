@@ -1,0 +1,1238 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>快打旋風6 系統化教學全集 (SF6 Complete Tutorial)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #d32f2f; /* SF6 Red-ish */
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --sidebar-width: 280px;
+            --header-height: 380px; /* Space for video */
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar (TOC) */
+        #sidebar {
+            width: var(--sidebar-width);
+            background: #fff;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+            z-index: 10;
+        }
+        
+        #sidebar h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 8px 10px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        
+        .toc-link:hover {
+            background-color: #f0f0f0;
+            color: var(--primary-color);
+        }
+        
+        .toc-link.active {
+            background-color: #ffebee;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Main Content Stats */
+        #main-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Fixed Video Header */
+        #video-header {
+            background: #000;
+            height: auto;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 20;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 640px; /* Limit max width */
+            padding-bottom: 36.25%; /* Aspect ratio hack? bit smaller than 16:9 to save space */
+            height: 0;
+        }
+        
+        /* Ensure 16:9 ratio matches player */
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 360px; /* Fixed height approach might be better for sticky header */
+        }
+        
+        /* Better sticky player approach: Fixed height container */
+        #video-container-fixed {
+            width: 640px;
+            height: 360px;
+        }
+
+        /* Scrollable Content Area */
+        #content-area {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px 40px;
+            scroll-behavior: smooth;
+        }
+        
+        .episode-section {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .episode-header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .episode-header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #222;
+        }
+        
+        /* Timestamp links */
+        a.ts-link {
+            color: #1a0dab;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            background: #e8f0fe;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        a.ts-link:hover {
+            background: #d2e3fc;
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow: auto;
+            }
+            
+            #sidebar {
+                width: 100%;
+                height: 200px; /* Scrollable horizontal or small vertical */
+                order: 2; /* Put at bottom or keep at top? */
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            #video-header {
+                position: sticky;
+                top: 0;
+                width: 100%;
+                padding: 0;
+            }
+            
+            #video-container-fixed {
+                width: 100%;
+                height: 56.25vw; /* 16:9 aspect ratio */
+            }
+            
+            #main-container {
+                overflow: visible;
+                height: auto;
+            }
+            
+            #content-area {
+                padding: 10px;
+                overflow: visible;
+            }
+        }
+    </style>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        var currentVideoId = "";
+
+        function onYouTubeIframeAPIReady() {
+            // Initial load with first video or empty
+            var firstVid = "mdyLPXUhdtY";
+            if(firstVid) {
+                loadPlayer(firstVid);
+            }
+        }
+
+        function loadPlayer(vid) {
+            currentVideoId = vid;
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                videoId: vid,
+                playerVars: {
+                    'playsinline': 1,
+                    'rel': 0
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Player ready
+        }
+
+        function playVideo(vid, startSeconds) {
+            if (currentVideoId !== vid) {
+                // Change video
+                currentVideoId = vid;
+                player.loadVideoById({
+                    videoId: vid,
+                    startSeconds: startSeconds
+                });
+                // Update active sidebar link maybe? (Optional)
+            } else {
+                // Same video, just seek
+                player.seekTo(startSeconds, true);
+                player.playVideo();
+            }
+            
+            // Scroll to top of player if needed on mobile? 
+            // document.getElementById('video-header').scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+</head>
+<body>
+
+<div id="sidebar">
+    <h2>教學章節 (Episodes)</h2>
+    <div id="toc-list">
+<a href="#ep_1_mdyLPXUhdtY" class="toc-link">系統化教學帶你入門快打旋風經典模式第一集   基本拳腳 #快打旋風6 #教學 #新手</a>
+<a href="#ep_2_xc8zFOcB9kU" class="toc-link">系統化教學帶你入門快打旋風經典模式之第二集__指令表_轉絕招__快打旋風6__教學__新手</a>
+<a href="#ep_3_baanufjUODU" class="toc-link">系統化教學帶你入門快打旋風經典模式之第三集__取消_復合___快打旋風6__教學__新手</a>
+<a href="#ep_4_WRwhBPgEBlo" class="toc-link">系統化教學帶你入門快打旋風經典模式第四集_壓起身_目押__快打旋風6__教學__新手</a>
+<a href="#ep_5_vhZoC1W5NCs" class="toc-link">系統化教學帶你入門快打旋風經典模式第五集_凹_大確反__快打旋風6__教學__新手</a>
+<a href="#ep_6__dOVnDTeRl4" class="toc-link">系統化教學帶你入門快打旋風經典模式第六集_確認_確反__快打旋風6__教學__新手</a>
+<a href="#ep_7_vINfm0l7TTM" class="toc-link">系統化教學帶你入門快打旋風經典模式第七集_對空_波升__快打旋風6__教學__新手</a>
+<a href="#ep_8_7scvIg6PLVc" class="toc-link">系統化教學帶你入門快打旋風六經典模式第八集_幀數_下中腳取消綠衝</a>
+<a href="#ep_9_Ye-DbbG1Ow8" class="toc-link">系統化教學帶你入門快打旋風經典模式_第九集_DI_動力衝擊</a>
+<a href="#ep_10_-g0Z1wSs63g" class="toc-link">系統化教學帶你入門快打旋風經典模式_第十集_連續壓起身_角落壓制</a>
+<a href="#ep_11_IcHpVNY7ui8" class="toc-link">系統化教學帶你入門快打旋風經典模式_第十一集_新手建議</a>
+<a href="#ep_12_vXulhEIvs1Q" class="toc-link">系統化教學帶你入門快打旋風經典模式_第十二集_中段攻擊</a>
+
+    </div>
+</div>
+
+<div id="main-container">
+    <div id="video-header">
+        <div id="video-container-fixed">
+            <div id="player"></div>
+        </div>
+    </div>
+    
+    <div id="content-area">
+
+        <div class="episode-section" id="ep_1_mdyLPXUhdtY">
+            <div class="episode-header">
+                <small>Episode 1</small>
+                <h1>系統化教學帶你入門快打旋風經典模式第一集   基本拳腳 #快打旋風6 #教學 #新手</h1>
+                 <button onclick="playVideo('mdyLPXUhdtY', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第一集：基本拳腳</h1>
+<h2 id="0000"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 0)">(00:00)</a> 前言與目標客群</h2>
+<ul>
+<li><strong>目標觀眾</strong>：從未接觸過格鬥遊戲的新手、卡在銅銀牌無法進步的玩家、或想從現代模式轉經典模式的玩家。</li>
+<li><strong>教學理念</strong>：參考 UP 主「茶茶山」的循序漸進邏輯，帶領玩家系統化入門。</li>
+</ul>
+<h2 id="0146"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 106)">(01:46)</a> 遊戲模式介紹</h2>
+<ul>
+<li><strong>Fighting Ground (格鬥之地)</strong>：本系列教學的主要模式。</li>
+<li><strong>World Tour (環球遊歷)</strong>：RPG 模式，雖然好玩但對提升對戰實力幫助有限。</li>
+<li><strong>Battle Hub (對戰大堂)</strong>：可與全球玩家對戰，建議有基礎後再進入以免挫折。</li>
+<li><strong>練習室 (Training Mode)</strong>：點選 Fighting Ground -&gt; 練習 -&gt; 練習室，這是變強最重要的地方。</li>
+</ul>
+<h2 id="0323"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 203)">(03:23)</a> 角色與控制器選擇</h2>
+<ul>
+<li><strong>角色推薦</strong>：新手建議從 <strong>隆 (Ryu)</strong> 開始。<ul>
+<li>原因：帥氣、擁有格鬥遊戲最基礎的工具，練好隆能輕鬆轉換到其他角色。</li>
+</ul>
+</li>
+<li><strong>操作模式</strong>：本教學專注於 <strong>經典模式 (Classic)</strong>。</li>
+<li><strong>控制器</strong>：搖桿 (Arcade Stick)、Hitbox、鍵盤皆可。<ul>
+<li><strong>鍵盤設定建議</strong>：模擬 Hitbox 配置。建議將「跳躍」設為空白鍵 (拇指)，形成 ASD (左下右) + Space (跳) 的佈局，操作反應會更快。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0715"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 435)">(07:15)</a> 訓練場基礎設置</h2>
+<ul>
+<li><strong>顯示設定</strong>：<ul>
+<li>開啟「顯示攻擊資訊」。</li>
+<li>開啟「輸入歷史顯示」(左側可看按鍵指令)。</li>
+<li>開啟「虛擬控制器」。</li>
+</ul>
+</li>
+<li><strong>基本移動</strong>：前進 (6)、後退 (4)、蹲下 (2)、跳躍 (8/7/9)。<ul>
+<li>數字鍵盤表示法 (Numpad Notation)：以鍵盤數字鍵對應方向，如 2 是下，6 是前，5 是回中 (不按)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0854-normals"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 534)">(08:54)</a> 基本拳腳 (Normals)</h2>
+<ul>
+<li><strong>六鍵配置</strong>：輕拳 (LP)、中拳 (MP)、重拳 (HP)、輕腳 (LK)、中腳 (MK)、重腳 (HK)。</li>
+<li><strong>18種基本攻擊</strong>：結合 站立 (Stand)、蹲下 (Crouch)、跳躍 (Jump) 三種狀態 x 6 顆按鍵。<ul>
+<li>例如：<strong>5HP</strong> (站重拳)、<strong>2MK</strong> (下中腳)。</li>
+<li><strong>5</strong> 代表站立回中 (什麼方向都不按)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1042"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 642)">(10:42)</a> 練習重點：距離感</h2>
+<ul>
+<li><strong>感受距離</strong>：在訓練場把防禦設為「不防禦」，練習各種拳腳的最遠打擊距離。</li>
+<li><strong>關鍵拳腳</strong>：熟悉如 2MK (下中腳)、5HP (站重拳) 等長距離牽制技。</li>
+<li><strong>跳躍攻擊</strong>：練習跳攻擊的打點，太早出招會打不到，太晚出會落地。</li>
+</ul>
+<h2 id="1243"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 763)">(12:43)</a> 攻擊屬性與防禦機制</h2>
+<ul>
+<li><strong>上段攻擊 (High)</strong>：站防、蹲防皆可擋住 (大多數站立拳腳)。</li>
+<li><strong>下段攻擊 (Low)</strong>：必須 <strong>蹲防</strong> (如下中腳/下輕腳)。</li>
+<li><strong>中段攻擊 (Overhead)</strong>：必須 <strong>站防</strong> (如跳攻擊是典型的中段)。</li>
+</ul>
+<h2 id="1318"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 798)">(13:18)</a> 防禦策略</h2>
+<ul>
+<li><strong>基本防禦姿勢</strong>：預設採用 <strong>蹲防 (拉住下後/1)</strong>。<ul>
+<li>優點：同時防禦上段與下段。</li>
+</ul>
+</li>
+<li><strong>應對跳躍</strong>：看到對手跳起，立即改為 <strong>站防 (拉後/4)</strong> 以防禦空中攻擊 (中段)。</li>
+</ul>
+<h2 id="1451-throws"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 891)">(14:51)</a> 摔技 (Throws) 與解摔</h2>
+<ul>
+<li><strong>摔 (Throw)</strong>：當對手一直防禦時，用摔 (LP+LK) 破防。</li>
+<li><strong>解摔 (Tech Throw)</strong>：被摔的瞬間同時按摔 (LP+LK) 拆開。</li>
+<li><strong>練習設定</strong>：在防禦設定開啟「解摔練習」，成功會顯示「解摔」。</li>
+</ul>
+<h2 id="1630-reset"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 990)">(16:30)</a> 必學功能：重置戰鬥 (Reset)</h2>
+<ul>
+<li><strong>快捷鍵設定</strong>：在「快捷鍵操作設定」中綁定「重置戰鬥」。</li>
+<li><strong>功能</strong>：一鍵回到場中初始位置，省去等待時間，大幅提升練習效率。</li>
+</ul>
+<h2 id="1902"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 1142)">(19:02)</a> 綜合練習與心態建立</h2>
+<ul>
+<li><strong>練習目標</strong>：<ul>
+<li>設定電腦為 LV2 或 LV3，專注於「用最遠距離打到對方」。</li>
+<li>不管對手出什麼，專注執行自己的練習（例如抓下中腳距離）。</li>
+<li>2P 側 (面向左) 也要特別練習，適應反向操作。</li>
+</ul>
+</li>
+<li><strong>新手心態</strong>：<ul>
+<li>不要想著一開始就學連段、學必殺技。</li>
+<li>在練習場不用待太久，大概抓到感覺即可進入實戰。</li>
+<li><strong>目標不是贏</strong>：設定小目標（例如：這場我只要從最遠距離踢到他），在實戰中確認自己學會了什麼。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2449"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 1489)">(24:49)</a> 排位賽實戰驗證</h2>
+<ul>
+<li><strong>為什麼打排位賽 (Ranked Match)</strong>：<ul>
+<li>排位賽最容易遇到實力相當的對手，體驗比休閒賽更好。</li>
+<li>即使遇到炸魚或外掛，也是幾分鐘的事，封鎖即可。</li>
+</ul>
+</li>
+<li><strong>網路設定</strong>：建議設定 3-5 格或僅限 5 格，強烈建議使用 <strong>有線網路</strong> 以確保體驗。</li>
+<li><strong>實戰策略</strong>：<ol>
+<li><strong>地面戰</strong>：不管是防禦還是進攻，專注用長距離拳腳 (2MK, 5HP) 牽制。</li>
+<li><strong>對空</strong>：看到對手跳起來，記得切換為站防。</li>
+<li><strong>被壓制時</strong>：被逼到角落就一直拉著「前跳」逃離，或者專注防禦找機會。</li>
+<li><strong>無視勝負</strong>：輸了沒關係，重點是練習「下中腳摸人」、「跳攻擊抓距離」。</li>
+</ol>
+</li>
+<li><strong>常見狀況應對</strong>：<ul>
+<li>對手一直 DI (衝擊)？ -&gt; 沒關係，新手先不管，繼續做自己的練習。</li>
+<li>對手一直摔？ -&gt; 沒關係，多跳幾次試著逃開，或者專注於自己的攻擊距離。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5146"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('mdyLPXUhdtY', 3106)">(51:46)</a> 第一集總結</h2>
+<ul>
+<li><strong>核心重點</strong>：熟悉基本拳腳距離，學會基本的「蹲防擋下段、站防擋跳躍」。</li>
+<li><strong>下集預告</strong>：將會講解必殺技的使用。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_2_xc8zFOcB9kU">
+            <div class="episode-header">
+                <small>Episode 2</small>
+                <h1>系統化教學帶你入門快打旋風經典模式之第二集__指令表_轉絕招__快打旋風6__教學__新手</h1>
+                 <button onclick="playVideo('xc8zFOcB9kU', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式之第二集：指令表與轉絕招</h1>
+<h2 id="0000"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 0)">(00:00)</a> 進入訓練室與指令表</h2>
+<ul>
+<li><strong>進入方式</strong>：在標題畫面按 X 直接進入訓練室。</li>
+<li><strong>方向術語</strong>：前 (6)、後 (4)、下 (2)、上 (8)。以角色面向為基準，「前」永遠是面向對手的方向。</li>
+</ul>
+<h2 id="0024-command-inputs"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 24)">(00:24)</a> 必殺技輸入 (Command Inputs)</h2>
+<ul>
+<li><strong>數字鍵盤表示法</strong>：<ul>
+<li><strong>236P (正轉手)</strong>：下(2) -&gt; 前斜下(3) -&gt; 前(6) + 拳(P)。即「波動拳」。</li>
+<li><strong>214K (反轉腳)</strong>：下(2) -&gt; 後斜下(1) -&gt; 後(4) + 腳(K)。即「龍捲旋風腳」。</li>
+<li><strong>236K (正轉腳)</strong>：上段足刀。</li>
+<li><strong>214P (反轉手)</strong>：波掌擊。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0301-623p"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 181)">(03:01)</a> 昇龍拳指令 (623P) 與簡化按法</h2>
+<ul>
+<li><strong>標準指令</strong>：前(6) -&gt; 下(2) -&gt; 前斜下(3) + 拳。</li>
+<li><strong>Hitbox/鍵盤 常見簡化戳法</strong>：<ol>
+<li><strong>626</strong>：前(按住) -&gt; 下(點一下) -&gt; 前(放開下) + 拳。</li>
+<li><strong>266</strong>：(理論上是323? 影片中提到的一種變體，需視控制器而定)。</li>
+<li><strong>636</strong>：按住前 -&gt; 中指滑過下 -&gt; 拳。</li>
+<li><strong>628 (作弊法)</strong>：按住前(6) + 下(2) -&gt; 同時按上(8) + 拳。(利用 SOCD 覆蓋機制)。</li>
+</ol>
+</li>
+<li><strong>建議</strong>：找到最適合自己手感的按法即可，不必拘泥於標準 623。</li>
+</ul>
+<h2 id="0458-od-overdrive"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 298)">(04:58)</a> OD 必殺技 (Overdrive)</h2>
+<ul>
+<li><strong>發動方式</strong>：輸入指令時同時按兩個拳或兩個腳 (例如 236PP)。</li>
+<li><strong>特性</strong>：消耗兩格動力槽 (Drive Gauge)，招式性能強化、有裝甲或無敵時間等。</li>
+</ul>
+<h2 id="0546-super-arts-sa"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 346)">(05:46)</a> 超必殺技 (Super Arts / SA)</h2>
+<ul>
+<li><strong>SA1</strong>：236236 + 腳 (視角色而定，龍可能是 K 或 P，影片口誤主要強調兩次正轉/反轉)。<ul>
+<li><em>修正註記：龍的 SA1 真空波動拳通常是 236236P。</em></li>
+</ul>
+</li>
+<li><strong>SA2</strong>：214214 + P (龍的真波掌擊)。</li>
+<li><strong>SA3 (CA)</strong>：236236 + P (真昇龍拳)。血量低於 25% 變為 CA (Critical Art)，傷害提升。</li>
+<li><strong>手勢技巧</strong>：反轉 (214214) 對新手較難，建議手掌帶動手指去滑動。</li>
+</ul>
+<h2 id="0711"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 431)">(07:11)</a> 其他指令機制</h2>
+<ul>
+<li><strong>蓄力/集氣 (Charge)</strong>：如春麗、古烈。需按住方向 (如下或後) 一段時間，再推反方向+攻擊。<ul>
+<li><strong>4蓄6</strong> (集氣後前)、<strong>2蓄8</strong> (集氣下上)。</li>
+</ul>
+</li>
+<li><strong>指令投 (Command Throw)</strong>：如桑吉爾夫 (Zangief)。<ul>
+<li><strong>360度</strong>：轉一圈。Hitbox/鍵盤只需按出 上下左右四個方向 (如 6248) 即可觸發。</li>
+<li><strong>應對</strong>：指令投無法拆投 (解摔)，只能 <strong>跳躍</strong> 躲避。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0803-troubleshooting"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 483)">(08:03)</a> 常見新手問題 (Troubleshooting)</h2>
+<ul>
+<li><strong>出招失敗</strong>：<ul>
+<li>原因通常是按太快、不乾淨。</li>
+<li><strong>解決</strong>：放慢速度，確保指令輸入準確 (Clean Inputs)。觀察虛擬控制器的輸入歷史。</li>
+</ul>
+</li>
+<li><strong>前走波動變昇龍 (Walk Forward Hadoken -&gt; DP)</strong>：<ul>
+<li>原因：前走 (6) 殘留，接波動 (236) 會被系統判定為 6236 (昇龍)。</li>
+<li><strong>解法 1</strong>：輸入 236 前多按一個後 (4)，變成 6...41236 (類似半圈)。</li>
+<li><strong>解法 2 (推薦)</strong>：養成 <strong>回中 (Neutral)</strong> 習慣。前走停頓一下 (手放開) 再輸入 236。</li>
+</ul>
+</li>
+<li><strong>連續波動出不來</strong>：畫面中同時只能存在一顆波動拳。</li>
+</ul>
+<h2 id="1716"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('xc8zFOcB9kU', 1036)">(17:16)</a> 實戰練習目標</h2>
+<ul>
+<li>在實戰中穩定搓出波動拳 (輕/中/重/OD)。</li>
+<li>嘗試加入簡單連段 (如重拳接 OD 波動)。</li>
+<li>不要在意輸贏，重點是指令成功率。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_3_baanufjUODU">
+            <div class="episode-header">
+                <small>Episode 3</small>
+                <h1>系統化教學帶你入門快打旋風經典模式之第三集__取消_復合___快打旋風6__教學__新手</h1>
+                 <button onclick="playVideo('baanufjUODU', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式之第三集：取消與復合</h1>
+<h2 id="0000-cancels"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 0)">(00:00)</a> 什麼是取消 (Cancels)</h2>
+<ul>
+<li><strong>定義</strong>：在普通拳腳的「後搖」(Recovery / 藍色影顯示) 結束前，輸入必殺技指令，直接接續出招。</li>
+<li><strong>設定</strong>：開啟「顯示取消時機」。<ul>
+<li>角色變 <strong>紅色</strong>：表示該時刻可以被取消。</li>
+<li>只有特定拳腳可以被取消 (如龍的 2MK、5MP)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0118"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 78)">(01:18)</a> 連段成立的三要素</h2>
+<ol>
+<li><strong>拳腳可被取消</strong> (Cancellable)：如戰中拳 (5MP)、下中腳 (2MK)。(5MK 通常不可取消)。</li>
+<li><strong>必殺技發生速度夠快</strong> (Startup)：如果接太慢的招會連不上。</li>
+<li><strong>距離足夠</strong>：太遠可能打不到。</li>
+</ol>
+<h2 id="0217"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 137)">(02:17)</a> 基礎取消練習</h2>
+<ul>
+<li><strong>練習目標</strong>：<ul>
+<li><strong>5MP (站中拳) xx 236HP (重波動拳)</strong></li>
+<li><strong>2MK (下中腳) xx 236HP (重波動拳)</strong></li>
+</ul>
+</li>
+<li><strong>手感</strong>：不要等拳腳打完才轉，要在拳腳打中對手的瞬間輸入完必殺技指令。</li>
+<li><strong>狂按法 (Mash)</strong>：新手若覺得節奏難抓，可以在出拳後瘋狂轉指令和按鍵，確保招式出來 (雖然不優雅但有效)。</li>
+</ul>
+<h2 id="0451-od-sa"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 291)">(04:51)</a> 取消接 OD 與 SA</h2>
+<ul>
+<li>必殺技不僅能取消普通攻擊，<strong>OD 必殺技</strong> 和 <strong>SA (超必殺)</strong> 也可以取消普通攻擊。</li>
+<li><strong>練習</strong>：5HP xx OD 波動、2MK xx SA3 (236236P)。</li>
+</ul>
+<h2 id="0910-buffering-option-select"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 550)">(09:10)</a> 復合指令 (Buffering / Option Select 概念)</h2>
+<ul>
+<li><strong>概念</strong>：在普通攻擊 (如 Poke / 牽制) 的同時，預先輸入必殺技指令。<ul>
+<li><strong>原理</strong>：<ul>
+<li>如果普通攻擊 <strong>打中</strong> (Hit) 或 <strong>被擋</strong> (Block) -&gt; 產生動作停頓 (Hitstop) -&gt; 系統讀取到必殺技指令 -&gt; <strong>招式取消出來</strong>。</li>
+<li>如果普通攻擊 <strong>揮空</strong> (Whiff) -&gt; 沒有 Hitstop -&gt; 拳腳動作極快結束 -&gt; 系統還沒讀到完整指令或錯過窗口 -&gt; <strong>必殺技不出來</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>應用</strong>：<strong>2MK (下中腳) + 波動拳指令</strong>。<ul>
+<li>在中距離用 2MK 摸對手，同時刷波動拳。</li>
+<li><strong>打到人</strong> -&gt; 自動出波動拳 (連段)。</li>
+<li><strong>沒打到</strong> -&gt; 只有 2MK (安全)。</li>
+</ul>
+</li>
+<li><strong>回中 (Neutral) 的重要性</strong>：復合時要避免一直拉著前或後，最好在動作與動作間有回中，以免誤出昇龍或其它招式。</li>
+</ul>
+<h2 id="1146"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 706)">(11:46)</a> 實戰心態與練習</h2>
+<ul>
+<li><strong>實戰目標</strong>：嘗試在對戰中使出「2MK xx 波動拳」。</li>
+<li><strong>面對現代模式</strong>：現代模式反應快 (一鍵昇龍/SA)，但只要專注練習自己的目標 (取消連段)。</li>
+</ul>
+<h2 id="1430"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 870)">(14:30)</a> 實戰應用：無腦復合</h2>
+<ul>
+<li><strong>策略</strong>：在立回中，只要按下 2MK，手就自動跟著轉波動拳的指令。<ul>
+<li>完全依賴系統判斷：打中就出波，沒打中就不出。</li>
+<li><strong>優勢</strong>：不需要反應時間確認是否打中，降低立回時的心理負擔。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2200"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 1320)">(22:00)</a> 實戰案例分析</h2>
+<ul>
+<li><strong>面對一直跳的對手</strong>：<ul>
+<li>如果對手喜歡亂跳，復合波動可能會有些風險 (被跳入確反)。</li>
+<li>但在新手階段，先練好 <strong>"只要出腳就復合"</strong> 的肌肉記憶更重要。</li>
+</ul>
+</li>
+<li><strong>被摔怎麼辦</strong>：<ul>
+<li>新手階段不會解摔 (Throw Tech) 很正常。</li>
+<li>寧願被摔，也要專注在練習 <strong>取消</strong> 和 <strong>復合</strong> 這兩個核心技巧。</li>
+<li>不要因為怕被摔而打亂自己的進攻節奏。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3215"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('baanufjUODU', 1935)">(32:15)</a> 總結</h2>
+<ul>
+<li>取消 (Cancel) 是格鬥遊戲最基礎也最重要的進攻手段。</li>
+<li>復合 (Buffer) 則是立回神器，能讓你不知不覺中打出高手般的確認連段。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_4_WRwhBPgEBlo">
+            <div class="episode-header">
+                <small>Episode 4</small>
+                <h1>系統化教學帶你入門快打旋風經典模式第四集_壓起身_目押__快打旋風6__教學__新手</h1>
+                 <button onclick="playVideo('WRwhBPgEBlo', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第四集：壓起身與目押</h1>
+<h2 id="0000"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 0)">(00:00)</a> 前言</h2>
+<ul>
+<li><strong>入門定義</strong>：作者認為達到「白金一 (Platinum 1)」才算真正入門，此前只要連勝就能快速升分。</li>
+</ul>
+<h2 id="0044-okizeme-meaty"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 44)">(00:44)</a> 壓起身 (Okizeme / Meaty)</h2>
+<ul>
+<li><strong>原理</strong>：<ul>
+<li>對手倒地起身時有短暫無敵時間 (黃色)。</li>
+<li><strong>Meaty (壓起身)</strong>：讓攻擊的「持續幀 (Active Frames / 紅色)」剛好覆蓋在對手無敵結束的瞬間。</li>
+<li><strong>成功</strong>：對手亂動 (Mash) 會被判定為康特 (Counter Hit)。</li>
+<li><strong>太慢</strong>：變成攻擊的前搖 (Startup / 綠色) 撞到對手的攻擊 -&gt; 被打。</li>
+<li><strong>太快</strong>：攻擊揮空 (打在無敵上) -&gt; 收招 (Recovery / 藍色) 被對手確反 (Punish Counter)。</li>
+</ul>
+</li>
+<li><strong>設定練習</strong>：設定假人「倒地反攻」為「輕拳 (4F)」。目標是在他起身時用中拳打卻他 (打出 Counter)。</li>
+</ul>
+<h2 id="0905-link"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 545)">(09:05)</a> 連段原理：目押 (Link)</h2>
+<ul>
+<li><strong>目押</strong>：在前一個攻擊動作完全結束後，利用幀數優勢 (Frame Advantage)，在特定時機輸入下一個攻擊。</li>
+<li><strong>與取消的區別</strong>：取消是截斷收招；目押是等收招結束。</li>
+<li><strong>練習</strong>：<strong>5MP (站中拳) -&gt; 5MP</strong>。<ul>
+<li>需掌握節奏，不能狂按。</li>
+<li><strong>距離限制</strong>：如果太遠，第二下會因推不開 (Pushback) 而打不到，通常需要貼身。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1046-divide-and-conquer"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 646)">(10:46)</a> 綜合連段練習 (Divide and Conquer)</h2>
+<ul>
+<li><strong>拆解練習法</strong>：<ol>
+<li>練熟 5MP -&gt; 5MP (目押)。</li>
+<li>練熟 5MP -&gt; 236P (取消)。</li>
+<li>組合：5MP -&gt; 5MP -&gt; 236P。</li>
+</ol>
+</li>
+<li><strong>倒地後壓制</strong>：5MP -&gt; 5MP -&gt; 236P -&gt; (對手倒地) -&gt; 走過去 -&gt; 5MP (壓起身)。</li>
+</ul>
+<h2 id="1226-strike-throw-mixup"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 746)">(12:26)</a> 打摔二擇 (Strike / Throw Mixup)</h2>
+<ul>
+<li>當對手學會防禦你的壓起身時 (不敢亂動了)：<ul>
+<li><strong>打 (Strike)</strong>：壓制對手亂動或拆摔。</li>
+<li><strong>摔 (Throw)</strong>：對付死防 (Blocking) 的對手。</li>
+</ul>
+</li>
+<li><strong>心理戰循環</strong>：<ol>
+<li>你壓起身 (打) 勝過 對手亂動。</li>
+<li>你摔 (Throw) 勝過 對手防禦。</li>
+<li>對手拆摔 (Tech) 平手 或 勝過 你的摔。</li>
+<li>你後退打拆摔 (Shimmy) 勝過 對手拆摔 (進階概念)。</li>
+</ol>
+</li>
+</ul>
+<h2 id="1750"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 1070)">(17:50)</a> 實戰資源管理與應用</h2>
+<ul>
+<li><strong>實戰心態</strong>：在訓練場不用練到 100%，大概懂邏輯就去實戰。實戰中把「壓起身」和「打摔擇」作為目標。</li>
+<li><strong>73 幀倒地</strong>：普通倒地起身通常是 58 幀，但某些招式 (如掃腿打康特、SA 打中) 會造成 73 幀或更長的倒地時間。<ul>
+<li>這會改變壓起身的時機，需要經驗累積。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2053"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 1253)">(20:53)</a> 實戰分析：對付亂動的對手</h2>
+<ul>
+<li><strong>現象</strong>：低分段 (如銀牌) 玩家非常喜歡在起身時亂按 (Mash)。</li>
+<li><strong>對策</strong>：<strong>嚴格執行壓起身 (Meaty)</strong>。<ul>
+<li>只要你壓得準，對手亂按必定被 Counter。</li>
+<li>可以用簡單的 <strong>5MP -&gt; 5MP</strong> 確認連段，打掉對手一大管血。</li>
+<li>不需要複雜的擇，只要「壓起身」做對，就能打崩亂動的對手。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2948"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 1788)">(29:48)</a> 實戰分析：對付防守好的對手</h2>
+<ul>
+<li><strong>現象</strong>：對手開始懂得起身防禦，不再亂按。</li>
+<li><strong>對策</strong>：<strong>摔 (Throw)</strong>。<ul>
+<li>壓起身時直接走過去摔。</li>
+<li>如果對手開始解摔 (Tech)，則回到 <strong>打 (Strike)</strong>，或者用 <strong>Shimmy (後退一點點再打)</strong> 來騙他解摔揮空。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3650"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('WRwhBPgEBlo', 2210)">(36:50)</a> 總結</h2>
+<ul>
+<li>壓起身 (Okizeme) 是擴大優勢的關鍵。</li>
+<li>透過「打」與「摔」的切換，給對手巨大的心理壓力。</li>
+<li>練好壓起身，就算連段不強，光靠抓起身也能在白金以下輕鬆取勝。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_5_vhZoC1W5NCs">
+            <div class="episode-header">
+                <small>Episode 5</small>
+                <h1>系統化教學帶你入門快打旋風經典模式第五集_凹_大確反__快打旋風6__教學__新手</h1>
+                 <button onclick="playVideo('vhZoC1W5NCs', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第五集：凹與大確反</h1>
+<h2 id="0000"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 0)">(00:00)</a> 版本機制解說 (後受身)</h2>
+<ul>
+<li><strong>改動</strong>：現在普通倒地也可以「後受身 (Back Roll)」。</li>
+<li><strong>影響</strong>：這讓進攻方在場中很難持續保持貼身壓制。這設計是為了避免一瞬間的滾雪球效應。</li>
+</ul>
+<h2 id="0341-reversal-ou"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 221)">(03:41)</a> 什麼是「凹」(Reversal / Ou)</h2>
+<ul>
+<li><strong>定義</strong>：在自己處於劣勢 (如倒地起身、被壓制) 時，賭博性地使用具有「無敵屬性」的招式。</li>
+<li><strong>常見招式</strong>：<ul>
+<li><strong>OD 昇龍拳 (OD DP)</strong>：全身無敵。</li>
+<li><strong>SA1 / SA3</strong>：通常具有無敵時間 (SA1 對飛行道具不一定無敵，視角色而定)。</li>
+</ul>
+</li>
+<li><strong>風險</strong>：無敵技被防住後會有極大的硬直 (Recovery)，必定被大確反 (Punish Counter)。</li>
+</ul>
+<h2 id="0711"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 431)">(07:11)</a> 凹的時機</h2>
+<ol>
+<li><strong>起身凹</strong>：賭對手會壓起身 (Meaty)。</li>
+<li><strong>連段空隙凹</strong>：對手連段失誤或壓制有縫隙 (非連續防禦) 時，狂按昇龍插進去。</li>
+<li><strong>反應凹</strong>：看到對手綠衝 (Drive Rush) 或跳入，直接 SA/昇龍。</li>
+<li><strong>負幀凹 (Gambling)</strong>：雖然自己是不利幀數 (如被擋 -2)，但賭對手會出手，強行出無敵技。</li>
+</ol>
+<h2 id="1021-punish-counter"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 621)">(10:21)</a> 應對與確反 (Punish Counter)</h2>
+<ul>
+<li><strong>大確反練習</strong>：<ul>
+<li>設定電腦倒地後出 OD 昇龍。</li>
+<li>你壓起身 -&gt; <strong>防禦 (擋住昇龍)</strong> -&gt; 等他落地。</li>
+<li><strong>反擊</strong>：這時對手處於嚴重硬直，使用 <strong>5HP (站重拳) 起手</strong> 的最大傷害連段。</li>
+<li><strong>連段範例</strong>：5HP (PC) -&gt; 5HP -&gt; 236HP / SA3。</li>
+</ul>
+</li>
+<li><strong>進階</strong>：如果是對手 SA3 被擋，硬直更長，可以從容地用最強連段 (如綠衝起始) 去修理他。</li>
+</ul>
+<h2 id="1230-rps"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 750)">(12:30)</a> 攻防猜拳總結 (RPS)</h2>
+<ul>
+<li><strong>打 (Strike)</strong> 贏 <strong>亂動/拆摔</strong>。</li>
+<li><strong>防 (Block)</strong> 贏 <strong>凹 (Reversal)</strong>。</li>
+<li><strong>摔 (Throw)</strong> 贏 <strong>防 (Block)</strong>。</li>
+<li><strong>凹 (Reversal)</strong> 贏 <strong>打/摔</strong> (因為無敵)。</li>
+</ul>
+<h2 id="1500"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 900)">(15:00)</a> 實戰應用：不要怕凹/也不要怕被凹</h2>
+<ul>
+<li><strong>新手迷思</strong>：新手常因為怕對手凹而不敢壓起身。<ul>
+<li><strong>糾正</strong>：必須要壓！如果不壓，對手起身就沒有壓力。</li>
+<li>偶爾被凹到沒關係，重點是你要逼對手猜拳。如果他凹失敗一次，你的一套大確反傷害通常比他凹中你的傷害高得多 (期望值問題)。</li>
+</ul>
+</li>
+<li><strong>新手迷思 2</strong>：自己不敢凹。<ul>
+<li><strong>糾正</strong>：要在實戰中練習凹。這是一種強力的防守反擊手段，能讓對手在進攻時有所忌憚。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2048-wake-up-dp-spammers"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 1248)">(20:48)</a> 實戰分析：對付凹魔人 (Wake-up DP Spammers)</h2>
+<ul>
+<li><strong>現象</strong>：有些對手 (如 Ken/Luke) 只要倒地就喜歡凹昇龍。</li>
+<li><strong>對策</strong>：<strong>防禦 (Block)</strong>。<ul>
+<li>壓起身時，假裝要打，其實是走過去防禦 (Shimmy 的變體或直接蹲防)。</li>
+<li>一旦擋住他的無敵技 -&gt; <strong>大確反一套帶走</strong>。</li>
+<li>觀察對手資源：如果對手沒氣 (Burnout)，他就凹不出 OD 昇龍 (只能凹 SA)，這時可以更放心壓制。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2800"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vhZoC1W5NCs', 1680)">(28:00)</a> 總結</h2>
+<ul>
+<li><strong>凹 (Reversal)</strong> 是格鬥遊戲心理戰的高潮。</li>
+<li>學會「大確反」是提升勝率的關鍵。擋住昇龍後只摔他是虧的，一定要練一套痛的連段。</li>
+<li>實戰中保持平常心，被凹了就被凹了，不要生氣，下一把猜回來就好。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_6__dOVnDTeRl4">
+            <div class="episode-header">
+                <small>Episode 6</small>
+                <h1>系統化教學帶你入門快打旋風經典模式第六集_確認_確反__快打旋風6__教學__新手</h1>
+                 <button onclick="playVideo('_dOVnDTeRl4', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第六集：確認與確反</h1>
+<h2 id="0528-hit-confirm"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 328)">(05:28)</a> 攻擊確認 (Hit Confirm)</h2>
+<ul>
+<li><strong>概念</strong>：在攻擊打中對手時 (Hit) 繼續連段，被防住時 (Block) 停止或接安全招式。</li>
+<li><strong>練習</strong>：<ul>
+<li><strong>2MP (下中拳) / 5MP (站中拳)</strong> 連打兩下。</li>
+<li><strong>打中</strong> -&gt; 取消接必殺技 (如波動拳、OD 足刀、龍卷)。</li>
+<li><strong>被擋</strong> -&gt; 停手，或者波掌擊 (214P，較安全)。</li>
+</ul>
+</li>
+<li><strong>單點確認 vs 多點確認</strong>：新手建議用兩下拳腳來確認 (例如 5MP &gt; 2MP)，反應時間較充裕。單發確認 (Single Hit Confirm) 對反應要求極高，通常是高手領域。</li>
+</ul>
+<h2 id="0707-punish-punish-counter"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 427)">(07:07)</a> 確反 (Punish / Punish Counter)</h2>
+<ul>
+<li><strong>原理</strong>：<ul>
+<li>當對手招式打在防禦上，會產生硬直差 (Frame Advantage)。</li>
+<li>如果對手硬直差 (例如 -6) 大於你最快招式的發生時間 (例如 4F)，你就能 <strong>必中</strong> 反擊。</li>
+</ul>
+</li>
+<li><strong>條件</strong>：<ol>
+<li><strong>幀數 (Frames)</strong>：對手夠負 (通常 -4 以上)。</li>
+<li><strong>距離 (Spacing)</strong>：你的招式打得到。有些招式雖然很負 (如 -10)，但如果距離太遠，輕拳摸不到，就無法確反。</li>
+</ol>
+</li>
+</ul>
+<h2 id="0824-2hk"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 504)">(08:24)</a> 重點練習：確反掃腿 (下重腳 / 2HK)</h2>
+<ul>
+<li><strong>通用規則</strong>：<ul>
+<li>幾乎所有角色的下重腳 (Sweep) 都是 <strong>大確反</strong> (通常 -10 到 -12 以上)。</li>
+<li>龍的下重腳發生約 9F，所以 <strong>「擋住下重腳 -&gt; 確反下重腳」</strong> 是基本功。</li>
+</ul>
+</li>
+<li><strong>距離陷阱</strong>：有時候對手用腳尖 (Tip / 尖端) 摸你，雖然幀數很負，但你的下重腳可能會揮空。這時需要用較長的招應對。</li>
+</ul>
+<h2 id="1230"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 750)">(12:30)</a> 關於硬直差的知識</h2>
+<ul>
+<li><strong>不需要背表</strong>：新手不需要背誦所有角色的幀數表。</li>
+<li><strong>記動畫</strong>：記住每個角色「下重腳」的動作，看到擋住 -&gt; 肌肉記憶按重腳。</li>
+<li><strong>安全招與騙招</strong>：<ul>
+<li>波動拳貼身被擋是不安全的 (-6 左右)，可能被確反。</li>
+<li>但拉遠距離後，因為飛行時間吃掉了幀數，波動拳可能變安全甚至有利 (+)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1532"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 932)">(15:32)</a> 安全距離與幀數變化</h2>
+<ul>
+<li>許多招式 (如足刀 236K) 在貼身被擋是確反，但在遠距離 (Tip range) 被擋可能變得很安全 (-2 或 -3)。</li>
+<li>實戰中要學會分辨距離，不要看到招式就無腦確反，可能會被打。</li>
+</ul>
+<h2 id="2000"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 1200)">(20:00)</a> 實戰應用與觀察</h2>
+<ul>
+<li><strong>觀察對手</strong>：<ul>
+<li>如果對手喜歡亂出下重腳 (Sweep)，專注擋住並掃回去。</li>
+<li>如果對手喜歡出不安全的必殺技 (如貼身波動、貼身足刀)，嘗試用輕攻擊確反。</li>
+</ul>
+</li>
+<li><strong>Match Analysis (實戰分析)</strong>：<ul>
+<li>影片中演示了對戰 Zangief (老桑)。老桑的某些招式距離遠很難確反，這時不要強求。</li>
+<li>面對 Modern controls (現代模式) 的 Ed，要注意他的快節奏。</li>
+<li>即便到了金牌段位，很多玩家依然會習慣性地出下重腳，這就是你的機會。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3100"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('_dOVnDTeRl4', 1860)">(31:00)</a> 總結</h2>
+<ul>
+<li><strong>確認 (Hit Confirm)</strong> 讓你進攻更安全，不會因為亂出必殺技被確反。</li>
+<li><strong>確反 (Punish)</strong> 是免費的傷害。擋住下重腳 = 免費 KD (擊倒) + 壓起身機會。</li>
+<li>練好這兩點，你的防守反擊能力會大幅提升。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_7_vINfm0l7TTM">
+            <div class="episode-header">
+                <small>Episode 7</small>
+                <h1>系統化教學帶你入門快打旋風經典模式第七集_對空_波升__快打旋風6__教學__新手</h1>
+                 <button onclick="playVideo('vINfm0l7TTM', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第七集：對空與波升</h1>
+<h2 id="0000-anti-air"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 0)">(00:00)</a> 對空 (Anti-Air) 的重要性</h2>
+<ul>
+<li><strong>收益</strong>：跳入攻擊收益極高 (一套連段 3000+ 傷害)。如果不對空，對手會肆無忌憚地跳。</li>
+<li><strong>目標</strong>：讓對手不敢跳，強迫他們在地面跟你立回。</li>
+</ul>
+<h2 id="0244"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 164)">(02:44)</a> 對空的三種方式</h2>
+<ol>
+<li><strong>昇龍拳 (Shoryuken / DP)</strong>：<ul>
+<li><strong>最強對空</strong>：某些版本 (如中昇龍、OD昇龍) 擁有「對空無敵」屬性。</li>
+<li>只要指令對、時機對，幾乎必勝。</li>
+</ul>
+</li>
+<li><strong>普通拳腳 (Normals)</strong>：<ul>
+<li>如龍的 <strong>2HP (下重拳)</strong>。</li>
+<li>優點：簡單、只需按一個鍵。</li>
+<li>缺點：沒有無敵，可能相殺或被打掉，且需注意距離。</li>
+</ul>
+</li>
+<li><strong>空對空 (Air-to-Air)</strong>：<ul>
+<li>跳起來按拳/腳 (如跳中拳、跳輕拳)。</li>
+<li>適用於反應慢了、距離不適合昇龍，或想爭取主動權時。</li>
+</ul>
+</li>
+</ol>
+<h2 id="0711-fireball-trap-bo-sheng"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 431)">(07:11)</a> 波昇戰術 (Fireball Trap / "Bo-Sheng")</h2>
+<ul>
+<li><strong>核心邏輯</strong>：<ol>
+<li>發波動拳 (Hadoken) 騷擾對手。</li>
+<li>對手覺得煩/不想防禦損血 -&gt; <strong>跳起來</strong> 想攻擊你。</li>
+<li>你預判/反應到跳躍 -&gt; <strong>昇龍拳對空</strong>。</li>
+</ol>
+</li>
+<li><strong>安全波動</strong>：<ul>
+<li>只有在對手「跳入距離」之外發波才安全。</li>
+<li>如果太近發波，對手跳入會剛好踢到你的收招僵直 (Punish)。</li>
+</ul>
+</li>
+<li><strong>練習</strong>：<ul>
+<li>錄製電腦：防禦後「跳攻擊」。</li>
+<li>練習：發波 -&gt; 看電腦跳 -&gt; 昇龍。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1200"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 720)">(12:00)</a> 相信你的昇龍</h2>
+<ul>
+<li>昇龍拳在起手幀有對空無敵。</li>
+<li>即使看起來對手的腳已經踢到你的頭，只要昇龍出來，系統判定你會贏。</li>
+<li><strong>心態</strong>：不要怕被打，勇敢出昇龍。</li>
+</ul>
+<h2 id="1754-fireball-war"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 1074)">(17:54)</a> 波對波 (Fireball War)</h2>
+<ul>
+<li><strong>判定優先級</strong>：<ul>
+<li><strong>SA (超必殺) 波</strong> &gt; <strong>OD (強化) 波</strong> &gt; <strong>普通波</strong>。</li>
+<li><strong>Hit 數</strong>：2 Hit 的波會吃掉 1 Hit 的波，然後剩下 1 Hit 繼續飛。</li>
+</ul>
+</li>
+<li><strong>電刃鍊氣 (Denis Charge)</strong>：強化波動拳 (2 Hits / 速度快)，能贏過普通波。</li>
+<li><strong>不知火舞 (Mai) 案例</strong>：她的 SA1 可以強化扇子，要注意其 Hit 數變化。</li>
+</ul>
+<h2 id="2000"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 1200)">(20:00)</a> 實戰應用：波昇的距離感</h2>
+<ul>
+<li><strong>黃金距離</strong>：剛好是波動拳能打到對手，但對手跳入會落在你昇龍範圍內的距離。</li>
+<li><strong>對付穿波招式</strong>：<ul>
+<li>對付 Vega (Bison) 的穿波 (Psycho Crusher)，要保持距離或垂直對應。</li>
+<li>如果對手有穿波技，發波頻率要降低，或者用輕波騙招。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2930-dj"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 1770)">(29:30)</a> 實戰分析：對戰 DJ</h2>
+<ul>
+<li>DJ 的雙波 (Double Air Slasher) 很強，不要盲目對波。</li>
+<li>保持距離，用 Parry 接波回氣。</li>
+<li>當他忍不住跳過來時，給予昇龍痛擊。</li>
+<li>此階段 (白金以下)，只要對手跳不過來又對不過波，基本上就會自亂陣腳。</li>
+</ul>
+<h2 id="3600"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vINfm0l7TTM', 2160)">(36:00)</a> 總結</h2>
+<ul>
+<li>對空需要分配注意力 (Mental Stack)。</li>
+<li>初期做不到「自動對空」很正常，先強迫自己意識到「他可能會跳」。</li>
+<li>你的昇龍是你最強的盾，也是最強的誘餌。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_8_7scvIg6PLVc">
+            <div class="episode-header">
+                <small>Episode 8</small>
+                <h1>系統化教學帶你入門快打旋風六經典模式第八集_幀數_下中腳取消綠衝</h1>
+                 <button onclick="playVideo('7scvIg6PLVc', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風六經典模式第八集：幀數 下中腳取消綠衝</h1>
+<h2 id="0000-frame-data"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 0)">(00:00)</a> 幀數觀念 (Frame Data)</h2>
+<ul>
+<li><strong>不利 (Negative / Minus)</strong>：<ul>
+<li>當你的攻擊被防住後，若硬直差是負數 (如 -1, -2, -3)，代表對手可以比你先動。</li>
+<li><strong>重點</strong>：處於不利幀數時，<strong>絕對不要亂按 (Don't mash)</strong>。尤其是對手防禦後，如果你還想點輕拳 (4F)，會被對手的輕拳 (4F) 搶招打成 Counter。</li>
+</ul>
+</li>
+<li><strong>有利 (Positive / Plus)</strong>：<ul>
+<li>若硬直差是正數 (如 +2, +3)，代表你可以比對手先動。這時對手如果亂動就會被打。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0253-drive-parry"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 173)">(02:53)</a> 獲取有利幀的方法：藍防 (Drive Parry)</h2>
+<ul>
+<li>影片中詳細介紹了 <strong>藍防 (Parry)</strong> 的操作與優勢。<ul>
+<li><strong>操作</strong>：中拳+中腳 (MP+MK)。</li>
+<li><strong>特點</strong>：對打擊和飛行道具無敵 (除了摔)。</li>
+<li><strong>完美藍防 (Perfect Parry)</strong>：在被攻擊到的瞬間按 Parry，幀數優勢極大，可以反擊 (但傷害修正 50%)。</li>
+<li><strong>普通藍防</strong>：不會被退氣，且成功防禦會回氣。對於不想被對手連續壓制削減動力槽 (Drive Gauge) 時非常有用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0707-2mk-drc-option-select"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 427)">(07:07)</a> 下中腳複合綠衝 (2MK DRC Option Select)</h2>
+<ul>
+<li><strong>輸入技巧</strong>：<strong>2MK (按住不放) + 66</strong> (有的 Hitbox 技巧) 或 <strong>2MK xx Parry 鍵</strong>。</li>
+<li><strong>目的</strong>：在立回時，每次出 2MK 都預輸入綠衝。<ul>
+<li>如果 2MK <strong>沒打到 (揮空)</strong> -&gt; 綠衝不會出來 (省氣)。</li>
+<li>如果 2MK <strong>打到 (Hit/Block)</strong> -&gt; 綠衝自動出來 -&gt; 形成壓制 (+4) 或連段。</li>
+</ul>
+</li>
+<li><strong>連段選擇</strong>：<ul>
+<li><strong>打中</strong>：2MK &gt; DRC &gt; 5MP &gt; 2HP &gt; ... (痛連段)。</li>
+<li><strong>被擋</strong>：2MK &gt; DRC &gt; 5MP (有利) &gt; 2MP ... (繼續壓制)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1200-6hp"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 720)">(12:00)</a> 前重拳 (6HP) 的強大</h2>
+<ul>
+<li>這是一個 <strong>正幀 (+)</strong> 的普通技。</li>
+<li>新手不知道這個概念，看到你打完會想動，結果被你下一招打 Counter。</li>
+<li><strong>應用</strong>：<strong>6HP (被擋) -&gt; 5MP (站中拳)</strong>。<ul>
+<li>無腦壓制，對方亂動就會被打。</li>
+<li><em>距離注意</em>：如果在較遠距離打中 6HP，可能 5MP 接不到，要改接 2MP。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1639-drive-gauge-management"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 999)">(16:39)</a> 實戰資源管理 (Drive Gauge Management)</h2>
+<ul>
+<li><strong>不要無腦綠衝</strong>：因為綠衝取消很貴 (3格)。</li>
+<li><strong>動力槽策略</strong>：<ul>
+<li><strong>&gt; 5 格 (健康)</strong>：可以嘗試用 2MK 複合綠衝進攻。</li>
+<li><strong>&lt; 3 格 (危險)</strong>：停止綠衝，轉為保守，發波、對空、立回，等待氣回復。被 Burnout (白血) 是非常劣勢的狀態。</li>
+<li><strong>進攻節奏</strong>：如果你綠衝進去打了幾下沒破防，不要硬打，退回來回氣，保持資源優勢。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2046"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 1246)">(20:46)</a> 實戰分析</h2>
+<ul>
+<li><strong>利用正幀欺負新手</strong>：很多對手不知道 6HP 是正的，會一直點拳。你就一直出 6HP &gt; 5MP 打爆他。</li>
+<li><strong>2MK 複合的穩定性</strong>：這招是龍 (Ryu) 為數不多能主動起手的強勢手段，必須練熟。</li>
+<li><strong>面對 Burnout</strong>：如果你把對手打到 Burnout (氣絕)，可以盡情壓制，甚至用 Impact (DI) 把他撞牆暈眩。</li>
+</ul>
+<h2 id="2600"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('7scvIg6PLVc', 1560)">(26:00)</a> 總結</h2>
+<ul>
+<li>幀數是格鬥遊戲的數學，懂數學的人可以「合法作弊」(利用正幀)。</li>
+<li>複合綠衝是現代格鬥遊戲最重要的立回技巧之一，能讓你的反應看起來像職業選手。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_9_Ye-DbbG1Ow8">
+            <div class="episode-header">
+                <small>Episode 9</small>
+                <h1>系統化教學帶你入門快打旋風經典模式_第九集_DI_動力衝擊</h1>
+                 <button onclick="playVideo('Ye-DbbG1Ow8', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="di">系統化教學帶你入門快打旋風經典模式第九集：DI (動力衝擊)</h1>
+<h2 id="0000-di-drive-impact"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('Ye-DbbG1Ow8', 0)">(00:00)</a> DI 基本屬性 (Drive Impact)</h2>
+<ul>
+<li><strong>指令</strong>：重拳 + 重腳 (HP + HK)。消耗 1 格動力槽。</li>
+<li><strong>霸體 (Armor)</strong>：<ul>
+<li>起手階段有霸體，可以承受 <strong>2 次</strong> 攻擊。</li>
+<li><strong>弱點</strong>：第 3 次攻擊會打破霸體 (Armor Break)。破甲屬性招式 (如多段判定的波、老桑蓄力拳) 也能破。</li>
+</ul>
+</li>
+<li><strong>發生與硬直</strong>：發生 26F (慢)，但後搖 (Recovery) 很長，若揮空極易被確反。</li>
+</ul>
+<h2 id="0225-di-10"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('Ye-DbbG1Ow8', 145)">(02:25)</a> DI 的 10 種交互狀況</h2>
+<ol>
+<li><strong>被防住 (Block)</strong>：退 0.5 格氣，對手被推開 (-3F)。在版邊會被撞牆 (Wall Splat)。</li>
+<li><strong>打中 (Hit)</strong>：對手倒地，失 1 格氣。</li>
+<li><strong>打康特 (Counter)</strong>：對手硬直更長，失更多氣。</li>
+<li><strong>空中命中</strong>：對手被擊飛，可連段。</li>
+<li><strong>打收招 (Punish)</strong>：對手膝蓋跪地 (Crumple)，可接最大傷害連段。</li>
+<li><strong>打在藍防 (Parry) 上</strong>：對手回 2 格氣，且即使在版邊也 <strong>不會</strong> 撞牆。</li>
+<li><strong>打在金防 (Perfect Parry) 上</strong>：被大確反 (-35F)，但傷害修正 50%。</li>
+<li><strong>打氣絕 (Burnout) 對手</strong>：對手無法藍防，被撞牆會暈眩 (Stun)。</li>
+<li><strong>互撞 (Clash)</strong>：極少見，同時發生。</li>
+<li><strong>來得及取消但沒按</strong>：系統判定你可以反 DI 但你沒按，會有特殊特效。</li>
+</ol>
+<h2 id="1430-di"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('Ye-DbbG1Ow8', 870)">(14:30)</a> DI 的進階策略</h2>
+<ul>
+<li><strong>白血致死 (Chip Kill via DI)</strong>：<ul>
+<li>雖然 DI 在版中被擋不會扣血 (白血會回)，但如果對手血量極低 (&lt;400)，擋住 DI 也會因白血機制而死。</li>
+</ul>
+</li>
+<li><strong>反應時機 (Reaction)</strong>：<ul>
+<li>透過綠衝 (DR) 或拳腳接觸時發動 DI，因為遊戲的 <strong>Hitstop (停頓感)</strong> 機制，會讓對手覺得時間變慢，反而更容易按回 DI。</li>
+<li><strong>暗轉 (Screen Freeze) 技巧</strong>：在自己虛弱 (Burnout) 時，瘋狂轉 SA 指令但不按鍵。看到對手 DI 畫面變紅瞬間按下 SA 鍵，這叫「暗轉確認」。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2500-di"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('Ye-DbbG1Ow8', 1500)">(25:00)</a> 什麼時候該用 DI？</h2>
+<ol>
+<li><strong>瞎按 (Prediction/Gambling)</strong>：<ul>
+<li>賭對手會出 <strong>不可取消</strong> 的重攻擊 (如龍的 2HK, 5MK)。這時他按不出反 DI，必中。</li>
+</ul>
+</li>
+<li><strong>看確反 (Reaction)</strong>：<ul>
+<li>看到對手出破綻大的招 (如龍的驢踢起手)，確認後按 DI。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2820-di"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('Ye-DbbG1Ow8', 1700)">(28:20)</a> 什麼時候 <strong>不該</strong> 用 DI？</h2>
+<ol>
+<li><strong>起身 DI</strong>：極差的選擇。因為對手壓起身通常用輕攻擊 (收招快)，或者直接投，都能贏 DI。</li>
+<li><strong>對空 DI</strong>：極差。對手跳攻擊會破甲或落地防禦。</li>
+<li><strong>連段中亂插 DI</strong>：沒有意義，增加被反風險，除非為了回氣或特殊連段。</li>
+<li><strong>場中無腦 DI</strong>：高分段玩家反應很快，場中隨意 DI 等於送對手一套連段。</li>
+</ol>
+<h2 id="3645"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('Ye-DbbG1Ow8', 2205)">(36:45)</a> 總結</h2>
+<ul>
+<li>DI 是新手的殺手鐧，但隨著段位提升，使用頻率應降低。</li>
+<li>專注練習 <strong>反 DI (Counter DI)</strong>：聽到音效、看到紅色特效，肌肉記憶直接按回去。這比自己主動按更重要。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_10_-g0Z1wSs63g">
+            <div class="episode-header">
+                <small>Episode 10</small>
+                <h1>系統化教學帶你入門快打旋風經典模式_第十集_連續壓起身_角落壓制</h1>
+                 <button onclick="playVideo('-g0Z1wSs63g', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第十集：連續壓起身與角落壓制</h1>
+<h2 id="0000-corner-carry"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('-g0Z1wSs63g', 0)">(00:00)</a> 為什麼要推版 (Corner Carry)</h2>
+<ul>
+<li><strong>版邊優勢</strong>：<ol>
+<li><strong>版邊限定連段</strong>：許多高傷害連段只有在牆邊才能成立 (如 Loop)。</li>
+<li><strong>無需資源的壓起身</strong>：場中打倒對手常需要綠衝才能貼身，板邊則自動貼身。</li>
+<li><strong>限制對手移動</strong>：對手無法後退，你的招式更難揮空。</li>
+</ol>
+</li>
+</ul>
+<h2 id="0143-recovery"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('-g0Z1wSs63g', 103)">(01:43)</a> 受身機制 (Recovery)</h2>
+<ul>
+<li><strong>種類</strong>：<ul>
+<li><strong>原地受身 (Normal Recovery)</strong>：倒地後直接原地起來。</li>
+<li><strong>後受身 (Back Recovery)</strong>：倒地後往後滾一段距離再起來。</li>
+</ul>
+</li>
+<li><strong>操作</strong>：倒地時按任意兩鍵 (通常建議按著不用狂點)。</li>
+<li><strong>為什麼要後受身</strong>：<ul>
+<li>如果你原地受身，對手很容易就能繼續壓你。</li>
+<li>後受身能拉開距離，增加對手壓制的難度 (可能需要綠衝才壓得到)。</li>
+<li><strong>例外</strong>：被強制倒地 (Hard Knockdown) 的招式 (如確反掃腿、確反投) 打中後，無法後受身。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1056-active-frame-meaty"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('-g0Z1wSs63g', 656)">(10:56)</a> 壓持續 (Active Frame Meaty / "偷幀")</h2>
+<ul>
+<li><strong>概念</strong>：<ul>
+<li>讓攻擊判定的「後半段」打中對手。</li>
+<li>這樣攻擊的「持續幀」結束得快，你的硬直差 (Frame Advantage) 會變大。</li>
+<li>例如：原本 +1 的招式，如果能用後半段打中，可能變成 +4。</li>
+</ul>
+</li>
+<li><strong>應用</strong>：<ul>
+<li><strong>龍的重昇龍 (HP DP) 結尾</strong>：這通常是固定 +37F (地面命中的話)。</li>
+<li><strong>公式</strong>：昇龍 (+37) -&gt; 空揮 5MK (消費幀數) -&gt; 5MP (壓起身)。</li>
+<li>這樣壓到的 5MP 會變成 <strong>+2</strong> (原本 +1) 甚至更多。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2013"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('-g0Z1wSs63g', 1213)">(20:13)</a> 正一負一沒用？</h2>
+<ul>
+<li>此作者的觀點：+1/-1 在實戰中強度有限，因為投的發生是 5F，輕拳是 4F。</li>
+<li><strong>目標</strong>：透過「壓持續」製造 <strong>+2</strong> 或以上的優勢。</li>
+<li><strong>+2 的優勢</strong>：你的 4F 輕拳會贏過對手的 4F 輕拳 (相殺變單方面贏)，且能打贏對手的投。</li>
+</ul>
+<h2 id="2200-corner-flowchart"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('-g0Z1wSs63g', 1320)">(22:00)</a> 角落壓制套路 (Corner Flowchart)</h2>
+<ul>
+<li><strong>龍卷旋風腳 (Tatsumaki) 結尾</strong>：<ul>
+<li>輕龍卷 (+2) -&gt; 輕拳 / 投 二擇。</li>
+<li>中龍卷 -&gt; 傷害更高，壓制類似。</li>
+</ul>
+</li>
+<li><strong>重昇龍結尾 (版邊)</strong>：<ul>
+<li><strong>前衝 (Dash) x2</strong> -&gt; +3 左右，直接投或打。</li>
+<li>這個套路簡單暴力，適合新手。</li>
+</ul>
+</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_11_IcHpVNY7ui8">
+            <div class="episode-header">
+                <small>Episode 11</small>
+                <h1>系統化教學帶你入門快打旋風經典模式_第十一集_新手建議</h1>
+                 <button onclick="playVideo('IcHpVNY7ui8', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第十一集：新手建議</h1>
+<h2 id="0106"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('IcHpVNY7ui8', 66)">(01:06)</a> 回合制遊戲觀念</h2>
+<ul>
+<li><strong>把格鬥遊戲當作超快節奏的回合制遊戲</strong>。</li>
+<li><strong>我的回合 (My Turn / +Frames)</strong>：<ul>
+<li>當你是正幀 (+)。</li>
+<li>選擇：進攻 (打、投)。</li>
+</ul>
+</li>
+<li><strong>對手的回合 (Their Turn / -Frames)</strong>：<ul>
+<li>當你是負幀 (-)。</li>
+<li>選擇：<strong>防禦 (Block)</strong>。不要亂動！</li>
+</ul>
+</li>
+<li><strong>新手通病</strong>：在負幀時 (如被連段打完、升龍被擋) 不願意防禦，一直想按輕拳搶回來，結果一直挨打。</li>
+</ul>
+<h2 id="0529"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('IcHpVNY7ui8', 329)">(05:29)</a> 什麼時候是「負幀」？</h2>
+<ol>
+<li><strong>攻擊被擋</strong>：大部分拳腳被擋都是負的 (除了少數如綠衝攻擊、龍的 6HP)。</li>
+<li><strong>被攻擊命中</strong>：絕大多數情況下，被打中後你都是負的。<ul>
+<li>新手常覺得「被打了很不爽要打回去」，但這時按鍵只會被 Counter。</li>
+</ul>
+</li>
+<li><strong>綠衝過來的攻擊</strong>：對手綠衝攻擊被你擋住，通常對手是正的 (+4)。這時要乖乖擋，不要動。</li>
+<li><strong>進入 Burnout (白血)</strong>：被擋的硬直增加 +4，變成極度不利。</li>
+</ol>
+<h2 id="1433-adaptation"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('IcHpVNY7ui8', 873)">(14:33)</a> 觀察對手 (Adaptation)</h2>
+<ul>
+<li><strong>出題與解題</strong>：<ul>
+<li>你出下中腳 (題目)，對手擋住後確反 (解題正確)。-&gt; 你下次不能亂出。</li>
+<li>你跳入 (題目)，對手沒對空 (解題失敗)。-&gt; 你可以一直跳，直到他學會為止。</li>
+</ul>
+</li>
+<li><strong>不要當單機玩家</strong>：不要不管對手在幹嘛，只顧自己打自己的套路。</li>
+<li><strong>實戰應用</strong>：試探對手會不會對空、會不會解摔、會不會防凹。針對他的弱點一直打。</li>
+</ul>
+<h2 id="2006"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('IcHpVNY7ui8', 1206)">(20:06)</a> 放慢節奏</h2>
+<ul>
+<li>新手常處於「極度緊張/興奮」狀態，一開場就瘋狂進攻。</li>
+<li><strong>建議</strong>：試著「蹲防」一陣子。<ul>
+<li>觀察對手想幹嘛。</li>
+<li>等對手跳過來 -&gt; 對空。</li>
+<li>等對手出大招 -&gt; 確反。</li>
+<li>只要你能穩住防守，對手往往會自己送上門。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2156-reversal-demon"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('IcHpVNY7ui8', 1316)">(21:56)</a> 當個聰明的凹鬼 (Reversal Demon)</h2>
+<ul>
+<li><strong>不要每次都凹</strong>：容易被識破。</li>
+<li><strong>延遲凹 (Delay Reversal)</strong>：擋住第一下攻擊後，在第二下凹。很多新手不懂得防連續凹。</li>
+<li><strong>防凹</strong>：因為新手很愛凹，你在壓制時也要記得「防凹」。壓一下 -&gt; 蹲防觀察 -&gt; 確反。</li>
+</ul>
+        </div>
+    
+        <div class="episode-section" id="ep_12_vXulhEIvs1Q">
+            <div class="episode-header">
+                <small>Episode 12</small>
+                <h1>系統化教學帶你入門快打旋風經典模式_第十二集_中段攻擊</h1>
+                 <button onclick="playVideo('vXulhEIvs1Q', 0)" style="margin-top:10px; padding:5px 10px; cursor:pointer;">▶ Play This Episode</button>
+            </div>
+            <h1 id="_1">系統化教學帶你入門快打旋風經典模式第十二集：中段攻擊</h1>
+<h2 id="0057-overhead"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vXulhEIvs1Q', 57)">(00:57)</a> 中段攻擊 (Overhead)</h2>
+<ul>
+<li><strong>定義</strong>：必須 <strong>站立防禦 (Stand Block)</strong> 的攻擊。蹲防會被打中。</li>
+<li><strong>常見中段</strong>：<ul>
+<li>所有角色的 <strong>跳躍攻擊</strong> 都是中段 (例外：Dhalsim 跳中手)。</li>
+<li>地面特殊技 (如龍的 <strong>6MP / 前中拳</strong>)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="0453"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vXulhEIvs1Q', 293)">(04:53)</a> 中段的連段</h2>
+<ul>
+<li>龍的前中拳 (6MP) 發生 20F，被擋 -1，打中 +3。</li>
+<li><strong>綠衝中段 (Drive Rush Overhead)</strong>：<ul>
+<li>綠衝 6MP -&gt; 打中變成 +7，可以接 5MP -&gt; 連段。</li>
+<li>這是一個強力的破防手段 (High/Low Mixup)。</li>
+<li><strong>連段</strong>：DR 6MP -&gt; 5MP -&gt; 2MK -&gt; 623HP (昇龍)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1200-fuzzy-guard-delayed-overhead"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vXulhEIvs1Q', 720)">(12:00)</a> 延遲中段 (Fuzzy Guard / Delayed Overhead)</h2>
+<ul>
+<li>(進階概念) 高手會利用「延遲一點點出中段」來騙過對手的防守節奏。</li>
+<li>但對付新手通常不需要這麼複雜，直接出就能打中，因為新手往往只會蹲防。</li>
+</ul>
+<h2 id="1609"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vXulhEIvs1Q', 969)">(16:09)</a> 殘局應用</h2>
+<ul>
+<li>當對手血量很少時，心理壓力大，通常會下意識蹲防 (怕下段)。</li>
+<li>這時一個 <strong>綠衝中段</strong> 或 <strong>前中拳</strong> 往往能直接收割比賽 (偷中段)。</li>
+</ul>
+<h2 id="1740"><a href="javascript:void(0);" class="ts-link" onclick="playVideo('vXulhEIvs1Q', 1060)">(17:40)</a> 總結</h2>
+<ul>
+<li>攻擊手段不能只有下段和投。</li>
+<li>加入中段攻擊 (配合綠衝)，能讓你的進攻變得立體，讓對手防不勝防。</li>
+<li>影片系列到此暫時結束，鼓勵大家多練習。</li>
+</ul>
+        </div>
+    
+    </div>
+</div>
+
+</body>
+</html>
