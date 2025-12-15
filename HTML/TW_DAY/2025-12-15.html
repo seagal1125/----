@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動森股市日報 🍃 2025-12-15</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #fcf9f3;
+            color: #5c5c5c;
+            margin: 0;
+            padding: 20px;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="80" fill-opacity=".1" text-anchor="middle" dominant-baseline="middle">🍃</text></svg>');
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px dashed #a8e6cf;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            color: #00695c;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #888;
+            margin-top: 5px;
+        }
+        .intraday-notice {
+            background-color: #fffbe5;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .card {
+            background: #fafff5;
+            border: 1px solid #dcedc1;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .card h2 {
+            color: #2e7d32;
+            margin-top: 0;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .grid-item {
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .support {
+            background-color: #e8f5e9;
+            border-left: 5px solid #66bb6a;
+        }
+        .drag {
+            background-color: #ffebee;
+            border-left: 5px solid #ef5350;
+        }
+        .grid-item h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+        .highlight {
+            font-weight: 700;
+        }
+        .positive { color: #d32f2f; }
+        .negative { color: #388e3c; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #f1f8e9;
+            color: #33691e;
+            font-weight: 700;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9fbe7;
+        }
+        tbody tr:hover {
+            background-color: #e8f5e9;
+        }
+        .interpretation {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        .interpretation strong {
+            color: #1976d2;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>🍃 Nook 集會處股市日報 🔔</h1>
+            <p class="subtitle">日期：2025年12月15日</p>
+        </div>
+
+        <div class="intraday-notice">
+            <strong>盤中分析請注意！</strong> 這份報告是基於 13:30 收盤前的資料，最終結果可能會有些許不同喔！
+        </div>
+
+        <div class="card">
+            <h2>今日大盤總覽 🏝️</h2>
+            <p>今天島上的氣氛有點微妙，大盤看起來有些沒精神～</p>
+            <ul>
+                <li>大盤等權日漲幅：<span class="highlight negative">-0.06%</span></li>
+                <li>大盤市值加權日漲幅：<span class="highlight negative">-1.31%</span></li>
+            </ul>
+            <div class="grid">
+                <div class="grid-item support">
+                    <h3>💪 努力撐盤的好夥伴</h3>
+                    <ul>
+                        <li><b>15-航運業:</b> 市值貢獻 <span class="positive">0.02%</span></li>
+                        <li><b>03-塑膠工業:</b> 市值貢獻 <span class="positive">0.01%</span></li>
+                        <li><b>10-鋼鐵工業:</b> 市值貢獻 <span class="positive">0.01%</span></li>
+                    </ul>
+                </div>
+                <div class="grid-item drag">
+                    <h3>😥 需要加油的夥伴</h3>
+                    <ul>
+                        <li><b>24-半導體業:</b> 市值貢獻 <span class="negative">-0.96%</span></li>
+                        <li><b>28-電子零組件業:</b> 市值貢獻 <span class="negative">-0.13%</span></li>
+                        <li><b>25-電腦及週邊設備業:</b> 市值貢獻 <span class="negative">-0.10%</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✨ 閃亮亮的權值股們</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>貢獻好成績 🌟</h3>
+                    <ul>
+                        <li><b>聯發科技 (2454):</b> 貢獻 <span class="positive">0.04%</span></li>
+                        <li><b>華城電機 (1519):</b> 貢獻 <span class="positive">0.01%</span></li>
+                        <li><b>台灣化纖 (1326):</b> 貢獻 <span class="positive">0.01%</span></li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>有點拖累大家 💦</h3>
+                    <ul>
+                        <li><b>台積電 (2330):</b> 貢獻 <span class="negative">-0.85%</span></li>
+                        <li><b>鴻海 (2317):</b> 貢獻 <span class="negative">-0.08%</span></li>
+                        <li><b>日月光投控 (3711):</b> 貢獻 <span class="negative">-0.05%</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>族群深入研究 🔬</h2>
+            <h3>15-航運業</h3>
+            <table>
+                <thead><tr><th>公司</th><th>日報酬</th><th>市值權重</th></tr></thead>
+                <tbody>
+                    <tr><td>長榮航空 (2618)</td><td class="positive">1.84%</td><td>0.21%</td></tr>
+                    <tr><td>中華航空 (2610)</td><td class="positive">2.57%</td><td>0.13%</td></tr>
+                    <tr><td>萬海航運 (2615)</td><td class="positive">0.90%</td><td>0.24%</td></tr>
+                    <tr><td>裕民航運 (2606)</td><td class="positive">3.89%</td><td>0.05%</td></tr>
+                </tbody>
+            </table>
+            <div class="interpretation">
+                <strong>西施惠的解讀：</strong> 今日盤面呈現電子股疲軟、傳產與金融股撐盤的格局。航空雙雄（長榮航、華航）與散裝航運（裕民）同步走強，可能受惠於年底假期旅遊旺季預期與運價回穩的消息。整體族群表現強勁，呈現健康的輪漲態勢。
+            </div>
+
+            <h3 style="margin-top: 25px;">03-塑膠工業</h3>
+            <table>
+                <thead><tr><th>公司</th><th>日報酬</th><th>市值權重</th></tr></thead>
+                <tbody>
+                    <tr><td>台灣化纖 (1326)</td><td class="positive">5.96%</td><td>0.21%</td></tr>
+                    <tr><td>台灣塑膠 (1301)</td><td class="positive">1.63%</td><td>0.28%</td></tr>
+                    <tr><td>中石化 (1314)</td><td class="positive">2.83%</td><td>0.03%</td></tr>
+                </tbody>
+            </table>
+            <div class="interpretation">
+                <strong>西施惠的解讀：</strong> 塑化族群由權值股台塑化(1326)領軍大漲近6%，成為撐盤要角。此波漲勢可能與國際油價短期波動或特定塑化產品利差擴大有關。台塑(1301)亦有超過1.5%的漲幅，顯示資金流入大型塑化股避險或尋求補漲機會。
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🏆 贏過大盤的明日之星</h2>
+            <p>今天大盤雖然跌了 <span class="negative">-1.31%</span>，但還是有這些厲害的傢伙逆勢上漲喔！</p>
+            <table>
+                <thead>
+                    <tr><th>公司</th><th>產業</th><th>日報酬</th><th>為何能贏過大盤？</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>聯發科 (2454)</b></td>
+                        <td>半導體業</td>
+                        <td class="positive">1.42%</td>
+                        <td>在半導體逆風中展現強大個股動能，可能與市場對其旗艦晶片的強勁預期有關，吸引了資金。</td>
+                    </tr>
+                    <tr>
+                        <td><b>華城電機 (1519)</b></td>
+                        <td>電機機械</td>
+                        <td class="positive">5.08%</td>
+                        <td>持續受惠電網強韌計畫與綠能需求，長期訂單能見度高，成為資金從電子轉進的代表。</td>
+                    </tr>
+                    <tr>
+                        <td><b>台灣化纖 (1326)</b></td>
+                        <td>塑膠工業</td>
+                        <td class="positive">5.96%</td>
+                        <td>傳產撐盤核心！可能受油價波動或產品利差改善激勵，吸引尋求價值補漲的資金。</td>
+                    </tr>
+                    <tr>
+                        <td><b>第一金 (2892)</b></td>
+                        <td>金融保險業</td>
+                        <td class="positive">1.41%</td>
+                        <td>市場動盪時，營運穩健的官股金控成為資金避風港，反映投資人對穩定收益的期待。</td>
+                    </tr>
+                    <tr>
+                        <td><b>亞翔 (6139)</b></td>
+                        <td>其他電子業</td>
+                        <td class="positive">3.76%</td>
+                        <td>受惠全球半導體廠擴建的無塵室工程需求，訂單能見度高，營收確定性受市場青睞。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>傅達的後續觀察 🦉</h2>
+            <p>根據我的觀察，接下來有幾點值得大家注意喔，훗훗～</p>
+            <ul>
+                <li><span class="highlight">電子權值能否止跌：</span> 市場焦點在於拖累大盤的半導體族群，特別是台積電，何時能穩住陣腳。</li>
+                <li><span class="highlight">傳產輪動持續性：</span> 今日強勢的航運、塑化、鋼鐵等族群，其上漲動能是否能持續，是觀察市場資金流向的關鍵。</li>
+                <li><span class="highlight">金融股扮演角色：</span> 在電子股修正時，金融股常扮演資金避風港，需觀察其是否能吸引資金持續流入。</li>
+                <li><span class="highlight">成交量變化：</span> 大盤下跌，需留意整體成交量。量縮下跌可能意味著賣壓減輕，而放量下跌則需警惕風險。</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>這份報告由 Gemini 居民代表為您整理。祝您有美好的一天！</p>
+        </div>
+    </div>
+
+</body>
+</html>
