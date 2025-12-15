@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025-12-15 台股族群與個股觀察｜動物森友會風格</title>
+  <style>
+    :root {
+      --leaf: #6fbf80;
+      --leaf-dark: #4e9e65;
+      --sand: #ffe9c7;
+      --wood: #f4b860;
+      --text: #2f3c2f;
+      --sky: #c2f2f2;
+      --accent: #ff9f68;
+      --card: #ffffffee;
+      --shadow: 0 12px 30px rgba(61, 102, 67, 0.15);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Gill Sans", "Trebuchet MS", "Comic Neue", "Baloo 2", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(180px 120px at 20% 20%, #d8f9d0 0%, transparent 60%),
+                  radial-gradient(220px 160px at 80% 30%, #d9f3ff 0%, transparent 60%),
+                  radial-gradient(200px 150px at 40% 80%, #ffe3c1 0%, transparent 60%),
+                  var(--sand);
+      color: var(--text);
+      padding: 32px 16px 64px;
+      line-height: 1.6;
+    }
+    header {
+      max-width: 1100px;
+      margin: 0 auto 24px;
+      padding: 20px 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #e9f9e1, #fef4e5);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before, header::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: var(--leaf);
+      border-radius: 50% 60% 45% 65%;
+      opacity: 0.18;
+      filter: blur(0.5px);
+    }
+    header::before { top: -40px; right: -20px; transform: rotate(18deg); }
+    header::after { bottom: -50px; left: -30px; transform: rotate(-12deg); background: var(--leaf-dark); }
+    h1 { margin: 0 0 8px; font-weight: 800; letter-spacing: 0.5px; }
+    h2 { margin: 0 0 12px; font-weight: 800; letter-spacing: 0.4px; }
+    h3 { margin: 0 0 8px; font-weight: 700; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      border: 2px dashed rgba(79, 151, 104, 0.25);
+    }
+    ul { padding-left: 18px; margin: 8px 0; }
+    li + li { margin-top: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid rgba(79, 151, 104, 0.25);
+      padding: 6px 8px;
+      text-align: center;
+    }
+    th { background: #eef8ef; font-weight: 700; }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 12px; background: var(--leaf); color: #fff; font-weight: 700; font-size: 13px; }
+    .flex { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; }
+    .pill {
+      background: var(--wood);
+      color: #553308;
+      padding: 6px 10px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(100, 70, 30, 0.15);
+    }
+    footer {
+      max-width: 1100px;
+      margin: 20px auto 0;
+      text-align: center;
+      color: #466047;
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      body { padding: 20px 12px 40px; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flex">
+      <h1>2025-12-15 台股族群與個股觀察</h1>
+      <span class="tag">動物森友會小島週報</span>
+    </div>
+    <div class="pill">等權 +0.24% ｜ 市值加權 -1.17%</div>
+    <p>盤面解讀：等權小漲、市值大跌，權值半導體拖累指數，但傳產與航運撐住，顯示中小型股資金仍在場。</p>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <h2>方法與資料</h2>
+      <ul>
+        <li>方法：等權與市值加權（昨收×發行股數近似市值），依產業分組。</li>
+        <li>資料：yfinance 近兩個交易日收盤價，股數取自上市公司基本資料.csv，產業對照 industry_codes.csv。</li>
+        <li>盤面重點：權值股承壓，非電族群與航運成為撐盤主力。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>撐盤族群 Top 3</h2>
+      <ul>
+        <li>27-通信網路業：市值貢獻 0.04%、市值加權 1.33%、等權 0.91% —— AI 網通需求續強。</li>
+        <li>15-航運業：市值貢獻 0.02%、市值加權 0.88%、等權 1.20% —— 運價/油價回落支撐。</li>
+        <li>03-塑膠工業：市值貢獻 0.02%、市值加權 1.33%、等權 1.06% —— 裂解價差改善。</li>
+        <li>解讀：權值集中度低、需求有韌性，三族群在電子回檔時提供防守火力。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>拖累族群 Bottom 3</h2>
+      <ul>
+        <li>24-半導體業：市值貢獻 -0.94%、市值加權 -1.84%、等權 -0.66% —— TSMC 領跌。</li>
+        <li>28-電子零組件業：市值貢獻 -0.11%、市值加權 -1.43%、等權 0.48% —— 權值回檔、小型撐盤。</li>
+        <li>31-其他電子業：市值貢獻 -0.11%、市值加權 -2.07%、等權 0.49% —— 鴻海下挫放大跌幅。</li>
+        <li>解讀：權值股賣壓集中於電子鏈，等權雖撐住，但難以抵銷市值拖累。</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 20px;">
+    <h2>族群（前 10）市值加權貢獻度</h2>
+    <ul>
+      <li>27-通信網路業: 等權 0.91%、市值加權 1.33%、貢獻 0.04%、樣本 45</li>
+      <li>15-航運業: 等權 1.20%、市值加權 0.88%、貢獻 0.02%、樣本 27</li>
+      <li>03-塑膠工業: 等權 1.06%、市值加權 1.33%、貢獻 0.02%、樣本 21</li>
+      <li>17-金融保險業: 等權 0.15%、市值加權 0.17%、貢獻 0.02%、樣本 32</li>
+      <li>23-油電燃氣業: 等權 0.12%、市值加權 2.38%、貢獻 0.01%、樣本 8</li>
+      <li>10-鋼鐵工業: 等權 1.08%、市值加權 0.93%、貢獻 0.01%、樣本 31</li>
+      <li>01-水泥工業: 等權 0.66%、市值加權 1.68%、貢獻 0.01%、樣本 7</li>
+      <li>91: 等權 0.80%、市值加權 1.82%、貢獻 0.00%、樣本 10</li>
+      <li>14-建材營造業: 等權 0.21%、市值加權 0.35%、貢獻 0.00%、樣本 55</li>
+      <li>35-綠能環保: 等權 0.55%、市值加權 1.25%、貢獻 0.00%、樣本 23</li>
+    </ul>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 20px;">
+    <h2>族群（後 10）市值加權貢獻度</h2>
+    <ul>
+      <li>08-玻璃陶瓷: 等權 -0.14%、市值加權 -3.32%、貢獻 -0.00%、樣本 5</li>
+      <li>06-電器電纜: 等權 -0.49%、市值加權 -1.72%、貢獻 -0.01%、樣本 15</li>
+      <li>22-生技醫療業: 等權 0.10%、市值加權 -0.61%、貢獻 -0.01%、樣本 55</li>
+      <li>37-運動休閒: 等權 -0.47%、市值加權 -1.15%、貢獻 -0.01%、樣本 18</li>
+      <li>29-電子通路業: 等權 -0.68%、市值加權 -1.27%、貢獻 -0.01%、樣本 20</li>
+      <li>05-電機機械: 等權 -0.13%、市值加權 -1.68%、貢獻 -0.03%、樣本 49</li>
+      <li>25-電腦及週邊設備業: 等權 -0.10%、市值加權 -1.29%、貢獻 -0.08%、樣本 62</li>
+      <li>31-其他電子業: 等權 0.49%、市值加權 -2.07%、貢獻 -0.11%、樣本 45</li>
+      <li>28-電子零組件業: 等權 0.48%、市值加權 -1.43%、貢獻 -0.11%、樣本 102</li>
+      <li>24-半導體業: 等權 -0.66%、市值加權 -1.84%、貢獻 -0.94%、樣本 92</li>
+    </ul>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 20px;">
+    <h2>權值股貢獻</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Top 5</h3>
+        <ul>
+          <li>智邦科技股份有限公司 (2345 / 通信網路業): 日報酬 4.76%、權重 0.71%、貢獻 0.03%</li>
+          <li>聯發科技股份有限公司 (2454 / 半導體業): 日報酬 1.07%、權重 2.47%、貢獻 0.03%</li>
+          <li>台塑石化股份有限公司 (6505 / 油電燃氣業): 日報酬 2.87%、權重 0.51%、貢獻 0.01%</li>
+          <li>台灣化學纖維股份有限公司 (1326 / 塑膠工業): 日報酬 5.96%、權重 0.21%、貢獻 0.01%</li>
+          <li>亞翔工程股份有限公司 (6139 / 其他電子業): 日報酬 5.55%、權重 0.14%、貢獻 0.01%</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Bottom 5</h3>
+        <ul>
+          <li>台灣積體電路製造股份有限公司 (2330 / 半導體業): 日報酬 -2.03%、權重 42.13%、貢獻 -0.85%</li>
+          <li>鴻海精密工業股份有限公司 (2317 / 其他電子業): 日報酬 -2.42%、權重 3.48%、貢獻 -0.08%</li>
+          <li>日月光投資控股股份有限公司 (3711 / 半導體業): 日報酬 -3.90%、權重 1.19%、貢獻 -0.05%</li>
+          <li>台達電子工業股份有限公司 (2308 / 電子零組件業): 日報酬 -1.71%、權重 2.67%、貢獻 -0.05%</li>
+          <li>緯穎科技服務股份有限公司 (6669 / 電腦及週邊設備業): 日報酬 -2.61%、權重 0.90%、貢獻 -0.02%</li>
+        </ul>
+      </div>
+    </div>
+    <p>解讀：TSMC -2% 直接扭轉市值表現，其餘電子權值股同步回檔，顯示大型科技情緒尚未修復。</p>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 20px;">
+    <h2>族群個股解讀</h2>
+    <p>族群概覽：<br>
+      27-通信網路業: 等權 0.91%、市值加權 1.33%、貢獻 0.04%<br>
+      15-航運業: 等權 1.20%、市值加權 0.88%、貢獻 0.02%<br>
+      03-塑膠工業: 等權 1.06%、市值加權 1.33%、貢獻 0.02%<br>
+      17-金融保險業: 等權 0.15%、市值加權 0.17%、貢獻 0.02%<br>
+      短評：資金迴避電子權值，轉進通信、塑化與航運；金融以息收提供防守。
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>27-通信網路業</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2345</td><td>智邦科技股份有限公司</td><td>4.76%</td><td>0.71%</td><td>0.03%</td></tr>
+            <tr><td>6442</td><td>光紅建聖股份有限公司</td><td>5.22%</td><td>0.11%</td><td>0.01%</td></tr>
+            <tr><td>4904</td><td>遠傳電信股份有限公司</td><td>0.81%</td><td>0.34%</td><td>0.00%</td></tr>
+            <tr><td>6285</td><td>啟碁科技股份有限公司</td><td>2.49%</td><td>0.05%</td><td>0.00%</td></tr>
+            <tr><td>4906</td><td>正文科技股份有限公司</td><td>5.38%</td><td>0.01%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：AI 伺服器交換器與骨幹網路升級需求延續，智邦、光紅建聖領漲；遠傳等電信股以穩定配息吸引防守資金，形成「成長＋防禦」雙支撐。</p>
+      </div>
+
+      <div class="card">
+        <h3>15-航運業</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2618</td><td>長榮航空股份有限公司</td><td>1.27%</td><td>0.21%</td><td>0.00%</td></tr>
+            <tr><td>2610</td><td>中華航空股份有限公司</td><td>1.80%</td><td>0.13%</td><td>0.00%</td></tr>
+            <tr><td>2606</td><td>裕民航運股份有限公司</td><td>3.55%</td><td>0.05%</td><td>0.00%</td></tr>
+            <tr><td>2609</td><td>陽明海運股份有限公司</td><td>0.98%</td><td>0.19%</td><td>0.00%</td></tr>
+            <tr><td>2645</td><td>長榮航太科技股份有限公司</td><td>3.20%</td><td>0.06%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：油價回落帶來成本利多，海空運運價自低檔反彈；長榮航、華航受惠客貨運並進，裕民與陽明反映運價止跌回穩。</p>
+      </div>
+
+      <div class="card">
+        <h3>03-塑膠工業</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1326</td><td>台灣化學纖維股份有限公司</td><td>5.96%</td><td>0.21%</td><td>0.01%</td></tr>
+            <tr><td>1301</td><td>台灣塑膠工業股份有限公司</td><td>2.51%</td><td>0.28%</td><td>0.01%</td></tr>
+            <tr><td>1314</td><td>中國石油化學工業開發(股)公司</td><td>2.06%</td><td>0.03%</td><td>0.00%</td></tr>
+            <tr><td>1312</td><td>國喬石油化學股份有限公司</td><td>2.59%</td><td>0.01%</td><td>0.00%</td></tr>
+            <tr><td>1309</td><td>台達化學工業股份有限公司</td><td>2.61%</td><td>0.01%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：原油與石化價差改善、庫存去化尾聲，龍頭台化、台塑率先反應；市場預期 1Q26 補庫需求，搭配高股息題材吸引資金。</p>
+      </div>
+
+      <div class="card">
+        <h3>17-金融保險業</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2891</td><td>中國信託金融控股股份有限公司</td><td>0.54%</td><td>1.00%</td><td>0.01%</td></tr>
+            <tr><td>2885</td><td>元大金融控股股份有限公司</td><td>0.92%</td><td>0.56%</td><td>0.01%</td></tr>
+            <tr><td>2886</td><td>兆豐金融控股股份有限公司</td><td>0.73%</td><td>0.67%</td><td>0.00%</td></tr>
+            <tr><td>2880</td><td>華南金融控股股份有限公司</td><td>0.81%</td><td>0.47%</td><td>0.00%</td></tr>
+            <tr><td>2884</td><td>玉山金融控股股份有限公司</td><td>0.61%</td><td>0.58%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：美債殖利率回落、降息預期升溫，金融股息收益率具吸引力；壽險資本利得與銀行利差穩定，資金偏好中大型金控。</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <h3>後續觀察</h3>
+      <ul>
+        <li>通信網路：留意北美/亞洲雲端 CAPEX 與交換器出貨指引，若仍上修，族群有望維持強勢。</li>
+        <li>航運：觀察油價與運價（SCFI、BDI），若旺季運價失速，族群漲勢恐轉防禦。</li>
+        <li>塑化：跟蹤裂解價差與成品報價，若補庫需求落空，短線漲幅易收斂。</li>
+        <li>金融：降息時間若再往後遞延，利差收益可維持，但股債投資評價需避免過度樂觀。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 20px;">
+    <h2>台股贏過大盤個股（前 10）</h2>
+    <p>大盤市值加權日漲幅約 -1.17%，以下個股漲幅高於大盤且指數貢獻居前。</p>
+    <table>
+      <thead>
+        <tr><th>排名</th><th>公司代號</th><th>公司名稱</th><th>產業</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th><th>為何能贏過大盤</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>2345</td><td>智邦科技股份有限公司</td><td>通信網路業</td><td>4.76%</td><td>0.71%</td><td>0.03%</td><td>伺服器交換器需求續強、AI 產能排程明確，法人買盤回流推升股價並帶動族群情緒。</td></tr>
+        <tr><td>2</td><td>2454</td><td>聯發科技股份有限公司</td><td>半導體業</td><td>1.07%</td><td>2.47%</td><td>0.03%</td><td>高階手機 SoC 與 AI PC 晶片出貨展望佳，毛利率守穩高檔；外資趁台積電回檔轉向買進聯發科。</td></tr>
+        <tr><td>3</td><td>6505</td><td>台塑石化股份有限公司</td><td>油電燃氣業</td><td>2.87%</td><td>0.51%</td><td>0.01%</td><td>油價企穩、煉油與石化價差改善，市場預期 1Q26 成本/報價雙優化，吸引價值型買盤。</td></tr>
+        <tr><td>4</td><td>1326</td><td>台灣化學纖維股份有限公司</td><td>塑膠工業</td><td>5.96%</td><td>0.21%</td><td>0.01%</td><td>原料下跌、成品報價回升帶動利差擴大，高股息題材增添防守性，激勵股價領漲塑化族群。</td></tr>
+        <tr><td>5</td><td>6139</td><td>亞翔工程股份有限公司</td><td>其他電子業</td><td>5.55%</td><td>0.14%</td><td>0.01%</td><td>受惠半導體/資料中心廠房與機電工程訂單持續，在權值股回檔下，資金轉向有基本面支撐的次族群。</td></tr>
+        <tr><td>6</td><td>2313</td><td>華通電腦股份有限公司</td><td>電子零組件業</td><td>6.56%</td><td>0.11%</td><td>0.01%</td><td>AI 伺服器與高速 PCB 需求強，獲利可見度高；股價因先前回檔基期低，反彈力度大於大盤。</td></tr>
+        <tr><td>7</td><td>1301</td><td>台灣塑膠工業股份有限公司</td><td>塑膠工業</td><td>2.51%</td><td>0.28%</td><td>0.01%</td><td>煉化價差回溫、庫存調整接近尾聲，龍頭地位與穩定配息吸引防禦型資金承接。</td></tr>
+        <tr><td>8</td><td>6442</td><td>光紅建聖股份有限公司</td><td>通信網路業</td><td>5.22%</td><td>0.11%</td><td>0.01%</td><td>AI 伺服器布線與光通訊需求同步增長，小型股對單量敏感度高，漲幅放大。</td></tr>
+        <tr><td>9</td><td>2891</td><td>中國信託金融控股股份有限公司</td><td>金融保險業</td><td>0.54%</td><td>1.00%</td><td>0.01%</td><td>利差穩健、股息收益率具吸引力，科技股回檔時資金轉進高配息金融。</td></tr>
+        <tr><td>10</td><td>2885</td><td>元大金融控股股份有限公司</td><td>金融保險業</td><td>0.92%</td><td>0.56%</td><td>0.01%</td><td>券商與銀行雙主業受惠成交回升與利差穩定，資金布局高股息與財管題材。</td></tr>
+      </tbody>
+    </table>
+
+    <h3>觀察重點</h3>
+    <ul>
+      <li>風險：科技權值若續跌，領漲股需承接更大結構性賣壓；留意美股 AI 族群與費半走勢。</li>
+      <li>支撐：塑化、煉油與高股息金融可作短線防守，若油價大幅回落，塑化漲勢恐轉震盪。</li>
+      <li>節奏：AI 供應鏈仍是主軸，但資金輪動加快，建議搭配低估值或高息標的分散風險。</li>
+    </ul>
+  </section>
+
+  <footer>小島叮嚀：若權值電子再補跌，等權撐盤力有限，留意量能與國際科技股情緒。</footer>
+</body>
+</html>
