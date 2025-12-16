@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>台股觀察日誌 - 2025-12-16</title>
+    <style>
+      :root{
+        --bg: #f6f1df;
+        --paper: #ffffff;
+        --ink: #4a3429;
+        --wood: #d7b98e;
+        --wood-deep:#b98f63;
+        --leaf:#2e8b57;
+        --leaf-soft:#8fbc8f;
+        --sun:#f6d88a;
+        --danger:#b23b2e;
+        --muted:#6a5a51;
+        --line:#eee3cf;
+      }
+      *{ box-sizing:border-box; }
+      body{
+        margin:0;
+        padding:24px 14px 56px;
+        background: radial-gradient(900px 480px at 15% 0%, rgba(246,216,138,.35), transparent 60%),
+                    radial-gradient(700px 420px at 85% 10%, rgba(143,188,143,.25), transparent 55%),
+                    var(--bg);
+        color:var(--ink);
+        font-family: ui-rounded, system-ui, -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        line-height:1.8;
+      }
+      .wrap{
+        max-width:980px;
+        margin:0 auto;
+      }
+      header{
+        background: linear-gradient(180deg, #fff, #fff7ea);
+        border: 6px solid var(--wood);
+        border-bottom-color: var(--wood-deep);
+        border-radius: 22px;
+        padding: 18px 18px 14px;
+        box-shadow: 0 12px 28px rgba(0,0,0,.08);
+        position:relative;
+        overflow:hidden;
+      }
+      header:before{
+        content:"";
+        position:absolute;
+        inset:-40px -60px auto auto;
+        width:220px;height:220px;
+        background: radial-gradient(circle at 30% 30%, rgba(46,139,87,.22), transparent 55%),
+                    radial-gradient(circle at 70% 60%, rgba(46,139,87,.16), transparent 60%);
+        transform: rotate(18deg);
+      }
+      .title{
+        margin:0;
+        font-size: 28px;
+        letter-spacing:.02em;
+      }
+      .subtitle{
+        margin:6px 0 0;
+        color:var(--muted);
+        font-size: 14px;
+      }
+      .badge-row{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:12px;
+      }
+      .badge{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 10px;
+        border-radius: 999px;
+        background: #f3fff6;
+        border: 2px dashed rgba(46,139,87,.35);
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .badge i{
+        display:inline-block;
+        width:14px;height:14px;
+        border-radius: 6px 6px 6px 0;
+        background: var(--leaf);
+        transform: rotate(-45deg);
+        box-shadow: 0 2px 0 rgba(0,0,0,.08);
+      }
+
+      main{
+        margin-top:18px;
+        display:flex;
+        flex-direction:column;
+        gap:16px;
+      }
+      section{
+        background: var(--paper);
+        border: 4px solid rgba(215,185,142,.85);
+        border-radius: 20px;
+        padding: 18px 16px;
+        box-shadow: 0 10px 22px rgba(0,0,0,.06);
+      }
+      h2{
+        margin: 0 0 10px;
+        font-size: 20px;
+        padding-bottom: 8px;
+        border-bottom: 3px dashed rgba(143,188,143,.7);
+        color: #7a3f1b;
+      }
+      h3{
+        margin: 14px 0 6px;
+        font-size: 16px;
+        color: var(--leaf);
+      }
+      p{ margin: 8px 0; }
+      ul{ margin: 8px 0 8px 20px; padding:0; }
+      li{ margin: 4px 0; }
+      .note{
+        background: #fffaf0;
+        border-left: 6px solid var(--sun);
+        padding: 10px 12px;
+        border-radius: 12px;
+        color: var(--muted);
+        margin-top: 10px;
+      }
+      .callout{
+        background: #f1fff2;
+        border-left: 6px solid var(--leaf);
+        padding: 10px 12px;
+        border-radius: 12px;
+        margin: 10px 0;
+      }
+      .grid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:12px;
+      }
+      @media (min-width: 880px){
+        .grid.two{ grid-template-columns: 1fr 1fr; }
+      }
+      .card{
+        border: 2px solid var(--line);
+        border-radius: 16px;
+        padding: 12px;
+        background: linear-gradient(180deg, #fff, #fffdf8);
+      }
+      .kpi{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px 14px;
+        margin-top:8px;
+        align-items:baseline;
+      }
+      .kpi b{
+        font-size: 22px;
+        letter-spacing:.01em;
+      }
+      .down{ color: var(--danger); }
+      .up{ color: var(--leaf); }
+      .mono{ font-variant-numeric: tabular-nums; }
+
+      table{
+        width:100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        overflow:auto;
+      }
+      .table-wrap{
+        overflow:auto;
+        border: 2px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+      }
+      th, td{
+        padding: 10px 12px;
+        border-bottom: 1px solid #f0f0f0;
+        text-align:left;
+        vertical-align:top;
+        white-space:nowrap;
+      }
+      th{
+        background: rgba(143,188,143,.92);
+        color: #fff;
+        font-weight: 800;
+      }
+      td.wrap{ white-space: normal; }
+      tr:nth-child(even) td{ background: #fafafa; }
+
+      details{
+        border: 2px dashed rgba(215,185,142,.9);
+        border-radius: 16px;
+        padding: 10px 12px;
+        background: #fffdf7;
+        margin-top: 10px;
+      }
+      summary{
+        cursor:pointer;
+        font-weight: 800;
+        color:#7a3f1b;
+      }
+      footer{
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 14px;
+        padding: 0 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1 class="title">台股觀察日誌 - 2025-12-16</h1>
+        <p class="subtitle">以「像動物森友會公告欄一樣」的方式，把重點分成木牌卡片、清楚好讀；內容不省略。</p>
+        <div class="badge-row">
+          <span class="badge"><i aria-hidden="true"></i>大盤等權：<span class="mono down">-0.82%</span></span>
+          <span class="badge"><i aria-hidden="true"></i>大盤市值加權：<span class="mono down">-1.18%</span></span>
+          <span class="badge"><i aria-hidden="true"></i>關鍵拖累：<span class="mono">2330</span> 貢獻 <span class="mono down">-0.43%</span></span>
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <h2>一、台股族群當日漲幅分析（等權 / 市值加權）</h2>
+          <div class="grid two">
+            <div class="card">
+              <h3>方法與資料</h3>
+              <ul>
+                <li>方法：等權與市值加權（用昨收 × 已發行股數近似市值）兩種；依產業別分組。</li>
+                <li>資料：yfinance 近兩個交易日收盤價；公司基本資料與股數取自上市公司基本資料.csv；產業名稱對照表參考 industry_codes.csv。</li>
+              </ul>
+              <div class="kpi">
+                <span>大盤等權日漲幅：</span><b class="mono down">-0.82%</b>
+                <span>大盤市值加權日漲幅：</span><b class="mono down">-1.18%</b>
+              </div>
+            </div>
+            <div class="card">
+              <h3>LLM 重新解讀（重點版）</h3>
+              <ul>
+                <li>市值加權跌幅大於等權，代表跌點更集中在少數大型權值股。</li>
+                <li>半導體、電子零組件、電腦週邊是主要拖累；金融保險提供有限度的正貢獻。</li>
+                <li>若 2330 跌幅收斂，指數體感才有機會明顯改善；否則容易維持「個股輪動、指數偏弱」。</li>
+              </ul>
+            </div>
+          </div>
+
+          <details open>
+            <summary>族群（前 10）：市值加權貢獻度</summary>
+            <div class="table-wrap" role="region" aria-label="族群前10市值加權貢獻度">
+              <table>
+                <thead>
+                  <tr>
+                    <th>產業別</th>
+                    <th>等權均值</th>
+                    <th>市值加權均值</th>
+                    <th>對大盤貢獻</th>
+                    <th>樣本</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>17-金融保險業</td><td class="mono">0.10%</td><td class="mono">0.25%</td><td class="mono">0.02%</td><td class="mono">32</td></tr>
+                  <tr><td>35-綠能環保</td><td class="mono">0.06%</td><td class="mono">0.69%</td><td class="mono">0.00%</td><td class="mono">23</td></tr>
+                  <tr><td>91</td><td class="mono">0.00%</td><td class="mono">0.34%</td><td class="mono">0.00%</td><td class="mono">10</td></tr>
+                  <tr><td>16-觀光餐旅</td><td class="mono">-0.46%</td><td class="mono">-0.21%</td><td class="mono">-0.00%</td><td class="mono">18</td></tr>
+                  <tr><td>14-建材營造業</td><td class="mono">-0.32%</td><td class="mono">-0.04%</td><td class="mono">-0.00%</td><td class="mono">55</td></tr>
+                  <tr><td>20-其他業</td><td class="mono">-0.95%</td><td class="mono">-0.05%</td><td class="mono">-0.00%</td><td class="mono">51</td></tr>
+                  <tr><td>11-橡膠工業</td><td class="mono">-0.52%</td><td class="mono">-0.48%</td><td class="mono">-0.00%</td><td class="mono">11</td></tr>
+                  <tr><td>30-資訊服務業</td><td class="mono">-1.16%</td><td class="mono">-1.03%</td><td class="mono">-0.00%</td><td class="mono">11</td></tr>
+                  <tr><td>09-造紙工業</td><td class="mono">-1.28%</td><td class="mono">-1.16%</td><td class="mono">-0.00%</td><td class="mono">7</td></tr>
+                  <tr><td>36-數位雲端</td><td class="mono">-1.44%</td><td class="mono">-1.25%</td><td class="mono">-0.00%</td><td class="mono">10</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details>
+            <summary>族群（後 10）：市值加權貢獻度</summary>
+            <div class="table-wrap" role="region" aria-label="族群後10市值加權貢獻度">
+              <table>
+                <thead>
+                  <tr>
+                    <th>產業別</th>
+                    <th>等權均值</th>
+                    <th>市值加權均值</th>
+                    <th>對大盤貢獻</th>
+                    <th>樣本</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>01-水泥工業</td><td class="mono">-1.01%</td><td class="mono">-2.72%</td><td class="mono">-0.01%</td><td class="mono">7</td></tr>
+                  <tr><td>10-鋼鐵工業</td><td class="mono">-1.13%</td><td class="mono">-1.67%</td><td class="mono">-0.01%</td><td class="mono">31</td></tr>
+                  <tr><td>26-光電業</td><td class="mono">0.13%</td><td class="mono">-1.21%</td><td class="mono">-0.02%</td><td class="mono">69</td></tr>
+                  <tr><td>05-電機機械</td><td class="mono">-1.60%</td><td class="mono">-1.71%</td><td class="mono">-0.03%</td><td class="mono">49</td></tr>
+                  <tr><td>03-塑膠工業</td><td class="mono">-1.42%</td><td class="mono">-3.07%</td><td class="mono">-0.04%</td><td class="mono">21</td></tr>
+                  <tr><td>27-通信網路業</td><td class="mono">-0.29%</td><td class="mono">-1.23%</td><td class="mono">-0.04%</td><td class="mono">45</td></tr>
+                  <tr><td>31-其他電子業</td><td class="mono">-0.50%</td><td class="mono">-1.32%</td><td class="mono">-0.07%</td><td class="mono">45</td></tr>
+                  <tr><td>25-電腦及週邊設備業</td><td class="mono">-1.09%</td><td class="mono">-1.93%</td><td class="mono">-0.12%</td><td class="mono">62</td></tr>
+                  <tr><td>28-電子零組件業</td><td class="mono">-1.46%</td><td class="mono">-2.81%</td><td class="mono">-0.22%</td><td class="mono">102</td></tr>
+                  <tr><td>24-半導體業</td><td class="mono">-1.47%</td><td class="mono">-1.11%</td><td class="mono">-0.56%</td><td class="mono">92</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <div class="grid two">
+            <div class="card">
+              <h3>今日撐盤族群（貢獻 Top 3）</h3>
+              <ul>
+                <li>17-金融保險業：市值貢獻 <span class="mono">0.02%</span>、市值加權 <span class="mono">0.25%</span>、等權 <span class="mono">0.10%</span></li>
+                <li>35-綠能環保：市值貢獻 <span class="mono">0.00%</span>、市值加權 <span class="mono">0.69%</span>、等權 <span class="mono">0.06%</span></li>
+                <li>91：市值貢獻 <span class="mono">0.00%</span>、市值加權 <span class="mono">0.34%</span>、等權 <span class="mono">0.00%</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>今日拖累族群（貢獻 Bottom 3）</h3>
+              <ul>
+                <li>24-半導體業：市值貢獻 <span class="mono down">-0.56%</span>、市值加權 <span class="mono down">-1.11%</span>、等權 <span class="mono down">-1.47%</span></li>
+                <li>28-電子零組件業：市值貢獻 <span class="mono down">-0.22%</span>、市值加權 <span class="mono down">-2.81%</span>、等權 <span class="mono down">-1.46%</span></li>
+                <li>25-電腦及週邊設備業：市值貢獻 <span class="mono down">-0.12%</span>、市值加權 <span class="mono down">-1.93%</span>、等權 <span class="mono down">-1.09%</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <details>
+            <summary>權值股貢獻（Top 5）與拖累（Bottom 5）</summary>
+            <div class="grid two">
+              <div class="card">
+                <h3>權值股貢獻（Top 5）</h3>
+                <ul>
+                  <li>2887 台新新光金融控股股份有限公司（金融保險業）：日報酬 3.62%、權重 0.53%、貢獻 0.02%</li>
+                  <li>2892 第一金融控股股份有限公司（金融保險業）：日報酬 1.40%、權重 0.46%、貢獻 0.01%</li>
+                  <li>2881 富邦金融控股股份有限公司（金融保險業）：日報酬 0.42%、權重 1.49%、貢獻 0.01%</li>
+                  <li>2885 元大金融控股股份有限公司（金融保險業）：日報酬 1.04%、權重 0.57%、貢獻 0.01%</li>
+                  <li>5871 中租控股股份有限公司（其他業）：日報酬 2.96%、權重 0.19%、貢獻 0.01%</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>權值股拖累（Bottom 5）</h3>
+                <ul>
+                  <li>2330 台灣積體電路製造股份有限公司（半導體業）：日報酬 -1.03%、權重 41.76%、貢獻 -0.43%</li>
+                  <li>2308 台達電子工業股份有限公司（電子零組件業）：日報酬 -2.28%、權重 2.66%、貢獻 -0.06%</li>
+                  <li>2317 鴻海精密工業股份有限公司（其他電子業）：日報酬 -1.58%、權重 3.44%、貢獻 -0.05%</li>
+                  <li>2382 廣達電腦股份有限公司（電腦及週邊設備業）：日報酬 -4.21%、權重 1.22%、貢獻 -0.05%</li>
+                  <li>2383 台光電子材料股份有限公司（電子零組件業）：日報酬 -6.85%、權重 0.63%、貢獻 -0.04%</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section>
+          <h2>二、台股族群漲幅解讀（2025-12-16）</h2>
+          <div class="callout">
+            <p><b>族群概覽（LLM 重新補齊）</b></p>
+            <ul>
+              <li>今日大盤市值加權日漲幅約 <span class="mono down">-1.18%</span>，屬於「指數被權值電子拖累」：半導體（<span class="mono down">-0.56%</span> 貢獻）、電子零組件（<span class="mono down">-0.22%</span>）、電腦及週邊（<span class="mono down">-0.12%</span>）是主要壓力來源。</li>
+              <li>撐盤端以金融保險提供有限度的正貢獻；綠能環保、觀光餐旅與部分類別（91）相對抗跌，但對指數的淨貢獻較小。</li>
+            </ul>
+          </div>
+
+          <details open>
+            <summary>17-金融保險業（含個股表）</summary>
+            <div class="table-wrap" role="region" aria-label="金融保險業個股表">
+              <table>
+                <thead>
+                  <tr>
+                    <th>公司代號</th>
+                    <th>公司名稱</th>
+                    <th>日報酬</th>
+                    <th>市值權重</th>
+                    <th>指數貢獻</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">2887</td><td>台新新光金融控股股份有限公司</td><td class="mono up">3.62%</td><td class="mono">0.53%</td><td class="mono">0.02%</td></tr>
+                  <tr><td class="mono">2892</td><td>第一金融控股股份有限公司</td><td class="mono up">1.40%</td><td class="mono">0.46%</td><td class="mono">0.01%</td></tr>
+                  <tr><td class="mono">2881</td><td>富邦金融控股股份有限公司</td><td class="mono up">0.42%</td><td class="mono">1.49%</td><td class="mono">0.01%</td></tr>
+                  <tr><td class="mono">2885</td><td>元大金融控股股份有限公司</td><td class="mono up">1.04%</td><td class="mono">0.57%</td><td class="mono">0.01%</td></tr>
+                  <tr><td class="mono">2890</td><td>永豐金融控股股份有限公司</td><td class="mono up">1.08%</td><td class="mono">0.45%</td><td class="mono">0.00%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note">
+              <p><b>解讀（LLM 重新分析）</b></p>
+              <ul>
+                <li>盤面角色：金融是少數能對指數給正貢獻的族群之一（+0.02%），在電子權值轉弱時常扮演資金暫泊區。</li>
+                <li>強弱結構：市值加權（0.25%）高於等權（0.10%），代表更偏「權值撐盤」而非全面普漲；若權值金融轉弱，指數支撐會明顯變薄。</li>
+                <li>個股驅動：2887 漲幅最大且具一定權重，對族群與指數的邊際影響最顯著；2892、2885 等偏穩健金融同步走揚，有利於壓低族群波動。</li>
+                <li>可能訊號：市場在指數走弱時偏好現金流/股息想像與資本結構較清楚的標的；若後續成交量萎縮，金融容易從「防守主角」轉回「陪跑」。</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>35-綠能環保（含個股表）</summary>
+            <div class="table-wrap" role="region" aria-label="綠能環保個股表">
+              <table>
+                <thead>
+                  <tr>
+                    <th>公司代號</th>
+                    <th>公司名稱</th>
+                    <th>日報酬</th>
+                    <th>市值權重</th>
+                    <th>指數貢獻</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">6944</td><td>兆聯實業股份有限公司</td><td class="mono up">3.67%</td><td class="mono">0.06%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">6923</td><td>中台資源科技股份有限公司</td><td class="mono up">5.53%</td><td class="mono">0.01%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">8476</td><td>台境企業股份有限公司</td><td class="mono up">6.25%</td><td class="mono">0.00%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">8422</td><td>可寧衛股份有限公司</td><td class="mono up">4.48%</td><td class="mono">0.00%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">6887</td><td>寶綠特資源再生工程股份有限公司</td><td class="mono up">1.32%</td><td class="mono">0.00%</td><td class="mono">0.00%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note">
+              <p><b>解讀（LLM 重新分析）</b></p>
+              <ul>
+                <li>走勢特徵：市值加權（0.69%）明顯高於等權（0.06%），代表上漲更偏集中，可能由少數較具代表性/較高權重個股拉抬。</li>
+                <li>對指數影響：族群漲幅亮眼，但對大盤貢獻接近 0，更像題材輪動而非能主導指數的主線。</li>
+                <li>個股驅動：表格內多檔中小型標的、日內波動較大；追價更需要檢查量能延續與隔日續攻力。</li>
+                <li>風險提醒：若大盤仍受電子權值拖累，題材股容易「單日強、隔日輪動」，建議分批與部位上限控風險。</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>91（含個股表）</summary>
+            <div class="table-wrap" role="region" aria-label="91類別個股表">
+              <table>
+                <thead>
+                  <tr>
+                    <th>公司代號</th>
+                    <th>公司名稱</th>
+                    <th>日報酬</th>
+                    <th>市值權重</th>
+                    <th>指數貢獻</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">910322</td><td>康師傅控股有限公司</td><td class="mono up">0.63%</td><td class="mono">0.15%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">9110</td><td>越南製造加工出口控股有限公司</td><td class="mono up">2.27%</td><td class="mono">0.00%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">9136</td><td>巨騰國際控股有限公司</td><td class="mono up">0.43%</td><td class="mono">0.01%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">911622</td><td>聚亨企業集團(泰國)大眾有限公司</td><td class="mono up">1.53%</td><td class="mono">0.00%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">9105</td><td>泰金寶科技股份有限公司</td><td class="mono">0.00%</td><td class="mono">0.07%</td><td class="mono">0.00%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note">
+              <p><b>解讀（LLM 重新分析）</b></p>
+              <ul>
+                <li>類別屬性：多為海外/KY 架構公司，與台股主流電子循環的連動度不一，常見事件/匯率/個股消息造成相對獨立的日內表現。</li>
+                <li>走勢解讀：等權接近 0 但市值加權為正，代表上漲集中於少數具較高權重的標的；對指數支撐有限，但能反映資金在找「非電子」的分流出口。</li>
+                <li>交易觀察：隔日延續性更依賴消息面與量能；短線更看量價，而不是看族群指標。</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>16-觀光餐旅（含個股表）</summary>
+            <div class="table-wrap" role="region" aria-label="觀光餐旅個股表">
+              <table>
+                <thead>
+                  <tr>
+                    <th>公司代號</th>
+                    <th>公司名稱</th>
+                    <th>日報酬</th>
+                    <th>市值權重</th>
+                    <th>指數貢獻</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">2727</td><td>王品餐飲股份有限公司</td><td class="mono up">0.47%</td><td class="mono">0.02%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">2731</td><td>雄獅旅行社股份有限公司</td><td class="mono up">0.31%</td><td class="mono">0.02%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">9943</td><td>好樂迪股份有限公司</td><td class="mono up">0.16%</td><td class="mono">0.01%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">2707</td><td>晶華國際酒店股份有限公司</td><td class="mono">0.00%</td><td class="mono">0.03%</td><td class="mono">0.00%</td></tr>
+                  <tr><td class="mono">2739</td><td>寒舍餐旅管理顧問股份有限公司</td><td class="mono">0.00%</td><td class="mono">0.00%</td><td class="mono">0.00%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note">
+              <p><b>解讀（LLM 重新分析）</b></p>
+              <ul>
+                <li>走勢特徵：等權（-0.46%）弱於市值加權（-0.21%），表示中小型/非權值的下跌較明顯，而大型個股相對撐住，呈現「下有壓力、上有支撐」。</li>
+                <li>可能背景：觀光餐旅偏景氣/假期/匯率與成本因素，當大盤走弱且缺乏明確利多時，容易以區間震盪為主。</li>
+                <li>個股驅動：王品、雄獅的小幅上漲更像相對強；若要成為主線，通常需更明確的營收動能或旺季想像配合。</li>
+              </ul>
+            </div>
+          </details>
+
+          <div class="callout">
+            <p><b>後續觀察（LLM 重新補齊）</b></p>
+            <ul>
+              <li>指數止穩關鍵：先看 2330 是否「跌幅收斂/量縮止穩」。若 2330 續弱，即使其他族群反彈，指數仍可能偏弱。</li>
+              <li>拖累族群是否補跌：電子零組件與電腦週邊若再擴大下跌，容易把盤勢從「權值回檔」推向「風險擴散」。</li>
+              <li>金融的延續性：金融續強通常代表資金仍願意留在股市、只是偏防守；若金融轉弱且電子續弱，需提高防禦或降低槓桿。</li>
+              <li>輪動節奏：綠能/題材族群若出現放量不漲或開高走低，常是短線情緒退潮訊號，可作為減碼參考。</li>
+              <li>觀光餐旅的驗證點：觀察是否出現多檔同步轉強且量能放大，否則以區間思維處理。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>三、台股贏過大盤個股觀察（2025-12-16）</h2>
+          <p>大盤市值加權日漲幅：約 <span class="mono down">-1.18%</span>；以下為「漲幅高於大盤且對指數貢獻最大的 10 檔」。</p>
+
+          <div class="table-wrap" role="region" aria-label="贏過大盤個股表">
+            <table>
+              <thead>
+                <tr>
+                  <th>排名</th>
+                  <th>公司代號</th>
+                  <th>公司名稱</th>
+                  <th>產業</th>
+                  <th>日報酬</th>
+                  <th>市值權重</th>
+                  <th>指數貢獻</th>
+                  <th>為何能贏過大盤</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">1</td><td class="mono">2887</td><td>台新新光金融控股股份有限公司</td><td>金融保險業</td>
+                  <td class="mono up">3.62%</td><td class="mono">0.53%</td><td class="mono">0.02%</td>
+                  <td class="wrap"><b>防守輪動的主受益者</b>：資金自電子撤出時轉向金融避險；2887 兼具題材與流動性，成為族群領漲並放大成指數正貢獻。</td>
+                </tr>
+                <tr>
+                  <td class="mono">2</td><td class="mono">2892</td><td>第一金融控股股份有限公司</td><td>金融保險業</td>
+                  <td class="mono up">1.40%</td><td class="mono">0.46%</td><td class="mono">0.01%</td>
+                  <td class="wrap"><b>穩健金融撐盤</b>：盤勢偏弱時常吸引防守買盤；1.40% 上漲搭配 0.46% 權重，提供可觀的指數緩衝。</td>
+                </tr>
+                <tr>
+                  <td class="mono">3</td><td class="mono">2881</td><td>富邦金融控股股份有限公司</td><td>金融保險業</td>
+                  <td class="mono up">0.42%</td><td class="mono">1.49%</td><td class="mono">0.01%</td>
+                  <td class="wrap"><b>權值金融的低波動支撐</b>：漲幅不大但權重高，在指數下跌日能以小漲抵銷部分跌點。</td>
+                </tr>
+                <tr>
+                  <td class="mono">4</td><td class="mono">2885</td><td>元大金融控股股份有限公司</td><td>金融保險業</td>
+                  <td class="mono up">1.04%</td><td class="mono">0.57%</td><td class="mono">0.01%</td>
+                  <td class="wrap"><b>輪動下的彈性</b>：金融成為當日主旋律時，帶有證券屬性的金融股常具相對彈性，1.04% 使其表現靠前。</td>
+                </tr>
+                <tr>
+                  <td class="mono">5</td><td class="mono">5871</td><td>中租控股股份有限公司</td><td>其他業</td>
+                  <td class="mono up">2.96%</td><td class="mono">0.19%</td><td class="mono">0.01%</td>
+                  <td class="wrap"><b>利差/現金流想像 + 防守性</b>：偏金融屬性的租賃/融資標的，風險偏好降溫時容易被視為防守選項。</td>
+                </tr>
+                <tr>
+                  <td class="mono">6</td><td class="mono">2303</td><td>聯華電子股份有限公司</td><td>半導體業</td>
+                  <td class="mono up">0.72%</td><td class="mono">0.68%</td><td class="mono">0.00%</td>
+                  <td class="wrap"><b>半導體內部的相對強</b>：龍頭回檔時，資金可能在族群內做相對換股，讓它仍能守在正報酬。</td>
+                </tr>
+                <tr>
+                  <td class="mono">7</td><td class="mono">2890</td><td>永豐金融控股股份有限公司</td><td>金融保險業</td>
+                  <td class="mono up">1.08%</td><td class="mono">0.45%</td><td class="mono">0.00%</td>
+                  <td class="wrap"><b>金融補漲延伸</b>：金融輪動時次權值常出現補漲；但續航仍需量能與族群一致性驗證。</td>
+                </tr>
+                <tr>
+                  <td class="mono">8</td><td class="mono">2404</td><td>漢唐集成股份有限公司</td><td>其他電子業</td>
+                  <td class="mono up">2.16%</td><td class="mono">0.20%</td><td class="mono">0.00%</td>
+                  <td class="wrap"><b>訂單能見度分支</b>：與廠務/工程/資本支出相關的電子次族群，有時更貼近中長期訂單而非短線情緒，因而相對抗跌。</td>
+                </tr>
+                <tr>
+                  <td class="mono">9</td><td class="mono">4904</td><td>遠傳電信股份有限公司</td><td>通信網路業</td>
+                  <td class="mono up">0.91%</td><td class="mono">0.35%</td><td class="mono">0.00%</td>
+                  <td class="wrap"><b>典型防禦股</b>：現金流與股息想像使其波動較低，常在風險偏好下降時走出相對強勢。</td>
+                </tr>
+                <tr>
+                  <td class="mono">10</td><td class="mono">6550</td><td>北極星藥業集團股份有限公司</td><td>生技醫療業</td>
+                  <td class="mono up">9.98%</td><td class="mono">0.03%</td><td class="mono">0.00%</td>
+                  <td class="wrap"><b>消息/題材驅動的獨立行情</b>：漲幅大但權重小，對指數幫助有限；屬高波動類型，隔日續航需看消息與量能。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout">
+            <p><b>觀察重點（LLM 重新補齊）</b></p>
+            <ul>
+              <li>先分清楚「賺指數」與「賺個股」：今天跌點集中在少數權值電子（尤其 2330），因此即使挑到上漲股，指數仍可能偏弱。</li>
+              <li>勝出類型分群：本日主力是金融與電信（偏防守），搭配少量半導體相對強與生技題材；若隔日盤勢續弱，防守股續航通常優於高 Beta 題材股。</li>
+              <li>觀察輪動是否延續：金融若續強且量能不縮，代表資金仍在場內輪動；若金融轉弱、電子續弱，需提防風險擴散。</li>
+              <li>題材股控風險：生技/中小型題材股常「單日強、隔日震盪」，更需要停損/停利與部位上限。</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>資料來源與計算口徑：同「分析報告/台股族群漲幅分析_20251216.md」。本頁的「解讀/觀察」為 LLM 依當日結果做結構化補齊，屬研究筆記，不構成投資建議。</p>
+      </footer>
+    </div>
+  </body>
+</html>
