@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025-12-16 台股族群與個股觀察（盤中）｜動物森友會風格</title>
+  <style>
+    :root {
+      --leaf: #6fbf80;
+      --leaf-dark: #4e9e65;
+      --sand: #ffe9c7;
+      --wood: #f4b860;
+      --text: #2f3c2f;
+      --sky: #c2f2f2;
+      --accent: #ff9f68;
+      --card: #ffffffee;
+      --shadow: 0 12px 30px rgba(61, 102, 67, 0.15);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Gill Sans", "Trebuchet MS", "Comic Neue", "Baloo 2", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(180px 120px at 20% 20%, #d8f9d0 0%, transparent 60%),
+                  radial-gradient(220px 160px at 80% 30%, #d9f3ff 0%, transparent 60%),
+                  radial-gradient(200px 150px at 40% 80%, #ffe3c1 0%, transparent 60%),
+                  var(--sand);
+      color: var(--text);
+      padding: 32px 16px 64px;
+      line-height: 1.65;
+    }
+    header {
+      max-width: 1100px;
+      margin: 0 auto 18px;
+      padding: 20px 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #e9f9e1, #fef4e5);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before, header::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: var(--leaf);
+      border-radius: 50% 60% 45% 65%;
+      opacity: 0.18;
+      filter: blur(0.5px);
+    }
+    header::before { top: -40px; right: -20px; transform: rotate(18deg); }
+    header::after { bottom: -50px; left: -30px; transform: rotate(-12deg); background: var(--leaf-dark); }
+    h1 { margin: 0 0 8px; font-weight: 800; letter-spacing: 0.5px; }
+    h2 { margin: 0 0 12px; font-weight: 800; letter-spacing: 0.4px; }
+    h3 { margin: 0 0 8px; font-weight: 700; }
+    p { margin: 10px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto 16px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      border: 2px dashed rgba(79, 151, 104, 0.25);
+    }
+    ul { padding-left: 18px; margin: 8px 0; }
+    li + li { margin-top: 6px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid rgba(79, 151, 104, 0.25);
+      padding: 6px 8px;
+      text-align: center;
+      vertical-align: top;
+    }
+    th { background: #eef8ef; font-weight: 800; }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 12px; background: var(--leaf); color: #fff; font-weight: 800; font-size: 13px; }
+    .flex { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; }
+    .pill {
+      display: inline-block;
+      background: var(--wood);
+      color: #553308;
+      padding: 6px 10px;
+      border-radius: 14px;
+      font-weight: 800;
+      box-shadow: 0 6px 18px rgba(100, 70, 30, 0.15);
+      margin-top: 8px;
+    }
+    .note {
+      background: rgba(255, 159, 104, 0.16);
+      border: 1px solid rgba(255, 159, 104, 0.35);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+    }
+    nav a {
+      display: inline-block;
+      margin: 6px 8px 0 0;
+      padding: 6px 10px;
+      border-radius: 14px;
+      background: rgba(111, 191, 128, 0.18);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    nav a:hover { background: rgba(111, 191, 128, 0.28); }
+    footer {
+      max-width: 1100px;
+      margin: 18px auto 0;
+      text-align: center;
+      color: #466047;
+      font-weight: 800;
+    }
+    @media (max-width: 640px) {
+      body { padding: 20px 12px 40px; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flex">
+      <h1>2025-12-16 台股族群與個股觀察（盤中）</h1>
+      <span class="tag">動物森友會小島速報</span>
+    </div>
+    <div class="pill">等權 -0.51% ｜ 市值加權 -0.97%</div>
+    <p class="note">本頁為盤中快照（尚未 13:30 收盤）；請將內容視為「盤中結構與資金偏好」觀察，收盤可能翻盤。</p>
+    <p>盤面一句話：權值電子偏弱、台積電是主要拖累；資金在防禦族群（金融/電信/部分生技）與少數逆勢權值間找落點。</p>
+    <nav>
+      <a href="#market">大盤與族群</a>
+      <a href="#sectors">族群排行</a>
+      <a href="#weights">權值股</a>
+      <a href="#sector-reading">族群個股解讀</a>
+      <a href="#beat-index">贏過大盤個股</a>
+    </nav>
+  </header>
+
+  <div class="grid" id="market">
+    <section class="card">
+      <h2>方法與資料</h2>
+      <ul>
+        <li>方法：等權與市值加權（昨收×已發行股數近似市值）兩種；依產業別分組。</li>
+        <li>資料：yfinance 近兩個交易日收盤價；公司基本資料與股數取自「上市公司基本資料.csv」；產業名稱對照表參考「industry_codes.csv」。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>盤中解讀</h2>
+      <ul>
+        <li>等權 -0.51% 與市值 -0.97% 落差：權值股跌得更重，中小型相對抗跌但整體仍偏弱。</li>
+        <li>主要拖累來自 24-半導體業（貢獻 -0.52%），其中 2330 台積電單一貢獻 -0.43% 幾乎決定市值加權方向。</li>
+        <li>電子供應鏈壓力延伸：28-電子零組件（-0.14%）與 31-其他電子（-0.08%）顯示並非單一權值股問題。</li>
+        <li>撐盤族群（生技/91/觀光）貢獻接近 0：多屬相對抗跌或題材，不足以扭轉大盤。</li>
+        <li>通信網路族群出現「同族群分歧」：遠傳上漲、但智邦大跌，資金偏向低波動標的。</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 16px;" id="sectors">
+    <h2>族群（前 10）市值加權貢獻度</h2>
+    <ul>
+      <li>22-生技醫療業: 等權均值 0.07%、市值加權均值 0.50%、對大盤貢獻 0.01%、樣本 54</li>
+      <li>產業別 91: 等權均值 -0.07%、市值加權均值 0.40%、對大盤貢獻 0.00%、樣本 10</li>
+      <li>16-觀光餐旅: 等權均值 -0.18%、市值加權均值 0.01%、對大盤貢獻 0.00%、樣本 18</li>
+      <li>35-綠能環保: 等權均值 -0.11%、市值加權均值 -0.04%、對大盤貢獻 -0.00%、樣本 23</li>
+      <li>15-航運業: 等權均值 -0.52%、市值加權均值 -0.04%、對大盤貢獻 -0.00%、樣本 27</li>
+      <li>30-資訊服務業: 等權均值 -0.70%、市值加權均值 -0.67%、對大盤貢獻 -0.00%、樣本 11</li>
+      <li>36-數位雲端: 等權均值 -0.31%、市值加權均值 -0.61%、對大盤貢獻 -0.00%、樣本 10</li>
+      <li>11-橡膠工業: 等權均值 -0.62%、市值加權均值 -0.44%、對大盤貢獻 -0.00%、樣本 11</li>
+      <li>18-貿易百貨業: 等權均值 -0.25%、市值加權均值 -0.27%、對大盤貢獻 -0.00%、樣本 19</li>
+      <li>04-紡織纖維: 等權均值 -0.55%、市值加權均值 -0.27%、對大盤貢獻 -0.00%、樣本 42</li>
+    </ul>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 16px;">
+    <h2>族群（後 10）市值加權貢獻度</h2>
+    <ul>
+      <li>14-建材營造業: 等權均值 -0.68%、市值加權均值 -0.81%、對大盤貢獻 -0.01%、樣本 55</li>
+      <li>12-汽車工業: 等權均值 -0.64%、市值加權均值 -1.13%、對大盤貢獻 -0.01%、樣本 42</li>
+      <li>03-塑膠工業: 等權均值 -0.64%、市值加權均值 -1.12%、對大盤貢獻 -0.01%、樣本 21</li>
+      <li>17-金融保險業: 等權均值 -0.22%、市值加權均值 -0.16%、對大盤貢獻 -0.02%、樣本 32</li>
+      <li>05-電機機械: 等權均值 -0.97%、市值加權均值 -1.26%、對大盤貢獻 -0.02%、樣本 49</li>
+      <li>27-通信網路業: 等權均值 0.21%、市值加權均值 -1.11%、對大盤貢獻 -0.04%、樣本 45</li>
+      <li>25-電腦及週邊設備業: 等權均值 -0.80%、市值加權均值 -1.19%、對大盤貢獻 -0.07%、樣本 62</li>
+      <li>31-其他電子業: 等權均值 -0.24%、市值加權均值 -1.46%、對大盤貢獻 -0.08%、樣本 45</li>
+      <li>28-電子零組件業: 等權均值 -0.92%、市值加權均值 -1.79%、對大盤貢獻 -0.14%、樣本 102</li>
+      <li>24-半導體業: 等權均值 -1.05%、市值加權均值 -1.02%、對大盤貢獻 -0.52%、樣本 92</li>
+    </ul>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>今日撐盤族群（貢獻 Top 3）</h2>
+      <ul>
+        <li>22-生技醫療業: 市值貢獻 0.01%、市值加權 0.50%、等權 0.07%</li>
+        <li>91: 市值貢獻 0.00%、市值加權 0.40%、等權 -0.07%</li>
+        <li>16-觀光餐旅: 市值貢獻 0.00%、市值加權 0.01%、等權 -0.18%</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>今日拖累族群（貢獻 Bottom 3）</h2>
+      <ul>
+        <li>24-半導體業: 市值貢獻 -0.52%、市值加權 -1.02%、等權 -1.05%</li>
+        <li>28-電子零組件業: 市值貢獻 -0.14%、市值加權 -1.79%、等權 -0.92%</li>
+        <li>31-其他電子業: 市值貢獻 -0.08%、市值加權 -1.46%、等權 -0.24%</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 16px;" id="weights">
+    <h2>權值股貢獻</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Top 5</h3>
+        <ul>
+          <li>聯發科技股份有限公司 (2454 / 半導體業): 日報酬 1.06%、權重 2.53%、貢獻 0.03%</li>
+          <li>元大金融控股股份有限公司 (2885 / 金融保險業): 日報酬 1.30%、權重 0.57%、貢獻 0.01%</li>
+          <li>第一金融控股股份有限公司 (2892 / 金融保險業): 日報酬 1.23%、權重 0.46%、貢獻 0.01%</li>
+          <li>永豐金融控股股份有限公司 (2890 / 金融保險業): 日報酬 0.90%、權重 0.45%、貢獻 0.00%</li>
+          <li>遠傳電信股份有限公司 (4904 / 通信網路業): 日報酬 1.14%、權重 0.35%、貢獻 0.00%</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Bottom 5</h3>
+        <ul>
+          <li>台灣積體電路製造股份有限公司 (2330 / 半導體業): 日報酬 -1.03%、權重 41.76%、貢獻 -0.43%</li>
+          <li>鴻海精密工業股份有限公司 (2317 / 其他電子業): 日報酬 -1.81%、權重 3.44%、貢獻 -0.06%</li>
+          <li>台達電子工業股份有限公司 (2308 / 電子零組件業): 日報酬 -1.52%、權重 2.66%、貢獻 -0.04%</li>
+          <li>智邦科技股份有限公司 (2345 / 通信網路業): 日報酬 -4.13%、權重 0.75%、貢獻 -0.03%</li>
+          <li>台光電子材料股份有限公司 (2383 / 電子零組件業): 日報酬 -4.36%、權重 0.63%、貢獻 -0.03%</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 16px;" id="sector-reading">
+    <h2>族群個股解讀（盤中）</h2>
+    <p><strong>族群概覽</strong></p>
+    <ul>
+      <li>22-生技醫療業: 等權 0.07%、市值加權 0.50%、對大盤貢獻 0.01%</li>
+      <li>91: 等權 -0.07%、市值加權 0.40%、對大盤貢獻 0.00%</li>
+      <li>16-觀光餐旅: 等權 -0.18%、市值加權 0.01%、對大盤貢獻 0.00%</li>
+      <li>35-綠能環保: 等權 -0.11%、市值加權 -0.04%、對大盤貢獻 -0.00%</li>
+    </ul>
+    <p>盤中小結：在大盤市值加權約 -0.97% 的背景下，上述族群多屬「相對抗跌」或「局部題材」；但權重偏小，對指數撐盤有限，重點在於族群內是否出現上漲擴散。</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>22-生技醫療業</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6550</td><td>北極星藥業集團股份有限公司</td><td>9.98%</td><td>0.03%</td><td>0.00%</td></tr>
+            <tr><td>6446</td><td>藥華醫藥股份有限公司</td><td>1.17%</td><td>0.21%</td><td>0.00%</td></tr>
+            <tr><td>1795</td><td>美時化學製藥股份有限公司</td><td>2.49%</td><td>0.08%</td><td>0.00%</td></tr>
+            <tr><td>6919</td><td>康霈生技股份有限公司</td><td>0.63%</td><td>0.28%</td><td>0.00%</td></tr>
+            <tr><td>6541</td><td>泰福生技股份有限公司</td><td>3.34%</td><td>0.02%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：市值加權 +0.50% 但等權僅 +0.07%，更像是幾檔具動能的個股在撐住族群；6550 漲幅突出但權重小，對指數貢獻仍接近 0。6446、6919 等較高權重個股小幅上揚，使族群在大盤走弱時呈現防禦色彩，但暫不足以成為真正撐盤主流。</p>
+      </div>
+
+      <div class="card">
+        <h3>91</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>910322</td><td>康師傅控股有限公司</td><td>0.42%</td><td>0.15%</td><td>0.00%</td></tr>
+            <tr><td>9105</td><td>泰金寶科技股份有限公司</td><td>0.51%</td><td>0.07%</td><td>0.00%</td></tr>
+            <tr><td>910861</td><td>神州數碼控股有限公司</td><td>0.73%</td><td>0.01%</td><td>0.00%</td></tr>
+            <tr><td>9110</td><td>越南製造加工出口控股有限公司</td><td>1.99%</td><td>0.00%</td><td>0.00%</td></tr>
+            <tr><td>912000</td><td>晨訊科技集團有限公司</td><td>0.00%</td><td>0.01%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：市值加權為正、等權略為負，走勢偏「龍頭小撐、其餘分歧」。整體權重與關注度有限，即便上漲對大盤影響仍很小，更適合作為盤中情緒的角落訊號。</p>
+      </div>
+
+      <div class="card">
+        <h3>16-觀光餐旅</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2727</td><td>王品餐飲股份有限公司</td><td>1.41%</td><td>0.02%</td><td>0.00%</td></tr>
+            <tr><td>2731</td><td>雄獅旅行社股份有限公司</td><td>0.61%</td><td>0.02%</td><td>0.00%</td></tr>
+            <tr><td>8940</td><td>新天地國際實業股份有限公司</td><td>1.48%</td><td>0.00%</td><td>0.00%</td></tr>
+            <tr><td>5706</td><td>鳳凰國際旅行社股份有限公司</td><td>0.40%</td><td>0.00%</td><td>0.00%</td></tr>
+            <tr><td>7705</td><td>三商餐飲股份有限公司</td><td>0.00%</td><td>0.00%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：市值加權接近 0、等權為負，族群整體偏弱但有少數個股逆勢。內需題材容易在電子走弱時吸引輪動，但目前屬「挑股行情」，未見族群廣泛擴散。</p>
+      </div>
+
+      <div class="card">
+        <h3>35-綠能環保</h3>
+        <table>
+          <thead>
+            <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6873</td><td>泓德能源科技股份有限公司</td><td>2.00%</td><td>0.02%</td><td>0.00%</td></tr>
+            <tr><td>8476</td><td>台境企業股份有限公司</td><td>7.95%</td><td>0.00%</td><td>0.00%</td></tr>
+            <tr><td>6944</td><td>兆聯實業股份有限公司</td><td>0.46%</td><td>0.06%</td><td>0.00%</td></tr>
+            <tr><td>6869</td><td>雲豹能源科技股份有限公司</td><td>1.59%</td><td>0.01%</td><td>0.00%</td></tr>
+            <tr><td>3708</td><td>上緯國際投資控股股份有限公司</td><td>0.00%</td><td>0.01%</td><td>0.00%</td></tr>
+          </tbody>
+        </table>
+        <p>解讀：族群接近平盤（市值 -0.04%、等權 -0.11%），但個股波動很大：台境大漲、泓德與雲豹偏強。權重較高的 6944 漲幅溫和，使族群對指數影響仍有限，屬「高波動、低貢獻」結構。</p>
+      </div>
+    </div>
+
+    <h3>後續觀察</h3>
+    <ul>
+      <li>生技醫療：觀察高波動個股是否帶動成交擴散到較高權重股；若僅剩單點拉抬，族群容易降溫。</li>
+      <li>觀光餐旅：若午後大盤續弱，內需族群能否維持紅盤以確認防禦輪動；若轉弱，代表市場更偏觀望。</li>
+      <li>綠能環保：留意高波動標的是否出現快速拉回；若量縮上漲，延續性通常較差。</li>
+      <li>共同風險：盤中排序可能被最後一小時的權值股波動翻轉，建議收盤後再驗證。</li>
+    </ul>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 16px;" id="beat-index">
+    <h2>贏過大盤個股觀察（盤中）</h2>
+    <p>大盤市值加權日漲幅：約 -0.97%。以下為漲幅高於大盤且對指數貢獻最大的 10 檔（盤中快照）。</p>
+    <table>
+      <thead>
+        <tr>
+          <th>排名</th><th>公司代號</th><th>公司名稱</th><th>產業</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th><th>為何能贏過大盤（盤中解讀）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>2454</td><td>聯發科技股份有限公司</td><td>半導體業</td><td>1.06%</td><td>2.53%</td><td>0.03%</td><td>權值電子偏弱時仍逆勢走強，屬「權值中的相對強勢」；在 2330 拖累的盤面下，資金更傾向抱住少數確定性較高的 IC 設計權值，因此形成明顯正貢獻。</td></tr>
+        <tr><td>2</td><td>2885</td><td>元大金融控股股份有限公司</td><td>金融保險業</td><td>1.30%</td><td>0.57%</td><td>0.01%</td><td>下跌盤常見防禦輪動，金融股成為波動較低的停泊點；2885 漲幅與權重兼具，提供小幅緩衝。</td></tr>
+        <tr><td>3</td><td>2892</td><td>第一金融控股股份有限公司</td><td>金融保險業</td><td>1.23%</td><td>0.46%</td><td>0.01%</td><td>同屬防禦輪動受惠；雖屬小貢獻，但在權值電子回檔時仍提供正向支撐。</td></tr>
+        <tr><td>4</td><td>2890</td><td>永豐金融控股股份有限公司</td><td>金融保險業</td><td>0.90%</td><td>0.45%</td><td>0.00%</td><td>以資金配置行為（避開高波動電子、轉向金融）為主的相對抗跌；貢獻接近 0，影響大盤有限。</td></tr>
+        <tr><td>5</td><td>4904</td><td>遠傳電信股份有限公司</td><td>通信網路業</td><td>1.14%</td><td>0.35%</td><td>0.00%</td><td>族群內分歧時，資金偏向現金流穩定的電信股而非高波動網通股；因此弱勢盤仍能守紅。</td></tr>
+        <tr><td>6</td><td>2884</td><td>玉山金融控股股份有限公司</td><td>金融保險業</td><td>0.45%</td><td>0.59%</td><td>0.00%</td><td>漲幅溫和但相對大盤屬抗跌，屬防禦輪動延伸；對指數貢獻接近 0。</td></tr>
+        <tr><td>7</td><td>6550</td><td>北極星藥業集團股份有限公司</td><td>生技醫療業</td><td>9.98%</td><td>0.03%</td><td>0.00%</td><td>高波動題材股在盤中容易被資金短線追逐；漲幅很大但權重很小，提供的是交易線索而非指數支撐。</td></tr>
+        <tr><td>8</td><td>6446</td><td>藥華醫藥股份有限公司</td><td>生技醫療業</td><td>1.17%</td><td>0.21%</td><td>0.00%</td><td>大盤下跌時仍小漲，顯示資金願意配置到非電子、相對獨立的題材/防禦族群；但支撐力有限。</td></tr>
+        <tr><td>9</td><td>2603</td><td>長榮海運股份有限公司</td><td>航運業</td><td>0.54%</td><td>0.44%</td><td>0.00%</td><td>弱勢盤的替代配置：航運與大盤關聯度相對低，容易在電子回檔時出現輪動；屬相對強勢但不主導大局。</td></tr>
+        <tr><td>10</td><td>2615</td><td>萬海航運股份有限公司</td><td>航運業</td><td>0.89%</td><td>0.25%</td><td>0.00%</td><td>同為輪動題材受惠；貢獻接近 0，更多是「勝在不跌、跑贏大盤」。</td></tr>
+      </tbody>
+    </table>
+
+    <h3>觀察重點</h3>
+    <ul>
+      <li>名單偏「防禦＋少數逆勢權值」：金融與電信占比高，反映市場更偏好低波動與現金流題材。</li>
+      <li>真正能影響指數的正貢獻主要來自 2454（0.03%）；其餘多為跑贏但不改變大局，顯示 2330 等權值仍定方向。</li>
+      <li>生技與航運提供風格輪動線索：若午後續強，代表資金仍願意分散做多；若回吐，則更偏向純防禦或觀望。</li>
+    </ul>
+
+    <h3>後續觀察（盤中）</h3>
+    <ul>
+      <li>2454 能否續強並擴散到其他 IC 設計：若無擴散，容易變成單點撐盤，對電子情緒幫助有限。</li>
+      <li>金融/電信是否能維持紅盤：若同步轉弱，代表防禦輪動失靈，市場可能進一步降低風險。</li>
+      <li>生技高波動股是否出現「拉高後回吐」：回吐明顯代表追價風險升高；若能鎖住漲幅，延續性較佳。</li>
+    </ul>
+  </section>
+
+  <section class="card" style="max-width:1100px;margin:0 auto 16px;">
+    <h2>盤中追蹤清單（快速版）</h2>
+    <ul>
+      <li>2330 是否止跌（對市值加權最關鍵）。</li>
+      <li>28/31/25 等電子供應鏈是否出現止跌回補或續跌擴散。</li>
+      <li>防禦輪動（金融/電信/生技）能否維持，避免全面轉弱。</li>
+      <li>通信網路族群的分歧是否收斂（高波動股止跌 vs 電信續強）。</li>
+      <li>收盤前最後一小時常見重新定價，建議收盤後再驗證一次。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>島民提醒：今天是盤中速報，等收盤後再來一份「收盤定稿版」會更穩。</p>
+  </footer>
+</body>
+</html>
