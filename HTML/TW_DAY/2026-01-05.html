@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台股每日報告 - 2026-01-05</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #fdf6e3;
+            color: #5c5248;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #a7d9a1;
+            padding: 20px;
+            border-radius: 20px;
+            border: 4px solid #8fbc8f;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header h1 svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            fill: #fff;
+        }
+        .header p {
+            color: #f0fff0;
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+        .bulletin-board {
+            background-color: #d2b48c;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 5px solid #a0522d;
+        }
+        .card {
+            background-color: #fffaf0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 2px solid #e3d9c6;
+        }
+        .card:last-child {
+            margin-bottom: 0;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #8b4513;
+            border-bottom: 3px dashed #c3b39a;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #cd853f;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e3d9c6;
+        }
+        th {
+            background-color: #e3d9c6;
+            color: #8b4513;
+            font-weight: 700;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f5ed;
+        }
+        .positive { color: #2e8b57; font-weight: bold; }
+        .negative { color: #d9534f; font-weight: bold; }
+        .neutral { color: #5c5248; }
+        .interpretation {
+            background-color: #e8f5e9;
+            border-left: 5px solid #66bb6a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .summary-box {
+            background-color: #f0f4c3;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #dce775;
+        }
+        .summary-box h3 { margin-top: 0; }
+        .summary-box.down {
+             background-color: #ffcdd2;
+             border-color: #ef9a9a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>
+                <svg viewBox="0 0 20 20"><path d="M10 2a7.99 7.99 0 0 0-8 8c0 2.22 1.3 4.25 3.14 5.46a.5.5 0 0 1 .1.69l-.66 1.31a.5.5 0 0 0 .6.7l1.43-.72a.5.5 0 0 1 .45 0l.1.05A7.99 7.99 0 0 0 10 18a7.99 7.99 0 0 0 8-8 7.99 7.99 0 0 0-8-8zm4 7.5c-1.5 0-2.5 1-2.5 2S10.5 13 12 13s2.5-1 2.5-2-1.5-1.5-2.5-1.5zM6 9.5C4.5 9.5 3.5 10.5 3.5 11.5S4.5 13 6 13s2.5-1 2.5-2-1.5-1.5-2.5-1.5z"/></svg>
+                島民的股市佈告欄
+            </h1>
+            <p>日期：2026年1月5日</p>
+        </header>
+
+        <div class="bulletin-board">
+            <div class="card">
+                <h2>今日市場天氣</h2>
+                <p>哈囉，各位島民！今天大盤看起來很有趣喔！如果大家都一樣重要（等權），市場其實是微微<span class="negative">下跌 -0.71%</span>。但是！因為大樹們長得特別好（市值加權），整個市場被拉抬到<span class="positive">上漲 2.60%</span>！</p>
+                <p>這就像是島上的鈴錢樹（權值股）大豐收，把整座島的經濟都帶起來了！</p>
+                
+                <div class="summary-grid">
+                    <div class="summary-box">
+                        <h3>今日撐盤好幫手 🌳</h3>
+                        <ul>
+                            <li><strong>半導體業:</strong> 貢獻 <span class="positive">2.53%</span></li>
+                            <li><strong>其他電子業:</strong> 貢獻 <span class="positive">0.07%</span></li>
+                            <li><strong>金融保險業:</strong> 貢獻 <span class="positive">0.05%</span></li>
+                        </ul>
+                    </div>
+                    <div class="summary-box down">
+                        <h3>今日拖累的小烏雲 ☁️</h3>
+                        <ul>
+                            <li><strong>航運業:</strong> 拖累 <span class="negative">-0.02%</span></li>
+                            <li><strong>塑膠工業:</strong> 拖累 <span class="negative">-0.02%</span></li>
+                            <li><strong>生技醫療業:</strong> 拖累 <span class="negative">-0.02%</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>焦點族群挖呀挖</h2>
+                <p>今天有些族群特別熱鬧，讓我們來看看是誰在發光發熱吧！</p>
+
+                <h3>冠軍大力士：半導體業</h3>
+                <p>嘿！今天半導體根本是超級巨星！市值加權大漲了 <span class="positive">4.81%</span>，幾乎可以說是靠一己之力撐起了整個市場。這都要歸功於島上最大的那幾棵神木！</p>
+                <div class="interpretation">
+                    <strong>狸克分析：</strong>「看來大家對新的 Nook手機和高科技DIY方程式（AI晶片、HBM）充滿期待，鈴錢都往這裡投啦！特別是台積電、聯發科和日月光這幾位，長得又高又壯，帶動了整個森林的成長，Nook Inc.很看好喔！」
+                </div>
+                <table>
+                    <thead><tr><th>公司名稱</th><th>日報酬</th><th>指數貢獻</th></tr></thead>
+                    <tbody>
+                        <tr><td>台灣積體電路製造 (2330)</td><td class="positive">5.36%</td><td class="positive">2.32%</td></tr>
+                        <tr><td>聯發科技 (2454)</td><td class="positive">3.74%</td><td class="positive">0.09%</td></tr>
+                        <tr><td>日月光投控 (3711)</td><td class="positive">2.13%</td><td class="positive">0.03%</td></tr>
+                        <tr><td>華邦電子 (2344)</td><td class="positive">5.18%</td><td class="positive">0.02%</td></tr>
+                        <tr><td>創意電子 (3443)</td><td class="positive">6.18%</td><td class="positive">0.02%</td></tr>
+                    </tbody>
+                </table>
+                
+                <h3>可靠的好夥伴：其他電子業 & 金融保險業</h3>
+                <p>除了半導體，其他電子業和金融業今天也表現得不錯，雖然不像半導體那麼搶眼，但也是默默地為市場貢獻了很多力量！</p>
+                <div class="interpretation">
+                    <strong>西施惠報告：</strong>「鴻海先生的電動車零件和伺服器材料（車用/伺服器線束）賣得很好呢！還有，富邦和國泰銀行因為最近利息環境穩定，也賺了不少鈴錢喔。大家分工合作，島嶼才會欣欣向榮！」
+                </div>
+                <table>
+                    <thead><tr><th>公司名稱</th><th>產業別</th><th>日報酬</th><th>指數貢獻</th></tr></thead>
+                    <tbody>
+                        <tr><td>鴻海精密 (2317)</td><td>其他電子業</td><td class="positive">1.08%</td><td class="positive">0.04%</td></tr>
+                        <tr><td>富邦金 (2881)</td><td>金融保險業</td><td class="positive">1.67%</td><td class="positive">0.02%</td></tr>
+                        <tr><td>國泰金 (2882)</td><td>金融保險業</td><td class="positive">1.73%</td><td class="positive">0.02%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>跑贏大盤的閃亮之星 ✨</h2>
+                <p>今天大盤的標準是 <span class="positive">2.60%</span>，有些特別努力的居民表現得比這個還要棒！讓我們給他們一點掌聲！</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公司名稱</th>
+                            <th>產業</th>
+                            <th>日報酬</th>
+                            <th>狸克的悄悄話（為何傑出）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>台灣積體電路製造 (2330)</td>
+                            <td>半導體業</td>
+                            <td class="positive">5.36%</td>
+                            <td>AI晶片需求火熱，一個人就貢獻了2.32%，是今天的MVP！</td>
+                        </tr>
+                        <tr>
+                            <td>聯發科技 (2454)</td>
+                            <td>半導體業</td>
+                            <td class="positive">3.74%</td>
+                            <td>搭上AI順風車，緊跟在後，表現超群！</td>
+                        </tr>
+                        <tr>
+                            <td>創意電子 (3443)</td>
+                            <td>半導體業</td>
+                            <td class="positive">6.18%</td>
+                            <td>漲幅驚人！在高階設計領域大放異彩。</td>
+                        </tr>
+                        <tr>
+                            <td>欣興電子 (3037)</td>
+                            <td>電子零組件業</td>
+                            <td class="positive">5.02%</td>
+                            <td>伺服器裡的零件需求旺盛，訂單滿滿！</td>
+                        </tr>
+                         <tr>
+                            <td>群創光電 (3481)</td>
+                            <td>光電業</td>
+                            <td class="positive">9.94%</td>
+                            <td>面板價格回穩，吸引了大量關注，股價幾乎漲停！</td>
+                        </tr>
+                        <tr>
+                            <td>力成科技 (6239)</td>
+                            <td>半導體業</td>
+                            <td class="positive">9.81%</td>
+                            <td>高階記憶體封裝需求強勁，也是一顆閃亮的星星！</td>
+                        </tr>
+                         <tr>
+                            <td>台新新光金 (2887)</td>
+                            <td>金融保險業</td>
+                            <td class="positive">2.94%</td>
+                            <td>在金融股中表現穩健，賺取穩定的利息收益。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>傅達的明日重點提醒 🦉</h2>
+                <p>呵呵，各位晚安。根據我的觀察，有幾件事情值得大家明天多加留意喔。</p>
+                <ul>
+                    <li><strong>關注海外動向：</strong> 美國島上的科技股最近很熱鬧，它們的表現會影響到我們島上的半導體和伺服器相關產業喔。如果它們打個噴嚏，我們這邊可能就要注意天氣變化了。</li>
+                    <li><strong>保持多元化：</strong> 現在雖然電子股很強勢，但如果石油或大頭菜（原物料）的價格變動太大，資金可能會流向傳統產業或能源股。別把所有鈴錢都埋在同一個地方，分散風險才是聰明的做法！</li>
+                </ul>
+                <p>好了，今天就到這裡。祝大家有個好夢，明天繼續為了美好的島嶼生活而努力吧！</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
