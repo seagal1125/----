@@ -3,412 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台股每日報告 - 2026-01-09</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+    <title>動森好友日報 🏝️ 股市天氣預報 (2026-01-09)</title>
     <style>
-        :root {
-            --leaf: #7fbf7b;
-            --leaf-dark: #5a9b57;
-            --wood: #c49a6c;
-            --wood-dark: #9b6b43;
-            --sand: #f5ecd8;
-            --ink: #5b4b3d;
-            --sky: #e7f3ff;
-            --accent: #f7c46c;
-            --danger: #e57373;
-        }
-        * { box-sizing: border-box; }
         body {
-            margin: 0;
-            font-family: 'M PLUS Rounded 1c', 'Varela Round', sans-serif;
-            color: var(--ink);
-            background:
-                radial-gradient(circle at 10% 10%, rgba(255,255,255,0.8), rgba(255,255,255,0) 50%),
-                radial-gradient(circle at 90% 20%, rgba(255,255,255,0.7), rgba(255,255,255,0) 45%),
-                linear-gradient(180deg, var(--sky) 0%, var(--sand) 35%, #fef7e7 100%);
-            padding: 24px 16px 40px;
+            background-color: #fdf6e4;
+            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif', '蘋方-繁', 'Microsoft JhengHei';
+            color: #594a41;
+            line-height: 1.8;
+            padding: 20px;
         }
         .container {
-            max-width: 980px;
+            max-width: 800px;
             margin: 0 auto;
-        }
-        .header {
-            background: var(--leaf);
-            border: 4px solid var(--leaf-dark);
-            border-radius: 24px;
-            padding: 22px 20px;
-            text-align: center;
-            box-shadow: 0 8px 18px rgba(91, 75, 61, 0.18);
-            position: relative;
-            overflow: hidden;
-        }
-        .header::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0 8px, rgba(255,255,255,0) 8px 16px);
-            opacity: 0.35;
-            pointer-events: none;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.4rem;
-            color: #fff;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
-        }
-        .header p {
-            margin: 6px 0 0;
-            font-size: 1.1rem;
-            color: #f4fff4;
-        }
-        .board {
-            background: var(--wood);
-            border: 6px solid var(--wood-dark);
+            background-color: #ffffff;
             border-radius: 20px;
-            padding: 22px;
-            margin-top: 24px;
-            box-shadow: 0 10px 20px rgba(91, 75, 61, 0.2);
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
-        .card {
-            background: #fffaf0;
-            border-radius: 18px;
-            padding: 20px 20px 18px;
-            border: 2px solid #ead9be;
-            box-shadow: 0 4px 10px rgba(91, 75, 61, 0.08);
-            margin-bottom: 20px;
-            animation: float-in 0.6s ease both;
+        h1, h2, h3 {
+            font-family: 'Verdana', 'Geneva', 'sans-serif', '蘋方-繁', 'Microsoft JhengHei';
+            color: #5c9e6a;
+            border-bottom: 2px solid #e8d9c3;
+            padding-bottom: 10px;
+            margin-top: 30px;
         }
-        .card:last-child { margin-bottom: 0; }
-        @keyframes float-in {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: translateY(0); }
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
         }
         h2 {
-            margin: 0 0 14px;
-            font-size: 1.6rem;
-            color: var(--wood-dark);
-            border-bottom: 3px dashed #d7c2a3;
-            padding-bottom: 8px;
+            font-size: 1.8em;
         }
         h3 {
-            margin: 18px 0 10px;
-            font-size: 1.25rem;
-            color: #b56a2a;
+            font-size: 1.4em;
+            color: #4a7a8c;
+            border: none;
         }
-        p { margin: 8px 0; line-height: 1.6; }
-        ul { padding-left: 20px; margin: 8px 0; }
-        li { margin: 6px 0; }
+        .intro, .summary, .special-focus {
+            background-color: #f0f8ff;
+            border-left: 5px solid #5c9e6a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+        .special-focus {
+             background-color: #fffaf0;
+             border-left-color: #f0ad4e;
+        }
+        .market-status {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .market-status .up {
+            color: #5cb85c;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 0.95rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         th, td {
-            padding: 10px 12px;
+            padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid #ead9be;
+            border-bottom: 1px solid #e8d9c3;
         }
         th {
-            background: #f2e3c8;
-            color: #7a4a1b;
-            font-weight: 700;
+            background-color: #a7d7c5;
+            color: #ffffff;
+            font-weight: bold;
         }
         tbody tr:nth-child(even) {
-            background: #fff4df;
+            background-color: #f7f9f7;
         }
-        .positive { color: #2e8b57; font-weight: 700; }
-        .negative { color: #c0392b; font-weight: 700; }
-        .note {
-            background: #e8f5e9;
-            border-left: 5px solid #66bb6a;
-            padding: 12px 14px;
-            border-radius: 10px;
-            font-style: italic;
+        tbody tr:hover {
+            background-color: #e8f5e9;
         }
-        .split {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
+        .positive { color: #d9534f; }
+        .negative { color: #5cb85c; }
+        .contribution-positive { background-color: rgba(217, 83, 79, 0.1); }
+        .contribution-negative { background-color: rgba(92, 184, 92, 0.1); }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
         }
-        .pill {
-            display: inline-block;
-            background: var(--accent);
-            color: #6b3b08;
-            padding: 2px 10px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            margin-left: 6px;
+        .card {
+            background-color: #f7f9f7;
+            border-radius: 15px;
+            padding: 20px;
+            flex-basis: 45%;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
         }
-        @media (max-width: 640px) {
-            .header h1 { font-size: 1.9rem; }
-            .board { padding: 16px; }
-            .card { padding: 16px; }
+        .card ul {
+            padding-left: 20px;
+        }
+        .card ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>島民的台股佈告欄</h1>
-            <p>日期：2026年1月9日</p>
-        </header>
+        <h1>動森好友日報 🏝️ 股市天氣預報</h1>
+        <p style="text-align: center; font-size: 1.2em; color: #888;">日期：2026-01-09</p>
 
-        <section class="board">
-            <div class="card" style="animation-delay: 0.05s;">
-                <h2>今日市場天氣</h2>
-                <p>今天的大盤有點像島上的天氣：外表晴朗，海面卻有暗潮。等權指數上漲 <span class="positive">0.95%</span>，代表多數中小型股在回溫；但市值加權下跌 <span class="negative">-0.55%</span>，顯示大型權值股仍在拖累。</p>
-                <p>方法：等權與市值加權（用昨收×已發行股數近似市值）兩種；依產業別分組。資料來源：yfinance 近兩個交易日收盤價，公司基本資料與股數取自上市公司基本資料.csv，產業名稱對照表參考 industry_codes.csv。</p>
-            </div>
+        <div class="intro">
+            <p>哈囉，各位島民！我是你們的股市好鄰居狸克 🦝。</p>
+            <p>今天大盤的市值加權指數 <span class="positive">下跌了 0.27%</span>，天氣有點陰陰的。不過別擔心，還是有很多充滿活力的島嶼陽光普照喔！一起來看看今天的市場動態，找到那些值得我們關注的閃亮貝殼吧！</p>
+        </div>
 
-            <div class="card" style="animation-delay: 0.1s;">
-                <h2>族群貢獻排行榜</h2>
-                <div class="split">
-                    <div>
-                        <h3>前 10：市值加權貢獻度</h3>
-                        <table>
-                            <thead>
-                                <tr><th>產業別</th><th>等權均值</th><th>市值加權均值</th><th>對大盤貢獻</th><th>樣本</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>28-電子零組件業</td><td>0.68%</td><td>0.63%</td><td>0.05%</td><td>102</td></tr>
-                                <tr><td>27-通信網路業</td><td>0.10%</td><td>0.66%</td><td>0.02%</td><td>45</td></tr>
-                                <tr><td>02-食品工業</td><td>36.72%</td><td>2.38%</td><td>0.02%</td><td>25</td></tr>
-                                <tr><td>05-電機機械</td><td>0.41%</td><td>1.04%</td><td>0.01%</td><td>49</td></tr>
-                                <tr><td>31-其他電子業</td><td>0.33%</td><td>0.19%</td><td>0.01%</td><td>45</td></tr>
-                                <tr><td>15-航運業</td><td>0.50%</td><td>0.44%</td><td>0.01%</td><td>27</td></tr>
-                                <tr><td>14-建材營造業</td><td>0.51%</td><td>0.77%</td><td>0.01%</td><td>55</td></tr>
-                                <tr><td>04-紡織纖維</td><td>0.36%</td><td>1.12%</td><td>0.01%</td><td>42</td></tr>
-                                <tr><td>12-汽車工業</td><td>0.33%</td><td>0.59%</td><td>0.00%</td><td>42</td></tr>
-                                <tr><td>22-生技醫療業</td><td>0.26%</td><td>0.44%</td><td>0.00%</td><td>55</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                        <h3>後 10：市值加權貢獻度</h3>
-                        <table>
-                            <thead>
-                                <tr><th>產業別</th><th>等權均值</th><th>市值加權均值</th><th>對大盤貢獻</th><th>樣本</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>08-玻璃陶瓷</td><td>2.44%</td><td>-0.67%</td><td>-0.00%</td><td>5</td></tr>
-                                <tr><td>29-電子通路業</td><td>0.26%</td><td>-0.20%</td><td>-0.00%</td><td>20</td></tr>
-                                <tr><td>10-鋼鐵工業</td><td>-0.93%</td><td>-0.37%</td><td>-0.00%</td><td>31</td></tr>
-                                <tr><td>21-化學工業</td><td>-0.35%</td><td>-0.87%</td><td>-0.00%</td><td>28</td></tr>
-                                <tr><td>91</td><td>-0.43%</td><td>-2.16%</td><td>-0.01%</td><td>10</td></tr>
-                                <tr><td>03-塑膠工業</td><td>0.32%</td><td>-0.63%</td><td>-0.01%</td><td>21</td></tr>
-                                <tr><td>06-電器電纜</td><td>-0.34%</td><td>-2.83%</td><td>-0.01%</td><td>15</td></tr>
-                                <tr><td>26-光電業</td><td>-0.11%</td><td>-0.81%</td><td>-0.01%</td><td>69</td></tr>
-                                <tr><td>25-電腦及週邊設備業</td><td>0.09%</td><td>-0.47%</td><td>-0.03%</td><td>62</td></tr>
-                                <tr><td>24-半導體業</td><td>-1.16%</td><td>-1.18%</td><td>-0.63%</td><td>92</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="animation-delay: 0.15s;">
-                <h2>撐盤與拖累觀察</h2>
-                <div class="split">
-                    <div>
-                        <h3>今日撐盤族群 <span class="pill">Top 3</span></h3>
-                        <ul>
-                            <li>28-電子零組件業：市值貢獻 0.05%、市值加權 0.63%、等權 0.68%</li>
-                            <li>27-通信網路業：市值貢獻 0.02%、市值加權 0.66%、等權 0.10%</li>
-                            <li>02-食品工業：市值貢獻 0.02%、市值加權 2.38%、等權 36.72%</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>今日拖累族群 <span class="pill" style="background: var(--danger); color: #fff;">Bottom 3</span></h3>
-                        <ul>
-                            <li>24-半導體業：市值貢獻 -0.63%、市值加權 -1.18%、等權 -1.16%</li>
-                            <li>25-電腦及週邊設備業：市值貢獻 -0.03%、市值加權 -0.47%、等權 0.09%</li>
-                            <li>26-光電業：市值貢獻 -0.01%、市值加權 -0.81%、等權 -0.11%</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="animation-delay: 0.2s;">
-                <h2>權值股貢獻</h2>
-                <div class="split">
-                    <div>
-                        <h3>Top 5</h3>
-                        <table>
-                            <thead>
-                                <tr><th>公司</th><th>產業</th><th>日報酬</th><th>權重</th><th>貢獻</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>廣達電腦股份有限公司 (2382)</td><td>電腦及週邊設備業</td><td>3.48%</td><td>1.07%</td><td>0.04%</td></tr>
-                                <tr><td>聯華電子股份有限公司 (2303)</td><td>半導體業</td><td>3.98%</td><td>0.68%</td><td>0.03%</td></tr>
-                                <tr><td>聯發科技股份有限公司 (2454)</td><td>半導體業</td><td>1.04%</td><td>2.36%</td><td>0.02%</td></tr>
-                                <tr><td>智邦科技股份有限公司 (2345)</td><td>通信網路業</td><td>3.16%</td><td>0.72%</td><td>0.02%</td></tr>
-                                <tr><td>奇鋐科技股份有限公司 (3017)</td><td>電腦及週邊設備業</td><td>2.95%</td><td>0.54%</td><td>0.02%</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                        <h3>Bottom 5</h3>
-                        <table>
-                            <thead>
-                                <tr><th>公司</th><th>產業</th><th>日報酬</th><th>權重</th><th>貢獻</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>台灣積體電路製造股份有限公司 (2330)</td><td>半導體業</td><td>-1.19%</td><td>44.53%</td><td>-0.53%</td></tr>
-                                <tr><td>緯穎科技服務股份有限公司 (6669)</td><td>電腦及週邊設備業</td><td>-8.06%</td><td>0.88%</td><td>-0.07%</td></tr>
-                                <tr><td>華邦電子股份有限公司 (2344)</td><td>半導體業</td><td>-7.93%</td><td>0.50%</td><td>-0.04%</td></tr>
-                                <tr><td>日月光投資控股股份有限公司 (3711)</td><td>半導體業</td><td>-2.74%</td><td>1.24%</td><td>-0.03%</td></tr>
-                                <tr><td>南亞科技股份有限公司 (2408)</td><td>半導體業</td><td>-3.52%</td><td>0.76%</td><td>-0.03%</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="animation-delay: 0.25s;">
-                <h2>族群解讀與個股亮點</h2>
-                <h3>族群概覽</h3>
+        <h2>今日大盤天氣概況 🌤️</h2>
+        <p>今天市場情緒比較複雜，有的島嶼在開派對，有的島嶼卻下起了雨。讓我們來看看是誰在撐起一片天，又是誰需要一把傘吧！</p>
+        
+        <div class="card-container">
+            <div class="card">
+                <h3>🌳 撐盤的大樹們 (貢獻 Top 3)</h3>
                 <ul>
-                    <li>大盤等權 +0.95% 但市值加權 -0.55%，顯示中小型股回溫、權值股承壓，拖累主因集中在半導體（對大盤 -0.63%）。</li>
-                    <li>28-電子零組件業：等權 0.68%、市值加權 0.63%、對大盤貢獻 0.05%，族群廣度尚可。</li>
-                    <li>27-通信網路業：等權 0.10%、市值加權 0.66%、對大盤貢獻 0.02%，權值股主導明顯。</li>
-                    <li>02-食品工業：等權 36.72%、市值加權 2.38%、對大盤貢獻 0.02%，主要受單一股異常漲幅放大。</li>
-                    <li>05-電機機械：等權 0.41%、市值加權 1.04%、對大盤貢獻 0.01%，資金輪動到中小型設備股。</li>
-                </ul>
-
-                <h3>28-電子零組件業</h3>
-                <table>
-                    <thead>
-                        <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>2383</td><td>台光電子材料股份有限公司</td><td>2.27%</td><td>0.55%</td><td>0.01%</td></tr>
-                        <tr><td>3653</td><td>健策精密工業股份有限公司</td><td>3.27%</td><td>0.36%</td><td>0.01%</td></tr>
-                        <tr><td>2059</td><td>川湖科技股份有限公司</td><td>3.01%</td><td>0.31%</td><td>0.01%</td></tr>
-                        <tr><td>2368</td><td>金像電子(股)公司</td><td>2.69%</td><td>0.32%</td><td>0.01%</td></tr>
-                        <tr><td>2313</td><td>華通電腦股份有限公司</td><td>5.71%</td><td>0.13%</td><td>0.01%</td></tr>
-                    </tbody>
-                </table>
-                <p class="note">解讀：等權與市值加權同步為正，代表族群內多數個股皆有回溫，而非單一權值拉抬。名單集中在高階材料、散熱與伺服器相關零組件，反映資料中心需求支撐，但短線漲多後需觀察量能是否延續。</p>
-
-                <h3>27-通信網路業</h3>
-                <table>
-                    <thead>
-                        <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>2345</td><td>智邦科技股份有限公司</td><td>3.16%</td><td>0.72%</td><td>0.02%</td></tr>
-                        <tr><td>3045</td><td>台灣大哥大股份有限公司</td><td>0.47%</td><td>0.41%</td><td>0.00%</td></tr>
-                        <tr><td>4904</td><td>遠傳電信股份有限公司</td><td>0.45%</td><td>0.33%</td><td>0.00%</td></tr>
-                        <tr><td>3596</td><td>智易科技股份有限公司</td><td>1.45%</td><td>0.04%</td><td>0.00%</td></tr>
-                        <tr><td>6285</td><td>啟碁科技股份有限公司</td><td>0.98%</td><td>0.05%</td><td>0.00%</td></tr>
-                    </tbody>
-                </table>
-                <p class="note">解讀：市值加權明顯優於等權，顯示智邦與電信雙雄主導走勢。交換器與高速網通題材提供上攻動能，電信股則提供防守支撐，使族群呈現溫和上揚。</p>
-
-                <h3>02-食品工業</h3>
-                <table>
-                    <thead>
-                        <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>7780</td><td>大研生醫國際股份有限公司</td><td>919.28%</td><td>0.00%</td><td>0.01%</td></tr>
-                        <tr><td>1216</td><td>統一企業股份有限公司</td><td>0.93%</td><td>0.44%</td><td>0.00%</td></tr>
-                        <tr><td>1215</td><td>台灣卜蜂企業股份有限公司</td><td>1.83%</td><td>0.04%</td><td>0.00%</td></tr>
-                        <tr><td>1210</td><td>大成長城企業股份有限公司</td><td>0.39%</td><td>0.05%</td><td>0.00%</td></tr>
-                        <tr><td>1231</td><td>聯華食品工業股份有限公司</td><td>0.53%</td><td>0.03%</td><td>0.00%</td></tr>
-                    </tbody>
-                </table>
-                <p class="note">解讀：等權大幅上跳主要由大研生醫單日異常漲幅推升，市值加權僅溫和上漲，顯示族群廣度有限。需留意消息面與成交量是否能帶動其他食品股跟進。</p>
-
-                <h3>05-電機機械</h3>
-                <table>
-                    <thead>
-                        <tr><th>公司代號</th><th>公司名稱</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>8996</td><td>高力熱處理工業股份有限公司</td><td>9.17%</td><td>0.05%</td><td>0.00%</td></tr>
-                        <tr><td>1590</td><td>亞德客國際集團</td><td>1.83%</td><td>0.20%</td><td>0.00%</td></tr>
-                        <tr><td>1504</td><td>東元電機股份有限公司</td><td>1.47%</td><td>0.20%</td><td>0.00%</td></tr>
-                        <tr><td>1519</td><td>華城電機股份有限公司</td><td>0.54%</td><td>0.24%</td><td>0.00%</td></tr>
-                        <tr><td>2049</td><td>上銀科技股份有限公司</td><td>1.55%</td><td>0.07%</td><td>0.00%</td></tr>
-                    </tbody>
-                </table>
-                <p class="note">解讀：漲勢較分散，反映市場對自動化、設備升級與電力建設的期待仍在。高力、亞德客、東元等推升族群表現，但持續性仍需觀察後續輪動。</p>
-            </div>
-
-            <div class="card" style="animation-delay: 0.3s;">
-                <h2>記憶體子族群快評</h2>
-                <p>依 daily_sector_report.py 的日報酬計算方式（取最近兩個交易日收盤價），記憶體族群今日等權平均跌幅為 <span class="negative">-7.21%</span>。</p>
-                <p>樣本 12 檔：南亞科技(2408.TW)、華邦電子(2344.TW)、旺宏電子(2337.TW)、晶豪科(3006.TW)、十銓科技(4967.TW)、威剛科技(3260.TWO)、群聯電子(8299.TWO)、力成科技(6239.TW)、南茂科技(8150.TW)、創見資訊(2451.TW)、宇瞻科技(8271.TW)、愛普科技(6531.TW)。</p>
-                <table>
-                    <thead>
-                        <tr><th>公司</th><th>日報酬</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>華邦電子 (2344.TW)</td><td class="negative">-9.95%</td></tr>
-                        <tr><td>南亞科技 (2408.TW)</td><td class="negative">-9.94%</td></tr>
-                        <tr><td>群聯電子 (8299.TWO)</td><td class="negative">-9.71%</td></tr>
-                        <tr><td>創見資訊 (2451.TW)</td><td class="negative">-8.93%</td></tr>
-                        <tr><td>旺宏電子 (2337.TW)</td><td class="negative">-8.37%</td></tr>
-                        <tr><td>宇瞻科技 (8271.TW)</td><td class="negative">-7.87%</td></tr>
-                        <tr><td>十銓科技 (4967.TW)</td><td class="negative">-7.38%</td></tr>
-                        <tr><td>南茂科技 (8150.TW)</td><td class="negative">-7.26%</td></tr>
-                        <tr><td>晶豪科 (3006.TW)</td><td class="negative">-6.83%</td></tr>
-                        <tr><td>威剛科技 (3260.TWO)</td><td class="negative">-5.42%</td></tr>
-                        <tr><td>力成科技 (6239.TW)</td><td class="negative">-5.42%</td></tr>
-                        <tr><td>愛普科技 (6531.TW)</td><td class="positive">0.55%</td></tr>
-                    </tbody>
-                </table>
-                <p class="note">解讀：多檔記憶體本體與模組股跌停，賣壓已擴散到控制器與封測鏈，反映資金風險偏好急降。短線需觀察記憶體現貨/合約價與海外同業走勢是否止跌，否則壓力仍偏大。</p>
-            </div>
-
-            <div class="card" style="animation-delay: 0.35s;">
-                <h2>後續觀察</h2>
-                <ul>
-                    <li>觀察半導體權值股是否止跌，若台積電續弱，市值加權修復空間有限。</li>
-                    <li>追蹤電子零組件與通信網路的量能與訂單訊息，確認是否為趨勢性修復而非短線反彈。</li>
-                    <li>食品工業受單一股帶動幅度過大，需留意事件驅動的延續性與回吐風險。</li>
-                    <li>電機機械若能接棒擴散到更多中小型股，代表資金輪動更健康。</li>
-                    <li>關注美元與美股科技股波動，避免外部風險放大電子族群震盪。</li>
+                    <li><strong>電子零組件島 (貢獻 +0.10%)</strong>：島民們正在努力蓋新的資料中心，像是健策(+4.91%)和川湖(+5.07%)的散熱和滑軌零件賣得超好，PCB大廠華通(+10.00%)更是接到了滿滿訂單，整個島都亮晶晶的！</li>
+                    <li><strong>電機機械島 (貢獻 +0.03%)</strong>：電力超人華城電機(+6.94%)繼續發光發熱，帶領大家進行能源升級。島上的重電建設和綠能計畫讓這裡充滿了能量！</li>
+                    <li><strong>其他電子島 (貢獻 +0.02%)</strong>：全能的鴻海(+0.44%)正在忙著組裝電動車和伺服器，穩定的表現就像島上最可靠的大樹，為市場提供了重要的支撐。</li>
                 </ul>
             </div>
-
-            <div class="card" style="animation-delay: 0.4s;">
-                <h2>贏過大盤個股觀察</h2>
-                <p>大盤市值加權日漲幅：約 -0.55%，以下為漲幅高於大盤且對指數貢獻最大的 10 檔。</p>
-                <table>
-                    <thead>
-                        <tr><th>排名</th><th>公司代號</th><th>公司名稱</th><th>產業</th><th>日報酬</th><th>市值權重</th><th>指數貢獻</th><th>為何能贏過大盤</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>2382</td><td>廣達電腦股份有限公司</td><td>電腦及週邊設備業</td><td>3.48%</td><td>1.07%</td><td>0.04%</td><td>AI 伺服器與資料中心 ODM 拉貨續強，散熱與機櫃升級題材帶動買盤，漲幅在權值股中相對突出。</td></tr>
-                        <tr><td>2</td><td>2303</td><td>聯華電子股份有限公司</td><td>半導體業</td><td>3.98%</td><td>0.68%</td><td>0.03%</td><td>成熟製程需求回溫與報價相對穩定，資金偏好防守型晶圓代工，使漲幅領先大盤。</td></tr>
-                        <tr><td>3</td><td>2454</td><td>聯發科技股份有限公司</td><td>半導體業</td><td>1.04%</td><td>2.36%</td><td>0.02%</td><td>新平台與邊緣 AI 題材帶動市場關注，即使漲幅不大，因權重高仍提供顯著貢獻。</td></tr>
-                        <tr><td>4</td><td>2345</td><td>智邦科技股份有限公司</td><td>通信網路業</td><td>3.16%</td><td>0.72%</td><td>0.02%</td><td>資料中心交換器需求延續，族群龍頭吸引資金集中，帶動通信網路族群表現。</td></tr>
-                        <tr><td>5</td><td>3017</td><td>奇鋐科技股份有限公司</td><td>電腦及週邊設備業</td><td>2.95%</td><td>0.54%</td><td>0.02%</td><td>伺服器散熱與液冷模組需求升溫，AI 基建升級循環支撐短線動能。</td></tr>
-                        <tr><td>6</td><td>7780</td><td>大研生醫國際股份有限公司</td><td>食品工業</td><td>919.28%</td><td>0.00%</td><td>0.01%</td><td>單日極端漲幅帶動排名，屬事件或流動性推升型走勢，仍需驗證續航力。</td></tr>
-                        <tr><td>7</td><td>2383</td><td>台光電子材料股份有限公司</td><td>電子零組件業</td><td>2.27%</td><td>0.55%</td><td>0.01%</td><td>高階 PCB 材料升級與 AI 伺服器板材需求續強，推升族群氣勢。</td></tr>
-                        <tr><td>8</td><td>3653</td><td>健策精密工業股份有限公司</td><td>電子零組件業</td><td>3.27%</td><td>0.36%</td><td>0.01%</td><td>高功率散熱與精密零件需求回溫，產品組合改善支撐股價。</td></tr>
-                        <tr><td>9</td><td>2059</td><td>川湖科技股份有限公司</td><td>電子零組件業</td><td>3.01%</td><td>0.31%</td><td>0.01%</td><td>伺服器滑軌與高階機構件需求回升，受惠 AI 基礎建設投入。</td></tr>
-                        <tr><td>10</td><td>5269</td><td>祥碩科技股份有限公司</td><td>半導體業</td><td>9.02%</td><td>0.10%</td><td>0.01%</td><td>高速介面控制晶片需求改善，短線買盤集中推升漲幅。</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card" style="animation-delay: 0.45s;">
-                <h2>觀察重點</h2>
+            <div class="card">
+                <h3>🌧️ 下雨的島嶼們 (拖累 Top 3)</h3>
                 <ul>
-                    <li>市值加權為負主要來自半導體權值回檔，若台積電續弱，大盤修復空間有限。</li>
-                    <li>贏過大盤的個股多集中在 AI 伺服器、散熱與網通題材，市場集中度高，需留意美股科技股波動。</li>
-                    <li>食品工業個股的極端漲幅拉高等權表現，後續回吐可能影響族群觀感。</li>
-                    <li>若資金能擴散到電機機械、建材營造等傳產，輪動將更健康且波動較低。</li>
-                    <li>觀察量能與外資動向，確認是否只是短線情緒推升。</li>
+                    <li><strong>半導體島 (貢獻 -0.30%)</strong>：島主台積電(-0.30%)今天決定休息一下，加上記憶體區的南亞科(-9.94%)和華邦電(-9.86%)起了濃霧，讓整個島嶼的氣氛變得比較低迷。</li>
+                    <li><strong>電腦週邊島 (貢獻 -0.05%)</strong>：雖然廣達(+3.66%)陽光普照，但緯穎(-8.82%)卻下了一場傾盆大雨，一晴一雨之間，島上還是感覺有點濕冷。</li>
+                    <li><strong>塑膠島 (貢獻 -0.05%)</strong>：哎呀！南亞塑膠(-7.61%)不小心打翻了油漆桶，加上國際原物料價格不穩定，讓塑膠島和相關的化學島都蒙上了一層灰。</li>
                 </ul>
             </div>
-        </section>
+        </div>
+
+        <h2>✨ 閃亮亮的潛力股居民們 (跑贏大盤績優股)</h2>
+        <p>儘管大盤陰天，但這些居民的家門口可是陽光燦爛！他們憑著自身的努力，表現比大盤還要亮眼，是大盤下跌時的避風港。來看看這些明星居民吧！</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>排名</th>
+                    <th>公司</th>
+                    <th>產業</th>
+                    <th>日報酬</th>
+                    <th>為何能贏過大盤</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>廣達 (2382)</td>
+                    <td>電腦及週邊設備業</td>
+                    <td class="positive">3.66%</td>
+                    <td>AI 伺服器的超級巨星！全球都在排隊等他蓋新的 AI 大樓，訂單多到數不完。</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>聯華電子 (2303)</td>
+                    <td>半導體業</td>
+                    <td class="positive">4.36%</td>
+                    <td>成熟製程的專家！雖然不是最新技術，但在車用、網通等領域仍是不可或缺的角色。</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>健策 (3653)</td>
+                    <td>電子零組件業</td>
+                    <td class="positive">4.91%</td>
+                    <td>散熱專家！AI 晶片運作起來像個小火爐，特別需要他來幫忙降溫，需求非常火熱。</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>華城 (1519)</td>
+                    <td>電機機械</td>
+                    <td class="positive">6.94%</td>
+                    <td>電力超人！受惠於台電的電網強韌計畫和美國的基礎建設，是重電界的領頭羊。</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>川湖 (2059)</td>
+                    <td>電子零組件業</td>
+                    <td class="positive">5.07%</td>
+                    <td>伺服器軌道的工匠大師！他的滑軌讓資料中心的維護變得超輕鬆，是 AI 伺服器不可或缺的好幫手。</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>鴻海 (2317)</td>
+                    <td>其他電子業</td>
+                    <td class="positive">0.44%</td>
+                    <td>全能的製造大王！從手機到電動車，業務範圍廣泛，穩健的表現是大盤安定的力量。</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>台達電子 (2308)</td>
+                    <td>電子零組件業</td>
+                    <td class="positive">0.50%</td>
+                    <td>電源供應的守護神！無論是資料中心還是電動車，都需要他提供穩定又高效的電力。</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>華通 (2313)</td>
+                    <td>電子零組件業</td>
+                    <td class="positive">10.00%</td>
+                    <td>PCB 板的佼佼者！在高階手機、筆電和低軌衛星領域都是重要的零件供應商，今天表現特別亮眼！</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>穎崴 (6515)</td>
+                    <td>半導體業</td>
+                    <td class="positive">9.92%</td>
+                    <td>晶片測試的魔法師！所有高階晶片出廠前都要經過他的魔法測試座，確保品質百分百。</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>祥碩 (5269)</td>
+                    <td>半導體業</td>
+                    <td class="positive">9.80%</td>
+                    <td>高速傳輸的領航員！身為超微(AMD)的好夥伴，負責讓電腦的資料傳輸速度跟飛一樣快。</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🌫️ 特別關注：起了濃霧的記憶體島</h2>
+        <p>今天記憶體島（市值加權均值 <span class="positive">-9.34%</span>）的居民們似乎都遇到了大濃霧，普遍表現比較低迷。讓我們來看看具體情況，了解一下風向。</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>公司</th>
+                    <th>日報酬</th>
+                    <th>市值權重</th>
+                    <th>指數貢獻</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>南亞科技 (2408)</td>
+                    <td class="positive">-9.94%</td>
+                    <td>0.76%</td>
+                    <td class="positive">-0.08%</td>
+                </tr>
+                <tr>
+                    <td>華邦電子 (2344)</td>
+                    <td class="positive">-9.86%</td>
+                    <td>0.50%</td>
+                    <td class="positive">-0.05%</td>
+                </tr>
+                <tr>
+                    <td>旺宏電子 (2337)</td>
+                    <td class="positive">-7.90%</td>
+                    <td>0.12%</td>
+                    <td class="positive">-0.01%</td>
+                </tr>
+                <tr>
+                    <td>晶豪科技 (3006)</td>
+                    <td class="positive">-7.17%</td>
+                    <td>0.04%</td>
+                    <td class="positive">-0.00%</td>
+                </tr>
+                <tr>
+                    <td>創見資訊 (2451)</td>
+                    <td class="positive">-6.21%</td>
+                    <td>0.11%</td>
+                    <td class="positive">-0.01%</td>
+                </tr>
+                 <tr>
+                    <td>十銓科技 (4967)</td>
+                    <td class="positive">-4.05%</td>
+                    <td>0.02%</td>
+                    <td class="positive">-0.00%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="special-focus">
+            <p><strong>狸克小提示</strong>：最近市場上關於記憶體的需求有點搖擺不定，加上價格也變來變去，所以島民們都在觀望。大家記得多聽聽國際大廠們的消息，看看他們接下來打算怎麼做，才能判斷濃霧什麼時候會散去喔！</p>
+        </div>
+
+
+        <h2>📝 狸克的悄悄話與明日提醒</h2>
+        <div class="summary">
+            <ul>
+                <li><strong>關注海外天氣</strong>：明天記得多看看美國科技島（美股科技股）的天氣如何。如果他們放晴，我們的半導體和 AI 居民們可能也會跟著開心起來喔！</li>
+                <li><strong>聰明分散鈴錢</strong>：如果市場風向改變，資金可能會從熱鬧的電子島吹向樸實的傳產島。記得把你的「鈴錢」（資金）分散投資，不要全部放在同一個籃子裡，這樣才能穩健地建設我們的財富島嶼喔！</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
