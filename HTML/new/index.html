@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>最新排行161</title>
+    <title>最新排行 YouTube 歌單總目錄</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f7;
@@ -17,353 +17,1262 @@
         h1 {
             text-align: center;
             margin-bottom: 30px;
-        }
-        .button-container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .save-button {
-            display: inline-block;
-            background-color: #ff0000;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 25px;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .save-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-        }
-        .song-list {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .song-item {
-            border-bottom: 1px solid #eee;
-        }
-        .song-item:last-child {
-            border-bottom: none;
-        }
-        .song-link {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 10px;
-            text-decoration: none;
-            color: inherit;
-            border-radius: 8px;
-            transition: background-color 0.2s;
-        }
-        .song-link:hover {
-            background-color: #f5f5f7;
-        }
-        .song-title {
-            font-weight: 600;
             color: #1d1d1f;
         }
-        .song-artist {
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .nav-button {
+            background-color: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-button:hover {
+            background-color: #0077ed;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #searchInput {
+            padding: 12px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #d2d2d7;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        .song-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .song-table th, .song-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .song-table th {
+            background-color: #fbfbfd;
+            font-weight: 600;
             color: #86868b;
+        }
+        .song-table tr:last-child td {
+            border-bottom: none;
+        }
+        .song-table tr:hover {
+            background-color: #f5f5f7;
+        }
+        .vol-tag {
+            background-color: #e8e8ed;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #1d1d1f;
+            display: inline-block;
+        }
+        a.song-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a.song-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>最新排行161</h1>
+    <h1>最新排行 YouTube 歌單總目錄</h1>
     
-    <div class="button-container">
-        <a href="https://www.youtube.com/watch_videos?video_ids=0AZ5LnzSDQw,pGNnHRLVR6c,1q-rNAzye8U,GCOEuJaPX4Y,fXPzB7u3_M0,YaJ_lYFgr6c,ZZAi1l2tnEQ,A80oinCuMaI,os6rsM0L-tM,3wPONiZwy0o,Ccr8t6-qTZo,mTmdrMDlWMs,_dybQT8XRfo,9X9OKt1NEVQ,-PkuSuJOlfE,aDSf3QoK3uQ,UQukNQUbwSI,W9Fq1HC_5hg,Ro29toKIJZc,BuYqmRvboh4,DSJ5TyrsMNg,JWzxmWFvi0E,uNWIiDcs-Lc,NIuSS5n11xA,cwcz3i_DiZc,r7iLI8vW4bE,n0Y7J-TzgZE,IEJVuNJKMeI,V7xg7hXiXbA,8qjHUrb3vZc,sRgu1Zx6fr0,2Gut0IxwKVQ,zKeBFUgxdsI,Oq3dVBEdc4M,oBjHa_-rxAk,nLmLdA7u6w8,Wqizvn-xYe0,GOtUVPdxFek,crC26M51BWk,785sf7xodmY" target="_blank" class="save-button">
-            ▶ 播放全部 / 儲存播放清單
-        </a>
+    <div class="nav-container">
+    <a href="index_161.html" class="nav-button">第 161 期</a>
+<a href="index_160.html" class="nav-button">第 160 期</a>
+<a href="index_159.html" class="nav-button">第 159 期</a>
+<a href="index_158.html" class="nav-button">第 158 期</a>
+
     </div>
 
-    <div class="song-list">
-        <h3>歌曲列表 (40 首)</h3>
-        
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=0AZ5LnzSDQw" target="_blank" class="song-link">
-                    <span class="song-title">間距</span>
-                    <span class="song-artist">en</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=pGNnHRLVR6c" target="_blank" class="song-link">
-                    <span class="song-title">怪情歌</span>
-                    <span class="song-artist">林宥嘉</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=1q-rNAzye8U" target="_blank" class="song-link">
-                    <span class="song-title">數到十</span>
-                    <span class="song-artist">曾沛慈</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=GCOEuJaPX4Y" target="_blank" class="song-link">
-                    <span class="song-title">一薪二用</span>
-                    <span class="song-artist">宋鹽球</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=fXPzB7u3_M0" target="_blank" class="song-link">
-                    <span class="song-title">五福臨門</span>
-                    <span class="song-artist">李晴</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=YaJ_lYFgr6c" target="_blank" class="song-link">
-                    <span class="song-title">卡農 in Love</span>
-                    <span class="song-artist">蔡佩軒</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=ZZAi1l2tnEQ" target="_blank" class="song-link">
-                    <span class="song-title">過了幾天</span>
-                    <span class="song-artist">郭家瑋</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=A80oinCuMaI" target="_blank" class="song-link">
-                    <span class="song-title">後來遇見他</span>
-                    <span class="song-artist">胡66</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=os6rsM0L-tM" target="_blank" class="song-link">
-                    <span class="song-title">你挺我我挺你</span>
-                    <span class="song-artist">良一/彬朝/梓華</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=3wPONiZwy0o" target="_blank" class="song-link">
-                    <span class="song-title">你是我這輩子最想愛的呀</span>
-                    <span class="song-artist">五堅情</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=Ccr8t6-qTZo" target="_blank" class="song-link">
-                    <span class="song-title">誰</span>
-                    <span class="song-artist">曲肖冰</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=mTmdrMDlWMs" target="_blank" class="song-link">
-                    <span class="song-title">認輸</span>
-                    <span class="song-artist">張震嶽</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=_dybQT8XRfo" target="_blank" class="song-link">
-                    <span class="song-title">拌拌咧</span>
-                    <span class="song-artist">李竺芯</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=9X9OKt1NEVQ" target="_blank" class="song-link">
-                    <span class="song-title">用力活著</span>
-                    <span class="song-artist">張茜</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=-PkuSuJOlfE" target="_blank" class="song-link">
-                    <span class="song-title">灰色軌跡</span>
-                    <span class="song-artist">Beyond</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=aDSf3QoK3uQ" target="_blank" class="song-link">
-                    <span class="song-title">我喜歡你</span>
-                    <span class="song-artist">洪安妮</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=UQukNQUbwSI" target="_blank" class="song-link">
-                    <span class="song-title">這麼多年</span>
-                    <span class="song-artist">陳華</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=W9Fq1HC_5hg" target="_blank" class="song-link">
-                    <span class="song-title">帶我去找夜生活</span>
-                    <span class="song-artist">告五人</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=Ro29toKIJZc" target="_blank" class="song-link">
-                    <span class="song-title">我對自己開了一槍</span>
-                    <span class="song-artist">佛跳牆 戴佩妮</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=BuYqmRvboh4" target="_blank" class="song-link">
-                    <span class="song-title">沒有理想的人不傷心</span>
-                    <span class="song-artist">新褲子</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=DSJ5TyrsMNg" target="_blank" class="song-link">
-                    <span class="song-title">沒出息(烟嗓版)</span>
-                    <span class="song-artist">仲南</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=JWzxmWFvi0E" target="_blank" class="song-link">
-                    <span class="song-title">馬</span>
-                    <span class="song-artist">福祿壽</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=uNWIiDcs-Lc" target="_blank" class="song-link">
-                    <span class="song-title">野人</span>
-                    <span class="song-artist">孟維來</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=NIuSS5n11xA" target="_blank" class="song-link">
-                    <span class="song-title">聽說</span>
-                    <span class="song-artist">叢銘君</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=cwcz3i_DiZc" target="_blank" class="song-link">
-                    <span class="song-title">沒出息(正式完整版)</span>
-                    <span class="song-artist">王搏/王蓉</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=r7iLI8vW4bE" target="_blank" class="song-link">
-                    <span class="song-title">一萬次悲傷</span>
-                    <span class="song-artist">逃跑計劃</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=n0Y7J-TzgZE" target="_blank" class="song-link">
-                    <span class="song-title">出現又離開</span>
-                    <span class="song-artist">梁博</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=IEJVuNJKMeI" target="_blank" class="song-link">
-                    <span class="song-title">你要跳舞嗎</span>
-                    <span class="song-artist">新褲子</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=V7xg7hXiXbA" target="_blank" class="song-link">
-                    <span class="song-title">壞壞惹人愛</span>
-                    <span class="song-artist">信樂團/戴愛玲</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=8qjHUrb3vZc" target="_blank" class="song-link">
-                    <span class="song-title">我想要擁有你</span>
-                    <span class="song-artist">小男孩樂團</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=sRgu1Zx6fr0" target="_blank" class="song-link">
-                    <span class="song-title">土坡上的狗尾草</span>
-                    <span class="song-artist">盧潤澤</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=2Gut0IxwKVQ" target="_blank" class="song-link">
-                    <span class="song-title">我們到底算什麼</span>
-                    <span class="song-artist">徐暐翔</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=zKeBFUgxdsI" target="_blank" class="song-link">
-                    <span class="song-title">伊的身邊已經有別人</span>
-                    <span class="song-artist">許富凱</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=Oq3dVBEdc4M" target="_blank" class="song-link">
-                    <span class="song-title">阿刁</span>
-                    <span class="song-artist">張韶涵</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=oBjHa_-rxAk" target="_blank" class="song-link">
-                    <span class="song-title">座位</span>
-                    <span class="song-artist">于冬然</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=nLmLdA7u6w8" target="_blank" class="song-link">
-                    <span class="song-title">善後</span>
-                    <span class="song-artist">馬師傅</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=Wqizvn-xYe0" target="_blank" class="song-link">
-                    <span class="song-title">茶花開了</span>
-                    <span class="song-artist">王睿卓</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=GOtUVPdxFek" target="_blank" class="song-link">
-                    <span class="song-title">親愛的你啊</span>
-                    <span class="song-artist">任素汐</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=crC26M51BWk" target="_blank" class="song-link">
-                    <span class="song-title">天使借的溫柔</span>
-                    <span class="song-artist">艾薇</span>
-                </a>
-            </div>
-            
-            <div class="song-item">
-                <a href="https://www.youtube.com/watch?v=785sf7xodmY" target="_blank" class="song-link">
-                    <span class="song-title">若無你我欲去佗位</span>
-                    <span class="song-artist">黃奇斌</span>
-                </a>
-            </div>
-            
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterSongs()" placeholder="搜尋歌名、歌手...">
     </div>
+
+    <table class="song-table" id="songTable">
+        <thead>
+            <tr>
+                <th width="10%">期數</th>
+                <th width="30%">歌名</th>
+                <th width="25%">歌手</th>
+                <th width="35%">備註</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=en%20%E9%96%93%E8%B7%9D" target="_blank" class="song-link">間距</a></td>
+                <td>en</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%9E%97%E5%AE%A5%E5%98%89%20%E6%80%AA%E6%83%85%E6%AD%8C" target="_blank" class="song-link">怪情歌</a></td>
+                <td>林宥嘉</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%9B%BE%E6%B2%9B%E6%85%88%20%E6%95%B8%E5%88%B0%E5%8D%81" target="_blank" class="song-link">數到十</a></td>
+                <td>曾沛慈</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%AE%8B%E9%B9%BD%E7%90%83%20%E4%B8%80%E8%96%AA%E4%BA%8C%E7%94%A8" target="_blank" class="song-link">一薪二用</a></td>
+                <td>宋鹽球</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%9D%8E%E6%99%B4%20%E4%BA%94%E7%A6%8F%E8%87%A8%E9%96%80" target="_blank" class="song-link">五福臨門</a></td>
+                <td>李晴</td>
+                <td>電視劇《百味人生》三立八點檔片頭金曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E8%94%A1%E4%BD%A9%E8%BB%92%20%E5%8D%A1%E8%BE%B2%20in%20Love" target="_blank" class="song-link">卡農 in Love</a></td>
+                <td>蔡佩軒</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E9%83%AD%E5%AE%B6%E7%91%8B%20%E9%81%8E%E4%BA%86%E5%B9%BE%E5%A4%A9" target="_blank" class="song-link">過了幾天</a></td>
+                <td>郭家瑋</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E8%83%A166%20%E5%BE%8C%E4%BE%86%E9%81%87%E8%A6%8B%E4%BB%96" target="_blank" class="song-link">後來遇見他</a></td>
+                <td>胡66</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E8%89%AF%E4%B8%80/%E5%BD%AC%E6%9C%9D/%E6%A2%93%E8%8F%AF%20%E4%BD%A0%E6%8C%BA%E6%88%91%E6%88%91%E6%8C%BA%E4%BD%A0" target="_blank" class="song-link">你挺我我挺你</a></td>
+                <td>良一/彬朝/梓華</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E4%BA%94%E5%A0%85%E6%83%85%20%E4%BD%A0%E6%98%AF%E6%88%91%E9%80%99%E8%BC%A9%E5%AD%90%E6%9C%80%E6%83%B3%E6%84%9B%E7%9A%84%E5%91%80" target="_blank" class="song-link">你是我這輩子最想愛的呀</a></td>
+                <td>五堅情</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%9B%B2%E8%82%96%E5%86%B0%20%E8%AA%B0" target="_blank" class="song-link">誰</a></td>
+                <td>曲肖冰</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%BC%B5%E9%9C%87%E5%B6%BD%20%E8%AA%8D%E8%BC%B8" target="_blank" class="song-link">認輸</a></td>
+                <td>張震嶽</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%9D%8E%E7%AB%BA%E8%8A%AF%20%E6%8B%8C%E6%8B%8C%E5%92%A7" target="_blank" class="song-link">拌拌咧</a></td>
+                <td>李竺芯</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%BC%B5%E8%8C%9C%20%E7%94%A8%E5%8A%9B%E6%B4%BB%E8%91%97" target="_blank" class="song-link">用力活著</a></td>
+                <td>張茜</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=Beyond%20%E7%81%B0%E8%89%B2%E8%BB%8C%E8%B7%A1" target="_blank" class="song-link">灰色軌跡</a></td>
+                <td>Beyond</td>
+                <td>電影《天若有情》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%B4%AA%E5%AE%89%E5%A6%AE%20%E6%88%91%E5%96%9C%E6%AD%A1%E4%BD%A0" target="_blank" class="song-link">我喜歡你</a></td>
+                <td>洪安妮</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E9%99%B3%E8%8F%AF%20%E9%80%99%E9%BA%BC%E5%A4%9A%E5%B9%B4" target="_blank" class="song-link">這麼多年</a></td>
+                <td>陳華</td>
+                <td>電視劇《我想和你在一起》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%91%8A%E4%BA%94%E4%BA%BA%20%E5%B8%B6%E6%88%91%E5%8E%BB%E6%89%BE%E5%A4%9C%E7%94%9F%E6%B4%BB" target="_blank" class="song-link">帶我去找夜生活</a></td>
+                <td>告五人</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E4%BD%9B%E8%B7%B3%E7%89%86%20%E6%88%B4%E4%BD%A9%E5%A6%AE%20%E6%88%91%E5%B0%8D%E8%87%AA%E5%B7%B1%E9%96%8B%E4%BA%86%E4%B8%80%E6%A7%8D" target="_blank" class="song-link">我對自己開了一槍</a></td>
+                <td>佛跳牆 戴佩妮</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%96%B0%E8%A4%B2%E5%AD%90%20%E6%B2%92%E6%9C%89%E7%90%86%E6%83%B3%E7%9A%84%E4%BA%BA%E4%B8%8D%E5%82%B7%E5%BF%83" target="_blank" class="song-link">沒有理想的人不傷心</a></td>
+                <td>新褲子</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E4%BB%B2%E5%8D%97%20%E6%B2%92%E5%87%BA%E6%81%AF%28%E7%83%9F%E5%97%93%E7%89%88%29" target="_blank" class="song-link">沒出息(烟嗓版)</a></td>
+                <td>仲南</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E7%A6%8F%E7%A5%BF%E5%A3%BD%20%E9%A6%AC" target="_blank" class="song-link">馬</a></td>
+                <td>福祿壽</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%AD%9F%E7%B6%AD%E4%BE%86%20%E9%87%8E%E4%BA%BA" target="_blank" class="song-link">野人</a></td>
+                <td>孟維來</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%8F%A2%E9%8A%98%E5%90%9B%20%E8%81%BD%E8%AA%AA" target="_blank" class="song-link">聽說</a></td>
+                <td>叢銘君</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E7%8E%8B%E6%90%8F/%E7%8E%8B%E8%93%89%20%E6%B2%92%E5%87%BA%E6%81%AF%28%E6%AD%A3%E5%BC%8F%E5%AE%8C%E6%95%B4%E7%89%88%29" target="_blank" class="song-link">沒出息(正式完整版)</a></td>
+                <td>王搏/王蓉</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E9%80%83%E8%B7%91%E8%A8%88%E5%8A%83%20%E4%B8%80%E8%90%AC%E6%AC%A1%E6%82%B2%E5%82%B7" target="_blank" class="song-link">一萬次悲傷</a></td>
+                <td>逃跑計劃</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%A2%81%E5%8D%9A%20%E5%87%BA%E7%8F%BE%E5%8F%88%E9%9B%A2%E9%96%8B" target="_blank" class="song-link">出現又離開</a></td>
+                <td>梁博</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E6%96%B0%E8%A4%B2%E5%AD%90%20%E4%BD%A0%E8%A6%81%E8%B7%B3%E8%88%9E%E5%97%8E" target="_blank" class="song-link">你要跳舞嗎</a></td>
+                <td>新褲子</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E4%BF%A1%E6%A8%82%E5%9C%98/%E6%88%B4%E6%84%9B%E7%8E%B2%20%E5%A3%9E%E5%A3%9E%E6%83%B9%E4%BA%BA%E6%84%9B" target="_blank" class="song-link">壞壞惹人愛</a></td>
+                <td>信樂團/戴愛玲</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%B0%8F%E7%94%B7%E5%AD%A9%E6%A8%82%E5%9C%98%20%E6%88%91%E6%83%B3%E8%A6%81%E6%93%81%E6%9C%89%E4%BD%A0" target="_blank" class="song-link">我想要擁有你</a></td>
+                <td>小男孩樂團</td>
+                <td>Netflix影集《影后》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E7%9B%A7%E6%BD%A4%E6%BE%A4%20%E5%9C%9F%E5%9D%A1%E4%B8%8A%E7%9A%84%E7%8B%97%E5%B0%BE%E8%8D%89" target="_blank" class="song-link">土坡上的狗尾草</a></td>
+                <td>盧潤澤</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%BE%90%E6%9A%90%E7%BF%94%20%E6%88%91%E5%80%91%E5%88%B0%E5%BA%95%E7%AE%97%E4%BB%80%E9%BA%BC" target="_blank" class="song-link">我們到底算什麼</a></td>
+                <td>徐暐翔</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E8%A8%B1%E5%AF%8C%E5%87%B1%20%E4%BC%8A%E7%9A%84%E8%BA%AB%E9%82%8A%E5%B7%B2%E7%B6%93%E6%9C%89%E5%88%A5%E4%BA%BA" target="_blank" class="song-link">伊的身邊已經有別人</a></td>
+                <td>許富凱</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E5%BC%B5%E9%9F%B6%E6%B6%B5%20%E9%98%BF%E5%88%81" target="_blank" class="song-link">阿刁</a></td>
+                <td>張韶涵</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E4%BA%8E%E5%86%AC%E7%84%B6%20%E5%BA%A7%E4%BD%8D" target="_blank" class="song-link">座位</a></td>
+                <td>于冬然</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E9%A6%AC%E5%B8%AB%E5%82%85%20%E5%96%84%E5%BE%8C" target="_blank" class="song-link">善後</a></td>
+                <td>馬師傅</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E7%8E%8B%E7%9D%BF%E5%8D%93%20%E8%8C%B6%E8%8A%B1%E9%96%8B%E4%BA%86" target="_blank" class="song-link">茶花開了</a></td>
+                <td>王睿卓</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E4%BB%BB%E7%B4%A0%E6%B1%90%20%E8%A6%AA%E6%84%9B%E7%9A%84%E4%BD%A0%E5%95%8A" target="_blank" class="song-link">親愛的你啊</a></td>
+                <td>任素汐</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E8%89%BE%E8%96%87%20%E5%A4%A9%E4%BD%BF%E5%80%9F%E7%9A%84%E6%BA%AB%E6%9F%94" target="_blank" class="song-link">天使借的溫柔</a></td>
+                <td>艾薇</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">161</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=%E9%BB%83%E5%A5%87%E6%96%8C%20%E8%8B%A5%E7%84%A1%E4%BD%A0%E6%88%91%E6%AC%B2%E5%8E%BB%E4%BD%97%E4%BD%8D" target="_blank" class="song-link">若無你我欲去佗位</a></td>
+                <td>黃奇斌</td>
+                <td>電影《96分鐘》主題曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳冠蒲%20太多" target="_blank" class="song-link">太多</a></td>
+                <td>陳冠蒲</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=2016全國高中生大合唱%20啟程" target="_blank" class="song-link">啟程</a></td>
+                <td>2016全國高中生大合唱</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=鳳飛飛%20追夢人" target="_blank" class="song-link">追夢人</a></td>
+                <td>鳳飛飛</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=洪榮宏/胡曉芳%20心甜甜" target="_blank" class="song-link">心甜甜</a></td>
+                <td>洪榮宏/胡曉芳</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=洪榮宏%20三生石頂" target="_blank" class="song-link">三生石頂</a></td>
+                <td>洪榮宏</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=夏婉安%20渡我不渡她" target="_blank" class="song-link">渡我不渡她</a></td>
+                <td>夏婉安</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=周興哲%20想念你想我" target="_blank" class="song-link">想念你想我</a></td>
+                <td>周興哲</td>
+                <td>電視劇《冬至》片頭曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=洪榮宏%20夢中想起你" target="_blank" class="song-link">夢中想起你</a></td>
+                <td>洪榮宏</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳墨一%20你答應我的事" target="_blank" class="song-link">你答應我的事</a></td>
+                <td>陳墨一</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=麻園詩人%20瀘沽湖2021" target="_blank" class="song-link">瀘沽湖2021</a></td>
+                <td>麻園詩人</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=洪榮宏/張瀞云%20台北今夜冷吱吱" target="_blank" class="song-link">台北今夜冷吱吱</a></td>
+                <td>洪榮宏/張瀞云</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=李翊君%20怎樣的愛才算擁有" target="_blank" class="song-link">怎樣的愛才算擁有</a></td>
+                <td>李翊君</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=五月天%20任性" target="_blank" class="song-link">任性</a></td>
+                <td>五月天</td>
+                <td>電視劇《難哄》片頭曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=回春丹%20鮮花" target="_blank" class="song-link">鮮花</a></td>
+                <td>回春丹</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=張學友%20又十年" target="_blank" class="song-link">又十年</a></td>
+                <td>張學友</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=LBI利比%20跳樓機" target="_blank" class="song-link">跳樓機</a></td>
+                <td>LBI利比</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=周華健%20刀劍如夢" target="_blank" class="song-link">刀劍如夢</a></td>
+                <td>周華健</td>
+                <td>電視劇《倚天屠龍記》片尾曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=王力宏%20天地龍鱗" target="_blank" class="song-link">天地龍鱗</a></td>
+                <td>王力宏</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=戴羽彤%20可以不是你" target="_blank" class="song-link">可以不是你</a></td>
+                <td>戴羽彤</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳華%20短暫的愛過我" target="_blank" class="song-link">短暫的愛過我</a></td>
+                <td>陳華</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=老王樂隊%20我還年輕我還年輕" target="_blank" class="song-link">我還年輕我還年輕</a></td>
+                <td>老王樂隊</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=李明洋%20我想你" target="_blank" class="song-link">我想你</a></td>
+                <td>李明洋</td>
+                <td>電視劇《天道》片頭曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=胡夏/郁可唯%20知否知否" target="_blank" class="song-link">知否知否</a></td>
+                <td>胡夏/郁可唯</td>
+                <td>電視劇《知否知否應是綠肥紅瘦》主題曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=盧廣仲%20愚人節快樂" target="_blank" class="song-link">愚人節快樂</a></td>
+                <td>盧廣仲</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=關劍%20我來人間一趟" target="_blank" class="song-link">我來人間一趟</a></td>
+                <td>關劍</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=汪蘇瀧%20像晴天像雨天" target="_blank" class="song-link">像晴天像雨天</a></td>
+                <td>汪蘇瀧</td>
+                <td>電視劇《難哄》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳華%20我把我留在那了" target="_blank" class="song-link">我把我留在那了</a></td>
+                <td>陳華</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=阿肆/林宥嘉%20致姍姍來遲的你" target="_blank" class="song-link">致姍姍來遲的你</a></td>
+                <td>阿肆/林宥嘉</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=趙傳%20愛要怎麼說出口" target="_blank" class="song-link">愛要怎麼說出口</a></td>
+                <td>趙傳</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=Dior大穎%20如果那通電話有接通" target="_blank" class="song-link">如果那通電話有接通</a></td>
+                <td>Dior大穎</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=辦桌二人組%20祝福" target="_blank" class="song-link">祝福</a></td>
+                <td>辦桌二人組</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=告五人%20唯一" target="_blank" class="song-link">唯一</a></td>
+                <td>告五人</td>
+                <td>電視劇《戀愛是科學》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=蓋君炎%20我想要" target="_blank" class="song-link">我想要</a></td>
+                <td>蓋君炎</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=鄭智化%20星星點燈" target="_blank" class="song-link">星星點燈</a></td>
+                <td>鄭智化</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=齊秦%20原來的我" target="_blank" class="song-link">原來的我</a></td>
+                <td>齊秦</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=莫文蔚%20電台情歌" target="_blank" class="song-link">電台情歌</a></td>
+                <td>莫文蔚</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=王菲%20世界贈予我的" target="_blank" class="song-link">世界贈予我的</a></td>
+                <td>王菲</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=張遠%20看著我的眼睛說" target="_blank" class="song-link">看著我的眼睛說</a></td>
+                <td>張遠</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=于冬然%20有一種遺憾叫我們" target="_blank" class="song-link">有一種遺憾叫我們</a></td>
+                <td>于冬然</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">160</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=蕭秉治%20想悄悄住進你的靈魂" target="_blank" class="song-link">想悄悄住進你的靈魂</a></td>
+                <td>蕭秉治</td>
+                <td>電視劇《難哄》守護曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=小霞/海洋Bo%20向雲端" target="_blank" class="song-link">向雲端</a></td>
+                <td>小霞/海洋Bo</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=王澤科%20願某人" target="_blank" class="song-link">願某人</a></td>
+                <td>王澤科</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=馬健濤%20我這一生" target="_blank" class="song-link">我這一生</a></td>
+                <td>馬健濤</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=趙雷%20南方姑娘" target="_blank" class="song-link">南方姑娘</a></td>
+                <td>趙雷</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=邱軍%20運轉人生" target="_blank" class="song-link">運轉人生</a></td>
+                <td>邱軍</td>
+                <td>影集《華麗計程車行 》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=王宇宙Leto/喬浚丞%20若月亮沒來" target="_blank" class="song-link">若月亮沒來</a></td>
+                <td>王宇宙Leto/喬浚丞</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=蔡健雅%20善良的我們" target="_blank" class="song-link">善良的我們</a></td>
+                <td>蔡健雅</td>
+                <td>影集《不夠善良的我們》片尾曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=莫叫姊姊%20當我娶過她" target="_blank" class="song-link">當我娶過她</a></td>
+                <td>莫叫姊姊</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=理想混蛋%20離開的一路上" target="_blank" class="song-link">離開的一路上</a></td>
+                <td>理想混蛋</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=菲道爾/大穎%20在加納共和國離婚" target="_blank" class="song-link">在加納共和國離婚</a></td>
+                <td>菲道爾/大穎</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=秀蓮%20等千年" target="_blank" class="song-link">等千年</a></td>
+                <td>秀蓮</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=張杰%20天下" target="_blank" class="song-link">天下</a></td>
+                <td>張杰</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=程響%20可能" target="_blank" class="song-link">可能</a></td>
+                <td>程響</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=許富凱%20棉照被" target="_blank" class="song-link">棉照被</a></td>
+                <td>許富凱</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=黃春美%20愛的Message" target="_blank" class="song-link">愛的Message</a></td>
+                <td>黃春美</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=BY2%20愛ㄚ愛ㄚ" target="_blank" class="song-link">愛ㄚ愛ㄚ</a></td>
+                <td>BY2</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=吉星出租%20暮色回響" target="_blank" class="song-link">暮色回響</a></td>
+                <td>吉星出租</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=向思思%20總會有人" target="_blank" class="song-link">總會有人</a></td>
+                <td>向思思</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=黃春美%20幸福情袂圓" target="_blank" class="song-link">幸福情袂圓</a></td>
+                <td>黃春美</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=趙傳%20我終於失去了你" target="_blank" class="song-link">我終於失去了你</a></td>
+                <td>趙傳</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=張碧晨%20騙" target="_blank" class="song-link">騙</a></td>
+                <td>張碧晨</td>
+                <td>電影《如果聲音不記得》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=周傳雄%20青花" target="_blank" class="song-link">青花</a></td>
+                <td>周傳雄</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=朱德寶/方千玉%20火車站" target="_blank" class="song-link">火車站</a></td>
+                <td>朱德寶/方千玉</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=郭頂%20淒美地" target="_blank" class="song-link">淒美地</a></td>
+                <td>郭頂</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=動力火車%20我不該哭" target="_blank" class="song-link">我不該哭</a></td>
+                <td>動力火車</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=芒果醬%20我喜歡你" target="_blank" class="song-link">我喜歡你</a></td>
+                <td>芒果醬</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=洪榮宏/張瀞云%20生命的情火" target="_blank" class="song-link">生命的情火</a></td>
+                <td>洪榮宏/張瀞云</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=蔡健雅%20紅色高跟鞋" target="_blank" class="song-link">紅色高跟鞋</a></td>
+                <td>蔡健雅</td>
+                <td>電影《愛情左右》主題曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳零九/文慧如%20可是她叫我寶A" target="_blank" class="song-link">可是她叫我寶A</a></td>
+                <td>陳零九/文慧如</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=GooGoo%20不要慌太陽下山有月光" target="_blank" class="song-link">不要慌太陽下山有月光</a></td>
+                <td>GooGoo</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=許志豪%20我願意" target="_blank" class="song-link">我願意</a></td>
+                <td>許志豪</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=縱貫線%20抱著你" target="_blank" class="song-link">抱著你</a></td>
+                <td>縱貫線</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=許志豪%20已讀不回" target="_blank" class="song-link">已讀不回</a></td>
+                <td>許志豪</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=許紹洋%20愛情倒退" target="_blank" class="song-link">愛情倒退</a></td>
+                <td>許紹洋</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=ROSE/BrunoMars%20APT." target="_blank" class="song-link">APT.</a></td>
+                <td>ROSE/BrunoMars</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=打擾一下%20預言" target="_blank" class="song-link">預言</a></td>
+                <td>打擾一下</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=菲道爾%20早點回家" target="_blank" class="song-link">早點回家</a></td>
+                <td>菲道爾</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳華%20捨不得的時刻" target="_blank" class="song-link">捨不得的時刻</a></td>
+                <td>陳華</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=美秀集團/盧廣仲%20手機錢包鑰匙菸" target="_blank" class="song-link">手機錢包鑰匙菸</a></td>
+                <td>美秀集團/盧廣仲</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">159</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=菲道爾%20能遇見，就很不錯了" target="_blank" class="song-link">能遇見，就很不錯了</a></td>
+                <td>菲道爾</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=曾瑋中%20必巡" target="_blank" class="song-link">必巡</a></td>
+                <td>曾瑋中</td>
+                <td>三立戲劇《含笑食堂》片尾曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=方馨%20按怎" target="_blank" class="song-link">按怎</a></td>
+                <td>方馨</td>
+                <td>台視戲劇《追分成功》主題曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=十五所高中同學合唱%20風箏" target="_blank" class="song-link">風箏</a></td>
+                <td>十五所高中同學合唱</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=承桓%20我會等" target="_blank" class="song-link">我會等</a></td>
+                <td>承桓</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳韋任%20從今以後" target="_blank" class="song-link">從今以後</a></td>
+                <td>陳韋任</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=方馨/柯叔元/米可白/亮曦/林玉書/蕭景鴻/吳嘉隆%20從心出發" target="_blank" class="song-link">從心出發</a></td>
+                <td>方馨/柯叔元/米可白/亮曦/林玉書/蕭景鴻/吳嘉隆</td>
+                <td>台視戲劇《追分成功》片頭曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=林小珂%20記得很清楚" target="_blank" class="song-link">記得很清楚</a></td>
+                <td>林小珂</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=就是南方凱%20離別開出花" target="_blank" class="song-link">離別開出花</a></td>
+                <td>就是南方凱</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=艾薇%20癡心無名氏" target="_blank" class="song-link">癡心無名氏</a></td>
+                <td>艾薇</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=陳華%20想和你看五月的晚霞" target="_blank" class="song-link">想和你看五月的晚霞</a></td>
+                <td>陳華</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=顏人中%20有些" target="_blank" class="song-link">有些</a></td>
+                <td>顏人中</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=優客李林%20認錯" target="_blank" class="song-link">認錯</a></td>
+                <td>優客李林</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=宋冬野%20安和橋" target="_blank" class="song-link">安和橋</a></td>
+                <td>宋冬野</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=周杰倫/楊瑞代%20聖誕星" target="_blank" class="song-link">聖誕星</a></td>
+                <td>周杰倫/楊瑞代</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=張小斐%20萱草花" target="_blank" class="song-link">萱草花</a></td>
+                <td>張小斐</td>
+                <td>電影《你好，李煥英》主題曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=盧冠廷%20一生所愛" target="_blank" class="song-link">一生所愛</a></td>
+                <td>盧冠廷</td>
+                <td>電影《齊天大聖西遊記》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=黃春美/許志豪%20洘流賰沙" target="_blank" class="song-link">洘流賰沙</a></td>
+                <td>黃春美/許志豪</td>
+                <td>三立八點檔《天道》片尾曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=黃春美%20祝你順風" target="_blank" class="song-link">祝你順風</a></td>
+                <td>黃春美</td>
+                <td>三立七點檔《親家》片尾曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=Zyboy忠宇%20媽媽的話" target="_blank" class="song-link">媽媽的話</a></td>
+                <td>Zyboy忠宇</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=葉斯淳%20我曾遇到一束光" target="_blank" class="song-link">我曾遇到一束光</a></td>
+                <td>葉斯淳</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=趙雷%20我記得" target="_blank" class="song-link">我記得</a></td>
+                <td>趙雷</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=鄭宜農%20新造的人" target="_blank" class="song-link">新造的人</a></td>
+                <td>鄭宜農</td>
+                <td>電影《周處除三害》插曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=柯柯柯啊%20姑娘別哭泣" target="_blank" class="song-link">姑娘別哭泣</a></td>
+                <td>柯柯柯啊</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=小虎隊%20青蘋果樂園" target="_blank" class="song-link">青蘋果樂園</a></td>
+                <td>小虎隊</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=PAX%20我不配你要的" target="_blank" class="song-link">我不配你要的</a></td>
+                <td>PAX</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=黃春美/鄭進一%20分手的那一夜" target="_blank" class="song-link">分手的那一夜</a></td>
+                <td>黃春美/鄭進一</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=巫啟賢%20妳是我的唯一" target="_blank" class="song-link">妳是我的唯一</a></td>
+                <td>巫啟賢</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=伍佰%20思念親像一條河" target="_blank" class="song-link">思念親像一條河</a></td>
+                <td>伍佰</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=黃春美%20愛情結局我決定" target="_blank" class="song-link">愛情結局我決定</a></td>
+                <td>黃春美</td>
+                <td>三立超級紅人榜金曲MV</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=張齊山%20這是你期盼的長大嗎" target="_blank" class="song-link">這是你期盼的長大嗎</a></td>
+                <td>張齊山</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=MC%20離開" target="_blank" class="song-link">離開</a></td>
+                <td>MC</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=趙雷%20程艾影" target="_blank" class="song-link">程艾影</a></td>
+                <td>趙雷</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=王理文%20不得善終" target="_blank" class="song-link">不得善終</a></td>
+                <td>王理文</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=亂彈阿翔%20完美落地" target="_blank" class="song-link">完美落地</a></td>
+                <td>亂彈阿翔</td>
+                <td>電影《翻滾吧！阿信》主題曲</td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=旺福%20我當你空氣" target="_blank" class="song-link">我當你空氣</a></td>
+                <td>旺福</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=ENERGY%20星期五晚上" target="_blank" class="song-link">星期五晚上</a></td>
+                <td>ENERGY</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=Trash%20重感情的廢物" target="_blank" class="song-link">重感情的廢物</a></td>
+                <td>Trash</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=Goo%20可能是風太大了吧" target="_blank" class="song-link">可能是風太大了吧</a></td>
+                <td>Goo</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=珂拉琪%20萬千花蕊慈母悲哀" target="_blank" class="song-link">萬千花蕊慈母悲哀</a></td>
+                <td>珂拉琪</td>
+                <td></td>
+            </tr>
+        
+            <tr>
+                <td><span class="vol-tag">158</span></td>
+                <td><a href="https://www.youtube.com/results?search_query=孫藝琪%20最遠的你是我最近的愛" target="_blank" class="song-link">最遠的你是我最近的愛</a></td>
+                <td>孫藝琪</td>
+                <td></td>
+            </tr>
+        
+        </tbody>
+    </table>
+
+    <script>
+    function filterSongs() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("songTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 1; i < tr.length; i++) {
+            // Check Song (idx 1), Artist (idx 2), Note (idx 3)
+            var found = false;
+            for(var j=1; j<=3; j++) {
+                td = tr[i].getElementsByTagName("td")[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+    </script>
 </body>
 </html>
-        
+    
