@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動物森友會 股市快報 - 2026/01/21</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Zen+Maru+Gothic:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #E0F7E9;
+            /* Mint Green */
+            --card-bg: #FFFEF0;
+            /* Creamy White */
+            --text-color: #5D4037;
+            /* Brown */
+            --accent-green: #7CB342;
+            --accent-blue: #4FC3F7;
+            --accent-red: #EF5350;
+            --border-radius: 25px;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#A5D6A7 15%, transparent 16%), radial-gradient(#A5D6A7 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            border: 5px solid #fff;
+        }
+
+        h1 {
+            color: var(--accent-green);
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .date-badge {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.6em;
+            vertical-align: middle;
+        }
+
+        .dialogue-box {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px dashed #BCAAA4;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .avatar {
+            font-size: 3em;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .message {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #8D6E63;
+            margin: 30px 0 15px 0;
+            border-bottom: 3px dotted #A1887F;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--accent-green);
+        }
+
+        .card.negative {
+            border-left-color: var(--accent-red);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .stat-value {
+            font-weight: bold;
+        }
+
+        .stat-value.up {
+            color: #E53935;
+        }
+
+        /* 台股紅是漲 */
+        .stat-value.down {
+            color: #43A047;
+        }
+
+        /* 台股綠是跌 */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #EEE;
+            font-size: 0.9em;
+        }
+
+        th {
+            color: #8D6E63;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            background-color: #F1F8E9;
+            color: #558B2F;
+            margin-right: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #8D6E63;
+            font-size: 0.9em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🍃 島民廣播 <span class="date-badge">2026/01/21</span></h1>
+
+        <div class="dialogue-box">
+            <div class="avatar">🐶</div>
+            <div class="message">
+                <p><strong>西施惠：</strong> 大家早安！今天是 2026 年 1 月 21 日。<br>
+                    雖然今天的天氣有點陰雨綿綿（大盤下跌 0.98%），但這也是整理家園的好時機哦！<br>
+                    半導體的朋友們似乎遇到了一些賣壓，不過航運和玻璃陶瓷的朋友們表現得很不錯呢！</p>
+            </div>
+        </div>
+
+        <!-- 市況總覽 -->
+        <h2 class="section-title">📊 市場氣象站</h2>
+        <div class="card-grid">
+            <div class="card negative">
+                <h3>大盤表現</h3>
+                <div class="stat-row">
+                    <span>加權指數漲幅</span>
+                    <span class="stat-value down">-0.98% (市值加權)</span>
+                </div>
+                <div class="stat-row">
+                    <span>主要拖累</span>
+                    <span class="stat-value">半導體、電子零組件</span>
+                </div>
+                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                    賣壓集中在權值股，台積電下跌 1.13%，拖累指數約 0.51%。
+                </p>
+            </div>
+            <div class="card">
+                <h3>今日亮點</h3>
+                <div class="stat-row">
+                    <span>最強族群</span>
+                    <span class="stat-value up">玻璃陶瓷 (+5.95%)</span>
+                </div>
+                <div class="stat-row">
+                    <span>撐盤英雄</span>
+                    <span class="stat-value up">航運業 (+1.04%)</span>
+                </div>
+                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                    資金避風港轉向傳產，台玻漲幅逾 6%，表現亮眼！
+                </p>
+            </div>
+        </div>
+
+        <!-- 弱勢族群詳解 -->
+        <h2 class="section-title">📉 需留意的弱勢族群</h2>
+        <div class="card-grid">
+            <div class="card negative">
+                <h3>💾 半導體與記憶體</h3>
+                <div class="stat-row">
+                    <span>族群跌幅</span>
+                    <span class="stat-value down">-1.32%</span>
+                </div>
+                <table>
+                    <tr>
+                        <th>個股</th>
+                        <th>漲跌</th>
+                        <th>狀況</th>
+                    </tr>
+                    <tr>
+                        <td>台積電 (2330)</td>
+                        <td class="stat-value down">-1.13%</td>
+                        <td>權值領跌</td>
+                    </tr>
+                    <tr>
+                        <td>南亞科 (2408)</td>
+                        <td class="stat-value down">-6.25%</td>
+                        <td>賣壓重</td>
+                    </tr>
+                    <tr>
+                        <td>華邦電 (2344)</td>
+                        <td class="stat-value down">-6.64%</td>
+                        <td>賣壓重</td>
+                    </tr>
+                </table>
+                <p style="font-size: 0.8em; margin-top: 10px;">記憶體族群跌幅顯著，南亞科、華邦電跌幅皆超過 6%。</p>
+            </div>
+
+            <div class="card negative">
+                <h3>🔌 其他電子與零組件</h3>
+                <div class="stat-row">
+                    <span>其他電子跌幅</span>
+                    <span class="stat-value down">-1.34%</span>
+                </div>
+                <table>
+                    <tr>
+                        <th>個股</th>
+                        <th>漲跌</th>
+                        <th>狀況</th>
+                    </tr>
+                    <tr>
+                        <td>鴻海 (2317)</td>
+                        <td class="stat-value down">-0.89%</td>
+                        <td>小幅修正</td>
+                    </tr>
+                    <tr>
+                        <td>貿聯-KY (3665)</td>
+                        <td class="stat-value down">-4.48%</td>
+                        <td>回檔修正</td>
+                    </tr>
+                    <tr>
+                        <td>國巨 (2327)</td>
+                        <td class="stat-value down">-3.80%</td>
+                        <td>電子權值弱</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 撐盤族群 -->
+        <h2 class="section-title">🛡️ 撐盤小幫手</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>🚢 航運業</h3>
+                <div class="stat-row">
+                    <span>族群漲幅</span>
+                    <span class="stat-value up">+1.04%</span>
+                </div>
+                <p>在電子股休息時，航運族群挺身而出，成為今日資金的避風港。</p>
+            </div>
+            <div class="card">
+                <h3>🍶 玻璃陶瓷</h3>
+                <div class="stat-row">
+                    <span>族群漲幅</span>
+                    <span class="stat-value up">+5.95%</span>
+                </div>
+                <p>台玻 (1802) 大漲 6.53%，帶動整體族群強勢表現。</p>
+            </div>
+        </div>
+
+        <!-- 狸克觀察 -->
+        <div class="dialogue-box" style="margin-top: 40px; border-color: #8D6E63;">
+            <div class="avatar">🦝</div>
+            <div class="message">
+                <p><strong>狸克：</strong> 聽好囉，各位島民！<br>
+                    今天的市場雖然有些動盪，但這也是觀察的好機會。<br>
+                    1. <strong>留意權值股賣壓：</strong> 看看台積電和鴻海能不能守住關鍵價位。<br>
+                    2. <strong>避開破底股：</strong> 像記憶體族群今天跌幅比較深，不要急著接刀子喔，多觀察幾天再說。<br>
+                    3. <strong>資金流向：</strong> 錢跑去傳產（航運、玻璃）躲雨了，這可能是短期的避險現象呢，yes, yes！</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="index.html" class="back-link">⬅️ 返回快報列表</a>
+            <p>Generated by Antigravity Agent • Data Source: TWSE/Yahoo Finance</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
