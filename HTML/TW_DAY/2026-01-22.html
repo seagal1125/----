@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動物森友會 股市快報 - 2026/01/22</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #FDFCF5;
+            --mint-green: #95E1D3;
+            --pastel-blue: #A8D8EA;
+            --soft-yellow: #FCBAD3;
+            /* Actually using pink for variation or maybe FCE38A for yellow */
+            --nook-brown: #795548;
+            --text-color: #5D4037;
+            --card-bg: #FFFFFF;
+            --accent-green: #66BB6A;
+            --accent-red: #EF5350;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#E0F2F1 15%, transparent 16%), radial-gradient(#E0F2F1 15%, transparent 16%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            font-family: 'M PLUS Rounded 1c', 'Kosugi Maru', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 4px solid #fff;
+            outline: 4px solid var(--mint-green);
+        }
+
+        /* Header / Isabelle Broadcast */
+        header {
+            background-color: var(--mint-green);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .date-badge {
+            background-color: #fff;
+            color: var(--mint-green);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Dialog Box Style */
+        .dialog-box {
+            background-color: #FFF;
+            border: 3px solid var(--pastel-blue);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--pastel-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .speaker-name {
+            font-weight: bold;
+            color: var(--pastel-blue);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Sections */
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--nook-brown);
+            margin: 30px 0 15px;
+            position: relative;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: "🍃";
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--mint-green);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--nook-brown);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-badge {
+            background-color: #F1F8E9;
+            color: var(--accent-green);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .stock-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .stock-item:last-child {
+            border-bottom: none;
+        }
+
+        .stock-name {
+            font-weight: bold;
+        }
+
+        .stock-gain {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Nook's Advice */
+        .nook-advice {
+            background-color: #FFF8E1;
+            border: 2px dashed #FFD54F;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>動物森友會 股市快報</h1>
+            <div class="date-badge">2026/01/22</div>
+        </header>
+
+        <!-- Isabelle Broadcast -->
+        <div class="dialog-box">
+            <div class="avatar">🐶</div>
+            <div>
+                <span class="speaker-name">西施惠 (Isabelle)</span>
+                <p>各位島民早安！今天是個陽光明媚的好日子呢！🌞<br>我們的大盤今天上漲了約 1.58%，就像島上的大頭菜一樣長勢喜人！大家都賺到鈴錢了嗎？</p>
+            </div>
+        </div>
+
+        <!-- Market Overview -->
+        <h2 class="section-title">島上熱門話題 (強勢族群)</h2>
+
+        <div class="card-grid">
+            <!-- Sector 1 -->
+            <div class="card">
+                <h3>🖥️ 電子零組件業 <span class="stat-badge">+6.48% (加權)</span></h3>
+                <p>資料中心電源與散熱零件就像島上的基礎建設一樣重要！動能超強！</p>
+                <ul class="stock-list">
+                    <li class="stock-item">
+                        <span class="stock-name">2308 台達電</span>
+                        <span class="stock-gain">▲ 9.69%</span>
+                    </li>
+                    <li class="stock-item">
+                        <span class="stock-name">2327 國巨</span>
+                        <span class="stock-gain">▲ 6.67%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sector 2 -->
+            <div class="card">
+                <h3>💻 電腦及週邊 <span class="stat-badge">+3.72% (加權)</span></h3>
+                <p>AI 伺服器需求大增，就像大家都搶著買新款家具一樣！</p>
+                <ul class="stock-list">
+                    <li class="stock-item">
+                        <span class="stock-name">2301 光寶科</span>
+                        <span class="stock-gain">▲ 9.94%</span>
+                    </li>
+                    <li class="stock-item">
+                        <span class="stock-name">6669 緯穎</span>
+                        <span class="stock-gain">▲ 4.44%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sector 3 -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3>💾 半導體業 <span class="stat-badge">+1.21% (加權)</span></h3>
+                <p>護國神山穩穩的！AI 晶片與高階製程依舊是全島最受歡迎的商品。</p>
+                <ul class="stock-list" style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <li class="stock-item" style="flex: 1; min-width: 200px;">
+                        <span class="stock-name">2330 台積電</span>
+                        <span class="stock-gain">▲ 1.15%</span>
+                    </li>
+                    <li class="stock-item" style="flex: 1; min-width: 200px;">
+                        <span class="stock-name">2408 南亞科</span>
+                        <span class="stock-gain">▲ 6.18%</span>
+                    </li>
+                    <li class="stock-item" style="flex: 1; min-width: 200px;">
+                        <span class="stock-name">2454 聯發科</span>
+                        <span class="stock-gain">▲ 1.37%</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Outperformers -->
+        <h2 class="section-title">本日 VIP 島民 (大盤贏家)</h2>
+        <div style="padding: 0 20px;">
+            <table
+                style="width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; border: 2px solid #eee;">
+                <tr style="background: #E0F2F1; color: var(--text-color);">
+                    <th style="padding: 10px; text-align: left;">代號</th>
+                    <th style="padding: 10px; text-align: left;">名稱</th>
+                    <th style="padding: 10px; text-align: right;">漲幅</th>
+                    <th style="padding: 10px; text-align: left;">表現原因</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">2308</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">台達電</td>
+                    <td
+                        style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: var(--accent-green); font-weight: bold;">
+                        ▲ 9.69%</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-size: 0.9rem;">電源與散熱動能強勁！</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">2301</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">光寶科</td>
+                    <td
+                        style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: var(--accent-green); font-weight: bold;">
+                        ▲ 9.94%</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-size: 0.9rem;">伺服器機櫃需求大增。</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">2408</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">南亞科</td>
+                    <td
+                        style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: var(--accent-green); font-weight: bold;">
+                        ▲ 6.18%</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-size: 0.9rem;">HBM 需求持續升溫。</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">2317</td>
+                    <td style="padding: 10px;">鴻海</td>
+                    <td style="padding: 10px; text-align: right; color: var(--accent-green); font-weight: bold;">▲ 2.05%
+                    </td>
+                    <td style="padding: 10px; font-size: 0.9rem;">伺服器與網通訂單穩健。</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Tom Nook's Advice -->
+        <div class="nook-advice">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <div class="avatar" style="border-color: #FFD54F; background-color: #FFF8E1; font-size: 25px;">🦝</div>
+                <span class="speaker-name" style="color: var(--nook-brown);">狸克 (Tom Nook)</span>
+            </div>
+            <p>是的，是的！看到大家口袋滿滿我也很開心！💰</p>
+            <p>不過要記得喔：</p>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>雖然 AI 伺服器很熱門，但也要留意美股那邊的風吹草動。</li>
+                <li>如果想穩穩賺鈴錢，傳產與能源股最近也受到原物料價格的支撐，可以考慮當作防守配置喔！</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Animal Crossing Market Daily &copy; 2026</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
