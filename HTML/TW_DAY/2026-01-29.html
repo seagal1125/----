@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="動物森友會 股市快報 - 2026/01/29：電子大雨滂沱 鋼鐵生技撐開帳篷">
+    <meta property="og:description" content="今天島上下了一場大雷雨！大盤下跌 0.80%，半導體與零組件淋成落湯雞。但別擔心，鋼鐵與生技區搭起了堅固的帳篷，快來這裡躲雨吧！">
+    <meta property="og:type" content="article">
+    <title>動物森友會 股市快報 - 2026/01/29</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+        :root {
+            /* Theme: Rainy but with Shelters */
+            --bg-color: #E3F2FD;
+            /* Rainy Sky Blue */
+            --rain-blue: #90CAF9;
+            --tent-beige: #FFF59D;
+            /* Tent Yellow/Beige */
+            --nook-brown: #795548;
+            --text-color: #455A64;
+            --card-bg: #FFFFFF;
+
+            /* Accents */
+            --bad-red: #EF5350;
+            --good-green: #66BB6A;
+            --mint-green: #95E1D3;
+            --pastel-blue: #A8D8EA;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.5) 2px, transparent 2px),
+                linear-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.28) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+            font-family: 'M PLUS Rounded 1c', 'Kosugi Maru', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FAFAFA;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 4px solid #fff;
+            outline: 4px solid var(--rain-blue);
+        }
+
+        header {
+            background-color: var(--rain-blue);
+            /* Default to rain header */
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .date-badge {
+            background-color: #fff;
+            color: var(--nook-brown);
+            /* Neutral brown */
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Dialog Box */
+        .dialog-box {
+            background-color: #FFF;
+            border: 3px solid var(--pastel-blue);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--pastel-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .speaker-name {
+            font-weight: bold;
+            color: var(--nook-brown);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--nook-brown);
+            margin: 30px 0 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            border-left: 5px solid #ccc;
+            /* fallback */
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card.storm {
+            border-left: 5px solid var(--rain-blue);
+        }
+
+        .card.tent {
+            border-left: 5px solid var(--tent-beige);
+            background-color: #FFFDE7;
+            /* Warm light yellow */
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Badges */
+        .stat-badge {
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .stat-badge.bad {
+            background-color: #FFEBEE;
+            color: var(--bad-red);
+        }
+
+        .stat-badge.good {
+            background-color: #F1F8E9;
+            color: var(--good-green);
+        }
+
+        /* Lists */
+        .stock-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .stock-item:last-child {
+            border-bottom: none;
+        }
+
+        .stock-name {
+            font-weight: bold;
+        }
+
+        .stock-gain {
+            font-weight: bold;
+        }
+
+        .stock-gain.up {
+            color: var(--good-green);
+        }
+
+        .stock-gain.down {
+            color: var(--bad-red);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            border: 2px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+            color: var(--text-color);
+        }
+
+        /* Custom th backgrounds */
+        .th-rain {
+            background: #E3F2FD;
+        }
+
+        .th-sun {
+            background: #F1F8E9;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Nook Box */
+        .nook-advice {
+            background-color: #FFF8E1;
+            border: 2px dashed #FFD54F;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>動物森友會 股市快報</h1>
+            <div class="date-badge">2026/01/29</div>
+        </header>
+
+        <!-- Isabelle Broadcast -->
+        <div class="dialog-box">
+            <div class="avatar">🐶</div>
+            <div>
+                <span class="speaker-name">西施惠 (Isabelle)</span>
+                <p>大家早安... 今天的無人島下起了大雷雨，大盤下跌了 0.80% 🌧️<br>
+                    好多電子零件都被淋濕了，不過沒關係！我看到狸克先生在廣場搭好了<b>黃色大帳篷</b>，鋼鐵跟生技的朋友們都在那裡這躲雨，還開起了派對呢！大家快去避難吧！✨</p>
+            </div>
+        </div>
+
+        <!-- Section 1: Stormy Areas -->
+        <h2 class="section-title">⛈️ 暴雨重災區 (拖累)</h2>
+        <div class="card-grid">
+            <!-- Semi -->
+            <div class="card storm">
+                <h3>� 半導體業 <span class="stat-badge bad">-1.43%</span></h3>
+                <p>雷雨交加！權值王台積電(-0.82%)與聯電(-9.88%)同步下殺，成熟製程面臨嚴重積水。</p>
+                <ul class="stock-list">
+                    <li class="stock-item"><span class="stock-name">2330 台積電</span><span class="stock-gain down">▼
+                            0.82%</span></li>
+                    <li class="stock-item"><span class="stock-name">2303 聯電</span><span class="stock-gain down">▼
+                            9.88%</span></li>
+                    <li class="stock-item"><span class="stock-name">3711 日月光</span><span class="stock-gain down">▼
+                            1.27%</span></li>
+                </ul>
+            </div>
+            <!-- Components -->
+            <div class="card storm">
+                <h3>🌧️ 電子零組件 <span class="stat-badge bad">-2.03%</span></h3>
+                <p>雨勢也不小！AI 利多出盡，欣興(-6.26%)與台光電(-5.79%)像是被困在豪雨中。</p>
+                <ul class="stock-list">
+                    <li class="stock-item"><span class="stock-name">2308 台達電</span><span class="stock-gain down">▼
+                            1.95%</span></li>
+                    <li class="stock-item"><span class="stock-name">2383 台光電</span><span class="stock-gain down">▼
+                            5.79%</span></li>
+                    <li class="stock-item"><span class="stock-name">3037 欣興</span><span class="stock-gain down">▼
+                            6.26%</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2: Shelter Areas -->
+        <h2 class="section-title">⛺ 溫暖避難所 (抗跌)</h2>
+        <div class="card-grid">
+            <!-- Steel -->
+            <div class="card tent">
+                <h3>🏗️ 鋼鐵工業 <span class="stat-badge good">+3.97%</span></h3>
+                <p>鋼市回春！中鋼(+5.61%)撐起了最堅固的鋼骨帳篷，大家都在這裡烤肉！</p>
+                <ul class="stock-list">
+                    <li class="stock-item"><span class="stock-name">2002 中鋼</span><span class="stock-gain up">▲
+                            5.61%</span></li>
+                    <li class="stock-item"><span class="stock-name">2014 中鴻</span><span class="stock-gain up">▲
+                            9.97%</span></li>
+                    <li class="stock-item"><span class="stock-name">2027 大成鋼</span><span class="stock-gain up">▲
+                            3.88%</span></li>
+                </ul>
+            </div>
+            <!-- Bio -->
+            <div class="card tent">
+                <h3>💊 生技醫療 <span class="stat-badge good">+1.88%</span></h3>
+                <p>藥華藥(+4.43%)跟保瑞(+6.53%)提供了充足的補給品，是島民安心的醫療站。</p>
+                <ul class="stock-list">
+                    <li class="stock-item"><span class="stock-name">6446 藥華藥</span><span class="stock-gain up">▲
+                            4.43%</span></li>
+                    <li class="stock-item"><span class="stock-name">6472 保瑞</span><span class="stock-gain up">▲
+                            6.53%</span></li>
+                    <li class="stock-item"><span class="stock-name">1795 美時</span><span class="stock-gain up">▲
+                            2.89%</span></li>
+                </ul>
+            </div>
+            <!-- Finance -->
+            <div class="card tent">
+                <h3>💰 金融保險 <span class="stat-badge good">+0.51%</span></h3>
+                <p>金控獲利穩健，中信金跟國泰金的帳篷雖然不大，但絕對不會漏水！</p>
+                <ul class="stock-list">
+                    <li class="stock-item"><span class="stock-name">2891 中信金</span><span class="stock-gain up">▲
+                            1.56%</span></li>
+                    <li class="stock-item"><span class="stock-name">2882 國泰金</span><span class="stock-gain up">▲
+                            0.79%</span></li>
+                    <li class="stock-item"><span class="stock-name">2885 元大金</span><span class="stock-gain up">▲
+                            0.82%</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tables Section -->
+        <h2 class="section-title">📊 島民表現公佈欄</h2>
+
+        <div style="padding: 0 20px;">
+            <!-- Winners Table -->
+            <h3 style="color: var(--good-green); margin-bottom: 5px;">🏆 本日 VIP (逆勢上漲)</h3>
+            <table>
+                <tr class="th-sun">
+                    <th width="15%">代號</th>
+                    <th width="20%">名稱</th>
+                    <th width="15%" style="text-align: right;">漲幅</th>
+                    <th>表現原因</th>
+                </tr>
+                <tr>
+                    <td>2002</td>
+                    <td>中鋼</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 5.61%</td>
+                    <td>鋼市回春，報價喊漲，法人大舉回補。</td>
+                </tr>
+                <tr>
+                    <td>2891</td>
+                    <td>中信金</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 1.56%</td>
+                    <td>金控獲利穩健，避險資金停泊港。</td>
+                </tr>
+                <tr>
+                    <td>3443</td>
+                    <td>創意</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 4.46%</td>
+                    <td>IP 矽智財具備長線利基，吸引逢低買盤。</td>
+                </tr>
+                <tr>
+                    <td>2337</td>
+                    <td>旺宏</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 9.90%</td>
+                    <td>NOR Flash 需求看增，庫存調整結束。</td>
+                </tr>
+                <tr>
+                    <td>2344</td>
+                    <td>華邦電</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 2.36%</td>
+                    <td>受惠記憶體復甦，與旺宏同步走揚。</td>
+                </tr>
+                <tr>
+                    <td>3653</td>
+                    <td>健策</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 3.02%</td>
+                    <td>伺服器升級趨勢明確，散熱需求暢旺。</td>
+                </tr>
+                <tr>
+                    <td>6446</td>
+                    <td>藥華藥</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 4.43%</td>
+                    <td>新藥銷售強勁，資金輪動至生技避險。</td>
+                </tr>
+                <tr>
+                    <td>2882</td>
+                    <td>國泰金</td>
+                    <td style="text-align: right;" class="stock-gain up">▲ 0.79%</td>
+                    <td>投資收益回穩，具備高殖利率保護。</td>
+                </tr>
+            </table>
+
+            <!-- Losers Table -->
+            <h3 style="color: var(--bad-red); margin-bottom: 5px; margin-top: 20px;">💧 本日落湯雞 (拖累大盤)</h3>
+            <table>
+                <tr class="th-rain">
+                    <th width="15%">代號</th>
+                    <th width="20%">名稱</th>
+                    <th width="15%" style="text-align: right;">跌幅</th>
+                    <th>淋濕原因</th>
+                </tr>
+                <tr>
+                    <td>2330</td>
+                    <td>台積電</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 0.82%</td>
+                    <td>外資調節權值股，漲多回檔。</td>
+                </tr>
+                <tr>
+                    <td>2303</td>
+                    <td>聯電</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 9.88%</td>
+                    <td>成熟製程價格戰，法說展望保守破底。</td>
+                </tr>
+                <tr>
+                    <td>2308</td>
+                    <td>台達電</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 1.95%</td>
+                    <td>高檔震盪，受大盤氣氛拖累觀望。</td>
+                </tr>
+                <tr>
+                    <td>2383</td>
+                    <td>台光電</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 5.79%</td>
+                    <td>獲利了結賣壓沈重，跌破月線。</td>
+                </tr>
+                <tr>
+                    <td>3037</td>
+                    <td>欣興</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 6.26%</td>
+                    <td>載板復甦遭質疑，外資降評帶量長黑。</td>
+                </tr>
+                <tr>
+                    <td>1303</td>
+                    <td>南亞</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 4.22%</td>
+                    <td>塑化報價低迷，股價持續探底。</td>
+                </tr>
+                <tr>
+                    <td>2317</td>
+                    <td>鴻海</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 0.67%</td>
+                    <td>受大盤對流雲系影響，小幅回檔。</td>
+                </tr>
+                <tr>
+                    <td>2059</td>
+                    <td>川湖</td>
+                    <td style="text-align: right;" class="stock-gain down">▼ 5.18%</td>
+                    <td>AI 滑軌獲利了結，跌破關鍵均線。</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Tom Nook's Advice -->
+        <div class="nook-advice">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <div class="avatar" style="border-color: #66BB6A; background-color: #E8F5E9; font-size: 25px;">🦝</div>
+                <span class="speaker-name" style="color: #2E7D32;">狸克 (Tom Nook)</span>
+            </div>
+            <p>是的，是的！今天的市場天氣真是兩極化呢！💰</p>
+            <p>這就是我常說的「分散風險」：</p>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>**不要在暴雨中奔跑**：電子權值股（如聯電、欣興）現在雨勢正大，千萬不要衝進去接刀子！</li>
+                <li>**快躲進帳篷**：如果你手上有鋼鐵或生技股，今天應該覺得很溫暖吧？記得把鈴錢分配到不同的籃子裡，無論天氣如何變化，都能安心還房貸喔！</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Animal Crossing Market Daily &copy; 2026</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
